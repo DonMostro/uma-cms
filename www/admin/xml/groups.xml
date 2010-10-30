@@ -1,0 +1,26 @@
+<?xml version="1.0"?>
+<section name="Groups" type="table" target="MACLGroups" search="false" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
+    <field name="Name" target="name" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Featured Videos" target="featured" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Videos" target="videos" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Categories" target="categories" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Channels" target="channels" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Favorites" target="favorites" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Playlists" target="playlists" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Subscriptions" target="subscriptions" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Comments" target="comments" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Upload" target="upload" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Download" target="download" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Groups" target="groups" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Pages" target="pages" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Reports" target="reports" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Products" target="products" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Views Time" target="v_time" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Views" target="views" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Bandwidth Time" target="b_time" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Bandwidth" target="bandwidth" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Uploads Time" target="u_time" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Uploads" target="uploads" type="textfield" visible="true" edit="true" add="true"/>
+	<field name="" target="" type="element" default="Users" image="images/user.png" link="index.php?p=group_users&amp;acl_groups_id={id}" visible="true" edit="false" add="false"/>
+</section>

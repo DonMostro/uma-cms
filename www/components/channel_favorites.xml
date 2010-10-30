@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<component name="T_FAVORITES">
+	<model name="MFavorites">
+		<limit>$limit</limit>
+		<username>%channel</username>
+	</model>
+	<view name="VCategory">
+		<tplfile>small_list_h.html</tplfile>
+		<tplitemfile>thumb_item.html</tplitemfile>
+		<url>index.php?m=favorites&amp;username=$channel</url>
+	</view>
+</component>

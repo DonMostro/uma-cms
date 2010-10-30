@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<section name="Payment Types" type="table" target="MPaymentTypes" search="false" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="flase"/>
+    <field name="Title" target="title" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Description" target="description" type="textarea" visible="true" edit="true" add="true"/>
+    <field name="Data" target="data" type="textarea" visible="true" edit="true" add="true"/>
+    <field name="Approved" target="approved" type="yesno" visible="true" edit="true" add="true"/>
+</section>

@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<section name="Email Exports" type="table" target="MEmailExports" search="false" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="flase"/>
+    <field name="Date/Time" target="tt" type="tt" visible="true" edit="true" add="true"/>
+    <field name="" target="" type="element" default="Download" image="images/download.png" link="export_emails.php?e={id}" visible="true" edit="false" add="false"/>
+</section>

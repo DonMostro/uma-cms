@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<section name="Cortinas Publicitarias" type="table" target="MVideoCurtainAds" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
+    <field name="Video" target="videos_id" default="0" type="findvideo" table="videos" field="title" visible="true" edit="true" add="true"/>
+    <field name="Categoría" target="categories_id" type="categories" visible="true" edit="true" add="true"/>
+    <field name="Activo" target="approved" type="yesno" visible="true" edit="true" add="true"/>
+</section>

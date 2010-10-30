@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<component name="T_VIDEOS">
+	<model name="MVideos">
+		<order dir="DESC">%sort</order>
+		<start>%start</start>
+		<limit>10</limit>
+		<approved>1</approved>
+	</model>
+	<view name="VCategory">
+		<tplfile>list.html</tplfile>
+		<tplitemfile>l_item.html</tplitemfile>
+		<url>index.php?m=page&amp;p=videos</url>
+	</view>
+</component>

@@ -1,0 +1,34 @@
+<?xml version="1.0"?>
+<section name="Videos" type="table" target="MVideos" search="true" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
+    <field name="" target="thumb" type="image" link="player.php?v={id}&amp;is_adviced=1" visible="true" edit="false" add="false"/>
+    <field name="Title" target="title" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Tags" target="tags" type="textarea" visible="false" edit="true" add="true"/>
+    <field name="Description" target="description" type="textarea" visible="false" edit="true" add="true"/>
+    <field name="Category" target="categories_id" type="categories" visible="true" edit="true" add="true"/>
+    <field name="Video Type" target="type_id" type="select" table="video_types" field="name" visible="true" edit="true" add="true"/>
+    <field name="Username" target="username" type="finduser" visible="true" edit="true" add="true"/>
+    <field name="Date/Time" target="tt" type="tt" visible="true" edit="true" add="true"/>
+    <field name="Embed" target="embed" type="textarea" visible="false" edit="true" add="true"/>
+    <!--<field name="Tags" target="tags" type="textfield" visible="false" edit="false" add="true"/>-->
+    <field name="Original File" target="orig_file" type="upload" filepath="files" visible="false" edit="true" add="false"/>
+    <field name="Frame" target="frame" type="upload" filepath="files" visible="false" edit="true" add="false"/>
+	<field name="Type" target="type" type="textfield" visible="false" edit="true" add="true"/>
+	<field name="Duration" target="duration" type="textfield" visible="false" edit="true" add="true"/>
+	<field name="Hits" target="hits" type="textfield" visible="true" edit="false" add="false"/>
+	<!--<field name="Downloads" target="downloads" type="textfield" visible="true" edit="false" add="false"/>-->
+	<!--<field name="Private" target="private" type="yesno" visible="true" edit="true" add="true"/>-->
+	<!--<field name="Downloadable" target="downloadable" type="yesno" visible="true" edit="true" add="true"/>-->
+	<field name="Approved" target="approved" type="yesno" visible="true" edit="true" add="true"/>
+    <field name="" target="" type="element" default="Thumbnails" image="images/film.png" link="index.php?p=thumbnails&amp;videos_id={id}" visible="true" edit="false" add="false"/>
+    <field name="" target="" type="element" default="Tags" image="images/tag.png" link="index.php?p=tags&amp;videos_id={id}" visible="true" edit="false" add="false"/>
+    <!--<field name="" target="" type="element" default="Groups" image="images/group.png" link="index.php?p=group_resources&amp;res_type=videos&amp;resource_id={id}" visible="true" edit="false" add="false"/>-->
+	<field name="" target="" type="element" default="Comments" image="images/comment.png" link="index.php?p=comments&amp;videos_id={id}" visible="true" edit="false" add="false"/>
+    <!--<field name="" target="" type="element" default="Feature" image="images/star.png" link="index.php?p=featured&amp;a=add&amp;save=save&amp;videos_id[]={id}" visible="true" edit="false" add="false"/>-->
+    <field name="" target="" type="element" default="Convert" image="images/camera_go.png" link="javascript:popup('convert_video.php?v={id}','center')" visible="true" edit="false" add="false"/>
+	<field name="" target="filename_hd" type="hd_video_element" default="Convert" image="images/hd_go.png" link1="javascript:popup('convert_hd_video.php?v={id}','center')" link2="javascript:popup('delete_hd_video.php?v={id}','center')" visible="true" edit="false" add="false"/>
+    <field name="" target="small_filename" type="iphone_element" default="Iphone Convert" image1="images/iphone.png" image2="images/no_iphone.png" link1="javascript:popup('convert_iphone_video.php?v={id}','center')" link2="javascript:popup('delete_iphone_video.php?v={id}','center')" visible="true" edit="false" add="false"/>
+    <field name="" target="filename_3gp" type="cellphone_element" default="3gp Convert" image1="images/cellphone.png" image2="images/no_cellphone.png" link1="javascript:popup('convert_3gp_video.php?v={id}','center')" link2="javascript:popup('delete_3gp_video.php?v={id}','center')" visible="true" edit="false" add="false"/>
+    <field name="" target="filename_wmv" type="wmv_element" default="Windows Media Convert" image1="images/wmv.gif" image2="images/no_wmv.gif" link1="javascript:popup('convert_wmv_video.php?v={id}','center')" link2="javascript:popup('delete_wmv_video.php?v={id}','center')" visible="true" edit="false" add="false"/>
+    <field name="" target="" type="element" default="Create Thumbs" image="images/film_go.png" link="javascript:popup('create_thumbs.php?v={id}','center')" visible="true" edit="false" add="false"/>
+</section>

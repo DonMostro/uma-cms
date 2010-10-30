@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<component name="T_COMMENTS">
+	<model name="MComments">
+		<limit>$limit</limit>
+		<channel>%channel</channel>
+		<approved>1</approved>
+	</model>
+	<view name="VComments">
+		<width>270</width>
+		<empty_msg>M_FIRST_COMMENT</empty_msg>
+		<url>index.php?m=comments&amp;channel=%channel</url>
+		<username>$username</username>
+		<channel>%channel</channel>
+	</view>
+</component>

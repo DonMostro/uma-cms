@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<component name="T_FEATURED_VIDEO">
+	<model name="MPlayers">
+		<order dir="DESC">tt</order>
+		<username>%channel</username>
+		<video_id>$featured_id</video_id>
+	</model>
+	<view name="VRandomPlayer">
+	</view>
+</component>
