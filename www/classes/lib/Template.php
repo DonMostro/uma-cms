@@ -20,8 +20,8 @@ class Template{
     
     function Template($page, $failsafe=false){
       $this->output="";
-      if(@is_readable(ROOT.'html/'.$page)){
-      	$page=ROOT.'html/'.$page;
+      if(@is_readable(ROOT.'templates/'.$page)){
+      	$page=ROOT.'templates/'.$page;
       }
       if(strlen($page)<128&&@is_readable($page)&&!@is_dir($page)){
       	$this->html=file_get_contents($page);
