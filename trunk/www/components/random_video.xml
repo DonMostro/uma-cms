@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<component name="T_RANDOM_VIDEO">
+	<model name="MPlayers">
+		<random>1</random>
+	</model>
+	<view name="VRandomPlayer">
+	</view>
+</component>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<section name="Top Carrusel" type="table" target="MTopCarrusel" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
+    <field name="Video" target="videos_id" type="findvideo" table="videos" field="title" visible="true" edit="true" add="true"/>
+    <field name="Activo" target="activo" type="yesno" visible="true" edit="true" add="true"/>
+    <field name="Foto" target="foto" type="upload_image" filepath="files_images" visible="true" edit="true" add="false"/>
+    <field name="Orden" target="orden" type="orden" table="top_carrusel_test" visible="true" edit="true" add="true"/>
+    <field name="URL Alternativa" target="url_alternativa" type="textfield" visible="true" edit="true" add="true"/>
+</section>

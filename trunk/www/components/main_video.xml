@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<component name="Main Video">
+	<model name="MFeaturedVideos">
+		<order dir="ASC">orden</order>
+		<limit>1</limit>
+		<start>%start</start>
+	</model>
+	<view name="VVideo">
+		<tplfile>video_box.html</tplfile>
+		<show_comments>false</show_comments>
+	</view>
+</component>
