@@ -6,11 +6,12 @@ class Auth{
 	}
 
 	public function authenticate($username, $password){
-	/*
+	
 		if($username==ADMIN_USERNAME && $password==ADMIN_PASSWORD){
 			$_SESSION['username']=ADMIN_USERNAME;
 		}
-	*/
+	
+		/*
 		global $arrAdmin;
 		
 		if(!empty($username) && !empty($password)){
@@ -20,7 +21,7 @@ class Auth{
 				}
 			}
 		}	
-	
+		*/
 		if(!isset($_SESSION['username'])||$_SESSION['username']!=ADMIN_USERNAME){
 			include 'login.html';
 			exit();
