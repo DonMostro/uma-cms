@@ -30,7 +30,7 @@ class MVideos extends MModel {
 	//$this->dataSet->setLimit(12);
 	$this->dataSet->addOrder(new DataOrder("tt","DESC"));
 	
-	$this->table='videos';
+	$this->table=TABLE_PREFIX.'videos';
 	
 	$this->columns=array(
 		'categories_id'=>null,
