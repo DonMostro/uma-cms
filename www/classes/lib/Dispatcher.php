@@ -3,8 +3,8 @@ ini_set("display_errors","on");
 error_reporting(E_ALL);
 
 include_once(ROOT."config.php");
-include_once(ROOT."config.usuarios.php");
-include_once(ROOT."config.canales.php");
+//include_once(ROOT."config.usuarios.php");
+//include_once(ROOT."config.canales.php");
 include_once(ROOT."map.php");
 include_once(ROOT."version.php");
 //include_once(ROOT."classes/lib/Dispatcher.php");

@@ -1,0 +1,10 @@
+		<div class="subscription_thumb">
+			<div>
+				<a href="[:videourl:]" title="[:title:]"><img src="[:thumb:]" width="120" height="90" alt="[:title:] [:T_VIDEO:]" border="0"/></a>
+			</div>
+			<span class="small"><a href="[:videourl:]" title="[:title:]">[:short_title:]</a></span>
+			[:if owner=="true":]
+			<br />
+			<a href="index.php?m=users.removememberfromgroup&amp;username=[:url_username:]&amp;g=[:group:]" onclick="this.href='javascript:void(0)';if(confirm('[:M_REMOVE_MEMBER:]'))location.href='index.php?m=users.removememberfromgroup&amp;username=[:url_username:]&amp;g=[:group:]';" title="[:T_REMOVE_MEMBER:]"><img alt="[:T_REMOVE_MEMBER:]" width="16" height="16" src="images/cross.gif" /></a>
+			[:endif:]
+		</div>

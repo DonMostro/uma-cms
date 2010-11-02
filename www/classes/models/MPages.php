@@ -26,12 +26,12 @@ class MPages extends MModel{
   }
   
   protected function setQuery(){
-    $query="SELECT *, CONCAT('index.php?m=page&p=',id) AS url FROM pages ".$this->_where();
+    $query="SELECT *, CONCAT('index.php?m=page&p=',id) AS url FROM $this->table ".$this->_where();
     $this->dataSet->setQuery($query);
   }
   
   protected function setCountQuery(){
-  	$query="SELECT COUNT(*) FROM pages ".$this->_where();
+  	$query="SELECT COUNT(*) FROM $this->table ".$this->_where();
 
   	$this->dataSet->setCountQuery($query);
   }

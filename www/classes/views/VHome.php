@@ -27,7 +27,7 @@ class VHome extends VView {
   		//FIN ETIQUETAS
  
   
-    $tpl=&new Template(ROOT."html/$this->tplfile");
+    $tpl=&new Template(ROOT."templates/$this->tplfile");
     $tpl->featured=$this->featured;
     $tpl->username=$this->username;
    /* $tpl->pagination=PageCtrl::getCtrl($this->model->countAll(),$this->model->getStart(),$this->model->getLimit(),URL."/index.php?");*/

@@ -1,0 +1,24 @@
+<div style="text-align: center;">
+[:if external_embed=="0":]
+	<object width="510" height="360" name="player" classid="clsid:D27CDB6E-AE6D-11cf-96B8-444553540000" id="player">
+		<param value="player.swf" name="movie"/>
+		<param value="true" name="allowfullscreen"/>
+		<param value="always" name="allowscriptaccess"/>
+		<param value="file=[:filename:]&amp;image=[:frame:]&amp;plugins=plugins/hd/hd.swf,googlytics-1&amp;skin=ltSkin.swf&amp;autoplay=true&amp;drelated.dxmlpath=index.php?m=similar%26id=[:video_id:]%26format=xml&amp;drelated.dposition=bottom&amp;drelated.dskin=skins/grayskin.swf&amp;drelated.dtarget=_self&amp;hd.file=[:filename_hd:]&amp;hd.state=false&amp;repeat=list" name="flashvars"/>
+		<embed width="510" height="360" flashvars="file=[:filename:]&amp;image=[:frame:]&amp;plugins=plugins/hd/hd.swf,googlytics-1&amp;skin=ltSkin.swf&amp;autoplay=true&amp;drelated.dxmlpath=index.php?m=similar%26id=[:id:]%26format=xml&amp;drelated.dposition=bottom&amp;drelated.dskin=skins/grayskin.swf&amp;drelated.dtarget=_self&amp;hd.file=[:filename_hd:]&amp;hd.state=false&amp;repeat=list" allowfullscreen="true" allowscriptaccess="always" src="player.swf" name="player2" id="player2" type="application/x-shockwave-flash"/>
+	</object>
+[:else:]
+<style type="text/css">
+.nextv{ 
+	visibility:hidden;
+}
+.box{
+	display:none;
+}
+.player_wrap{
+	height:auto;
+}	
+</style>
+<iframe src="[:url:]/ifrm_player.html" frameborder="0" scrolling="no" height="250" width="300"></iframe>
+[:endif:]	
+</div>

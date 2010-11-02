@@ -12,7 +12,7 @@ class MSettings extends MModel{
   function __construct(){
     parent::__construct(new RecordSet());
     
-    $this->table='settings';
+    $this->table=TABLE_PREFIX.'settings';
     
     $this->columns=array(
     	'value'=>null,
@@ -30,20 +30,20 @@ class MSettings extends MModel{
   }
   
   public function loadGroups(){
-  	$this->dataSet->setQuery("SELECT DISTINCT `group` FROM settings");
+  	$this->dataSet->setQuery("SELECT DISTINCT `group` FROM $this->table");
   	$this->dataSet->fill();
   }
   
   protected function setQuery(){
 	
-    $query="SELECT * FROM settings ".$this->_where();
+    $query="SELECT * FROM $this->table ".$this->_where();
     
     $this->dataSet->setQuery($query);
     
   }
   
   protected function setCountQuery(){
-  	$query="SELECT COUNT(*) FROM settings ".$this->_where();
+  	$query="SELECT COUNT(*) FROM $this->table ".$this->_where();
 
   	$this->dataSet->setCountQuery($query);
   }
