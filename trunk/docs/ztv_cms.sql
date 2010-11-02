@@ -1,11 +1,3 @@
--- phpMyAdmin SQL Dump
--- version 3.3.2deb1
--- http://www.phpmyadmin.net
---
--- Servidor: localhost
--- Tiempo de generación: 12-09-2010 a las 01:10:33
--- Versión del servidor: 5.1.41
--- Versión de PHP: 5.3.2-1ubuntu4.2
 
 SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
@@ -97,12 +89,7 @@ CREATE TABLE IF NOT EXISTS `ztv_channels` (
   PRIMARY KEY (`username`),
   KEY `themes_id` (`themes_id`),
   KEY `thumbs_id` (`thumbs_id`),
-  KEY `featured_id_4` (`featured_id`),
-  KEY `featured_id_5` (`featured_id`),
-  KEY `featured_id_6` (`featured_id`),
-  KEY `featured_id_7` (`featured_id`),
-  KEY `featured_id_8` (`featured_id`),
-  KEY `featured_id_9` (`featured_id`)
+  KEY `featured_id` (`featured_id`),
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -499,19 +486,6 @@ CREATE TABLE IF NOT EXISTS `ztv_page_elements` (
 
 --
 -- Estructura de tabla para la tabla `ztv_payment_types`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_payment_types` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `data` text NOT NULL,
-  `approved` enum('0','1') NOT NULL,
-  `description` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_payment_types`
 --
 
 

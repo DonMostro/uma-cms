@@ -107,7 +107,7 @@ class VPage extends VView {
   	DAO::connect();  	
   	$lang=Lang::getInstance();
 
-  	$tpl=new Template(ROOT."html/index.html");
+  	$tpl=new Template(ROOT."templates/index.html");
 	$tpl->version=$this->version;
 
   	$path=@parse_url(URL);
@@ -135,7 +135,7 @@ class VPage extends VView {
 
   	$tpl->languages="";
   	while($row=$languages->next()){
-  		$tpl2=new Template(ROOT."html/lang_item.html");
+  		$tpl2=new Template(ROOT."templates/lang_item.html");
   		$tpl2->url=URL;
   		$tpl2->code=$row['code'];
   		$tpl->languages.=$tpl2->output();
@@ -167,7 +167,7 @@ class VPage extends VView {
 	$page=0;
 
 	while($item=$menu->next()){
-	    $tpl2=new Template(ROOT."html/submenu_item.html");
+	    $tpl2=new Template(ROOT."templates/submenu_item.html");
 	    $tpl2->hl = $request_uri!=$item['url'] ? "true" : "false";
 		//print("reques: ".$request_uri."<br>");
 		//print("Item: ".$item['url']."<hr>");
@@ -188,7 +188,7 @@ class VPage extends VView {
 
   	while($item=$menu->next()){
   		DAO::connect();
-	    $tpl2=new Template(ROOT."html/menu_item.html");
+	    $tpl2=new Template(ROOT."templates/menu_item.html");
 
 	    if($item['url']==''||$item['url']=='index.php')$home=$item['id'];
 
@@ -237,7 +237,7 @@ class VPage extends VView {
 		$tpl->submenu="";
 
 		while($item=$menu->next()){
-		    $tpl2=new Template(ROOT."html/submenu_item.html");
+		    $tpl2=new Template(ROOT."templates/submenu_item.html");
 		    $tpl2->hl = $request_uri==$item['url'] ? "true" : "false";
 		    $tpl2->id=$item['id'];
 		    $tpl2->title=$lang->getText($item['title']);
@@ -278,7 +278,7 @@ class VPage extends VView {
 		$menu->load();
 		$tpl->usermenu="";
 		while($item=$menu->next()){
-		    $tpl2=new Template(ROOT."html/usermenu_item.html");
+		    $tpl2=new Template(ROOT."templates/usermenu_item.html");
 		    $tpl2->hl = $request_uri==$item['url'] ? "true" : "false";
 		    $tpl2->id=$item['id'];
 		    $tpl2->title=$lang->getText($item['title']);
@@ -298,7 +298,7 @@ class VPage extends VView {
 	
 
 	while($item=$menu->next()){
-	    $tpl2=new Template(ROOT."html/footer_menu_item.html"); 
+	    $tpl2=new Template(ROOT."templates/footer_menu_item.html"); 
 	    $tpl2->title=$lang->getText($item['title']);
 	    if($inbox&&$item['title']=='T_INBOX')$tpl2->title.=" ($inbox)";
 	    $tpl2->pageurl=ltrim($item['url'],'/');
@@ -310,11 +310,11 @@ class VPage extends VView {
 
    	$this->SetAllRequestItems();
 	//Canal o Canal padre 38 (Goles)
-	
+	/*
 	if($this->req_c_parent == C_GOLES || $this->req_c == C_GOLES){
   		$tpl->cm8cat='3tv.goles';
 		
-	/*SUDAFRICA 2010*/	
+	//SUDAFRICA 2010	
 	}elseif ($this->req_c_parent == C_3TV_SUDAFRICA || $this->req_c == C_3TV_SUDAFRICA){
 		//Buscamos los videos de sudafrica
 		$videos = new MVideos();
@@ -331,13 +331,13 @@ class VPage extends VView {
 			if($aux==1)$aux="";
 			if($view->recordset['id'] == $this->req_v) $tpl->cm8cat="3tv.mundial$aux"; 
 		}
-	/*FIN SUDAFRICA*/		
+	//FIN SUDAFRICA		
   	}else{
 	//RESTO DE LOS CANALES
   		$tpl->cm8cat='3tv.sitio';
 
 	}
-	
+	*/
 	//Publicidad v&iacute;a DFP
 	$VPage = $this;
 	include(ROOT."ads/googleChannels.php");
@@ -349,9 +349,11 @@ class VPage extends VView {
 	$tpl->description=!empty($this->description)?$this->description:SITENAME;
 	$tpl->channel=$this->req_c;
 	
+	/*
 	if(@$this->rec_c == C_CAMPEONATO_CHILENO){
 		$this->css="1";	
 	}
+	*/
 	$tpl->url=URL;
 	$tpl->sitename=SITENAME;
 	$tpl->username=$this->username;

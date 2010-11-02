@@ -1,0 +1,19 @@
+<div class="heading"><h2>[:T_MESSAGE:]</h2></div>
+<div class="box">
+<form action="index.php?m=managemessage" method="post">
+	<b>[:T_FROM:]:</b> [:from:]<br />
+	<b>[:T_RECEIVED:]:</b> [:time:]<br />
+	<b>[:T_SUBJECT:]:</b> [:subject:]<br />
+	<br />
+	<div class="message_body">
+		[:message:]
+	</div>
+	<p></p>
+	<p>
+		<input type="hidden" name="id" value="[:id:]" />
+		<input type="submit" name="action" value="[:T_REPLY:]" />
+		<input id="remove_button_post" type="submit" name="action" value="[:T_REMOVE:]"  />
+		<input type="submit" name="action" value="[:T_CLOSE:]" onclick="close_popup(); return false"/>
+	</p>
+</form>
+</div>

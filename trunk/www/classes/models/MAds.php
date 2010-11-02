@@ -12,7 +12,7 @@ class MAds extends MModel{
   function __construct(){
     parent::__construct(new RecordSet());
     
-    $this->table='ads';
+    $this->table=TABLE_PREFIX.'ads';
     
     $this->columns=array(
     	'name'=>null,
@@ -25,13 +25,13 @@ class MAds extends MModel{
   
   
   protected function setQuery(){
-	$query="SELECT * FROM ads ".$this->_where();
+	$query="SELECT * FROM $this->table ".$this->_where();
 	
     $this->dataSet->setQuery($query);
   }
   
   protected function setCountQuery(){
-  	$query="SELECT COUNT(*) FROM ads ".$this->_where();
+  	$query="SELECT COUNT(*) FROM $this->table ".$this->_where();
 
   	$this->dataSet->setCountQuery($query);
   }

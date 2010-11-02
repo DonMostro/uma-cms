@@ -17,7 +17,8 @@ class MCategoryList extends MBufferedModel {
     parent::__construct(new RecordSet());
     $this->addOrder(new DataOrder("orden","ASC"));
     
-    $this->table='categories';
+    $this->table=TABLE_PREFIX.'categories';
+    $this->table_videos=TABLE_PREFIX.'videos';
     
     $this->columns=array(
     	'approved'=>null,
@@ -35,27 +36,28 @@ class MCategoryList extends MBufferedModel {
     //Get list of categories
     $query="
     SELECT categories.*
-         , COUNT( DISTINCT videos.id ) AS videos
+         , COUNT( DISTINCT $this->table_videos.id ) AS videos
 	  FROM categories
- LEFT JOIN videos
-        ON categories.id = videos.categories_id
+ 	LEFT JOIN $this->table_videos
+        ON $this->table.id = $this->table_videos.categories_id
 	 ".$this->_where()."
-	 GROUP BY categories.id";
-
+	 GROUP BY $this->table.id";
+	echo $query;
+    
     $this->dataSet->setQuery($query);
   }
   
   protected function setCountQuery(){
-  	$query="SELECT COUNT(*) FROM categories ".$this->_where();
+  	$query="SELECT COUNT(*) FROM $this->table ".$this->_where();
   	$this->dataSet->setCountQuery($query);
   }
   
   protected function _where(){
   	$where="WHERE 1";
-  	$ids=$this->idToString("categories.id");
+  	$ids=$this->idToString("$this->table.id");
 	if($ids!="")$where.=" AND $ids";
-	if($_SERVER['PHP_SELF'] == '/index.php') $where.= " AND categories.title <> 'Prueba' ";	
-	if($this->columns['approved']!==null)$where.=" AND categories.approved='".$this->columns['approved']."'";
+	if($_SERVER['PHP_SELF'] == '/index.php') $where.= " AND $this->table.title <> 'Prueba' ";	
+	if($this->columns['approved']!==null)$where.=" AND $this->table.approved='".$this->columns['approved']."'";
   	
   	return $where;
   }
@@ -91,12 +93,29 @@ class MCategoryList extends MBufferedModel {
   	$cat->load();
   	$data=$cat->next();
   	if(!empty($data)){
-  		$dao->query("UPDATE categories SET children='".mysql_real_escape_string($data['children'].','.$this->id)."' WHERE id=$parent_id");
+  		$dao->query("UPDATE $this->table SET children='".mysql_real_escape_string($data['children'].','.$this->id)."' WHERE id=$parent_id");
   	}
   	if($data['parent_id']!=0){
   		$this->addChildren($data['parent_id']);
   	}
   }
+  
+  private function updateChildrens($parent_id){
+  	$dao=new DAO();
+  	$cat=new MCategoryList();
+  	$cat->setId($parent_id);
+  	$cat->load();
+  	$data=$cat->next();
+  	if(!empty($data)){
+  		$dao->query("SELECT GROUP_CONCAT(id) AS id FROM $this->table WHERE parent_id=$parent_id");
+  		$childrens=",".$dao->get(0, "id");
+  		$dao->query("UPDATE $this->table SET children='$childrens' WHERE id=$parent_id");
+  		//echo "UPDATE $this->table SET children=(SELECT GROUP_CONCAT(id) FROM $this->table WHERE parent_id=$parent_id) WHERE id=$parent_id";
+  	}
+  }
+  
+  
+  
   
   public function add(){
   	
@@ -106,7 +125,7 @@ class MCategoryList extends MBufferedModel {
 	
   	$this->id=parent::add();
   	
-  	$this->addChildren($this->getParent_id());
+  	$this->updateChildrens($this->getParent_id());
   	
   	return $this->id;
 
@@ -116,7 +135,11 @@ class MCategoryList extends MBufferedModel {
   	$this->setState('change_immediate');
 	$this->notifyObservers();
 	
-	return parent::update();
+	$return=parent::update();
+	
+	$this->updateChildrens($this->getParent_id());
+	
+	return $return;
   }
   
   public function delete(){
@@ -128,7 +151,10 @@ class MCategoryList extends MBufferedModel {
   	$this->setState('change_immediate');
 	$this->notifyObservers();
 	
-	return parent::delete();
+	$return=parent::delete();
+	$this->updateChildrens($this->getParent_id());
+	return $return;
+	
   }
   
   public function load(){

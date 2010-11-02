@@ -15,7 +15,7 @@ class MPermissions extends MModel{
   function __construct(){
     parent::__construct(new RecordSet());
     
-    $this->table='permissions';
+    $this->table=TABLE_PREFIX.'permissions';
     
     $this->columns=array(
     	'resource'=>null,
@@ -27,7 +27,7 @@ class MPermissions extends MModel{
   protected function setQuery(){
 
     $query="
-	SELECT * FROM permissions ".$this->_where()."
+	SELECT * FROM $this->table ".$this->_where()."
 	";
 	
     $this->dataSet->setQuery($query);
@@ -35,7 +35,7 @@ class MPermissions extends MModel{
   
   protected function setCountQuery(){
   	$query="
-	SELECT COUNT(*) FROM permissions
+	SELECT COUNT(*) FROM $this->table 
 	";
 
   	$this->dataSet->setCountQuery($query);

@@ -15,7 +15,7 @@ class MCache extends MModel{
   public function __construct(){
     parent::__construct(new RecordSet());
     
-    $this->table='cache';
+    $this->table=$this->table.'cache';
     
     $this->columns=array(
 	  	'name'=>null,
@@ -32,7 +32,7 @@ class MCache extends MModel{
   	
     $query="
     SELECT cache.*
-      FROM cache
+      FROM $this->table
 	   ".$this->_where();
 
     $this->dataSet->setQuery($query);
@@ -41,7 +41,7 @@ class MCache extends MModel{
   protected function setCountQuery(){
   	$query="
   	SELECT COUNT(*)
-      FROM cache
+      FROM $this->table
 	   ".$this->_where();
 
   	$this->dataSet->setCountQuery($query);

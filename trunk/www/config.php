@@ -24,7 +24,7 @@ define('IMG_FILES_ORIG_TOPVIDEOS','topvideos/images_orig');
 define('THUMBNAILS','thumbnails');
 define('CACHE','cache');
 define('SESSION_NAME','cms');
-include_once("config.canales.php");
+//include_once("config.canales.php");
 include_once("root.php");
 include(ROOT."map.php");
 ?>

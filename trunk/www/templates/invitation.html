@@ -1,0 +1,19 @@
+<div class="heading"><h2>[:T_INVITE_FRIENDS:]</h2></div>
+<div class="box">
+	<form action="index.php?m=users.send_invitation.invite.usercp" method="post">
+		<fieldset>
+			<p class="error">[:error:]</p>
+			
+			<input type="hidden" name="type" value="[:type:]" />
+			<input type="hidden" name="g" value="[:group:]" />
+			
+			<label for="username">[:T_USERNAME:]</label>
+			<p>[:M_INVITE_FRIEND:]</p>
+			<p><input id="username" type="text" name="username" value="[:username:]" style="width:320px" /></p>
+			
+			<p>
+				<input id="send" type="submit" value="[:T_SEND:]" />
+			</p>
+		</fieldset>
+	</form>
+</div>
