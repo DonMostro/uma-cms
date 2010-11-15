@@ -37,7 +37,7 @@ class VPage extends VView {
 	$this->keywords='';
   }
 
-  public function &getInstance(){
+  public function getInstance(){
   	static $me;
   	if(!$me) {
   		$me=array(new VPage());
@@ -45,17 +45,6 @@ class VPage extends VView {
   	return $me[0];
   }
 
-   /**
-   * Funci&oacute;n para obtener id de canal o subcanal asociados a un video
-   * setea a las variables:
-   * @var req_c:[id canal]
-   * @var req_c_parent:[id canal padre]
-   * @var req_v:[id video]
-   *  
-   * 
-   * @author rodrigo.riquelme at latercera dot com
-   * 
-   */
   
   public function SetAllRequestItems(){
   	DAO::connect();  	
@@ -248,29 +237,7 @@ class VPage extends VView {
 		}
 	}
 	$blnShowSWF = "false";
-	//Selecciona el SWF
-	/*
-	if($request_c_parent != 0 && $request_v==0){
-		$strSWF = "topvideos/$request_c_parent/topvideos.swf";
-		$blnShowSWF = "true";
-	}elseif($request_c_parent == 0 && $request_v==0 && $request_c != 0){
-		$strSWF = "topvideos/$request_c/topvideos.swf";
-		$blnShowSWF = "true";
-	}elseif($request_c_parent ==0 && $request_v == 0 && $request_c == 0){
-		$strSWF = "topvideos/topvideos.swf"; //principal por defecto
-		$blnShowSWF = "true";
-	}
-	*/
-	if($request_v == 0){
-		$strSWF = "topvideos/topvideos.swf"; 
-		$blnShowSWF = "true";
-	}
-	
-	//if($request_v != 0) $blnShowSWF = "false"; 
-	
-	$tpl->showswf = $blnShowSWF;
-	$tpl->swf = @$strSWF;
-	//si(showswf=="false"){hay un video seleccionado y debemos llamar al js certifica correspondiente} 
+
 	
 	//create user menu
 	if($this->username){
@@ -306,41 +273,9 @@ class VPage extends VView {
 	}
 	
   	//set variables
-  	
 
    	$this->SetAllRequestItems();
-	//Canal o Canal padre 38 (Goles)
-	/*
-	if($this->req_c_parent == C_GOLES || $this->req_c == C_GOLES){
-  		$tpl->cm8cat='3tv.goles';
-		
-	//SUDAFRICA 2010	
-	}elseif ($this->req_c_parent == C_3TV_SUDAFRICA || $this->req_c == C_3TV_SUDAFRICA){
-		//Buscamos los videos de sudafrica
-		$videos = new MVideos();
-		$videos->setCategories_Id(C_3TV_SUDAFRICA);
-		$videos->load();
-		//$lngAll = $videos->countAll();
-		$view=new VIphoneVideos($videos);
-		$i=0;
-		$tpl->cm8cat="3tv.mundial";
-		 
-		while($view->show()){
-			$i++;
-			$aux=$i;
-			if($aux==1)$aux="";
-			if($view->recordset['id'] == $this->req_v) $tpl->cm8cat="3tv.mundial$aux"; 
-		}
-	//FIN SUDAFRICA		
-  	}else{
-	//RESTO DE LOS CANALES
-  		$tpl->cm8cat='3tv.sitio';
 
-	}
-	*/
-	//Publicidad v&iacute;a DFP
-	$VPage = $this;
-	include(ROOT."ads/googleChannels.php");
 
 	$tpl->title=$this->title?$this->title:'';
 	$tpl->titleheader=!empty($this->title) ?  " - " .$this->title : '';
@@ -349,11 +284,7 @@ class VPage extends VView {
 	$tpl->description=!empty($this->description)?$this->description:SITENAME;
 	$tpl->channel=$this->req_c;
 	
-	/*
-	if(@$this->rec_c == C_CAMPEONATO_CHILENO){
-		$this->css="1";	
-	}
-	*/
+
 	$tpl->url=URL;
 	$tpl->sitename=SITENAME;
 	$tpl->username=$this->username;
