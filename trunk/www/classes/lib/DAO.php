@@ -30,6 +30,7 @@ class DAO{
     if(is_resource($this->result))mysql_free_result($this->result);
     $this->query=$query;
     $this->result=@mysql_query($query)or Debug::write("[".gmstrftime("%Y-%d-%m %H:%M:%S",time())."] Error: ".mysql_error()."\n$query");
+    echo $query;
     return $this->result;
   }
   
