@@ -1,0 +1,72 @@
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 7
+
+Warning: include_once(../classes/lib/Mailer.php) [function.include-once]: failed to open stream: No such file or directory in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 7
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 7
+
+Warning: include_once() [function.include]: Failed opening '../classes/lib/Mailer.php' for inclusion (include_path='.;C:\Program Files\Zend\ZendServer\share\ZendFramework\library') in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 7
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 6
+
+Warning: include_once(../classes/models/MFavorites.php) [function.include-once]: failed to open stream: No such file or directory in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 6
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 6
+
+Warning: include_once() [function.include]: Failed opening '../classes/models/MFavorites.php' for inclusion (include_path='.;C:\Program Files\Zend\ZendServer\share\ZendFramework\library') in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 6
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 7
+
+Warning: include_once(../classes/models/MComments.php) [function.include-once]: failed to open stream: No such file or directory in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 7
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 7
+
+Warning: include_once() [function.include]: Failed opening '../classes/models/MComments.php' for inclusion (include_path='.;C:\Program Files\Zend\ZendServer\share\ZendFramework\library') in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 7
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 8
+
+Warning: include_once(../classes/models/MChannels.php) [function.include-once]: failed to open stream: No such file or directory in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 8
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 8
+
+Warning: include_once() [function.include]: Failed opening '../classes/models/MChannels.php' for inclusion (include_path='.;C:\Program Files\Zend\ZendServer\share\ZendFramework\library') in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 8
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 9
+
+Warning: include_once(../classes/models/MChannelElements.php) [function.include-once]: failed to open stream: No such file or directory in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 9
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 9
+
+Warning: include_once() [function.include]: Failed opening '../classes/models/MChannelElements.php' for inclusion (include_path='.;C:\Program Files\Zend\ZendServer\share\ZendFramework\library') in C:\proyectos\proyectotitulo\www\classes\models\MUser.php on line 9
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 22
+
+Warning: include_once(../classes/models/MFavorites.php) [function.include-once]: failed to open stream: No such file or directory in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 22
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 22
+
+Warning: include_once() [function.include]: Failed opening '../classes/models/MFavorites.php' for inclusion (include_path='.;C:\Program Files\Zend\ZendServer\share\ZendFramework\library') in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 22
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 23
+
+Warning: include_once(../classes/models/MComments.php) [function.include-once]: failed to open stream: No such file or directory in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 23
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 23
+
+Warning: include_once() [function.include]: Failed opening '../classes/models/MComments.php' for inclusion (include_path='.;C:\Program Files\Zend\ZendServer\share\ZendFramework\library') in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 23
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 24
+
+Warning: include_once(../classes/models/MChannels.php) [function.include-once]: failed to open stream: No such file or directory in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 24
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 24
+
+Warning: include_once() [function.include]: Failed opening '../classes/models/MChannels.php' for inclusion (include_path='.;C:\Program Files\Zend\ZendServer\share\ZendFramework\library') in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 24
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 25
+
+Warning: include_once(../classes/models/MChannelElements.php) [function.include-once]: failed to open stream: No such file or directory in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 25
+
+Warning: include_once() [function.include-once]: It is not safe to rely on the system's timezone settings. You are *required* to use the date.timezone setting or the date_default_timezone_set() function. In case you used any of those methods and you are still getting this warning, you most likely misspelled the timezone identifier. We selected 'America/Halifax' for '-3.0/DST' instead in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 25
+
+Warning: include_once() [function.include]: Failed opening '../classes/models/MChannelElements.php' for inclusion (include_path='.;C:\Program Files\Zend\ZendServer\share\ZendFramework\library') in C:\proyectos\proyectotitulo\www\classes\lib\ModelPool.php on line 25
