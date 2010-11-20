@@ -1,4 +1,5 @@
 <?php
+session_start();
 ini_set("display_errors","On");
 error_reporting(E_ALL);
 
@@ -31,6 +32,8 @@ $form=new Form();
 $xml=new XML();
 
 $auth=new Auth();
+echo "WTF";
+print_r($_SESSION);
 
 if(isset($form->logout)){
 	$auth->logout();

@@ -3,18 +3,12 @@ ini_set("display_errors","on");
 error_reporting(E_ALL);
 
 include_once(ROOT."config.php");
-//include_once(ROOT."config.usuarios.php");
-//include_once(ROOT."config.canales.php");
 include_once(ROOT."map.php");
 include_once(ROOT."version.php");
-//include_once(ROOT."classes/lib/Dispatcher.php");
 include_once(ROOT."cache.php");
 include_once(ROOT."classes/lib/Form.php");
 include_once(ROOT."classes/lib/DAO.php");
 include_once(ROOT."classes/lib/Debug.php");
-//include_once(ROOT."classes/lib/HttpResponse.php");
-//include_once(ROOT."classes/lib/License.php");
-//include_once(ROOT."classes/lib/crypt.php");
 include_once(ROOT."classes/lib/Template.php");
 include_once(ROOT."classes/lib/Lang.php");
 include_once(ROOT."classes/models/MText.php");
