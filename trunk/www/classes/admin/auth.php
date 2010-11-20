@@ -9,8 +9,9 @@ class Auth{
 	
 		if($username==ADMIN_USERNAME && $password==ADMIN_PASSWORD){
 			$_SESSION['username']=ADMIN_USERNAME;
+			echo $_SESSION['username']." ".ADMIN_USERNAME;
 		}
-	
+
 		/*
 		global $arrAdmin;
 		
