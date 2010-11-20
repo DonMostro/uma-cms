@@ -8,6 +8,9 @@ include_once(ROOT."classes/models/MModel.php");
 
 
 class MSummTotalCategories extends MModel {
+/**
+ * 
+ */	
   
   
   function __construct(){
@@ -17,6 +20,10 @@ class MSummTotalCategories extends MModel {
   
  
   protected function setQuery(){
+  	/**
+  	 * 
+  	 * @var unknown_type
+  	 */
 	
 	$query="SELECT COUNT(*) FROM categories";
 
