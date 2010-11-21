@@ -1,8 +1,8 @@
 <?php
 $pages=array(
-	'Configuraci&oacute;n'=>array(
-		'Configuraci&oacute;n del Servidor'=>'phpinfo',
-		'Configuraci&oacute;n del Sitio'=>'settings'
+	'Configuración'=>array(
+		'Configuración del Servidor'=>'phpinfo',
+		'Configuración del Sitio'=>'settings'
 	),
 	'Usuarios'=>array(
 		'Usuarios'=>'users',
@@ -15,7 +15,7 @@ $pages=array(
 	'Videos'=>array(
 		'Videos'=>'videos',
 		'Videos Destacados'=>'featured',
-		'Categor&iacute:as'=>'categories&parent_id=0',
+		'Categorías'=>'categories&parent_id=0',
 		'Tags'=>'tags',
 		'Players'=>'players',
 		'Miniaturas'=>'thumbnails',
