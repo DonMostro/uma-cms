@@ -1,5 +1,6 @@
 <?php
-//Settings
+//Configuración
+date_default_timezone_set('UTC'); 
 define('DB_SERVER','localhost');
 define('DB_USER','ztvuser');
 define('DB_PASSWORD','ztvpassword');

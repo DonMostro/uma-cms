@@ -1,36 +1,34 @@
 <?php
 /**
- *  Base Observerable class
+ *  Clase Base Observable
  */
 class Observable {
     /**
     * Protected
-    * $observers an array of Observer objects to notify
+    * $observers un array de objetos Observer para notificar
     */
     protected $observers;
  
     /**
     * Protected
-    * $state store the state of this observable object
+    * $state almacena el estado del objeto observable
     */
     protected $state;
     
     protected $method;
  
-    //! A constructor
     /**
-    * Constructs the Observerable object
+    * Construye el objeto observable
     */
-    function __contstruct() {
+    function __construct() {
         $this->observers=array();
         $modelpool = ModelPool::getInstance();
         $modelpool->register($this);
     }
  
-    //! An accessor
     /**
-    * Calls the update() function using the reference to each
-    * registered observer - used by children of Observable
+    * Llama la función update() usando la referncia de cada
+    * observer registrado - usado por los hijos de Observable
     * @return void
     */ 
     public function notifyObservers () {
@@ -40,7 +38,6 @@ class Observable {
         }
     }
  
-    //! An accessor
     /**
     * Register the reference to an object object
     * @return void
