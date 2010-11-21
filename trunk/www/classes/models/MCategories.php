@@ -14,7 +14,6 @@ include_once(ROOT."classes/models/MVideos.php");
  *
  */
 
-
 class MCategories extends MBufferedModel {
 	
   private $tmpbuff;
@@ -51,9 +50,9 @@ class MCategories extends MBufferedModel {
   	
     //Get list of categories
     $query="
-    SELECT categories.*
+    SELECT $this->table.*
          , COUNT( DISTINCT $this->table_videos.id ) AS videos
-	  FROM categories
+	  FROM $this->table 
  	LEFT JOIN $this->table_videos
         ON $this->table.id = $this->table_videos.categories_id
 	 ".$this->_where()."
@@ -131,7 +130,7 @@ class MCategories extends MBufferedModel {
   
   private function addChildren($parent_id){
   	$dao=new DAO();
-  	$cat=new MCategoryList();
+  	$cat=new MCategories();
   	$cat->setId($parent_id);
   	$cat->load();
   	$data=$cat->next();
@@ -152,7 +151,7 @@ class MCategories extends MBufferedModel {
   
   private function updateChildrens($parent_id){
   	$dao=new DAO();
-  	$cat=new MCategoryList();
+  	$cat=new MCategories();
   	$cat->setId($parent_id);
   	$cat->load();
   	$data=$cat->next();

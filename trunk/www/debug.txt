@@ -1,0 +1,2 @@
+C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[32][2010-11-21 22:32:53]: [2010-21-11 22:32:53] Error: Data truncated for column 'approved' at row 1
+INSERT INTO `ztv_categories` (`approved`,`title`,`thumb`,`parent_id`,`orden`) VALUES ('','Yop','asas','0','1')

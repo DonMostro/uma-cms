@@ -6,17 +6,24 @@ include_once(ROOT."classes/lib/Form.php");
 include_once(ROOT."classes/models/MCategories.php");
 
 /**
- * Input de categor&iacute;as
+ * Elemento Categor&iacute;as en CMS
  * @author Rodrigo
  *
  */
 
 class categories extends Element{
+  /**
+   * (non-PHPdoc)
+   * @see www/classes/admin/Element#edit($i, $j, $display)
+   */
   function edit($i, $j, $display="inline"){
 	  $options=$this->options();
 	  return "<select style=\"display:$display\" id=\"edit{$i}_{$j}\" name=\"{$this->target}[$i]\">\r\n$options\r\n</select>";
   }
-
+  /**
+   * (non-PHPdoc)
+   * @see www/classes/admin/Element#display($i, $j)
+   */
   function display($i, $j){
       $options=$this->options();
 	  $edit="";
@@ -24,6 +31,10 @@ class categories extends Element{
       return "<select disabled=\"disabled\" id=\"field{$i}_{$j}\">\r\n$options\r\n</select>".$edit;
   }
 
+  /**
+   * Options del select de categor&iacute;as
+   * @return string HTML
+   */
   function options(){
         $options="<option value=\"0\">* None *</option>\r\n";
         $model=new MCategories();

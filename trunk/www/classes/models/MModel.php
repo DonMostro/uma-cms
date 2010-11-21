@@ -7,8 +7,8 @@ include_once(ROOT."classes/lib/Observable.php");
 include_once(ROOT."classes/lib/QueryBuilder.php");
 
 /**
- * Clase base de Modelos. Todos las clases modelos extienden esta.
- * Se asume que mapea una sola tabla. Las relaciones son manejadas en l&oacute;gica de base de datos.
+ * Clase base de Modelos. Todos las clases modelos extienden esta clase.
+ * Gestor de una tabla principal. Las relaciones son manejadas en la l&oacute;gica de las queries.
  */
 class MModel extends Observable implements IModel {
 	
@@ -104,7 +104,6 @@ class MModel extends Observable implements IModel {
 		$qb=new QueryBuilder($this->table,$this->columns);
 		$dao=new DAO();
 		$dao->query($qb->add());
-		exit($qb->add());
 		$dao->query("SELECT last_insert_id() AS id FROM `$this->table`");
 	    $id=(int)$dao->get(0,"id");
 		return $id;
