@@ -4,13 +4,9 @@ $pages=array(
 		'Configuración del Servidor'=>'phpinfo',
 		'Configuración del Sitio'=>'settings'
 	),
-	'Usuarios'=>array(
-		'Usuarios'=>'users',
-		'Grupos'=>'groups'
-	),
 	'Contenido'=>array(
-		'Menu'=>'menu',
-		'Pages'=>'pages',
+		'Menu'=>'menús',
+		'Pages'=>'páginas',
 	),
 	'Videos'=>array(
 		'Videos'=>'videos',
@@ -18,9 +14,7 @@ $pages=array(
 		'Categorías'=>'categories&parent_id=0',
 		'Tags'=>'tags',
 		'Players'=>'players',
-		'Miniaturas'=>'thumbnails',
-		'Fondos de Videos'=>'categories_background_ads',
-		'Top Carrusel'=>'top_carrusel'
+		'Miniaturas'=>'thumbnails'
 	)
 );
 ?>
