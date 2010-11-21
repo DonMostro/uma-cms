@@ -1,84 +1,84 @@
 <?php
 
 /**
- * Interface for model classes
+ * Interface para clases modelo
  *
  */
 interface IModel {
 	/**
-	 * Load data and prepare for retrieval. Usually executing SQL query.
+	 * Carga los datos del RecordSet y los prepara para el despliegue. 
 	 *
 	 */
 	public function load();
 	/**
-	 * Perform data insertion routines.
+	 * Ejecuta queries INSERT.
 	 *
 	 */
 	public function add();
 	/**
-	 * Perform data update routines.
+	 * Ejecuta queries UPDATE.
 	 *
 	 */
 	public function update();
 	/**
-	 * Perform data removal routines.
+	 * Ejecuta queries DELETE.
 	 *
 	 */
 	public function delete();
 	/**
-	 * In data paging, calculate total amount of data.
+	 * Calcula el numero de filas totales de la RecordSet para paginaci&oacute;.
 	 *
 	 */
 	public function countAll();
 	/**
-	 * Get next record.
+	 * Obtiene el pr&oacute;ximo registro.
 	 *
 	 */
 	public function next();
 	/**
-	 * Move pointer to the begining of data set.
+	 * Mueve el puntero al principio de RecordSet.
 	 *
 	 */
 	public function reset();
 	/**
-	 * @return int Number of rows in data set.
+	 * @return int n&uacute;mero de filas de RecordSet.
 	 *
 	 */
 	public function getSize();
     /**
-     * @return int In data paging, starting row in data set.
+     * @return int OFFSET.
      *
      */
     public function getStart();
 	/**
-	 * @return int In data paging, number of rows per page.
+	 * @return int LIMIT.
 	 *
 	 */
 	public function getLimit();
 	/**
-	 * @return DataOrder Last sorting field.
+	 * @return DataOrder ORDER.
 	 *
 	 */
 	public function getOrder();
 	/**
-	 * @return mixed Arbitral ID or an array of IDs of the criteria.
+	 * @return los IDS de la query a ejecutar.
 	 *
 	 */
 	public function getId();
 	/**
-	 * Set starting row in the data set for paging.
+	 * Setea el puntero del primer registro a retornar.
 	 *
 	 * @param int $start
 	 */
 	public function setStart($start);
 	/**
-	 * Set number of rows in data set for paging.
+	 * Setea el n&uacute;mero m&aacute;cute de filas.
 	 *
 	 * @param int $limit
 	 */
 	public function setLimit($limit);
 	/**
-	 * Add sorting directive.
+	 * A&ntilde;de ORDER BY a las queries.
 	 *
 	 * @param DataOrder $order
 	 */
