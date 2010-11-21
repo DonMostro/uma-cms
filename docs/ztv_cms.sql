@@ -48,73 +48,6 @@ CREATE TABLE IF NOT EXISTS `ztv_categories` (
 --
 
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_channels`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_channels` (
-  `username` varchar(255) NOT NULL DEFAULT '',
-  `description` text NOT NULL,
-  `short_desc` varchar(255) NOT NULL DEFAULT '',
-  `themes_id` int(11) NOT NULL DEFAULT '0',
-  `link` varchar(255) NOT NULL DEFAULT '',
-  `link_title` varchar(255) NOT NULL DEFAULT '',
-  `image` varchar(255) NOT NULL DEFAULT '',
-  `thumb_file` varchar(255) NOT NULL,
-  `thumbs_id` int(11) NOT NULL DEFAULT '0',
-  `approved` enum('0','1') NOT NULL DEFAULT '1',
-  `name` varchar(255) NOT NULL,
-  `bday` date NOT NULL,
-  `gender` tinyint(1) NOT NULL,
-  `relstatus` tinyint(1) NOT NULL,
-  `aboutme` text NOT NULL,
-  `website` varchar(255) NOT NULL,
-  `hobbies` text NOT NULL,
-  `favmovies` text NOT NULL,
-  `favmusic` text NOT NULL,
-  `favbooks` text NOT NULL,
-  `featured_id` int(11) NOT NULL,
-  `custom_bg_color` varchar(7) NOT NULL,
-  `custom_border_color` varchar(7) NOT NULL,
-  `custom_text_color` varchar(7) NOT NULL,
-  `custom_box_color` varchar(7) NOT NULL,
-  `custom_bg_image` varchar(255) NOT NULL,
-  `custom_h_color` varchar(7) NOT NULL,
-  `hits` int(11) NOT NULL,
-  PRIMARY KEY (`username`),
-  KEY `themes_id` (`themes_id`),
-  KEY `thumbs_id` (`thumbs_id`),
-  KEY `featured_id_4` (`featured_id`),
-  KEY `featured_id_5` (`featured_id`),
-  KEY `featured_id_6` (`featured_id`),
-  KEY `featured_id_7` (`featured_id`),
-  KEY `featured_id_8` (`featured_id`),
-  KEY `featured_id_9` (`featured_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcar la base de datos para la tabla `ztv_channels`
---
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_channel_comments`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_channel_comments` (
-  `comments_id` int(11) NOT NULL DEFAULT '0',
-  `channels_id` varchar(255) NOT NULL DEFAULT '0',
-  KEY `comments_id` (`comments_id`,`channels_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Volcar la base de datos para la tabla `ztv_channel_comments`
---
-
 
 -- --------------------------------------------------------
 
@@ -137,74 +70,6 @@ CREATE TABLE IF NOT EXISTS `ztv_channel_elements` (
 -- Volcar la base de datos para la tabla `ztv_channel_elements`
 --
 
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_discussion_posts`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_discussion_posts` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `discussions_id` int(11) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `text` text NOT NULL,
-  `tt` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `discussions_id` (`discussions_id`,`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_discussion_posts`
---
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_email_addresses`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_email_addresses` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `messages_id` int(11) NOT NULL,
-  `email` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `messages_id` (`messages_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_email_addresses`
---
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_favorites`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_favorites` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `videos_id` int(11) NOT NULL DEFAULT '0',
-  `playlists_id` int(11) NOT NULL DEFAULT '0',
-  `ord` int(11) NOT NULL DEFAULT '0',
-  `users_username` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `username` (`videos_id`),
-  KEY `playlists_id` (`playlists_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_favorites`
---
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_featured`
---
 
 CREATE TABLE IF NOT EXISTS `ztv_featured` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -237,16 +102,6 @@ CREATE TABLE IF NOT EXISTS `ztv_filetypes` (
   PRIMARY KEY (`id`),
   KEY `players_id` (`players_id`),
   KEY `video_types_id` (`video_types_id`),
-  KEY `video_types_id_2` (`video_types_id`),
-  KEY `video_types_id_3` (`video_types_id`),
-  KEY `video_types_id_4` (`video_types_id`),
-  KEY `video_types_id_5` (`video_types_id`),
-  KEY `video_types_id_6` (`video_types_id`),
-  KEY `video_types_id_7` (`video_types_id`),
-  KEY `video_types_id_8` (`video_types_id`),
-  KEY `video_types_id_9` (`video_types_id`),
-  KEY `players_id_2` (`players_id`),
-  KEY `video_types_id_10` (`video_types_id`),
   KEY `type` (`type`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -295,93 +150,8 @@ CREATE TABLE IF NOT EXISTS `ztv_friends` (
 
 -- --------------------------------------------------------
 
---
--- Estructura de tabla para la tabla `ztv_groups`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_groups` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `name` varchar(255) NOT NULL,
-  `description` text NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `private` enum('0','1') NOT NULL,
-  `autoapprove` enum('0','1') NOT NULL,
-  `tt` int(10) NOT NULL,
-  `thumbs_id` int(11) NOT NULL,
-  `approved` enum('0','1') NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `name` (`name`),
-  KEY `thumbs_id` (`thumbs_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_groups`
---
 
 
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_group_discussions`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_group_discussions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `groups_id` int(11) NOT NULL,
-  `topic` varchar(255) NOT NULL,
-  `username` varchar(255) NOT NULL,
-  `tt` int(10) NOT NULL,
-  `locked` enum('0','1') NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `groups_id` (`groups_id`,`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_group_discussions`
---
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_group_users`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_group_users` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `groups_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `username` (`username`,`groups_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_group_users`
---
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_group_videos`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_group_videos` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `groups_id` int(11) NOT NULL,
-  `videos_id` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `groups_id` (`groups_id`,`videos_id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_group_videos`
---
-
-
--- --------------------------------------------------------
-
---
 -- Estructura Stand-in para la vista `ztv_latests_more_viewed_videos`
 --
 CREATE TABLE IF NOT EXISTS `ztv_latests_more_viewed_videos` (
@@ -448,59 +218,6 @@ INSERT INTO `ztv_pages` (`id`, `title`, `text`) VALUES
 ('video', 'video', '');
 
 -- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_page_elements`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_page_elements` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `pages_id` varchar(255) NOT NULL,
-  `elements_id` varchar(255) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_page_elements`
---
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_payment_types`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_payment_types` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL,
-  `data` text NOT NULL,
-  `approved` enum('0','1') NOT NULL,
-  `description` text NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_payment_types`
---
-
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_permissions`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_permissions` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `resource` varchar(255) NOT NULL,
-  `level` int(11) NOT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_permissions`
---
 
 
 -- --------------------------------------------------------
@@ -901,12 +618,13 @@ CREATE TABLE IF NOT EXISTS `ztv_videos` (
   `description` text NOT NULL,
   `frame` varchar(255) NOT NULL,
   `orig_file` varchar(255) NOT NULL,
-  `servers_id` int(11) NOT NULL DEFAULT 0,
   `size` int(11) NOT NULL,
   `type` varchar(255) NOT NULL DEFAULT '',
   `duration` varchar(8) NOT NULL DEFAULT '',
   `tt` int(10) NOT NULL DEFAULT '0',
   `rate` float NOT NULL,
+  `approved` enum('0','1') DEFAULT NULL,
+  `categories_id` int(11) NOT NULL DEFAULT 0,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
@@ -1022,11 +740,10 @@ CREATE TABLE IF NOT EXISTS `ztv_video_tags` (
 --
 
 CREATE TABLE IF NOT EXISTS `ztv_video_types` (
-  `id` int(11) NOT NULL,
   `videos_id` int(11) NOT NULL,
   `types_id` int(11) NOT NULL,
   `filename` varchar(256) NOT NULL,
-  PRIMARY KEY (`id`)
+  PRIMARY KEY (`videos_id`, `types_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
@@ -1060,7 +777,7 @@ CREATE TABLE IF NOT EXISTS `ztv_watched` (
 --
 DROP TABLE IF EXISTS `ztv_latests_more_viewed_videos`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ztv_latests_more_viewed_videos` AS select `ztv_videos`.`id` AS `id` from `ztv_videos` where (`ztv_videos`.`tt` >= (unix_timestamp(now()) - 604800)) order by `ztv_videos`.`hits` desc limit 0,16;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ztv_latests_more_viewed_videos` AS select `ztv_videos`.`id` AS `id` from `ztv_videos` left join ztv_video_hits on ztv_video_hits.videos_id = videos_id where (`ztv_videos`.`tt` >= (unix_timestamp(now()) - 604800)) order by `ztv_video_hits`.`hits` desc limit 0,16;
 
 
 CREATE USER 'ztvuser'@'localhost' IDENTIFIED BY 'ztvpassword';

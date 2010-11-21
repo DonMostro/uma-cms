@@ -1,9 +1,6 @@
 <?php
 session_start();
 
-ini_set("display_errors","On");
-error_reporting(E_ALL);
-
 include_once("root.php");
 include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Form.php");
@@ -33,8 +30,6 @@ $form=new Form();
 $xml=new XML();
 
 $auth=new Auth();
-echo "WTF";
-print_r($_SESSION);
 
 if(isset($form->logout)){
 	$auth->logout();
@@ -109,7 +104,6 @@ if(isset($form->ajax)){
 
 	$tpl=new Template("template.html");
 	$select = '';
-	$select.=(@$_GET['p'] == 'top_carrusel' || @$_GET['p'] == 'top_carrusel_test') ? Parts::SelectCategories() : '';
 	$select.=(@$_GET['p'] == 'videos') ? Parts::IncludeAutocomplete() : '';
 	$tpl->select=$select;
 	$tpl->list=$list;

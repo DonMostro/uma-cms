@@ -1,4 +1,6 @@
 <?php
+ini_set("display_errors","on");
+error_reporting(E_ALL);
 include_once("root.php");
 include_once(ROOT."classes/admin/textfield.php");
 include_once(ROOT."classes/admin/select.php");

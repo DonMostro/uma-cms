@@ -5,8 +5,8 @@ $pages=array(
 		'Configuración del Sitio'=>'settings'
 	),
 	'Contenido'=>array(
-		'Menu'=>'menús',
-		'Pages'=>'páginas',
+		'Menu'=>'menu',
+		'Pages'=>'pages',
 	),
 	'Videos'=>array(
 		'Videos'=>'videos',
