@@ -1,0 +1,349 @@
+body {  font: 75%/normal Arial, Helvetica, sans-serif; background:#000 url(i/bgBody.jpg) no-repeat top center}
+a {color:#FFF;text-decoration:none}
+
+/* BASICOS
+-------------------------------------------------------------- */
+.marco{overflow:hidden;width:980px;margin:0 auto; padding-bottom:20px}
+.pageltTv {width:940px; margin:0 auto;}
+.showgrid{ background:url(i/grid.png)}
+
+.bgGris { background:rgb(20,20,20)}
+
+
+.borderTopPage	{display:block; overflow:hidden;width:974px; height:1px; margin:0 auto; padding:0;border-top:solid 3px #C00}
+.bgBlanco		{background:url(i/bg-contenido.png) repeat-y center top}
+
+/*  
+   HEADER
+-------------------------------------------------------------- */
+#subnav				{overflow:hidden;width:980px;margin:0 auto; border:solid 1px #494949; border-width:1px 0}
+#subnav ul.nav		{display:block;overflow:hidden; position:relative; width:980px;height:14px; margin:5px 0 6px 0}
+#subnav ul.nav	li	{display:inline; margin-left:12px}
+#subnav ul.nav	a	{font:300 1em Arial, Helvetica, sans-serif; color: #666; text-decoration:none} #subnav ul.nav	a:hover{color: #c00}
+
+#header						{ position:relative;height:94px}
+#header	h1	a				{ display:block; position:absolute; top:10px; width:298px; height:44px; background:url(i/logoLaterceraTV.png) no-repeat left top; text-indent:-9999px}
+#header ul.nav				{ width:660px; height:30px; margin:0 }
+#header ul.nav	li			{ display:inline; margin-right:12px}
+#header ul.nav	a			{ padding: 3px 0; font:300 1.167em/30px Arial, Helvetica, sans-serif; color: #fff; text-decoration:none}
+#header ul.nav	li			{ padding-bottom:1px;border-bottom:solid 2px #c00}
+#header ul.nav	li+li		{ padding-bottom:1px;border-bottom:solid 2px #09F}
+#header ul.nav	li+li+li	{ padding-bottom:1px;border-bottom:solid 2px #0C0}
+#header ul.nav	li+li+li+li	{ padding-bottom:1px;border-bottom:solid 2px #F60}
+#header ul.nav	li+li+li+li+li	{ padding-bottom:1px;border-bottom:solid 2px #63C}
+#header ul.nav	li+li+li+li+li+li	{ padding-bottom:1px;border-bottom:solid 2px #CC6}
+#header ul.nav	li+li+li+li+li+li+li	{ padding-bottom:1px;border-bottom:solid 2px #555}
+#header ul.nav .selected a  {color:#CCCC66;}
+
+#header a.navHd 			{ display:block; position:absolute; width:41px; height:26px; top:65px; right:430px;background:url(i/navHd.gif) no-repeat 0 0; text-indent:-9999px}
+
+#header a.descargarPDF		{ display:block; width:100px; height:28px; position:absolute; left:840px; top:38px; background:url(i/butPdf.gif); text-indent:-9999px}
+#header a.descargarPDF:hover{ background-position:0 -28px}
+
+#corporativo						{ float:left; position:relative; overflow:hidden; width:660px; height:60px; margin-right:20px}
+#buscador							{display:block; overflow:hidden;height:30px;position:absolute;right:0;top:30px;width:220px}
+#buscador form input.buscarText		{border:solid 1px #666; width:180px; height:20px; padding:3px; background:#000; font:300 1em/24px Arial, Helvetica, sans-serif; color:#999}
+#buscador form input.buscarIr		{display:block; position:absolute;border:none; padding:0; margin:0; top:0; right:0; width:26px; height:26px}
+
+.headerBg	{ background:url(i/bgCorporativo.png) repeat-x}
+
+/*  
+   CONTENIDO
+-------------------------------------------------------------- */
+#contenido				{padding-top:16px}
+#contenido .center		{position:relative; overflow:hidden;width:860px; margin:0 auto; padding-bottom:16px}
+#videoPrincipal			{ position:relative; overflow:hidden; float:left;margin-bottom:10px; width:960px; padding:0}
+#videoPrincipal h3		{ font:300 2.167em/normal Georgia, "Times New Roman", Times, serif; padding:0 0 6px 0; margin:0; color:#CCC; float:left}
+#videoPrincipal p		{ font:300 1em/1.4em Arial, Helvetica, sans-serif; color: #666}
+
+#PlayerGrande			{ overflow:hidden; float:left; width:640px; height:480px; border:1px solid #222}
+.descripcionVideo		{ position:relative; overflow:hidden; float:right; width:300px; height:490px}
+#bajadaVideo			{ overflow-x:hidden;overflow-y:auto; height:90px; float:left}
+.datosVideo				{ float:left; width:100%}
+.verComentarios			{ height:34px; padding:5px; position:relative; top:6px; width:205px}
+.verComentarios	a.comentar { display:inline; width:75px; height:20px; float:left; margin:5px 0 0 15px; background: url(i/sprite_butComentarios.gif) no-repeat right 0px; font:12px Arial, Helvetica, sans-serif; color:#CCC}
+.verComentarios	span.noComentarios { float:right; padding:0 12px 0 20px; background:url(i/sprite_butComentarios.gif) no-repeat left -15px; font:300 0.917em/32px Arial, Helvetica, sans-serif; color:#CCC}
+
+#comentarios {display:none; position:relative; overflow:hidden;width:940px;height:auto  float:left;padding:20px 0;margin:10px 0 20px 0;border-bottom:3px solid #900; color:#fff}
+#comentarios h2	{margin:0 0 10px 0; padding:0; font-size:18px; line-height:1.4em; border-bottom:solid 2px #C00; color:#FFF}
+.pagenum {color:#333;text-decoration:none;}
+.pagenumh {background:none repeat scroll 0 0 #C00;color:#FFF;padding:3px;}
+a.pagenum:hover {color:#C00;text-decoration:underline;}
+div.comment {background: url(i/avatar.gif) no-repeat left 4px;border-bottom:1px dotted #999;padding:8px; float:left; width:604px}
+.message {color:#0F0;display:block;font-weight:bold;padding:2px;text-align:center;}
+.message_body {background:#FFF;border:1px solid #CCC;padding:5px;}
+.vcomentarios {padding:10px}
+.vcomentarios a{color: #fff}
+a.button {background:#222;border:1px solid #444;display:block;float:left;height:17px;margin-right:3px;padding:1px;text-align:center;width:18px;}
+.vcomentarios select { font-size:11px}
+.vcomentarios p{ font-size:11px; color:#666}
+.vcomentarios input.buttComentar { float:left; margin:5px 0 0 100px}
+
+div.bottom {height:20px;margin-top:10px;padding:10px 10px 10px 0;text-align:right;width:100%; float:left}
+div.bottom a{padding: 0 5px; color:#C00}
+div.bottom a:hover{color:#CCC; text-decoration:none}
+
+
+.box1		{ background:url(i/bgBox1.gif) repeat-x}
+.box2		{ background:url(i/bgBox2.gif) repeat-x}
+.box3		{ background:url(i/bgBox3.gif) repeat-x}
+.box4		{ background:url(i/bgBox4.gif) repeat-x}
+.box5		{ background:url(i/bgBox5.gif) repeat-x}
+.box6		{ background:url(i/bgBox6.gif) repeat-x}
+.box7		{ background:url(i/bgBox7.gif) repeat-x}
+.box8		{ background:url(i/bgBox8.gif) repeat-x}
+
+.boxTv		{position:relative; min-height:180px;height:auto !important;height:180px; width:100%; margin-bottom:16px; padding-top:40px}
+.boxTv	h3	{font:300 1.583em/normal Georgia, "Times New Roman", Times, serif; padding:6px 0; color:#CCC}
+.boxTv	h4	{font:300 1em/normal Georgia, "Times New Roman", Times, serif; padding:2px 0 10px 0; color:#CCC}
+.boxTv	h4	a{font:300 1em/normal Georgia, "Times New Roman", Times, serif; padding:2px 0 10px 0; color:#CCC}
+.boxTv h6.rotulo	{ display:block; position:absolute; left:10px; top:1px;font:900 1.083em/32px Arial, Helvetica, sans-serif; text-transform:uppercase;  color:#FFF; clear:both}
+.boxTv .ver-mas	{left:860px;top:8px; color:#fff; position:absolute}
+
+.videoGrande 		{ position:relative; overflow:hidden; width:378px; height:253px;}
+.videoGrande img	{ position:absolute; border:solid 1px #ccc}
+.videoGrande a		{ display:block; position:absolute; top:1px; left:2px; width:374px; height:250px; background:url(i/butPlay2.png) no-repeat center center; z-index:100; text-indent:-9999px}
+
+.videoChico		{ position:relative; overflow:hidden; width:140px;height:85px;}
+.videoChico img	{ position:absolute; border:solid 1px #ccc}
+.videoChico a	{ display:block; position:absolute; top:1px; left:2px; width:136px; height:80px; background:url(i/butPlay1.png) no-repeat center center; z-index:100; text-indent:-9999px}
+
+
+/*LOS +*/
+/* root element for tabs  */
+ul.losmas { 
+	list-style:none; 
+	margin:0 !important; 
+	padding:0;	
+	border-bottom:1px solid #666;	
+	height:30px;
+}
+
+/* single tab */
+ul.losmas li { 
+	float:left;	 
+	text-indent:0;
+	padding:0;
+	margin:0 !important;
+	list-style-image:none !important; 
+}
+
+/* link inside the tab. uses a background image */
+ul.losmas a { 
+	background: url(i/tabsGrices.png) no-repeat 0 0;
+	font-size:11px;
+	display:block;
+	height: 28px;  
+	line-height:30px;
+	width:122px;
+	text-align:center;	
+	text-decoration:none;
+	color:#666;
+	padding:0px;
+	margin:0 5px 0 0;	
+	position:relative;
+	top:1px;
+	font:900 1em/28px Arial, Helvetica, sans-serif;
+	text-transform:uppercase
+}
+
+ul.losmas a:active {
+	outline:none;
+}
+
+/* when mouse enters the tab move the background image */
+ul.losmas a:hover {
+	color:#666;	
+}
+
+/* active tab uses a class name "current". its highlight is also done by moving the background image. */
+ul.losmas a.current, ul.losmas a.current:hover, ul.losmas li.current a {
+	background-position: 0 -28px;		
+	cursor:default !important; 
+	color:#fff !important;
+}
+
+
+/* initially all panes are hidden */ 
+.contelosmas .pane {
+	display:none;		
+}
+
+
+/*
+	root element for the scrollable.
+	when scrolling occurs this element stays still.
+*/
+.scrollable {
+
+	/* required settings */
+	position:absolute;
+	overflow:hidden;
+	height:180px;
+	width:960px;
+	top:40px
+}
+
+.scrollable h4	{font:300 1em/normal Georgia, "Times New Roman", Times, serif; margin-top:6px; float:left;color:#CCC}
+
+/*
+	root element for scrollable items. Must be absolutely positioned
+	and it should have a extremely large width to accomodate scrollable items.
+	it's enough that you set the width and height for the root element and
+	not for this element.
+*/
+.scrollable .items {
+	/* this cannot be too large */
+	position:absolute;
+	clear:both;
+	height:180px;
+	width:20000em;
+}
+
+.items div{
+	float:left;
+	width:960px;
+}
+
+.items ul{ float:left; height:180px; margin:0; padding:0; overflow:hidden}
+.items ul li{ display:inline; position:relative; overflow:hidden; float:left; width:140px; margin-right:20px}
+
+
+/* single scrollable item */
+.scrollable img {
+	float:left;
+	width:138px;
+	height:88px;
+}
+
+/* active item */
+.scrollable .active {
+	border:2px solid #000;
+	position:relative;
+	cursor:default;
+}
+
+
+/* prev, next, prevPage and nextPage buttons */
+a.browse {
+	background:url(i/hori_large.gif) no-repeat;
+	display:block;
+	width:30px;
+	height:30px;
+	position:absolute;
+	cursor:pointer;
+	font-size:1px;
+}
+
+/* right */
+a.right 				{ background-position: 0 -30px; top:4px; right:10px}
+a.right:hover 		{ background-position:-30px -30px; }
+a.right:active 	{ background-position:-60px -30px; } 
+
+
+/* left */
+a.left				{ top:4px; right:52px } 
+a.left:hover  		{ background-position:-30px 0; }
+a.left:active  	{ background-position:-60px 0; }
+
+/* up and down */
+a.up, a.down		{ 
+	float: none;
+	margin: 10px 50px;
+}
+
+/* up */
+a.up:hover  		{ background-position:-30px 0; }
+a.up:active  		{ background-position:-60px 0; }
+
+/* down */
+a.down 				{ background-position: 0 -30px; }
+a.down:hover  		{ background-position:-30px -30px; }
+a.down:active  	{ background-position:-60px -30px; } 
+
+
+/* disabled navigational button */
+a.disabled {
+	visibility:hidden !important;		
+} 	
+
+/* CAPTIONS */
+.ic_container{
+    vertical-align:baseline;
+    position:relative;
+}
+.ic_caption{
+    position:absolute;
+    opacity:0.8;   
+    overflow:hidden;
+    margin:0px;
+    padding:0px;
+    left:0px;
+    right:0px;
+    cursor:default;
+    filter:progid:DXImageTransform.Microsoft.Alpha(opacity=80);
+}
+
+.ic_caption a.verVideo{ display:inline; position:relative; float:right; width:19px; height:19px; margin:3px; background:url(i/butPlay.gif) no-repeat; text-indent:-9999px}
+
+.ic_text{
+    padding:5px 0 5px 5px;
+    margin:0px;
+    font-size:11px;
+}
+
+
+
+/*  
+   FOOTER
+-------------------------------------------------------------- */
+.pageFooter{width:940px; margin:0 auto;}
+.footer		{ position:relative; overflow:hidden;width:980px;margin:0 auto; width:980px;height:397px}
+.oscuro		{ background:url(i/bgFooterBlack.jpg) no-repeat center top}
+.boxFooter	{height:312px;margin-top:10px;overflow:hidden;padding-top:10px;position:relative;}
+.icFb		{ background:url(i/ico_footer_facebook.gif) no-repeat left center; padding-left:16px}
+.icTw		{ background:url(i/ico_footer_twitter.gif) no-repeat left center; padding-left:16px}
+.colFooter	{display:inline;float:left;margin-right: 10px; padding-left:9px; width:140px; border-right:solid 1px #666}
+.colFooter2	{display:inline;float:left;margin-right: 10px; padding-left:9px; width:150px}
+.boxFooter ul 	{display:block;line-height:22px;margin:0;padding:0 0 10px 0;position:relative; font-size:12px; list-style-type:none}
+.boxFooter li 	{margin:0 3px;padding:0;}
+.boxFooter a {color:#666666;text-decoration:none;}
+.boxFooter a:hover {color:#c00}
+.boxFooter h5.oscuro {padding:4px; background:url(i/logoFooterBlack.gif) no-repeat left center; text-indent:-9999px; margin:0 0 7px 0}
+.boxFooter h6 { color: #999;padding:19px 0 5px; font:900 12px/normal Arial, Helvetica, sans-serif; text-transform:uppercase; margin:0}
+.boxFooter p {color:#666;font-size:0.85em;overflow:hidden}
+.footer .boxFooter p.pie { display:block; position: absolute; width:230px; top:160px; right:28px; font:300 10px/normal Arial, Helvetica, sans-serif; text-align:center; color:#888}
+.footer ul.boxFooterBlack  {display:block; position:absolute; width:900px; bottom:12px; left:0;margin:0; padding:0 0 0 10px;overflow:hidden;}
+.footer ul.boxFooterBlack li { display:inline; font-size:11px; margin-right:10px;}
+.footer ul.boxFooterBlack li.rotulo { color:#CCC; text-transform:uppercase; font-weight:900; float:none; margin:0; padding:0 15px; font-size:12px;}
+.footer ul.boxFooterBlack a {color:#CCC;text-decoration:none;}
+.footer ul.boxFooterBlack a:hover {color:#CCC;text-decoration:underline;}
+
+
+
+/*  
+   MISC
+-------------------------------------------------------------- */
+
+.mr15	{ margin-right:15px}
+.mr20	{ margin-right:20px}
+.mr0	{ margin-right:0}
+
+.fl { float:left}
+
+/* PUBLICIDAD */
+
+.topAd{overflow:hidden;width:980px;height:1%; padding:0 0 15px 0; margin:0 auto}
+.ad728x90{overflow:hidden; position:relative; float:left;width:728px;height:auto; text-align:center}
+.ad200x90{overflow:hidden; position:relative; float: right;width:220px;height:auto; text-align:center}
+.ad300x250{overflow:hidden; position:relative; float:left;width:300px;height:1%; margin:0 0 15px 0; text-align:center}
+.ad300x125{overflow:hidden; position:relative; float:left;width:300px;height:1%; margin:0 0 15px 0; text-align:center}
+.ad600x90{overflow:hidden; position:relative; float:left;width:620px;height:1%; margin-bottom:16px;text-align:center}
+.ad940x90{overflow:hidden; position:relative; float:left;width:940px;height:1%; margin:5px 0 15px 0;text-align:center}
+.ad940x200{overflow:hidden; position:relative; float:left;width:940px;height:1%; margin:0 0 10px 0;text-align:center}
+
+.socialesTv{float:right; margin:8px 0}
+
+#popup{position: absolute; display: none; top: 0; left: 0; background: #000000; padding:10px;z-index: 101}
+#popup_body{width: 480px; height: 320px; overflow: auto; background: #ffffff; padding: 10px}
+.popup_title{font-weight: bold; font-size: 13px}
