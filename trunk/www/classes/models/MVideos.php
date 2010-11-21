@@ -12,7 +12,7 @@ include_once(ROOT."classes/models/MThumbnails.php");
 include_once(ROOT."classes/models/MTags.php");
 
 /**
- * Clase base de videos
+ * Clase modelo de videos
  * @author Rodrigo
  *
  */
