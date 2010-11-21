@@ -1,6 +1,6 @@
 <?php
-/*ini_set("display_errors","on");
-error_reporting(E_ALL);*/
+ini_set("display_errors","on");
+error_reporting(E_ALL);
 
 include_once("root.php");
 include_once(ROOT."classes/models/IModel.php");
@@ -10,64 +10,61 @@ include_once(ROOT."classes/lib/Observable.php");
 include_once(ROOT."classes/lib/QueryBuilder.php");
 
 /**
- * Base model (business object) class. Every concrete model is derived from this class.
- * It is assumed that a model can be mapped to a single table -- main table. The relationships are managed in SQL queries.
+ * Clase base de Modelos. Todos las clases modelos extienden esta.
+ * Se asume que mapea una sola tabla. Las relaciones son manejadas en l&oacute;gica de base de datos.
  */
 class MModel extends Observable implements IModel {
 	
 	/**
-	 * Working data set.
+	 * Recordset a usar.
 	 *
 	 * @var RecordSet
 	 */
 	protected $dataSet;
 	/**
-	 * Arbitral ID or an array of IDs of the criteria.
+	 * ID simple o array de IDs.
 	 *
 	 * @var mixed
 	 */
 	protected $id;
 	/**
-	 * Name of the primary key of the main table.
+	 * Nombre de la clave primaria de la tabla principal.
 	 *
 	 * @var string
 	 */
 	protected $pk='id';
 	/**
-	 * Name of the main table.
+	 * Nombre de la tabla principal.
 	 *
 	 * @var string
 	 */
 	protected $table;
 	/**
-	 * Column names and their initial values of the main table.
+	 * Columnas de la tabla con vallores iniciales.
 	 *
 	 * @var colums
 	 */
 	protected $columns=array();
 	
 	/**
-	 * Column names and their respective values to be included to query criterion.
-	 * Works only with update() method. Note that you can use setId() method if the only
-	 * criterion is the primary key.
+	 * Nombres de columna y respectivos valores para ser incluidos en el criterio de la consulta.
+	 * Funciona con el m&eacute;todo update(). Se puede usar setId() si el criterio es clave primaria
 	 *
 	 * @var array
 	 */
 	protected $criterion=array();
-	
-	
-	/**
-	 * Clave primaria de la categoría padre
-	 * @var string
-	 */
-	
-	public $parent_id;
 	
 	function MModel($dataSet=null){
 		set_time_limit(15);
 		$this->dataSet=$dataSet;
 		$this->id=null;
 	}
+	
+	/**
+	 * Setea clave primaria para ser usada como par&aacute;metro de la consulta SQL.
+	 * @param $value
+	 * @return unknown_type
+	 */
 	
 	public function setId($value) { 
 		if(!is_array($value))$this->id=mysql_real_escape_string($value); 
@@ -80,15 +77,20 @@ class MModel extends Observable implements IModel {
 	}
 	
 	/**
-	 * Prapare the SQL query for data retrieval.
+	 * Query SQL para el despliegue de datos.
 	 *
 	 */
 	protected function setQuery() {}
 	/**
-	 * Prepare the SQL query for calculating the total number of rows for paging.
+	 * Cuenta el n&uacute;mero de filas a paginar.
 	 *
 	 */
 	protected function setCountQuery() {}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see classes/models/IModel#load()
+	 */
 	
 	public function load(){
 		if($this->dataSet){
@@ -96,7 +98,11 @@ class MModel extends Observable implements IModel {
 			$this->dataSet->fill();
 		}
 	}
-	
+
+	/**
+	 * (non-PHPdoc)
+	 * @see classes/models/IModel#add()
+	 */
 	public function add(){
 		$qb=new QueryBuilder($this->table,$this->columns);
 		$dao=new DAO();
@@ -105,6 +111,11 @@ class MModel extends Observable implements IModel {
 	    $id=(int)$dao->get(0,"id");
 		return $id;
 	}
+	
+	/**
+	 * (non-PHPdoc)
+	 * @see classes/models/IModel#update()
+	 */
 	
 	public function update(){
 		$qb=new QueryBuilder($this->table,$this->columns);
@@ -115,11 +126,21 @@ class MModel extends Observable implements IModel {
 		return $dao->query($query);
 	}
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see classes/models/IModel#delete()
+	 */
+	
 	public function delete(){
 		$qb=new QueryBuilder($this->table);
 		$dao = new DAO();
 		return $dao->query($qb->delete($this->_where()));
 	}
+	
+	/**
+	 * WHERE SQL como criterio de consulta o modificaci&oacute;n
+	 * @return string
+	 */
 	
 	protected function _criterion(){
 		$where="WHERE 1";
@@ -129,13 +150,18 @@ class MModel extends Observable implements IModel {
 		return $where;
 	}
 	
+	/**
+	 * A&ntilde;ade criterio de consulta 
+	 * @param $field
+	 * @param $value
+	 */
+	
 	public function addCriterion($field, $value){
 		$this->criterion[mysql_real_escape_string($field)]=mysql_real_escape_string($value);
 	}
 	
 	/**
-	 * Create the WHERE clause for SQL queries. The result clause contains the primary key clause, if the ID is set; and clauses for
-	 * each column that is set.
+	 * Crea la clausula WHERE para consultas SQL.
 	 *
 	 * @return string WHERE clause
 	 */
@@ -212,11 +238,9 @@ class MModel extends Observable implements IModel {
 				if(function_exists('mysql_real_escape_string')){
 					if(is_array($a[0])){
 						$this->columns[$p]=array();
-						foreach ($a[0] as $k=>$v){
-							$this->columns[$p][$k]=mysql_real_escape_string($v);
-						}
+						foreach ($a[0] as $k=>$v)$this->columns[$p][$k]=mysql_real_escape_string($v);
 					}else{
-						$this->columns[$p]=mysql_real_escape_string(@$a[0]);
+						$this->columns[$p]=mysql_real_escape_string($a[0]);
 					}
 				}else{
 					if(is_array($a[0])){
@@ -243,6 +267,12 @@ class MModel extends Observable implements IModel {
 		}
 		return true;
 	}
+	
+	/**
+	 * M&eacute;todo m&aacute;gico para obtener cualquier columna
+	 * @param $name
+	 * @return unknown_type valor de campo
+	 */
 	
 	public function __get($name){
 		if(isset($this->columns[$name])){
