@@ -8,10 +8,21 @@ include_once(ROOT."classes/models/MModel.php");
 include_once(ROOT."classes/models/MBufferedModel.php");
 include_once(ROOT."classes/models/MVideos.php");
 
+/**
+ * Clase modelo de categor&iacute;as
+ * @author Rodrigo
+ *
+ */
 
-class MCategoryList extends MBufferedModel {
+
+class MCategories extends MBufferedModel {
 	
   private $tmpbuff;
+  private $table_videos;
+  
+  /**
+   * Constructor
+   */
 	
   function __construct(){
     parent::__construct(new RecordSet());
@@ -30,6 +41,11 @@ class MCategoryList extends MBufferedModel {
     );
     
   }
+  
+  /**
+   * (non-PHPdoc)
+   * @see www/classes/models/MModel#setQuery()
+   */
 
   protected function setQuery(){
   	
@@ -47,10 +63,20 @@ class MCategoryList extends MBufferedModel {
     $this->dataSet->setQuery($query);
   }
   
+  /**
+   * (non-PHPdoc)
+   * @see www/classes/models/MModel#setCountQuery()
+   */
+  
   protected function setCountQuery(){
   	$query="SELECT COUNT(*) FROM $this->table ".$this->_where();
   	$this->dataSet->setCountQuery($query);
   }
+  
+  /**
+   * (non-PHPdoc)
+   * @see www/classes/models/MModel#_where()
+   */
   
   protected function _where(){
   	$where="WHERE 1";
@@ -62,6 +88,11 @@ class MCategoryList extends MBufferedModel {
   	return $where;
   }
   
+  /**
+   * Obtiene los nodos hijos.
+   */
+  
+  
   public function getLevels(){
   	$this->tmpbuff=array();
   	$parent_id=$this->columns['parent_id']!==null?$this->columns['parent_id']:0;
@@ -69,6 +100,12 @@ class MCategoryList extends MBufferedModel {
   	$this->buffer=$this->tmpbuff;
   	$this->reset();
   }
+  
+  /**
+   * funci&oacute;n recursiva que busca todos los hijos asociados a un canal.
+   * @param $id
+   * @param $level
+   */
   
   private function iterate($id=0, $level=0){
     foreach ($this->buffer as $cat){
@@ -86,6 +123,12 @@ class MCategoryList extends MBufferedModel {
   	}
   }
   
+  /**
+   * A&ntilde;adir canales hijos
+   * @param $parent_id
+   * @return unknown_type
+   */
+  
   private function addChildren($parent_id){
   	$dao=new DAO();
   	$cat=new MCategoryList();
@@ -99,6 +142,13 @@ class MCategoryList extends MBufferedModel {
   		$this->addChildren($data['parent_id']);
   	}
   }
+  
+  /**
+   * Actualiza todos lo canales hijos en el campo childrens,
+   * esta es una desnormalización a cambio de rendimiento de la base de datos 
+   * @param $parent_id
+   * @return unknown_type
+   */
   
   private function updateChildrens($parent_id){
   	$dao=new DAO();
@@ -115,22 +165,23 @@ class MCategoryList extends MBufferedModel {
   }
   
   
-  
+  /**
+   * (non-PHPdoc)
+   * @see www/classes/models/MModel#add()
+   */
   
   public function add(){
-  	
-  	
   	$this->setState('change_immediate');
 	$this->notifyObservers();
-	
   	$this->id=parent::add();
-  	
   	$this->updateChildrens($this->getParent_id());
-  	
   	return $this->id;
-
   }
   
+  /**
+   * (non-PHPdoc)
+   * @see www/classes/models/MModel#update()
+   */
   public function update(){
   	$this->setState('change_immediate');
 	$this->notifyObservers();
@@ -141,6 +192,11 @@ class MCategoryList extends MBufferedModel {
 	
 	return $return;
   }
+  
+  /**
+   * (non-PHPdoc)
+   * @see www/classes/models/MModel#delete()
+   */
   
   public function delete(){
   	//delete videos
@@ -156,6 +212,11 @@ class MCategoryList extends MBufferedModel {
 	return $return;
 	
   }
+  
+  /**
+   * (non-PHPdoc)
+   * @see www/classes/models/MBufferedModel#load()
+   */
   
   public function load(){
   	parent::load();
