@@ -52,7 +52,6 @@ class MVideos extends MModel {
 	  		'title'=>null,
 	  		'description'=>null,
 	  		'tags'=>null,
-	  		'type'=>null,
 	  		'tt'=>null,
 	  		'duration'=>null,
 	  		'frame'=>null,

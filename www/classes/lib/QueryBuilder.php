@@ -1,13 +1,28 @@
 <?php
-
+/**
+ * Constructor de consultas SQL 
+ * @author Rodrigo
+ *
+ */
 class QueryBuilder {
 	private $table;
 	private $columns;
+	
+	/**
+	 * constructor
+	 * @param $table tabla
+	 * @param $columns array
+	 */
 	
 	public function __construct($table, $columns=array()){
 		$this->table=$table;
 		$this->columns=$columns;
 	}
+	
+	/**
+	 * Constructor de query INSERT
+	 * @return string SQL
+	 */
 	
 	public function add(){
 		$fields='';
@@ -21,9 +36,14 @@ class QueryBuilder {
 		$fields=ltrim($fields,',');
 		$values=ltrim($values,',');
 		$query="INSERT INTO `$this->table` ($fields) VALUES ($values)";
-	//	if($_SERVER['SCRIPT_NAME'] == '/admin/index.php' && $_GET['p'] == 'top_carrusel_test') die ($query);
 		return $query;
 	}
+	
+	/**
+	 * Constructor de queries UPDATE
+	 * @param $where string
+	 * @return string SQL
+	 */
 	
 	public function update($where=''){
 		$fields='';
@@ -34,9 +54,14 @@ class QueryBuilder {
 		}
 		$fields=ltrim($fields,',');
 		$query="UPDATE `$this->table` SET $fields $where";
-	//	if($_SERVER['SCRIPT_NAME'] == '/admin/index.php' && $_GET['p'] == 'top_carrusel_test') die ($query);
 		return $query;
 	}
+	
+	/**
+	 * Constructor de queries DELETE
+	 * @param $where string
+	 * @return string SQL
+	 */
 	
 	public function delete($where=''){
   		$query = "DELETE FROM `$this->table` $where";

@@ -31,12 +31,12 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `ztv_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `taxonomies_id` int(11) NOT NULL,
+  `taxonomies_id` int(11) NOT NULL DEFAULT 0,
   `parent_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL DEFAULT '',
   `thumb` varchar(255) NOT NULL DEFAULT '',
   `approved` enum('0','1') NOT NULL DEFAULT '0',
-  `children` text NOT NULL,
+  `children` text,
   `orden` smallint(6) NOT NULL DEFAULT '1',
   PRIMARY KEY (`id`),
   KEY `parent_id` (`parent_id`),

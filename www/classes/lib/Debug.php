@@ -1,6 +1,16 @@
 <?php
 include_once("root.php");
+/**
+ * Clase para depuraci&oacute;n de errores, almacena los mensajes del sistema,
+ * @author Rodrigo
+ *
+ */
 class Debug{
+  /**
+   * Escribe el reporte de error en un archivo de texto plano llamado debug.txt
+   * @param $message
+   * @return unknown_type
+   */	
   function write($message=null){
     $trace=debug_backtrace();
     if($message!==null){
@@ -12,9 +22,9 @@ class Debug{
     }else{
     	$message=print_r($trace,1);
     }
-    //$ff=fopen(ROOT."debug.txt","a");
-    //fwrite($ff,"$message\r\n");
-    //fclose($ff);
+    $ff=fopen(ROOT."debug.txt","a");
+    fwrite($ff,"$message\r\n");
+    fclose($ff);
   }
 }
 ?>
