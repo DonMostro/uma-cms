@@ -1,5 +1,5 @@
 <?
-class Parts extends MModel {
+class Parts {
 	function SelectCategories(){
 		$strTopCarrusel='
 		<style type="text/css">

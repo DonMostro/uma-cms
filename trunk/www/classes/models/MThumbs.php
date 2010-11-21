@@ -12,7 +12,7 @@ include_once(ROOT."classes/models/MModel.php");
  *
  */
 
-class MThumbnails extends MModel{
+class MThumbs extends MModel{
   private $group;
   private $channel;
 
