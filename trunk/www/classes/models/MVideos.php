@@ -134,18 +134,17 @@ class MVideos extends MModel {
 		$this->table.approved, $this->table.orig_file, 
 		$this->table_video_types.filename,
 		$this->table.frame, $this->table_hits.hits AS hits, 
-		$this->table.duration, $this->table_videos_categories.categories_id,
+		$this->table.duration, $this->table.categories_id,
 		$this->table_categories.title AS categories_title, 
 		$this->table_thumbs.filename AS thumb ";
 		$query.=", $search
 		$this->table.id
 		FROM $this->table 
 		LEFT JOIN $this->table_thumbs ON $this->table_thumbs.videos_id=$this->table.id 
-		LEFT JOIN $this->table_videos_categories ON $this->table.id=$this->table_videos_categories.videos_id 
 		LEFT JOIN $this->table_hits ON $this->table.id=$this->table_hits.videos_id 
 		LEFT JOIN $this->table_video_types ON $this->table.id=$this->table_video_types.videos_id 
-		LEFT JOIN $this->table_categories ON $this->table_categories.id=$this->table_videos_categories.categories_id 
-		$this->_where() GROUP BY $this->table.id";
+		LEFT JOIN $this->table_categories ON $this->table_categories.id=$this->table.categories_id "
+		.$this->_where() ." GROUP BY $this->table.id";
 		$this->dataSet->setQuery($query);
 	}
 	
@@ -158,8 +157,6 @@ class MVideos extends MModel {
 		$query="
 		SELECT COUNT(*) 
 	    FROM $this->table 
-		LEFT JOIN $this->table_categories 
-	  	ON $this->table.categories_id=$this->table_categories.id
 	   	".$this->_where();
 	  	$this->dataSet->setCountQuery($query);
 	}
@@ -195,7 +192,7 @@ class MVideos extends MModel {
 	
 		if($this->columns['tt'])$where.=" AND $this->table.tt>".(int)$this->columns['tt'];
 		if($this->columns['approved']!==false)$where.=" AND $this->table.approved='".$this->columns['approved']."'";
-		if($this->columns['type_id']!==false)$where.=" AND $this->table_video_types.type_id=".(int)$this->columns['type_id'];
+		if($this->columns['types_id']!==false)$where.=" AND $this->table_video_types.types_id=".(int)$this->columns['types_id'];
 		return $where;
 	}
 	

@@ -41,7 +41,7 @@ class XML{
         $this->parents=array();
         $this->pos=-1;
         if (!($fp = fopen($file, "r"))) {
-           die("could not open XML input");
+           die("no se encuentra XML $file");
         }
 
         while ($data = fread($fp, 4096)) {

@@ -104,6 +104,7 @@ class MModel extends Observable implements IModel {
 		$qb=new QueryBuilder($this->table,$this->columns);
 		$dao=new DAO();
 		$dao->query($qb->add());
+		exit($qb->add());
 		$dao->query("SELECT last_insert_id() AS id FROM `$this->table`");
 	    $id=(int)$dao->get(0,"id");
 		return $id;
@@ -181,6 +182,11 @@ class MModel extends Observable implements IModel {
 		return $where;
 	}
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see www/classes/models/IModel#countAll()
+	 */
+	
 	public function countAll(){
 		if($this->dataSet){
 			$this->setCountQuery();
@@ -190,6 +196,11 @@ class MModel extends Observable implements IModel {
 		}
 	}
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see www/classes/models/IModel#next()
+	 */
+	
 	public function next(){
 		if($this->dataSet){
 			return $this->dataSet->next();
@@ -198,12 +209,20 @@ class MModel extends Observable implements IModel {
 		}
 	}
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see www/classes/models/IModel#reset()
+	 */
+	
 	public function reset(){
 		if($this->dataSet){
 			$this->dataSet->reset();
 		}
 	}
-	
+	/**
+	 * (non-PHPdoc)
+	 * @see www/classes/models/IModel#getSize()
+	 */
 	public function getSize(){
 		if($this->dataSet){
 			return $this->dataSet->getSize();
@@ -211,6 +230,12 @@ class MModel extends Observable implements IModel {
 			return 0;
 		}
 	}
+	
+	/**
+	 * 
+	 * @param $field
+	 * @return unknown_type
+	 */
 	
 	protected function idToString($field){
 		$where="";
@@ -227,6 +252,13 @@ class MModel extends Observable implements IModel {
 		} 
 		return $where;
 	}
+	
+	/**
+	 * 
+	 * @param $m
+	 * @param $a
+	 * @return boolean
+	 */
 
 	public function __call($m, $a){
 		if(strtolower(substr($m,0,3))=='set' && array_key_exists(0,$a)){
@@ -266,7 +298,7 @@ class MModel extends Observable implements IModel {
 	}
 	
 	/**
-	 * M&eacute;todo m&aacute;gico para obtener cualquier columna
+	 * M&eacute;todo m&aacute;gico PHP 5 para obtener cualquier columna
 	 * @param $name
 	 * @return unknown_type valor de campo
 	 */
@@ -279,13 +311,40 @@ class MModel extends Observable implements IModel {
 		}
 	}
 	
+	/**
+	 * (non-PHPdoc)
+	 * @see www/classes/models/IModel#getStart()
+	 */
 	public function getStart() { return $this->dataSet?$this->dataSet->getStart():null; }
+	/**
+	 * (non-PHPdoc)
+	 * @see www/classes/models/IModel#getLimit()
+	 */
 	public function getLimit() { return $this->dataSet?$this->dataSet->getLimit():null; }
+	/**
+	 * (non-PHPdoc)
+	 * @see www/classes/models/IModel#getOrder()
+	 */
 	public function getOrder() { return $this->dataSet?$this->dataSet->getOrder():null; }
+	/**
+	 * (non-PHPdoc)
+	 * @see www/classes/models/IModel#getId()
+	 */
 	public function getId() { return $this->id; }
-	
+	/**
+	 * (non-PHPdoc)
+	 * @see www/classes/models/IModel#setStart($start)
+	 */
 	public function setStart($start){ if($this->dataSet) $this->dataSet->setStart($start); }
+	/**
+	 * (non-PHPdoc)
+	 * @see www/classes/models/IModel#setLimit($limit)
+	 */
 	public function setLimit($limit){ if($this->dataSet) $this->dataSet->setLimit($limit); }
+	/**
+	 * (non-PHPdoc)
+	 * @see www/classes/models/IModel#addOrder($order)
+	 */
 	public function addOrder($order){ if($this->dataSet) $this->dataSet->addOrder($order); }
 }
 
