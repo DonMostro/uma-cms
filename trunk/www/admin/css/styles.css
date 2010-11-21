@@ -17,9 +17,9 @@ input,textarea,select{
 }
 
 #area{
-	float: left;
-	width: 960px;
-	background: #EFEFEF;
+	/*float: left;
+	width: 960px;*/
+	background: dimGray;
 	padding: 0 10px 0 10px;
 }
 
@@ -77,15 +77,12 @@ a.tab:hover{
 
 h2,h3{
 	margin: 0 0 10px 0;
-	background: #DEDEDE; 
+	background: DarkSlateGray; 
 	padding: 5px;
 	border-bottom: 2px solid white;
-}
-
-
-h2,h3{
 	border-top: 2px solid white;
 }
+
 
 .bottom{
 	margin: 10px 0;
@@ -96,7 +93,7 @@ h2,h3{
 
 .line{
 	margin: 10px 0;
-	background: #DEDEDE; 
+	background: darkSlateGray; 
 	padding: 5px 5px 0 5px;
 	border-top: 2px solid white;
 	border-bottom: 2px solid white;
@@ -113,7 +110,7 @@ h2,h3{
 }
 
 .trow{
-	background: #DEDEDE;
+	background: darkSeaGreen;
 }
 
 .trow:hover{
@@ -207,3 +204,16 @@ a.settings_tab:hover{
 	width: 100%;
 	z-index: 100;
 }
+
+#content table{
+	width:100%;
+}
+
+#content table td{
+	padding:8px;
+}
+		
+		
+
+
+
