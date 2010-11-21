@@ -312,7 +312,7 @@ a.disabled {
 .boxFooter h5.oscuro {padding:4px; background:url(i/logoFooterBlack.gif) no-repeat left center; text-indent:-9999px; margin:0 0 7px 0}
 .boxFooter h6 { color: #999;padding:19px 0 5px; font:900 12px/normal Arial, Helvetica, sans-serif; text-transform:uppercase; margin:0}
 .boxFooter p {color:#666;font-size:0.85em;overflow:hidden}
-.footer .boxFooter p.pie { display:block; position: absolute; width:230px; top:160px; right:28px; font:300 10px/normal Arial, Helvetica, sans-serif; text-align:center; color:#888}
+.footer .boxFooter p.pie { display:block; position: absolute; width:230px; top:180px; right:28px; font:300 10px/normal Arial, Helvetica, sans-serif; text-align:center; color:#888}
 .footer ul.boxFooterBlack  {display:block; position:absolute; width:900px; bottom:12px; left:0;margin:0; padding:0 0 0 10px;overflow:hidden;}
 .footer ul.boxFooterBlack li { display:inline; font-size:11px; margin-right:10px;}
 .footer ul.boxFooterBlack li.rotulo { color:#CCC; text-transform:uppercase; font-weight:900; float:none; margin:0; padding:0 15px; font-size:12px;}
