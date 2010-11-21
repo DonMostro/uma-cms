@@ -1,7 +1,4 @@
 <?php
-ini_set("display_errors","on");
-error_reporting(E_ALL);
-
 include_once("root.php");
 include_once(ROOT."classes/models/IModel.php");
 include_once(ROOT."classes/lib/DAO.php");
