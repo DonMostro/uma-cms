@@ -6,6 +6,12 @@ include_once(ROOT."classes/lib/DAO.php");
 include_once(ROOT."classes/admin/edittable.php");
 include_once(ROOT."classes/admin/viewtable.php");
 
+/**
+ * 
+ * @author Administrador
+ *
+ */
+
 class Table{
   public $page;
   function Table($page){

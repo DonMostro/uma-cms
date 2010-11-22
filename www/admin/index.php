@@ -72,6 +72,7 @@ foreach ($pages as $title=>$page){
 $content="";
 
 if(isset($form->p)){
+	//var_dump($xml);
 	$xml->parse("xml/".$form->p.".xml");
 	$view=new $xml->elements[0]['TYPE']($form->p);
 	$content=$view->display();
