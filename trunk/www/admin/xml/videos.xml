@@ -6,7 +6,7 @@
     <field name="Tags" target="tags" type="textarea" visible="false" edit="true" add="true"/>
     <field name="Description" target="description" type="textarea" visible="false" edit="true" add="true"/>
     <field name="Category" target="categories_id" type="categories" visible="true" edit="true" add="true"/>
-    <field name="Video Type" target="type_id" type="select" table="video_types" field="name" visible="true" edit="true" add="true"/>
+    <field name="Video Type" target="type_id" type="select" table="ztv_video_types" field="name" visible="true" edit="true" add="true"/>
     <field name="Username" target="username" type="finduser" visible="true" edit="true" add="true"/>
     <field name="Date/Time" target="tt" type="tt" visible="true" edit="true" add="true"/>
     <field name="Embed" target="embed" type="textarea" visible="false" edit="true" add="true"/>
