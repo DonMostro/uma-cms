@@ -7,11 +7,11 @@ include_once(ROOT."classes/lib/Template.php");
 include_once(ROOT."classes/lib/Component.php");
 include_once(ROOT."classes/models/MPages.php");
 include_once(ROOT."classes/models/MMenu.php");
-include_once(ROOT."classes/models/MPageElements.php");
+//include_once(ROOT."classes/models/MPageElements.php");
 include_once(ROOT."classes/views/VView.php");
 
 /**
- * Custom user pages
+ * P&aacute;ginas customizadas
  *
  */
 class CPage extends CCommand {
@@ -22,9 +22,9 @@ class CPage extends CCommand {
 	
 	function run(){
 		$pagename=$this->form->p;
-		$acl=new ACL($this->user->username,'pages',$pagename);
-		if($acl->canAccess()){		
-			
+		//$acl=new ACL($this->user->username,'pages',$pagename);
+		//if($acl->canAccess()){		
+		if(true){	
 			$pagemodel=new MPages();
 			$pagemodel->setId($pagename);
 			$pagemodel->load();
@@ -51,7 +51,7 @@ class CPage extends CCommand {
 				foreach ($matches[1] as $c){
 					if(in_array($c.'.xml',$files)){
 						$component=new Component(ROOT.'components/'.$c.'.xml');
-						$component->username=$this->user->username;
+						//$component->username=$this->user->username;
 						$component->run();
 						$view->$c=$component->show();
 					}
@@ -68,7 +68,7 @@ class CPage extends CCommand {
 				$view->$e['elements_id']=$component->show();
 			}*/
 			
-			$view->username=$this->user->username;
+			//$view->username=$this->user->username;
 			
 			$this->content=$view->show();
 			
@@ -84,8 +84,6 @@ class CPage extends CCommand {
 		}else{
 			$this->content=$this->lang->getText('E_ACCESS_DENIED');
 		}
-		
-		
 	}
 }
 ?>

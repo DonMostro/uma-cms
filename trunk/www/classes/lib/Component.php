@@ -2,9 +2,9 @@
 include_once("root.php");
 include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Debug.php");
-include_once(ROOT."classes/lib/Lang.php");
+//include_once(ROOT."classes/lib/Lang.php");
 include_once(ROOT."classes/lib/Form.php");
-include_once(ROOT."classes/lib/acl.php");
+//include_once(ROOT."classes/lib/acl.php");
 
 class Component {
 	
@@ -26,7 +26,7 @@ class Component {
 		$this->name=(string)$doc['name'];
 		
 		$lang=Lang::getInstance();
-		if($lang->getText($this->name))$this->name=$lang->getText($this->name);
+		//if($lang->getText($this->name))$this->name=$lang->getText($this->name);
 		
 		if($doc->model){
 			$model_name=(string)$doc->model['name'];

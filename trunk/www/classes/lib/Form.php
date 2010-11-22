@@ -1,10 +1,13 @@
 <?php
 /**
- * Request handler. Besides being a wrapper for $_POST, $_GET and $_FILES, it decodes/encodes the input data.
- * The result values are HTML ready data.
+ * Manejador de Requests. Encapsula los $_POST, $_GET y $_FILES, codifica/decodifica los datos ingresados.
+ * Los valores de los resultado son datos HTML.
  *
  */
 class Form {
+  /**
+   * Constructor
+   */
   function Form(){
     foreach($_GET as $k=>$v){
         if(is_array($v)){
@@ -21,17 +24,30 @@ class Form {
         }else $this->$k=$this->encode($v);
     }
   }
-  
+  /**
+   * Cuenta los $_POST
+   */
   function isPost() { return count($_POST); }
+  /**
+   * Cuenta los $_GET
+   */
   function isGet() { return count($_GET); }
   
-  function &getInstance(){
+  function getInstance(){
   	static $me;
   	if(!$me) {
   		$me=array(new Form());
   	}
   	return $me[0];
   }
+  
+  /**
+   * Upload de archivos
+   * @param $file
+   * @param $dest
+   * @param $max_size
+   * @return unknown_type
+   */
   
   function upload($file, $dest, $max_size=999999999999){
   	if(!empty($_FILES[$file]['name'])&&is_array($_FILES[$file]['name'])){
@@ -61,6 +77,11 @@ class Form {
 		}else return false;
   	}
   }
+  /**
+   * Codifica a UTF-8
+   * @param $value
+   * @return unknown_type
+   */
   
   function encode($value){
     if(get_magic_quotes_gpc()==1)$value=stripslashes($value);
