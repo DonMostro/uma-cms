@@ -1,12 +1,15 @@
 <?php
 
-//Uso:
+/**
+ * Parseo de componentes XML del back-office
+ * 
+ * Uso:
+ * $xml=new XML();
+ * $xml->parse('file'); 
+ * echo $xml->elements[0]['NAME'];
+ */
 
-//$xml=new XML();
 
-//$xml->parse('file');
-
-//echo $xml->elements[0]['NAME'];
 
 class XML{
     var $file;
@@ -29,12 +32,21 @@ class XML{
     }
 
     
+    /**
+     * Constructor
+     */
 
     function XML(){
        $this->xml_parser = xml_parser_create();
        xml_set_object($this->xml_parser,$this);
        xml_set_element_handler($this->xml_parser, "startElement", "endElement");
     }
+    
+    /**
+     * Parsea archivo XML
+     * @param $file
+     * @return 
+     */
 
     function parse($file){
         $this->elements=array();
