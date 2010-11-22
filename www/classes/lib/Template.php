@@ -4,13 +4,12 @@ include_once(ROOT."classes/lib/Debug.php");
 include_once(ROOT."classes/lib/Lang.php");
 
 /**
- * The template engine. Usage:
+ * Motor de templates. Uso:
  * 
- * $tpl=new Template('template.html'); //or $tpl=new Template('<html><!-- html code --></html>');
+ * $tpl=new Template('template.html'); //o $tpl=new Template('<html><!-- html code --></html>');
  * $tpl->tag='content';
  * echo $tpl->output();
  * 
- * It's important to note that the template engine also parses the language strings.
  *
  */
 class Template{
@@ -18,7 +17,13 @@ class Template{
     private $output;
     private $lang;
     
-    function Template($page, $failsafe=false){
+    /**
+     * Constructor
+     * @param $page
+     * @param $failsafe
+     */
+    
+    function Template($page){
       $this->output="";
       if(@is_readable(ROOT.'templates/'.$page)){
       	$page=ROOT.'templates/'.$page;
@@ -28,9 +33,12 @@ class Template{
       }else{
       	$this->html=$page;
       }
-      
-      if(!$failsafe)$this->lang=Lang::getInstance();
     }
+    
+    /**
+     * Retorna el template parseado
+     * @return string HTML
+     */
     
     public function output(){
     	if(strpos($this->html,'<#')!==false){
@@ -40,6 +48,12 @@ class Template{
     	}
 		return $this->output;
     }
+    
+    /**
+     * Parsea el template entre tags <#var/> 
+     * @param $start
+     * @param $end
+     */
     
     private function _parse($start, $end){
     	//$len=$end-$start+1;
@@ -53,12 +67,12 @@ class Template{
     		$tag_name=substr($this->html,$tag_start+2,$tag_end-$tag_start-2);
     		
     		if(substr($tag_name,0,3)=='if '){
-    			$condition=substr($tag_name,3); //the conditional expression
+    			$condition=substr($tag_name,3); //expresión condicional
     			list($var,$val)=explode('==',$condition);
     			$val=trim($val,'"');
     			
-    			$else=strpos($this->html,'<#else/>',$tag_end+2); //find the else block
-    			$end_if=strpos($this->html,'<#endif/>',$tag_end+2); //find the end of the if block
+    			$else=strpos($this->html,'<#else/>',$tag_end+2); //bloque else
+    			$end_if=strpos($this->html,'<#endif/>',$tag_end+2); //bloque end if
     			
     			
     			if(isset($this->$var) && $this->$var==$val){ //if the condition evaluates to true
@@ -94,6 +108,12 @@ class Template{
     	}
     	$this->output.=substr($this->html,$pos,$end-$pos+1);
     }
+    
+    /**
+     * Parsea el template entre tags [:var:]
+     * @param $start
+     * @param $end
+     */
 
     private function _parseBracket($start, $end){
     	//$len=$end-$start+1;
@@ -153,6 +173,14 @@ class Template{
     	}
     	$this->output.=substr($this->html,$pos,$end-$pos+1);
     }
+    
+    /**
+     * Busca a $needle en $haystack y retorna la posici&oacute;n
+     * @param $haystack
+     * @param $needle
+     * @param $offset
+     * @return int posici&oacute;n
+     */
     
     private function _strrpos($haystack, $needle, $offset=0){
     	$last=false;

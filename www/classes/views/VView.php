@@ -1,11 +1,11 @@
 <?php
 include_once("root.php");
 include_once(ROOT."classes/lib/Template.php");
-include_once(ROOT."classes/lib/Lang.php");
-include_once(ROOT."classes/models/MAds.php");
+//include_once(ROOT."classes/lib/Lang.php");
+//include_once(ROOT."classes/models/MAds.php");
 
 /**
- * Base class for the view. Provides advertisement facility and general template output by specified file.
+ * Clase base para las vistas. Capa entre modelos y templates.
  *
  */
 class VView{
@@ -58,11 +58,6 @@ class VView{
   				if(!isset($tpl->$p))$tpl->$p=$var;
   			}
   		}
-  		//ETIQUETAS GOOGLE
-  		$VPage = new VPage();
-  		$VPage->SetAllRequestItems();
-  		include(ROOT."ads/googleChannels.php");
-  		//FIN ETIQUETAS
   		
   		$this->filter($tpl);
   		

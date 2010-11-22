@@ -1,2 +1,7 @@
-C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[32][2010-11-21 22:32:53]: [2010-21-11 22:32:53] Error: Data truncated for column 'approved' at row 1
-INSERT INTO `ztv_categories` (`approved`,`title`,`thumb`,`parent_id`,`orden`) VALUES ('','Yop','asas','0','1')
+C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[45][2010-11-22 01:36:10]: [2010-22-11 01:36:10] Error: Unknown column 'ztv_video_types.types_id' in 'where clause'
+
+		SELECT COUNT(*) 
+	    FROM ztv_videos 
+	   	WHERE 1 AND ztv_video_types.types_id=0
+C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[45][2010-11-22 01:36:10]: [2010-22-11 01:36:10] Error: Table 'ztv_cms.video_types' doesn't exist
+SELECT `name`,`id` FROM video_types

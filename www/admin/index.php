@@ -102,7 +102,7 @@ if(isset($form->ajax)){
 	echo $content;
 }else{
 
-	$tpl=new Template("template.html");
+	$tpl=new Template("admin.html");
 	$select = '';
 	$select.=(@$_GET['p'] == 'videos') ? Parts::IncludeAutocomplete() : '';
 	$tpl->select=$select;

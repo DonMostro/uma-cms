@@ -7,7 +7,7 @@ include_once(ROOT."classes/models/MFeaturedVideos.php");
 include_once(ROOT."classes/controllers/CCommand.php");
 include_once(ROOT."classes/controllers/CPage.php");
 include_once(ROOT."classes/lib/Debug.php");
-include_once(ROOT."classes/models/MPageElements.php");
+//include_once(ROOT."classes/models/MPageElements.php");
 include_once(ROOT."classes/models/MPages.php");
 include_once(ROOT."classes/lib/Component.php");
 

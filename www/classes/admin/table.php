@@ -14,7 +14,7 @@ class Table{
 
   function display(){
     $form=new Form();
-    $request=array(); //Fix for IonCube v6.5
+    $request=array(); 
     foreach (get_object_vars($form) as $var=>$val){
     	$request[$var]=$val; 
     }

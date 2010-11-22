@@ -47,15 +47,13 @@ class Parts {
 	function IncludeAutocomplete(){
 		$strJS= 
 <<<FIN
-<script type='text/javascript' src='../jquery/lib/jquery.js'></script>
-<script type='text/javascript' src='../jquery/lib/jquery.bgiframe.min.js'></script>
-<script type='text/javascript' src='../jquery/lib/jquery.ajaxQueue.js'></script>
-<script type='text/javascript' src='../jquery/lib/thickbox-compressed.js'></script>
-<script type='text/javascript' src='../jquery/jquery.autocomplete.js'></script>
-<script type='text/javascript' src='localdata.js'></script>
-<link rel="stylesheet" type="text/css" href="../jquery/jquery.autocomplete.css" />
-<link rel="stylesheet" type="text/css" href="../jquery/lib/thickbox.css" />
-<link rel="stylesheet" type="text/css" href="../jquery/demo/main.css" />
+<script type='text/javascript' src='../js/framework/source/jquery.js'></script>
+<script type='text/javascript' src='../js/lib/jquery.bgiframe.min.js'></script>
+<script type='text/javascript' src='../js/lib/source/jquery.ajaxQueue.js'></script>
+<script type='text/javascript' src='../js/lib/source/jquery.autocomplete.js'></script>
+<script type='text/javascript' src='../js/api/thickbox-compressed.js'></script>
+<link rel="stylesheet" type="text/css" href="../css/jquery.autocomplete.css" />
+<link rel="stylesheet" type="text/css" href="../css/thickbox.css" />
 <script type="text/javascript">
 $().ready(function() {
 	function findValueCallback(event, data, formatted) {
