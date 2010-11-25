@@ -48,29 +48,6 @@ CREATE TABLE IF NOT EXISTS `ztv_categories` (
 --
 
 
-
--- --------------------------------------------------------
-
---
--- Estructura de tabla para la tabla `ztv_channel_elements`
---
-
-CREATE TABLE IF NOT EXISTS `ztv_channel_elements` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `username` varchar(255) NOT NULL,
-  `elements_id` varchar(255) NOT NULL,
-  `limit` int(11) NOT NULL,
-  `section` varchar(255) NOT NULL,
-  `order` int(11) NOT NULL,
-  PRIMARY KEY (`id`),
-  KEY `username` (`username`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
-
---
--- Volcar la base de datos para la tabla `ztv_channel_elements`
---
-
-
 CREATE TABLE IF NOT EXISTS `ztv_featured` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `videos_id` int(11) NOT NULL DEFAULT '0',
@@ -566,6 +543,8 @@ CREATE TABLE IF NOT EXISTS `ztv_thumbs` (
 CREATE TABLE IF NOT EXISTS `ztv_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
+  `thumb` varchar(256) DEFAULT NULL,
+  `script` TEXT DEFAULT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
