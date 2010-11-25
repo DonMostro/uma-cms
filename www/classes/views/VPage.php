@@ -239,21 +239,6 @@ class VPage extends VView {
 	$blnShowSWF = "false";
 
 	
-	//create user menu
-	if($this->username){
-		$menu->setParent_Id($home);
-		$menu->load();
-		$tpl->usermenu="";
-		while($item=$menu->next()){
-		    $tpl2=new Template(ROOT."templates/usermenu_item.html");
-		    $tpl2->hl = $request_uri==$item['url'] ? "true" : "false";
-		    $tpl2->id=$item['id'];
-		    $tpl2->title=$lang->getText($item['title']);
-		    if($inbox&&$item['title']=='T_INBOX')$tpl2->title.=" ($inbox)";
-		    $tpl2->pageurl=ltrim($item['url'],'/');
-		    $tpl->usermenu.=$tpl2->output();
-		}
-	}
 	//create footer menu
   	$menu->setParent_Id(0);
   	$menu->setHeader(null);

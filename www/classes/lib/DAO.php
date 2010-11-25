@@ -75,7 +75,7 @@ class DAO{
   }
   
   /**
-   * Devuelve una matriz numérica que corresponde a una fila.
+   * Devuelve una matriz num&eacute;rica que corresponde a una fila.
    * @param $i
    * @return mysql_fetch_row
    */
@@ -85,7 +85,7 @@ class DAO{
   }
   
   /**
-   * Mueve el puntero de MySQL para que apunte al número de fila especificada
+   * Mueve el puntero de MySQL para que apunte al n&uacute;mero de fila especificada
    * @param $r
    * @return mysql_data_seek
    */
