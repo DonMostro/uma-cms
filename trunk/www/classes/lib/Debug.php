@@ -2,7 +2,7 @@
 include_once("root.php");
 /**
  * Clase para depuraci&oacute;n de errores, almacena los mensajes del sistema,
- * @author Rodrigo
+
  *
  */
 class Debug{
