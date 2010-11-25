@@ -31,7 +31,9 @@ include_once(ROOT."classes/models/MBufferedModel.php");
 include_once(ROOT."classes/models/MWatched.php");
 
 
-
+/**
+   * Clase controladora principal
+   *    */
 class Dispatcher {
 	private $map = array();
 	private $noncached = array();
