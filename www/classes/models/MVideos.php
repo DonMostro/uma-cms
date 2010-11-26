@@ -13,7 +13,6 @@ include_once(ROOT."classes/models/MTags.php");
 
 /**
  * Clase modelo de videos
- * @author Rodrigo
  *
  */
 
