@@ -23,7 +23,7 @@ class MLanguages extends MModel{
   
   protected function setQuery(){
   	
-    //Get list of categories
+    //Obtener la lista de categorías
     $query="SELECT * FROM lang ".$this->_where();
     $this->dataSet->setQuery($query);
   }
