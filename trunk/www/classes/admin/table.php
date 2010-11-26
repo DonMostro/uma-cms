@@ -7,7 +7,7 @@ include_once(ROOT."classes/admin/edittable.php");
 include_once(ROOT."classes/admin/viewtable.php");
 
 /**
- * 
+ * Tabla HTML del CMS
  * @author Administrador
  *
  */
