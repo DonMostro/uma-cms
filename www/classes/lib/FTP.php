@@ -6,8 +6,8 @@ class FTP{
 	var $status;
 	
 	function FTP($server, $username, $password){
-		$this->con=ftp_connect($server) or Debug::write('[FTP error]: Cannot connect to '.$server);
-		$this->status=ftp_login($this->con, $username, $password) or Debug::write('[FTP error]: Cannot login to '.$server.' as '.$username);
+		$this->con=ftp_connect($server) or Debug::write('[FTP error]: No se puede conectar a '.$server);
+		$this->status=ftp_login($this->con, $username, $password) or Debug::write('[FTP error]: No se puede acceder a '.$server.' as '.$username);
 	}
 	
 	function upload($file, $dest, $mode=FTP_BINARY){
