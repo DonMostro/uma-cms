@@ -41,7 +41,7 @@ class VView{
   }
   
   /**
-   * Fill the template with data.
+   * Carga la plantilla con los datos.
    *
    * @return string Parsed template.
    */
@@ -69,7 +69,7 @@ class VView{
   }
   
   /**
-   * Filter the values of template. To be used when data should be processed before inserted into the template.
+   * Filtro de los valores de la plantilla. Para ser utilizado cuando los datos deben ser procesados antes de insertarse en la plantilla.
    *
    * @param Template $tpl
    */
