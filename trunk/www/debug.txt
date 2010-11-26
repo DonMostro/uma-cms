@@ -1,0 +1,2 @@
+C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[25][2010-11-26 13:55:53]: [2010-26-11 13:55:53] Cannot connect: Access denied for user 'ztvuser'@'localhost' (using password: YES)
+C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[26][2010-11-26 13:55:53]: [2010-26-11 13:55:53] Cannot select database: Access denied for user 'ztvuser'@'localhost' (using password: YES)
