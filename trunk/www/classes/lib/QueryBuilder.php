@@ -1,7 +1,6 @@
 <?php
 /**
  * Constructor de consultas SQL 
- * @author Rodrigo
  *
  */
 class QueryBuilder {
