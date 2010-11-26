@@ -8,8 +8,7 @@ include_once(ROOT."classes/lib/Types.php");
 include_once(ROOT."classes/models/MModel.php");
 /**
  * 
- * @author Rodrigo
- *
+ *  *
  */
 
 class MThumbs extends MModel{
