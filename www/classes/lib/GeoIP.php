@@ -208,7 +208,7 @@ function geoip_load_shared_mem ($file) {
 
   $fp = fopen($file, "rb");
   if (!$fp) {
-    print "error opening $file: $php_errormsg\n";
+    print "error apertura $file: $php_errormsg\n";
     exit;
   }
   $s_array = fstat($fp);
@@ -421,7 +421,7 @@ function _geoip_seek_country($gi, $ipnum) {
       $offset = $x[0];
     }
   }
-  trigger_error("error traversing database - perhaps it is corrupt?", E_USER_ERROR);
+  trigger_error("Error de base datos - talvez esta corrupto?", E_USER_ERROR);
   return false;
 }
 
