@@ -5,7 +5,7 @@ include_once(ROOT."classes/lib/DAO.php");
 include_once(ROOT."classes/lib/Types.php");
 
 /**
- * RecordSet class handles the SQL formation and execution.
+ * Clase RecordSet se encarga de la formación y ejecución del SQL.
  *
  */
 class RecordSet{
@@ -28,7 +28,7 @@ class RecordSet{
   }
   
   /**
-   * Prepares the final query based on $start, $limit and $order properties and executes it.
+   * Prepara la query final sobre la base de $start, $limit y $order propiedades de orden y lo ejecuta.
    *
    */
   function fill(){
