@@ -1,6 +1,8 @@
 <?php
 /**
- *  Base Observer class
+ *   ______________________
+ *    Clase Base Observer
+ *   ______________________ 
  */
 class Observer {
     /**
@@ -11,17 +13,17 @@ class Observer {
  
     //! A constructor
     /**
-    * Constructs the Observer
-    * @param $subject the object to observe
+    * constructor de Observer
+    * @param $subject el objeto de observe
     */
     public function Observer (& $subject) {
         $this->subject=& $subject;
  
-        // Register this object so subject can notify it
+        // Register los objetos so subject can notify it
         $subject->addObserver($this);
     }
  
-    //! An accessor
+    //! Un descriptor de acceso
     /**
     * Abstract function implemented by children to repond to
     * to changes in Observable subject
