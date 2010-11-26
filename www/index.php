@@ -12,8 +12,8 @@ $app=new Dispatcher($map, $noncached);
 $dao=new DAO();
 
 if(!DAO::connect()){
-	echo("<h2>&iexcl;Vaya! algo no result&oacute; como lo esperado, por favor vuelve mas tarde</h2>");
-	echo("<img src=\"/images/something-wrong.jpg\"/>");
+	echo("<center><h2>&iexcl;Vaya! algo no result&oacute; como lo esperado, por favor vuelve mas tarde</h2>");
+	echo("<img src=\"/images/something-wrong.jpg\"/></center>");
 }else{
 	$app->run();
 }
