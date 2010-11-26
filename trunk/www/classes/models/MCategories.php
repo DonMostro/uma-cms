@@ -10,8 +10,7 @@ include_once(ROOT."classes/models/MVideos.php");
 
 /**
  * Clase modelo de categor&iacute;as
- * @author Rodrigo
- *
+ *  *
  */
 
 class MCategories extends MBufferedModel {
