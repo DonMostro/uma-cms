@@ -17,7 +17,9 @@ class multiconversion extends Element{
   }
 
   public function display($i,$j){
-  	$model = new MVideoTypes(){
+  	$model = new MTypes();
+  	while($model->next()){
+  		var_dump($model);
   	
   		if($this->value == ''){
 			$link = $this->params['LINK1'];
