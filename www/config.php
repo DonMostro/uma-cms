@@ -1,5 +1,7 @@
 <?php
-//Configuración
+/**
+ * Configuraci&oacute;n Est&aacute;tica
+ */
 date_default_timezone_set('UTC'); 
 define('DB_SERVER','localhost');
 define('DB_USER','ztvuser');
