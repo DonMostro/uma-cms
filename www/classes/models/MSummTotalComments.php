@@ -16,7 +16,7 @@ class MSummTotalComments extends MModel {
  
   protected function setQuery(){
 
-	$query="SELECT COUNT(*) FROM comments WHERE reported='1'";
+	$query="SELECT COUNT(*) FROM ztv_comments WHERE reported='1'";
     $this->dataSet->setQuery($query);
   }
   

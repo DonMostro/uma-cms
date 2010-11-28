@@ -190,7 +190,7 @@ class MVideos extends MModel {
 	
 		if($this->columns['tt'])$where.=" AND $this->table.tt>".(int)$this->columns['tt'];
 		if($this->columns['approved']!==false)$where.=" AND $this->table.approved='".$this->columns['approved']."'";
-		if($this->columns['types_id']!==false)$where.=" AND $this->table_video_types.types_id=".(int)$this->columns['types_id'];
+		//if($this->columns['types_id']!==false)$where.=" AND $this->table_video_types.types_id=".(int)$this->columns['types_id'];
 		return $where;
 	}
 	

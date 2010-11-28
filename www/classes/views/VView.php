@@ -21,7 +21,7 @@ class VView{
   	}
   	
   }
-  
+  /*
   public function _setAds(Template $tpl){
   	if(isset($this->ads)){
   		$ads = $this->ads;
@@ -39,7 +39,7 @@ class VView{
 	  	$tpl->{$ad['name']}=htmlspecialchars_decode($ad['code']);
 	}
   }
-  
+  */
   /**
    * Carga la plantilla con los datos.
    *
@@ -61,7 +61,7 @@ class VView{
   		
   		$this->filter($tpl);
   		
-  		$this->_setAds($tpl);
+  		//$this->_setAds($tpl);
   		return $tpl->output();
   	}else{
   		return '';	

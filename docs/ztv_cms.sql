@@ -142,6 +142,7 @@ CREATE TABLE IF NOT EXISTS `ztv_latests_more_viewed_videos` (
 
 CREATE TABLE IF NOT EXISTS `ztv_menu` (
   `id` int(11) NOT NULL,
+  `parent_id` int(11) NOT NULL,
   `title` varchar(45) DEFAULT NULL,
   `approved` enum('0','1') DEFAULT NULL,
   PRIMARY KEY (`id`)

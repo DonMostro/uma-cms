@@ -25,7 +25,7 @@ class MSummTotalCategories extends MModel {
   	 * @var unknown_type
   	 */
 	
-	$query="SELECT COUNT(*) FROM categories";
+	$query="SELECT COUNT(*) FROM ztv_categories";
 
     $this->dataSet->setQuery($query);
   }

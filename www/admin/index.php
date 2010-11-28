@@ -80,21 +80,21 @@ if(isset($form->p)){
 	$view=new Summary();
 	
 	$totalvideos=new MSummTotalVideos();
-	$view->addModel($totalvideos, "Total videos", "index.php?p=videos");
+	$view->addModel($totalvideos, "Videos Totales", "index.php?p=videos");
 	
-	$reported=new MSummTotalReports();
-	$reported->setResolved(0);
-	$view->addModel($reported, "Unresolved reports", "index.php?p=reports&resolved=0");
-	$view->addAlert("Unresolved reports",0);
+	//$reported=new MSummTotalReports();
+	//$reported->setResolved(0);
+	//$view->addModel($reported, "Unresolved reports", "index.php?p=reports&resolved=0");
+	//$view->addAlert("Unresolved reports",0);
 	
 	
 	$approvedvideos=new MSummTotalVideos();
 	$approvedvideos->setApproved(0);
-	$view->addModel($approvedvideos, "Not approved videos", "index.php?p=videos&approved=0");
-	$view->addAlert("Not approved videos",0);
+	$view->addModel($approvedvideos, "Videos sin aprobar", "index.php?p=videos&approved=0");
+	$view->addAlert("Videos sin aprobar",0);
 	
-	$view->addModel(new MSummTotalCategories(), "Total categories", "index.php?p=categories&parent_id=0");
-	$view->addModel(new MSummTotalUsers(), "Total users", "index.php?p=users");
+	$view->addModel(new MSummTotalCategories(), "Categor&iacute;as Totales", "index.php?p=categories&parent_id=0");
+	//$view->addModel(new MSummTotalUsers(), "Total users", "index.php?p=users");
 	
 	$content=$view->display();
 }
