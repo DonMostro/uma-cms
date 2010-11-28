@@ -25,7 +25,7 @@ class Summary {
   }
 
   function display(){
-	$out = "<h2>Summary</h2>\r\n";
+	$out = "<h2>Estad&iacute;sticas</h2>\r\n";
 	$out .= "<table>\r\n";
     foreach ($this->models as $model){
     	$out.="<tr class=\"trow\">";

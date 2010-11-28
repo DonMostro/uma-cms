@@ -1,8 +1,0 @@
-C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[25][2010-11-26 13:55:53]: [2010-26-11 13:55:53] Cannot connect: Access denied for user 'ztvuser'@'localhost' (using password: YES)
-C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[26][2010-11-26 13:55:53]: [2010-26-11 13:55:53] Cannot select database: Access denied for user 'ztvuser'@'localhost' (using password: YES)
-C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[25][2010-11-26 14:04:18]: [2010-26-11 14:04:18] Cannot connect: Access denied for user 'ztvuser'@'localhost' (using password: YES)
-C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[26][2010-11-26 14:04:18]: [2010-26-11 14:04:18] Cannot select database: Access denied for user 'ztvuser'@'localhost' (using password: YES)
-C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[25][2010-11-26 14:06:04]: [2010-26-11 14:06:04] Cannot connect: Access denied for user 'ztvuser'@'localhost' (using password: YES)
-C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[26][2010-11-26 14:06:04]: [2010-26-11 14:06:04] Cannot select database: Access denied for user 'ztvuser'@'localhost' (using password: YES)
-C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[25][2010-11-26 14:06:22]: [2010-26-11 14:06:22] Cannot connect: Access denied for user 'ztvuser'@'localhost' (using password: YES)
-C:\proyectos\proyectotitulo\www\classes\lib\DAO.php[26][2010-11-26 14:06:22]: [2010-26-11 14:06:22] Cannot select database: Access denied for user 'ztvuser'@'localhost' (using password: YES)

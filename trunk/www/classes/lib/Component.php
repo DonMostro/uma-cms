@@ -87,7 +87,7 @@ class Component {
 					$view=new $view_name($model);
 				}
 			}
-			if($view){
+			if(@$view){
 				$view->title=$this->name;
 				foreach($v_params as $name=>$param){
 					/*foreach(get_object_vars($this) as $key => $val){

@@ -63,7 +63,7 @@ class VPage extends VView {
   	$this->req_c_parent = 0;
 
   	if($this->req_c == 0 && $this->req_v != 0){
-  		$strSQL = " SELECT categories_id FROM videos WHERE id = $this->req_v LIMIT 0, 1";
+  		$strSQL = " SELECT categories_id FROM ztv_videos WHERE id = $this->req_v LIMIT 0, 1";
 		$qry = mysql_query($strSQL);
 		if($row = mysql_fetch_array($qry)){
 	  		//canal
@@ -72,7 +72,7 @@ class VPage extends VView {
   	}
   	
   	if($this->req_c != 0){
-	  	$strSQL = " SELECT parent_id FROM categories WHERE id = $this->req_c LIMIT 0, 1";
+	  	$strSQL = " SELECT parent_id FROM ztv_categories WHERE id = $this->req_c LIMIT 0, 1";
 		$qry = mysql_query($strSQL);
 		if($row = mysql_fetch_array($qry)){
 	  		//canal padre
@@ -82,7 +82,7 @@ class VPage extends VView {
 
   	 	
   	if($this->req_c_parent == 0 && $this->req_v != 0){
-		$strSQL = "SELECT categories_id, parent_id 	FROM videos vid LEFT JOIN categories cat ON vid.categories_id = cat.id 
+		$strSQL = "SELECT categories_id, parent_id 	FROM ztv_videos vid LEFT JOIN ztv_categories cat ON vid.categories_id = cat.id 
 	   	WHERE vid.id = $this->req_v  ";
     	$qry = mysql_query($strSQL);
     	if(mysql_num_rows($qry) > 0){
@@ -94,7 +94,7 @@ class VPage extends VView {
   
   public function show(){
   	DAO::connect();  	
-  	$lang=Lang::getInstance();
+  	//$lang=Lang::getInstance();
 
   	$tpl=new Template(ROOT."templates/index.html");
 	$tpl->version=$this->version;
@@ -108,7 +108,7 @@ class VPage extends VView {
   	//canal
   	$request_c_parent = 0;
 
-  	$strSQL = " SELECT parent_id FROM categories WHERE id = $request_c ";
+  	$strSQL = " SELECT parent_id FROM ztv_categories WHERE id = $request_c ";
 	$qry = mysql_query($strSQL);
 
   	if($row = mysql_fetch_array($qry)){
@@ -118,10 +118,10 @@ class VPage extends VView {
   	if($request_uri=='/')$request_uri='';
 
   	//show language selector
-  	$languages=new MLanguages();
-  	$languages->setApproved(1);
-  	$languages->load();
-
+  	//$languages=new MLanguages();
+  //	$languages->setApproved(1);
+  //	$languages->load();
+/*
   	$tpl->languages="";
   	while($row=$languages->next()){
   		$tpl2=new Template(ROOT."templates/lang_item.html");
@@ -141,7 +141,7 @@ class VPage extends VView {
   	}else{
   		$inbox=0;
   	}
-
+*/
   	//create menu onject
 
   	$menu=new MMenu();
