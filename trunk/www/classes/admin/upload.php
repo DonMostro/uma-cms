@@ -2,6 +2,7 @@
 include_once("root.php");
 include_once(ROOT."config.php");
 include_once(ROOT."classes/admin/element.php");
+
 ini_set("post_max_size", "256M");
 ini_set("upload_max_filesize", "256M");
 
@@ -15,7 +16,7 @@ class upload extends Element{
 	print_r($_FILES);
  /*   echo "^^" . $this->target . "^^";*/
     if($_FILES[$this->target]['size'][$i]!=0 && substr($_FILES[$this->target]['name'][$i],-3,3)!='php'){
-//		echo "Estoy ACÁ";
+//		echo "Estoy ACï¿½";
     	$path=explode(".",$_FILES[$this->target]['name'][$i]);
         $filename=substr(md5(microtime()),0,8).'.'.$path[count($path)-1];
         $dest=!empty($this->params['FILEPATH'])?$this->params['FILEPATH']:THUMBNAILS;

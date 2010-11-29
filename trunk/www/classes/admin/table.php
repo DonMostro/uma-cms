@@ -56,7 +56,7 @@ class Table{
 	  	$edittable->getData($start,20,$search);
 
 	  	if(!isset($request['save'])){
-	  	  	$out .= "<h2>Edit {$edittable->name}</h2>";
+	  	  	$out .= "<h2>Editar {$edittable->name}</h2>";
 		  	$out .= "<form action=\"$location&a=edit\" method=\"post\" enctype=\"multipart/form-data\">\r\n";
 		  	$out .= $edittable->display('EDIT');
 		  	$out .= "<input type=\"hidden\" name=\"save\" value=\"save\">\r\n";
@@ -95,7 +95,7 @@ class Table{
 	  	if(isset($viewtable->layout[0]['SEARCH'])&&$viewtable->layout[0]['SEARCH']=='true'){
 		  	$out .= "<form class=\"search\" action=\"index.php\"><input type=\"hidden\" name=\"p\" value=\"{$this->page}\"/>\r\n";
 			$search=isset($request['search']) ? $request['search'] : "";
-		  	$out .= "Search: <input type=\"text\" name=\"search\" value=\"".htmlspecialchars($search)."\"/> <input type=\"submit\" value=\"go\"/></form>\r\n";
+		  	$out .= "Buscar: <input type=\"text\" name=\"search\" value=\"".htmlspecialchars($search)."\"/> <input type=\"submit\" value=\"ir\"/></form>\r\n";
 	  	}
 	  	$start=isset($request['start']) ? (int)$request['start'] : 0;
 	  	$sort=isset($request['sort']) ? $request['sort'] : "";
@@ -105,7 +105,7 @@ class Table{
 	  	$search=isset($request['search'])?$request['search']:"";
 	  	$text=isset($request['text'])?$request['text']:"";
 	  	$pages=PageCtrl::getCtrl($count,$start,20,"index.php?p=$this->page&search=$search&text=$text&sort=$sort&dir=$dir".$viewtable->getRequested_params()."&ajax=1",true);
-	  	$out.="<p class=\"line\">Pages: ".$pages."</p>";
+	  	$out.="<p class=\"line\">P&aacute;ginas: ".$pages."</p>";
 	  	$out .= "<form name=\"frm1\" action=\"index.php?p={$this->page}\" method=\"post\" enctype=\"multipart/form-data\">\r\n";
 	  	$out .= $viewtable->display();
 	  	$out .= "<a href=\"javascript:void(0)\" onclick=\"select_all(frm1.elements['{$id}[]'])\">Select/Unselect All</a> <input type=\"hidden\" name=\"a\"/>";
@@ -116,10 +116,10 @@ class Table{
 
 	  	if(isset($_REQUEST['start'])) $out .= "<input type=\"hidden\" name=\"start\" id=\"start\" value=\"".(int)$_REQUEST['start'] ."\" />";
 	  	$out .= "</form>\r\n";
-	  	$out.="<p class=\"line\">Pages: ".$pages."</p>";
+	  	$out.="<p class=\"line\">P&aacute;ginas: ".$pages."</p>";
 
 	  	if(isset($viewtable->layout[0]['ADD'])&&$viewtable->layout[0]['ADD']=='true'){
-	    	$out .= "\r\n<h3>Create new:</h3>\r\n";
+	    	$out .= "\r\n<h3>Nuevo:</h3>\r\n";
 		  	$out .= "<form action=\"index.php?p=$this->page\" name=\"frm2\" method=\"post\" enctype=\"multipart/form-data\">\r\n";
 			$out .= $edittable->display('ADD');
 		  	$out .= "<input type=\"hidden\" name=\"save\" value=\"save\" />\r\n";

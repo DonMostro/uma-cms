@@ -31,19 +31,28 @@ include_once(ROOT."classes/models/MBufferedModel.php");
 include_once(ROOT."classes/models/MWatched.php");
 
 
-/**______________________________________
+/**
    * Clase controladora principal
-   * _____________________________________   */
+   * */
 class Dispatcher {
 	private $map = array();
 	private $noncached = array();
 	private $controllers = array();
-	private $http=null;
 	
-	public function DispatcherClean($map, $noncached){
+	/**
+	 * Constructor
+	 * @param $map
+	 * @param $noncached
+	 */
+	
+	public function Dispatcher($map, $noncached){
 		$this->map = $map;
 		$this->noncached = $noncached;
 	}
+	
+	/**
+	 * Ejecuta el controlador seleccionado y muestra la salida HTML
+	 */
 	
 	public function run(){
 		//var_dump($this->map);
@@ -61,25 +70,8 @@ class Dispatcher {
 
 		
 		$command->run();
-		print(trim($command->show()));
+		echo($command->show());
 
 	}
-	
-	public function addController($classController){
-		array_push($controllers, new $classController());
-	}
-	
-	public function displayError($string){
-		echo $string;
-	}
-	
-	private function _findfile(){
-		
-	}
-	
-	private function _checkIP(){
-		
-	}
-	
 }
 ?>

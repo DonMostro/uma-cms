@@ -56,7 +56,7 @@ class MCategories extends MBufferedModel {
         ON $this->table.id = $this->table_videos.categories_id
 	 ".$this->_where()."
 	 GROUP BY $this->table.id";
-	echo $query;
+	//echo $query;
     
     $this->dataSet->setQuery($query);
   }
@@ -143,7 +143,7 @@ class MCategories extends MBufferedModel {
   
   /**
    * Actualiza todos lo canales hijos en el campo childrens,
-   * esta es una desnormalización a cambio de rendimiento de la base de datos 
+   * esta es una desnormalizaciï¿½n a cambio de rendimiento de la base de datos 
    * @param $parent_id
    * @return unknown_type
    */

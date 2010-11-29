@@ -5,6 +5,6 @@
     <field name="Título" target="title" type="textfield" link="index.php?p=categories&amp;parent_id={id}" visible="true" edit="true" add="true"/>
     <field name="Miniatura" target="thumb" type="textfield" visible="true" edit="true" add="true"/>
     <field name="Aprobado" target="approved" type="yesno" visible="true" edit="true" add="true"/>
-    <field name="" target="" type="element" default="Videos" image="images/tv.png" link="index.php?p=videos&amp;categories_id={id}" visible="true" edit="false" add="false"/>
+    <!--<field name="" target="" type="element" default="Videos" image="images/tv.png" link="index.php?p=videos&amp;categories_id={id}" visible="true" edit="false" add="false"/>-->
     <field name="Orden" target="orden" type="orden" table="categories" visible="true" edit="true" add="true"/> 
 </section>

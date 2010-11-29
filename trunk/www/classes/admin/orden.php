@@ -52,7 +52,7 @@ class orden extends Element{
   	  ";
   	 
   	  $strSQL = "SELECT id FROM {$this->params['TABLE']} " ;
-  	  if($this->params['TABLE'] == 'top_carrusel') $strSQL .= " WHERE videos_id <> 0 ";
+  	  //if($this->params['TABLE'] == 'top_carrusel') $strSQL .= " WHERE videos_id <> 0 ";
   	  
   	  
   	  

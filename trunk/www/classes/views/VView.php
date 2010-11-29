@@ -11,8 +11,8 @@ include_once(ROOT."classes/lib/Template.php");
 class VView{
   
   public $tplfile;
-  private $data;
-  public $ads;
+  public $data;
+  //public $ads;
 	
   function VView($model=null){
   	
