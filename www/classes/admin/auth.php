@@ -2,7 +2,7 @@
 class Auth{
 	function __construct(){
 		session_name("vcms_admin");
-		session_start();
+		@session_start();
 	}
 
 	public function authenticate($username, $password){

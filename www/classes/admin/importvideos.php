@@ -3,91 +3,44 @@
 set_time_limit(0);
 
 include_once("root.php");
-
 include_once(ROOT."config.php");
-
 include_once(ROOT."classes/lib/Form.php");
-
 include_once(ROOT."classes/lib/Types.php");
-
 include_once(ROOT."classes/lib/ffmpeg.php");
-
-include_once(ROOT."classes/models/MCategoryList.php");
-
-include_once(ROOT."classes/models/MUser.php");
-
+include_once(ROOT."classes/models/MCategories.php");
 include_once(ROOT."classes/models/MVideos.php");
-
 include_once(ROOT."classes/models/MUploads.php");
-
 include_once(ROOT."classes/models/MThumbnails.php");
 
-include_once(ROOT."classes/admin/finduser.php");
-
-
-
 class ImportVideos{
-
-  
-
   public $page;
-
   private $settings;
-
   private $form;
 
-  
-
   function ImportVideos($page){
-
     $this->page=$page;
-
-    
-
     $settings=Settings::getInstance();
-
     $this->settings=$settings->getSettings();
-
-    
-
     $this->form=new Form();
-
   }
 
-  
 
   function display(){
-
 	$out="<h1>Import Videos</h1>";
-
-	
-
     if(!empty($this->form->path)&&!empty($this->form->username[0])&&!empty($this->form->category)&&!empty($this->form->description)&&!empty($this->form->tags)){
-
     	$files=glob(ROOT.FILES.'/'.$this->form->path.'/*');
-
     	//Debug::write('importvideos[32]:'.print_r($files,1));
-
     	$videos=0;
-
     	foreach ($files as $file){
-
     		$videos+=$this->_import_file($file);
-
     	}
-
     	$out.="$videos video(s) have been imported.";
-
     }
+  
 
-    
-
-    $cats=new MCategoryList();
-
+    $cats=new MCategories();
     $cats->load();
-
     $categories='';
-
     while($c=$cats->next()){
 
     	$categories.="<option value=\"$c[id]\">$c[title]</option>";
@@ -403,10 +356,6 @@ EOB;
   
 
 }
-
-
-
-
 
 ?>
 

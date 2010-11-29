@@ -40,7 +40,7 @@ class MTypes extends MModel{
   protected function setQuery(){
   	
     $query="
-    SELECT title, thumb, script 
+    SELECT id, title, thumb, script 
 	   FROM $this->table 
 	".$this->_where();
 

@@ -23,5 +23,6 @@ include_once(ROOT."classes/admin/iphone_element.php");
 include_once(ROOT."classes/admin/cellphone_element.php");
 include_once(ROOT."classes/admin/wmv_element.php");
 include_once(ROOT."classes/admin/hd_video_element.php");
+include_once(ROOT."classes/admin/multiconversion.php");
 //include_once(ROOT."classes/admin/hidden_elements.php");
 ?>
