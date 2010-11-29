@@ -101,13 +101,13 @@ if(isset($form->v)){
 			/*if (DAO::connect()) echo "<script>alert('Se ha Reabierto la Conexion a BD')</script>";*/	
 			if(!empty($frame))$video->setFrame($frame);
 			$video->update();
-			exit('The video has been converted.');
+			exit('El video ha sido convertido.');
 		}else{
-			exit('An error occured while trying to convert the video.');
+			exit('Ha ocurrido un error mientras se convert&iacute;a el video.');
 		}
 	}else{
-		exit('An error occured while trying to convert the video.<br />
-		Please note that this feature only works for videos hosted on this server.');
+		exit('Ha ocurrido un error mientras se convert&iacute;a el video.<br />
+		Por favor note que esta funcionalidad trabaja solo con videos hospedados en este servidor.');
 	}
 }
 ?>
