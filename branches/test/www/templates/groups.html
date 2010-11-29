@@ -1,0 +1,17 @@
+<p class="message">[:signal:]</p>
+
+<div class="left" style="margin-top:15px">
+	<a name="stab" id="tab_0" class="stab[:if selected=="new_group":]h[:endif:]" href="index.php?m=users.newgroup.groups" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=newgroup&ajax','ajax_box'); highlight(this,'stab','#CCCCFF','#EDF2F4')">[:T_NEW_GROUP:]</a>
+	<a name="stab" id="tab_1" class="stab[:if selected=="all_groups":]h[:endif:]" href="index.php?m=users.allgroups.groups" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=allgroups&ajax','ajax_box'); highlight(this,'stab','#CCCCFF','#EDF2F4')">[:T_ALL_GROUPS:]</a>
+	<a name="stab" id="tab_2" class="stab[:if selected=="owned_groups":]h[:endif:]" href="index.php?m=users.ownedgroups.groups" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=ownedgroups&ajax','ajax_box'); highlight(this,'stab','#CCCCFF','#EDF2F4')">[:T_OWNED_GROUPS:]</a>
+</div>
+<div class="left" style="width:540px">
+	<div class="heading"><h2>[:T_GROUPS:]</h2></div>
+	<div class="box">
+		<div id="ajax_box">
+			[:edit:]
+		</div>
+	</div>	
+</div>
+
+<div class="brclear" style="width:390px"></div>

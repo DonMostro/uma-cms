@@ -1,0 +1,126 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="es" lang="es">
+	<head>
+		<title>[:sitename:][:titleheader:]</title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+		<meta name="keywords" content="[:keywords:]" />
+		<meta name="description" content="[:description:]" />
+		<meta name="title" content="[:titleheader:]" />
+		<base href="[:url:]/" />
+		<link rel="shortcut icon" href="[:url:]/favicon.ico?[:version:]"/> 
+		<link rel="stylesheet" type="text/css" href="[:url:]/css/matriz.css?[:version:]" media="screen" title="default"/>
+		<link rel="stylesheet" type="text/css" href="[:url:]/css/comun.css?[:version:]" media="screen" title="default"/>
+		<link rel="stylesheet" type="text/css" href="[:url:]/css/tv.css?[:version:]" media="screen" title="default"/> 
+		<script type="text/javascript" src="[:url:]/js/framework/jquery.tools.min.js?[:version:]"></script>
+		<script type="text/javascript" src="[:url:]/js/lib/source/jquery.capSlide.js?[:version:]"></script>
+		<script type="text/javascript" src="[:url:]/js/api/source/ajax.js?[:version:]"></script>
+		<script type="text/javascript" src="[:url:]/js/api/source/functions.js?[:version:]"></script>
+		<script type="text/javascript">
+			$(function() {
+				$(".cap140x86").capslide({
+					caption_color	: '#fff',
+					caption_bgcolor	: '#000',
+					border			: '1px solid #666',
+					showcaption	    : true
+				});
+
+				$(".cap380x253").capslide({
+					caption_color	: '#fff',
+					caption_bgcolor	: '#000',
+					border			: '1px solid #666',
+					showcaption	    : true
+				});
+			});
+		</script>
+		<script type="text/javascript">
+		//<![CDATA[
+		function showSlidingDiv(){
+		$("#comentarios").animate({"height": "toggle"}, { duration: 1000 });
+		}
+		//]]>
+		</script>
+		<link rel="alternate" type="application/rss+xml" title="[:sitename:] [:T_RSS_FEED:]" href="index.php?m=latestrss" />  
+		<!--[if IE 6]>
+		<script type="text/javascript" src="js/png.js"></script>
+		<script>DD_belatedPNG.fix('.headerBg,#header h1 a');</script>
+		<![endif]-->
+		<!--[if lt IE 7]>
+		<script src="http://ie7-js.googlecode.com/svn/version/2.1(beta4)/IE7.js"></script>
+		<![endif]-->
+	</head>
+	<body>
+    <div class="topAd">
+    </div>
+	<div class="marco headerBg">
+    	<div id="subnav">
+            <ul class="nav">
+            </ul>
+        </div>
+    	<div class="pageltTv">
+        	<div id="header" class="span-24-2">
+            	<div id="corporativo">
+                	<h1><a href="[:url:]" title="ZTV">ZTV</a></h1>
+              	</div>
+                <ul class="nav">
+                	[:menu:]
+                </ul>
+                <div id="buscador">
+                <form method="get" action="index.php" class="search">
+                  <input type="hidden" value="search" name="m">
+                  <input type="text" class="buscarText" value="Buscar..." onclick="  this.value=''" name="search">
+                  <input type="image" class="buscarIr" value="ir" src="css/i/butBuscar.gif">
+                </form>
+                </div>
+            </div>
+	    </div><!--FIN HEADER-->
+	    <div class="pageltTv">
+	    	<div id="contenido" class="span-24">
+			[:content:]
+			</div>
+		</div>
+		<div class="footer oscuro"><!--Ocupar clases "claro" y "oscuro" dependiendo si se quiere un BG FOOTER para paginas claras u oscuras.-->
+		  <div class="pageFooter">
+		    <div class="boxFooter">
+		      <h5 class="oscuro">Zoila TV</h5><!--Ocupar clases "claro" y "oscuro" dependiendo si se quiere un LOGO DE FOOTER para paginas claras u oscuras.-->
+		        <div class="colFooter">
+		          <h6></h6>
+		          <ul>
+		          </ul>
+		        </div>
+		        <div class="colFooter">
+		        <h6></h6>
+		          <ul>
+		          </ul>
+		        </div>
+		        <div class="colFooter">
+		          <h6></h6>
+		          <ul>
+		          </ul>
+		        </div>
+		        <div class="colFooter2">
+		          <h6></h6>
+		          <ul>
+         
+		          </ul>
+		          <h6></h6>
+		          <ul>
+	
+		          </ul>
+		        </div>
+		        <p class="pie">Powered by UMA CMS - Universal Media Access Content Management System </div>
+		    </div>
+		    <ul class="boxFooterBlack">
+		      <li class="rotulo">SIGUENOS TAMBIEN EN:</li>
+		      <li class="icTw"><a href="http://www.twitter.com/DonElegante" target="_blank">Twitter</a></li>
+		    </ul>
+		</div>
+		<div id="black_overlay"></div>
+       	<div id="popup">
+            <div style="text-align:right">
+                <a href="javascript:void(0)" onclick="close_popup()" title="">
+                <img style="display:inline" src="images/close.png" alt="" /></a>
+            </div>
+        	<div id="popup_body"></div>
+        </div>
+	</body>
+</html>

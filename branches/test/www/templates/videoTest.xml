@@ -1,0 +1,8 @@
+<FLVPlayerConfig>
+  <serverName>www.3tv.cl</serverName>
+  <fallbackServerName>localhost</fallbackServerName>
+  <appName><![CDATA[/files/c7b7504b]]></appName>
+  <streamName><![CDATA[/files/c7b7504b]]></streamName>
+  <isLive>false</isLive>
+  <bufferTime>2</bufferTime>
+</FLVPlayerConfig>

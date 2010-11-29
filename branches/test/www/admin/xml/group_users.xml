@@ -1,0 +1,6 @@
+<?xml version="1.0"?>
+<section name="User's Groups" type="table" target="MACLGroupUsers" search="false" edit="false" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
+    <field name="Username" target="username" type="textfield" visible="true" edit="false" add="true"/>
+    <field name="Group" target="acl_groups_id" type="select" table="acl_groups" field="name" visible="true" edit="false" add="true"/>
+</section>

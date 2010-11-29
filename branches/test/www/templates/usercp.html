@@ -1,0 +1,92 @@
+<div class="left" style="width:160px; margin-right:10px;">
+	<div class="heading"><h2>[:T_ACCOUNT:]</h2></div>
+	<div class="box">
+		<ul class="cpmenu">
+			<li class="title">[:T_MESSAGES:]</li>
+			<li><a href="index.php?m=users.newmessage.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.newmessage&amp;ajax','cp')">[:T_NEWMESSAGE:]</a></li>
+			<li><a href="index.php?m=users.messages.inbox.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.messages.inbox&amp;ajax','cp')">[:T_INBOX:]</a></li>
+		</ul>
+		<ul class="cpmenu">
+			<li class="title">[:T_MYVIDEOS:]</li>
+			<li><a href="index.php?m=users.stats.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.stats&amp;ajax','cp')">[:T_STATS:]</a></li>
+			<li><a href="index.php?m=users.myvideos.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.myvideos&amp;ajax','cp')">[:T_VIDEOS:]</a></li>
+			<li><a href="index.php?m=users.pending.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.pending&amp;ajax','cp')">[:T_PENDING:]</a></li>
+		</ul>
+		<ul class="cpmenu">
+			<li class="title">[:T_SUBSCRIPTIONS:]</li>
+			<li><a href="index.php?m=users.subscriptions.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.subscriptions&amp;ajax','cp')">[:T_MYSUBSCRIPTIONS:]</a></li>
+			<li><a href="index.php?m=users.favorites.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.favorites&amp;ajax','cp')">[:T_MYFAVORITES:]</a></li>
+			<li><a href="index.php?m=users.playlists.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.playlists&amp;ajax','cp')">[:T_MYPLAYLISTS:]</a></li>
+			<li><a href="index.php?m=users.subscribers.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.subscribers&amp;ajax','cp')">[:T_SUBSCRIBERS:]</a></li>
+			<li><a href="index.php?m=users.friends.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.friends&amp;ajax','cp')">[:T_FRIENDS:]</a></li>
+			<li><a href="index.php?m=users.allgroups.groups.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.allgroups.groups&amp;ajax','cp')">[:T_GROUPS:]</a></li>
+		</ul>
+		<ul class="cpmenu">
+			<li class="title">[:T_MYCHANNEL:]</li>
+			<li><a href="index.php?m=users.edit_channel.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.edit_channel&amp;ajax','cp')">[:T_EDIT_CHANNEL:]</a></li>
+			<li><a href="index.php?m=users.edit_profile.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.edit_profile&amp;ajax','cp')">[:T_EDIT_PROFILE:]</a></li>
+			<li><a href="index.php?m=users.edit_layout.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.edit_layout&amp;ajax','cp')">[:T_EDIT_LAYOUT:]</a></li>
+			<li><a href="index.php?m=users.edit_vlog.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.edit_vlog&amp;ajax','cp')">[:T_EDIT_VLOG:]</a></li>
+		</ul>
+		<ul class="cpmenu">
+			<li class="title">[:T_ACCOUNT:]</li>
+			<li><a href="index.php?m=users.account.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.account&amp;ajax','cp')">[:T_ACCOUNT:]</a></li>
+			<li><a href="index.php?m=users.upgrade.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.upgrade&amp;ajax','cp')">[:T_UPGRADE:]</a></li>
+		</ul>
+		[:if mod=="true":]
+		<ul class="cpmenu">
+			<li class="title">[:T_MODERATION:]</li>
+			<li><a href="index.php?m=users.reports.usercp" onclick="this.href='javascript:void(0)';get_url_contents('index.php?m=users.reports&amp;ajax','cp')">[:T_REPORTS:]</a></li>
+		</ul>
+		[:endif:]
+	</div>
+</div>
+<div class="left" style="width:730px">
+	<div id="cp">
+		[:section:]
+	</div>
+</div>
+<div class="brclear"></div>
+<script type="text/javascript">
+	var validate_newmessage = ([
+		{
+			"field": "to",
+			"validator": "ValidateEmpty",
+			"message": "[:E_EMPTY:]"
+		},
+		{
+			"field": "subject",
+			"validator": "ValidateEmpty",
+			"message": "[:E_EMPTY:]"
+		}
+	]);
+	var validate_newgroup = ([
+		{
+			"field": "name",
+			"validator": "ValidateEmpty",
+			"message": "[:E_EMPTY:]"
+		},
+		{
+			"field": "description",
+			"validator": "ValidateEmpty",
+			"message": "[:E_EMPTY:]"
+		}
+	]);
+	var validate_account = ([
+		{
+			"field": "password",
+			"validator": "ValidatePassword",
+			"message": "[:E_SIGNUP_PASSWORD:]"
+		},
+		{
+			"field": "password2",
+			"validator": "ValidateEmpty",
+			"message": "[:E_EMPTY:]"
+		},
+		{
+			"field": "email",
+			"validator": "ValidateEmail",
+			"message": "[:E_SIGNUP_EMAIL:]"
+		}
+	]);
+</script>

@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<section name="User Statistics" type="table" target="MStats" search="false" edit="false" add="false" delete="false">
+    <field name="ID" target="username" type="idbox" visible="true" edit="true" add="false"/>
+    <field name="Username" target="username" type="textfield" visible="true" edit="false" add="false"/>
+    <field name="Views" target="views" type="textfield" visible="true" edit="false" add="false"/>
+    <field name="Bandwidth" target="bandwidth" type="sizefield" visible="true" edit="false" add="false"/>
+</section>

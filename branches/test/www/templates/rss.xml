@@ -1,0 +1,10 @@
+<rss version="2.0">
+	<channel>
+		<title>[:sitename:]</title>
+		<link>[:siteurl:]</link>
+		<description>[:rss_description:]</description>
+		<lastBuildDate>[:rss_now:]</lastBuildDate>
+		<generator>3TV</generator>
+		[:list:]
+	</channel>
+</rss>

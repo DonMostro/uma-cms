@@ -1,0 +1,11 @@
+<?xml version="1.0"?>
+<section name="Channel Themes" type="table" target="MThemes" search="false" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
+	<field name="Title" target="title" type="textfield" visible="true" edit="true" add="true"/> 
+	<field name="Background Color" target="bg_color" type="textfield" visible="true" edit="true" add="true"/> 
+	<field name="Border Color" target="border_color" type="textfield" visible="true" edit="true" add="true"/> 
+	<field name="Text Color" target="text_color" type="textfield" visible="true" edit="true" add="true"/> 
+	<field name="Box Color" target="box_color" type="textfield" visible="true" edit="true" add="true"/> 
+	<field name="Background Image" target="bg_image" type="textfield" visible="true" edit="true" add="true"/> 
+	<field name="Heading Text Color" target="h_color" type="textfield" visible="true" edit="true" add="true"/> 
+</section>

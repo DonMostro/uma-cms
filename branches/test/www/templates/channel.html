@@ -1,0 +1,58 @@
+<div style="margin:0 auto; width:750px">
+	<style type="text/css">
+		#header { opacity: .6; filter: alpha(opacity=60); }
+		#navbar { opacity: .6; filter: alpha(opacity=60); }
+		div.line { opacity: .6; filter: alpha(opacity=60); }
+		div.footer { opacity: .6; filter: alpha(opacity=60); }
+		#wrapper { background: none; border: none; }
+		[:styles:]
+	</style>
+	<div class="heading" style="width:748px"><h2>[:username:]</h2></div>
+	<div class="box" style="width:728px">
+		<div style="text-align:center">
+			[:if image=="":][:else:]<img src="[:image:]"/>[:endif:]
+		</div><br />
+		[:description:]<br /><br />
+		<a class="submit_button" href="index.php?m=users.subscribe&amp;to=[:url_username:]">[:T_SUBSCRIBE:]</a>
+	</div>
+	<br />
+	
+	<div class="left" style="margin-right: 8px">
+		<div class="heading" style="width: 290px;"><h2>[:T_MEMBER_INFO:]</h2></div>
+		<div class="box" style="width: 270px;">
+			<div class="left" style="margin-right: 10px">
+				<img src="[:thumb:]" alt="[:username:]" width="120" height="90" />
+			</div>
+			<div class="left">
+				<h4>[:username:]</h4>
+				[:if name=="":][:else:]<b>[:T_NAME:]: </b>[:name:]<br />[:endif:]
+				[:if age=="":][:else:]<b>[:T_AGE:]: </b>[:age:]<br />[:endif:]
+				[:if gender=="":][:else:]<b>[:T_GENDER:]: </b>[:gender:]<br />[:endif:]
+				[:if relstatus=="":][:else:]<b>[:T_RELSTATUS:]:<br /></b>[:relstatus:]<br />[:endif:]
+			</div>
+			<div class="brclear" style="width: 125px"></div>
+			<p>
+				<span class="small">[:T_VIEWS:]: <b>[:hits:]</b></span>
+				<span class="small">[:T_VIDEOS:]: <b>[:video_count:]</b></span>
+				<span class="small">[:T_SUBSCRIBERS:]: <b>[:subscribers:]</b></span>
+			</p>
+			<a href="index.php?m=users.newmessage.usercp&amp;to=[:url_username:]" title="[:T_PM:]"><img class="inline" src="images/pm.png" width="16" height="16" alt="[:T_PM:]" /> [:T_PM:]</a><br /><br />
+			<a href="index.php?m=users.invite.usercp&type=1&amp;username=[:url_username:]" title="[:T_INVITE_FRIENDS:]"><img class="inline" src="images/pm.png" width="16" height="16" alt="[:T_INVITE_FRIENDS:]" /> [:T_INVITE_FRIENDS:]</a><br /><br />
+			[:if enable=="1":]<a href="index.php?m=enable_channel&amp;e=0&amp;channel=[:url_username:]" title="[:T_DISABLE_CHANNEL:]"><img alt="[:T_DISABLE_CHANNEL:]" src="images/cross.png" width="16" height="16" /></a><br /><br />[:else:][:endif:] 
+					
+			[:if website=="":][:else:]<b>[:T_WEBSITE:]: </b><a href="[:website:]" >[:website:]</a><br /><br />[:endif:]
+			[:if aboutme=="":][:else:]<b>[:T_ABOUTME:]:</b><br />[:aboutme:]<br /><br />[:endif:]
+			[:if hobbies=="":][:else:]<b>[:T_HOBBIES:]:</b><br />[:hobbies:]<br /><br />[:endif:]
+			[:if favmovies=="":][:else:]<b>[:T_FAVMOVIES:]:</b><br />[:favmovies:]<br /><br />[:endif:]
+			[:if favmusic=="":][:else:]<b>[:T_FAVMUSIC:]:</b><br />[:favmusic:]<br /><br />[:endif:]
+			[:if favbooks=="":][:else:]<b>[:T_FAVBOOKS:]:</b><br />[:favbooks:]<br /><br />[:endif:]
+		</div>
+		<br />
+		
+		[:elements_left:]
+	</div>
+	<div class="left">
+		[:elements_right:]
+	</div>
+	<div class="brclear"></div>
+</div>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<component name="T_VLOG">
+	<model name="MVLog">
+		<limit>$limit</limit>
+		<username>%channel</username>
+		<approved>1</approved>
+	</model>
+	<view name="VCategory">
+		<tplfile>small_list_h.html</tplfile>
+		<tplitemfile>vlog_item.html</tplitemfile>
+		<url>index.php?m=vlog&amp;username=$channel</url>
+	</view>
+</component>

@@ -1,0 +1,22 @@
+<div class="heading"><h2>[:T_REPORT:]</h2></div>
+<div class="box">
+	<form action="index.php?m=resolvereport" method="post">
+		<p>
+			[:reason:]
+		</p>
+		[:if link=="":]
+		<p style="font-size:0.75em;margin-left:10px">
+			[:comment:]
+		</p>
+		[:else:]
+		<p><a style="font-size:0.75em" href="[:link:]" target="_blank">[:link:]</a></p>
+		[:endif:]
+		
+		<input type="hidden" name="r" value="[:id:]" />
+		<input type="hidden" name="t" value="[:type:]" />
+		<input type="hidden" name="resource" value="[:resource_id:]" />
+
+		<input type="submit" value="[:T_RESOLVE:]" />
+		<input type="submit" name="disable" value="[:T_RESOLVE_AND_DISABLE:]" />
+	</form>
+</div>
