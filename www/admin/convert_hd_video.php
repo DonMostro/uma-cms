@@ -76,13 +76,13 @@ if(isset($form->v)){
 			$video->setType($data['ext']);
 			if(!empty($frame))$video->setFrame($frame);
 			$video->update();
-			echo 'The video has been converted.';
+			echo 'El video ha sido convertido.';
 		}else{
-			echo 'An error occured while trying to convert the video.';
+			echo 'Ha ocurrido un error mientras se convertia el video.';
 		}
 	}else{
-		echo 'An error occured while trying to convert the video.<br />
-		Please note that this feature only works for videos hosted on this server.';
+		echo 'Ha ocurrido un error mientras se convert&iacute;a el video.<br />
+		Por favor note que esta funcionalidad trabaja solo con videos hospedados en este servidor.';
 	}
 }
 @mysql_close();
