@@ -12,8 +12,8 @@ define('ADMIN_USERNAME','admin');
 define('ADMIN_PASSWORD','admin');
 
 
-define('URL','http://dev-ztv-com.lab.proyectouvm.com');
-define('URL_STATIC','http://dev-ztv-com.lab.proyectouvm.com');
+define('URL','http://test-ztv-com.lab.proyectouvm.com');
+define('URL_STATIC','http://test-ztv-com.lab.proyectouvm.com');
 define('SITENAME','Zoila TV');
 define('EMAIL','rodrigo.riquelme.e@gmail.com');
 define('MOD_REWRITE',false);
