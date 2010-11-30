@@ -2,7 +2,7 @@
 include_once("root.php");
 
 /**
- * Buffered model, almacena en meoria el resultado. 
+ * Buffered model, almacena en memoria el resultado. 
  * Esto Sirve para cuando se manejen multiples queries.
  *
  */
