@@ -15,9 +15,17 @@ include_once(ROOT."classes/models/MACLGroupUsers.php");
 include_once(ROOT."classes/models/MOnline.php");
 
 /**
- * User session control facility. To integrate with other systems, use UserIntegrate class.
+ * Instalación de control de sesión de usuario. Para integrar con otros sistemas, utilice la clase UserIntegrate.
  *
  */
+
+/*
+ * _____________________________________________
+ * Clase Usuarios CMS
+ * ______________________________________________
+ */
+
+
 class CUser {
   
   public $username;
@@ -35,7 +43,7 @@ class CUser {
     $this->sess=new Session(SESSION_NAME);
     $this->lang=Lang::getInstance();
     
-    //Integration with other systems. Use UserIntegrate class.
+    //Integración con otros sistemas. Utilice la clase UserIntegrate.
     $integrate=new UserIntegrate();
     $integrated_user=$integrate->getUsername();
     
