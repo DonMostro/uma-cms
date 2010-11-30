@@ -14,8 +14,8 @@ class MSimilarVideos extends MModel {
   function __construct(){
     parent::__construct(new RecordSet());
     
-	$this->dataSet->setStart(0);  //Start list from
-	$this->dataSet->setLimit(20); //Items per list
+	$this->dataSet->setStart(0);  //lista de inicio 	
+	$this->dataSet->setLimit(20); //Artículos por la lista	
 	$this->table=TABLE_PREFIX.'videos';
 	$this->table_tags=TABLE_PREFIX.'tags';
 	$this->table_video_tags=TABLE_PREFIX.'video_tags';
