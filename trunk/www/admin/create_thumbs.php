@@ -58,14 +58,14 @@ if(isset($form->v)){
 				$thumb->setFilename($t);
 				$thumb->add();
 			}
-			echo 'The thumbnails have been created.';
+			echo 'Las miniaturas se han creado';
 		}else{
 			echo '<br/>';
-			echo 'An error occured while trying to create the thumbnails.';
+			echo 'Se produjo un error al intentar crear las miniaturas.';
 		}
 	}else{
-		echo 'An error occured while trying to create the thumbnails.<br />
-		Please note that this feature only works for videos hosted on this server.';
+		echo 'Se produjo un error al intentar crear las miniaturas<br />
+		Tenga en cuenta que esta caracteristica solo funciona para los videos alojados en este servidor.';
 	}
 }
 ?>
