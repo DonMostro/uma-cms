@@ -108,7 +108,8 @@ class EditTable extends Controller{
 
       $tmp=each($this->id);
 
-      $k=$tmp['key']; //get the real id in form
+      $k=$tmp['key']; //obtener el id real del form
+      
 
 	  for($j=1; $j<$ecount; $j++){
 
