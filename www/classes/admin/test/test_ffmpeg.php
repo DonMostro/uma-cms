@@ -15,16 +15,16 @@ class TestFFmpeg extends Test{
 		exec($command);
 		if(file_exists($path.'/test.flv')&&filesize($path.'/test.flv')){
 				unlink($path.'/test.flv');
-				return '<h3>Testing FFmpeg</h3><p>FFmpeg is detected and working properly.</p>';
+				return '<h3>Testing FFmpeg</h3><p>FFmpeg se detecta y funciona correctamente.</p>';
 			}else{
 				return '
 				<h3>Testing FFmpeg</h3>
-				<p>FFmpeg cannot be executed. Please check the following settings:
+				<p>FFmpeg no puede ser ejecutado. Por favor, compruebe los siguientes ajustes		:
 				  <ul>
-				    <li>Make sure you have entered the correct path to ffmpeg</li>
-				  	<li>Make sure the <i>safe_mode</i> setting is turned off in php.ini</li>
-				    <li>Make sure that <i>exec</i> function is not listed under <i>disable_functions</i> setting in php.ini</li>
-				    <li>Make sure there are writable permission set to the files directory
+				    <li>Asegúrese de que ha entrado en el camino correcto ffmpeg</li>
+				  	<li>Asegúrese de que el<i>safe_mode</i> configuración se desactiva en php.ini</li>
+				    <li>Asegúrese de que<i>exec</i> la función no aparece en <i>disable_functions</i> puesta en php.ini</li>
+				    <li>Asegúrese de que el permiso de escritura establece en el directorio de archivos		    
 				  </ul>
 				</p>';
 			}
