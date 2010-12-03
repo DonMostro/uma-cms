@@ -23,7 +23,8 @@ if(isset($form->v)){
 	$data=$video->next();
 	
 	if(!empty($data['orig_file'])){
-		//Backward-compatibility for names that were not correctly changed during old version imports
+		//Compatibilidad con versiones anteriores de nombres que no se han cambiado correctamente durante importaciones versión antigua
+		
 		$year_month_folder = date('Y/m');
 		$nf=preg_replace('#[^\w/\.]#','_',$data['orig_file']);
 		if($nf!=$data['orig_file']){
@@ -53,7 +54,8 @@ if(isset($form->v)){
 			if(!in_array($ext,$images)){
 				$data['small_filename']=$fname.$px."_c.mp4";
 				$data['ext']="flv";
-				//get video duration and calculate the time of a frame to capture
+				//get video duración y calcular el tiempo de un marco para captar
+				
 				$video_info=$ffmpeg->get_info($data['filename']);
 				$ss=(int)($video_info['seconds']*0.5);
 				$h=$video_info['duration'][0]!='00'?$video_info['duration'][0].':':'';
