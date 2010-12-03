@@ -1,7 +1,6 @@
 <?php
 /**
  * Elementos para los formularios del CMS
- * @author Rodrigo
  *
  */
 
