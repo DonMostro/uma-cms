@@ -18,9 +18,9 @@ class TestMaxUploadSize extends Test{
 		
 		if($value->getValue() > $post->getValue() || $value->getValue() > $upload->getValue()){
 			return '
-			<h3>File uploading test</h3>
+			<h3>Archivo de prueba carga</h3>
 			<p>
-			  PHP configuration settings limit uploaded file size to '.$this->_encode($limit).'. Please enter a lower limit or increase the following settings in php.ini:
+			  ajustes de configuración de PHP límite de tamaño de archivo subido a '.$this->_encode($limit).'. Por favor, introduzca un límite inferior o aumentar los siguientes ajustes en php.ini:
 			  <ul>
 			    <li>post_max_size (current: '.ini_get('post_max_size').')</li>
 			    <li>upload_max_filesize (current: '.ini_get('upload_max_filesize').')</li>
@@ -28,9 +28,9 @@ class TestMaxUploadSize extends Test{
 			</p>';
 			
 		}elseif(!is_writable(ROOT.FILES)||!is_writable(ROOT.THUMBNAILS)){
-			return '<h3>File uploading test</h3><p>The files and/or thumbnails directories are not writable, please check the permissions</p>';
+			return '<h3>Archivo de prueba carga</h3><p>Los archivos y / o miniaturas directorios no son modificables, por favor, compruebe los permisos</p>';
 		}else{
-			return '<h3>File uploading test</h3><p>The file uploading settings are OK.</p>';
+			return '<h3>Archivo de prueba carga</h3><p>La configuración de carga de archivos están bien.</p>';
 		}
 	}
 	
