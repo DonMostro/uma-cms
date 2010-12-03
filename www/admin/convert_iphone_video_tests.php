@@ -23,7 +23,11 @@ if(isset($form->v)){
 	$data=$video->next();
 	
 	if(!empty($data['orig_file'])){
-		//Backward-compatibility for names that were not correctly changed during old version imports
+		//Compatibilidad con versiones anteriores de nombres que no se han cambiado correctamente durante importaciones versión antigua
+        //Escuchar
+        //Leer fonéticamente
+        //Diccionario - Ver diccionario detalladoverbo0.asegurar que
+		
 		$year_month_folder = date('Y/m');
 		$nf=preg_replace('#[^\w/\.]#','_',$data['orig_file']);
 		if($nf!=$data['orig_file']){
