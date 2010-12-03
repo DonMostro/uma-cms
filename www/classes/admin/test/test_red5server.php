@@ -13,9 +13,9 @@ class TestRed5Server extends Test{
 	function run(){
 		$url=parse_url($this->value);
 		if(@file_get_contents('http://'.$url['host'].':5080'.$url['path'])){
-			return '<h3>Red5 Server Test</h3><p>Red5 detected.</p>';
+			return '<h3>Red5 servidor de prueba</h3><p>Red5 detectado.</p>';
 		}else{
-			return '<h3>Red5 Server Test</h3><p>Red5 server is not responding, please check the server URL and Red5 configuration.</p>';
+			return '<h3>Red5 servidor de prueba</h3><p>Red5 servidor no responde, por favor, compruebe la dirección URL del servidor y la configuración de Red5.</p>';
 		}
 	}
 }
