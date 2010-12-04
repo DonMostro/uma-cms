@@ -6,14 +6,17 @@ include_once(ROOT."classes/views/VView.php");
 include_once(ROOT."classes/lib/PageCtrl.php");
 
 /**
- * Base view class to display the collection data types. The inherited classes implements
- * decorate_list() and decorate_item() methods. The main idea for these methods (and
- * the View layer in general) is to create tags for the templates and insert them into
- * the selected templates. The methods return the generated content.
+ * Base de clase de vista para mostrar los tipos de recolección de datos. Las clases heredadas implementa
+ decorate_list * () y decorate_item () métodos. La idea principal de estos métodos (y
+ * La capa de la Vista en general) es crear las etiquetas para las plantillas y los inserta en
+ * Las plantillas seleccionadas. Los métodos devuelven el contenido generado.
+
+
  * 
- * Since version 3.0, decorate_list() and decorate_item() can be omitted. In that case,
- * filter() is used to decorate items that must be processed rather than fetching to the
- * template straight from the model.
+ * Desde la versión 3.0, decorate_list () y decorate_item () puede ser omitido. En ese caso,
+ * Filter () se utiliza para decorar los elementos que deben ser procesados en lugar de ir a buscar a la
+ * Plantilla directamente desde el modelo.
+
  *
  */
 class VCollection extends VView{
@@ -30,14 +33,14 @@ class VCollection extends VView{
   }
 
    /**
-   * Fill the template with data.
+   * Rellene la plantilla con los datos.
    *
    * @return string Parsed template.
    */
   public function show(){
     $list="";
     
-    //Get list from the model and decorate it
+    //Get lista del modelo y decorar    
     if($this->model&&$this->model->getSize()>0){
         for($i=0; $i<$this->model->getSize(); $i++){
             $info=$this->model->next();
@@ -47,15 +50,15 @@ class VCollection extends VView{
         $list=$this->empty_msg;
     }
 
-	//Decorate list and return
+	//Decora la lista y volver	
     return $this->decorate_list($list);
 
   } 
   
   /**
-   * Fill the item template.
+   * Llene la plantilla de elementos.
    *
-   * @param mixed $info Data to be inserted into template.
+   * @param mixed $info Los datos que se inserta en la plantilla.
    * @return string Parsed template.
    */
   protected function decorate_item($info){ 
@@ -72,9 +75,9 @@ class VCollection extends VView{
   }
 
   /**
-   * Fill the main template
+   * Llene la plantilla principal
    *
-   * @param string $list The set of prepared item templates.
+   * @param string $list El conjunto de elemento de plantillas preparadas.
    * @return string Parsed template.
    */
   protected function decorate_list($list){ 
@@ -95,7 +98,8 @@ class VCollection extends VView{
   }
   
   /**
-   * Filter the values of template. To be used when data should be processed before inserted into the template.
+   * Filtro de los valores de la plantilla. Para ser utilizado cuando los datos deben ser procesados antes de insertarse en la plantilla.
+
    *
    * @param Template $tpl
    */
