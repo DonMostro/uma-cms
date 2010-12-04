@@ -7,7 +7,7 @@ include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Dispatcher.php");
 include_once(ROOT."classes/lib/DAO.php");
 
-$app=new Dispatcher($map, $noncached);
+$app=new Dispatcher($map,$noncached);
 
 $dao=new DAO();
 
@@ -18,3 +18,4 @@ if(!DAO::connect()){
 	$app->run();
 }
 ?>
+
