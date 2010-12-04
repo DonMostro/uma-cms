@@ -33,8 +33,9 @@ class VCategoryList extends VCollection{
     
     $tpl->modify=$this->modify;
     
-    /* Top videos. This here is rude breaking of the rules. No View should ever be hard-coupled with a Model. 
-       Alas, this is the only reasonable solution of the problem in the current setup. */
+    /*Los mejores videos. Esto aquí se está rompiendo forma grosera  las normas. N Ver nunca debe ser duro, junto con un modelo.
+       Por desgracia, esta es la única solución razonable del problema en la configuración actual. * /
+*/
 	$video=new MVideos();
 	$children=array_filter(array($tpl->id)+explode(',',$tpl->children));
 	$video->setCategories_Id($children);
