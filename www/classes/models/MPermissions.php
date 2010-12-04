@@ -7,7 +7,7 @@ include_once(ROOT."classes/lib/Types.php");
 include_once(ROOT."classes/models/MModel.php");
 
 /**
- * User permissions on resources
+ * Permisos del usuario sobre los recursos
  *
  */
 class MPermissions extends MModel{
