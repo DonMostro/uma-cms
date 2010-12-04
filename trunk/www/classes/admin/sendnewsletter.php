@@ -38,7 +38,7 @@ class SendNewsletter{
 
 	$form=new Form();
 
-	$out='<h2>Send Newsletter</h2>';
+	$out='<h2>Enviar Noticias</h2>';
 
 	if(!empty($form->id)){
 
@@ -60,11 +60,11 @@ class SendNewsletter{
 
 			if(!empty($tags)){
 
-				$out.='<p>Send newsletter <b>'.$data['subject'].'</b> to the users who watch videos tagged: <b>'.$tags.'.</b></p>';
+				$out.='<p>Enviar boletín de noticias <b>'.$data['subject'].'</b> a los usuarios que ven vídeos con etiqueta:<b>'.$tags.'.</b></p>';
 
 			}else{
 
-				$out.='<p>Send newsletter <b>'.$data['subject'].'</b> to all users.</p>';
+				$out.='<p>Enviar boletín de noticias<b>'.$data['subject'].'</b> a todos los usuarios.</p>';
 
 			}
 
@@ -72,7 +72,7 @@ class SendNewsletter{
 
 		}else{
 
-			if(!empty($tags)){ //send to those who watch tagged videos
+			if(!empty($tags)){ //enviar a los que ven vídeos con etiqueta				
 
 				$stats=new MStats();
 
@@ -136,7 +136,7 @@ class SendNewsletter{
 
 			
 
-			$out.="<p>The newsletter has been sent.</p>";
+			$out.="<p>El boletín ha sido enviado.</p>";
 
 			
 
@@ -146,7 +146,7 @@ class SendNewsletter{
 
 			
 
-			$out.='<p><a href="index.php?p=newsletters">Go back</a></p>';
+			$out.='<p><a href="index.php?p=newsletters">Volver</a></p>';
 
 		}
 
