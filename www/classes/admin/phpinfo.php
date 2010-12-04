@@ -22,7 +22,7 @@ class PHPInfo{
 
   function display(){
 
-    $out = "<h2>System Configuration</h2>\r\n";
+    $out = "<h2>Configuración del sistema</h2>\r\n";
 
 	
 
