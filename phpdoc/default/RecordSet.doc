@@ -1,0 +1,102 @@
+{\rtf1\ansi\ansicpg0\uc1\deff0\deflang0\deflangfe0{\fonttbl{\f0\fnil Times New Roman;}{\f1\fnil Courier New;}{\f2\fnil\fcharset2 Symbol;}}{\colortbl;\red0\green0\blue0;\red0\green0\blue255;\red0\green255\blue255;\red0\green255\blue0;\red255\green0\blue255;\red255\green0\blue0;\red255\green255\blue0;\red255\green255\blue255;\red0\green0\blue128;\red0\green128\blue128;\red0\green128\blue0;\red128\green0\blue128;\red128\green0\blue0;\red128\green128\blue0;\red128\green128\blue128;\red192\green192\blue192;}{\*\listtable{\list\listtemplateid138427305\listsimple1
+{\listlevel\levelnfc23\leveljc0\li720\fi-360\jclisttab\tx720{\leveltext\'01\'b7;}{\levelnumbers;}\f2\fs24\lang1024}
+\listid1968493137}
+{\list\listtemplateid766420380\listsimple1
+{\listlevel\levelnfc23\leveljc0\li720\fi-360\jclisttab\tx720{\leveltext\'01\'b7;}{\levelnumbers;}\f2\fs24\lang1024}
+\listid112603153}
+{\list\listtemplateid518256215\listsimple1
+{\listlevel\levelnfc23\leveljc0\li720\fi-360\jclisttab\tx720{\leveltext\'01\'b7;}{\levelnumbers;}\f2\fs24\lang1024}
+\listid406400952}
+{\list\listtemplateid930943130\listsimple1
+{\listlevel\levelnfc23\leveljc0\li720\fi-360\jclisttab\tx720{\leveltext\'01\'b7;}{\levelnumbers;}\f2\fs24\lang1024}
+\listid1859731206}
+{\list\listtemplateid1660557605\listsimple1
+{\listlevel\levelnfc23\leveljc0\li720\fi-360\jclisttab\tx720{\leveltext\'01\'b7;}{\levelnumbers;}\f2\fs24\lang1024}
+\listid1560942013}
+}
+{\*\listoverridetable
+{\listoverride\listid1968493137\listoverridecount0\ls1}
+{\listoverride\listid112603153\listoverridecount0\ls2}
+{\listoverride\listid406400952\listoverridecount0\ls3}
+{\listoverride\listid1859731206\listoverridecount0\ls4}
+{\listoverride\listid1560942013\listoverridecount0\ls5}
+}
+
+\uc1
+\pard\fi0\li0\ql\ri0\sb0\sa0\itap0 \plain \f0\fs24 
+\par \plain \f0\b\fs48 Class RecordSet
+\par {\*\bkmkstart sec_description}{\*\bkmkend sec_description}\plain \f0\fs24  Description
+\par Description | \plain \f0\ul\fs24\cf2 Vars\plain \f0\fs24  (\plain \f0\ul\fs24\cf2 details\plain \f0\fs24 ) | \plain \f0\ul\fs24\cf2 Methods\plain \f0\fs24  (\plain \f0\ul\fs24\cf2 details\plain \f0\fs24 ) 
+\par _______________________________________________________________ Clase RecordSet se encarga de la formaci\'f3n y ejecuci\'f3n del SQL.
+\par  _______________________________________________________________
+\par  Located in \plain \f0\ul\fs24\cf2 /www/classes/lib/RecordSet.php\plain \f0\fs24  (line 12) 
+\par {\*\bkmkstart sec_var_summary}{\*\bkmkend sec_var_summary}Variable Summary
+\par \plain \f0\ul\fs24\cf2 Description\plain \f0\fs24  | Vars (\plain \f0\ul\fs24\cf2 details\plain \f0\fs24 ) | \plain \f0\ul\fs24\cf2 Methods\plain \f0\fs24  (\plain \f0\ul\fs24\cf2 details\plain \f0\fs24 ) 
+\par mixed\plain \f0\ul\fs24\cf2  $countQuery
+\par \plain \f0\fs24  mixed\plain \f0\ul\fs24\cf2  $dao
+\par \plain \f0\fs24  mixed\plain \f0\ul\fs24\cf2  $limit
+\par \plain \f0\fs24  mixed\plain \f0\ul\fs24\cf2  $order
+\par \plain \f0\fs24  mixed\plain \f0\ul\fs24\cf2  $query
+\par \plain \f0\fs24  mixed\plain \f0\ul\fs24\cf2  $start
+\par {\*\bkmkstart sec_method_summary}{\*\bkmkend sec_method_summary}\plain \f0\fs24  Method Summary
+\par \plain \f0\ul\fs24\cf2 Description\plain \f0\fs24  | \plain \f0\ul\fs24\cf2 Vars\plain \f0\fs24  (\plain \f0\ul\fs24\cf2 details\plain \f0\fs24 ) | Methods (\plain \f0\ul\fs24\cf2 details\plain \f0\fs24 ) 
+\par RecordSet\plain \f0\ul\fs24\cf2  RecordSet\plain \f0\fs24  () 
+\par void\plain \f0\ul\fs24\cf2  addOrder\plain \f0\fs24  ( $order) 
+\par void\plain \f0\ul\fs24\cf2  countAll\plain \f0\fs24  () 
+\par void\plain \f0\ul\fs24\cf2  fill\plain \f0\fs24  () 
+\par void\plain \f0\ul\fs24\cf2  getLimit\plain \f0\fs24  () 
+\par void\plain \f0\ul\fs24\cf2  getOrder\plain \f0\fs24  () 
+\par void\plain \f0\ul\fs24\cf2  getSize\plain \f0\fs24  () 
+\par void\plain \f0\ul\fs24\cf2  getStart\plain \f0\fs24  () 
+\par void\plain \f0\ul\fs24\cf2  next\plain \f0\fs24  () 
+\par void\plain \f0\ul\fs24\cf2  reset\plain \f0\fs24  () 
+\par void\plain \f0\ul\fs24\cf2  setCountQuery\plain \f0\fs24  ( $query) 
+\par void\plain \f0\ul\fs24\cf2  setLimit\plain \f0\fs24  ( $limit) 
+\par void\plain \f0\ul\fs24\cf2  setQuery\plain \f0\fs24  ( $query) 
+\par void\plain \f0\ul\fs24\cf2  setStart\plain \f0\fs24  ( $start) 
+\par {\*\bkmkstart sec_vars}{\*\bkmkend sec_vars}Variables
+\par \plain \f0\ul\fs24\cf2 Description\plain \f0\fs24  | \plain \f0\ul\fs24\cf2 Vars\plain \f0\fs24  (details) | \plain \f0\ul\fs24\cf2 Methods\plain \f0\fs24  (\plain \f0\ul\fs24\cf2 details\plain \f0\fs24 ) 
+\par {\*\bkmkstart var_countQuery}{\*\bkmkend var_countQuery}mixed $countQuery (line 16) 
+\par {\*\bkmkstart var_dao}{\*\bkmkend var_dao}mixed $dao (line 14) 
+\par {\*\bkmkstart var_limit}{\*\bkmkend var_limit}mixed $limit (line 18) 
+\par {\*\bkmkstart var_order}{\*\bkmkend var_order}mixed $order (line 19) 
+\par {\*\bkmkstart var_query}{\*\bkmkend var_query}mixed $query (line 15) 
+\par {\*\bkmkstart var_start}{\*\bkmkend var_start}mixed $start (line 17) 
+\par {\*\bkmkstart sec_methods}{\*\bkmkend sec_methods}Methods
+\par \plain \f0\ul\fs24\cf2 Description\plain \f0\fs24  | \plain \f0\ul\fs24\cf2 Vars\plain \f0\fs24  (\plain \f0\ul\fs24\cf2 details\plain \f0\fs24 ) \plain \f0\ul\fs24\cf2 Methods\plain \f0\fs24  (details) 
+\par {\*\bkmkstart method_detail}{\*\bkmkend method_detail}Constructor RecordSet (line 21) 
+\par RecordSet RecordSet () 
+\par {\*\bkmkstart methodaddOrder}{\*\bkmkend methodaddOrder}addOrder (line 87) 
+\par void addOrder ( $order) 
+\par \pard\li720\fi-360\jclisttab\tx720\ql\ri0\sb0\sa0\itap0 {\listtext\pard\plain\f2\fs24\lang1024 \'b7\tab}\ls1\ilvl0 \plain \f0\fs24 $order
+\par \plain\pard\fi0\li0\ql\ri0\sb0\sa0\itap0 {\*\bkmkstart methodcountAll}{\*\bkmkend methodcountAll}\plain \f0\fs24  countAll (line 52) 
+\par void countAll () 
+\par {\*\bkmkstart methodfill}{\*\bkmkend methodfill}fill (line 36) 
+\par __________________________________________________________________________________________________ Prepara la query final sobre la base de $start, $limit y $order propiedades de orden y lo ejecuta.
+\par  __________________________________________________________________________________________________
+\par  void fill () 
+\par {\*\bkmkstart methodgetLimit}{\*\bkmkend methodgetLimit}getLimit (line 74) 
+\par void getLimit () 
+\par {\*\bkmkstart methodgetOrder}{\*\bkmkend methodgetOrder}getOrder (line 75) 
+\par void getOrder () 
+\par {\*\bkmkstart methodgetSize}{\*\bkmkend methodgetSize}getSize (line 69) 
+\par void getSize () 
+\par {\*\bkmkstart methodgetStart}{\*\bkmkend methodgetStart}getStart (line 73) 
+\par void getStart () 
+\par {\*\bkmkstart methodnext}{\*\bkmkend methodnext}next (line 61) 
+\par void next () 
+\par {\*\bkmkstart methodreset}{\*\bkmkend methodreset}reset (line 65) 
+\par void reset () 
+\par {\*\bkmkstart methodsetCountQuery}{\*\bkmkend methodsetCountQuery}setCountQuery (line 84) 
+\par void setCountQuery ( $query) 
+\par \pard\li720\fi-360\jclisttab\tx720\ql\ri0\sb0\sa0\itap0 {\listtext\pard\plain\f2\fs24\lang1024 \'b7\tab}\ls2\ilvl0 \plain \f0\fs24 $query
+\par \plain\pard\fi0\li0\ql\ri0\sb0\sa0\itap0 {\*\bkmkstart methodsetLimit}{\*\bkmkend methodsetLimit}\plain \f0\fs24  setLimit (line 86) 
+\par void setLimit ( $limit) 
+\par \pard\li720\fi-360\jclisttab\tx720\ql\ri0\sb0\sa0\itap0 {\listtext\pard\plain\f2\fs24\lang1024 \'b7\tab}\ls3\ilvl0 \plain \f0\fs24 $limit
+\par \plain\pard\fi0\li0\ql\ri0\sb0\sa0\itap0 {\*\bkmkstart methodsetQuery}{\*\bkmkend methodsetQuery}\plain \f0\fs24  setQuery (line 83) 
+\par void setQuery ( $query) 
+\par \pard\li720\fi-360\jclisttab\tx720\ql\ri0\sb0\sa0\itap0 {\listtext\pard\plain\f2\fs24\lang1024 \'b7\tab}\ls4\ilvl0 \plain \f0\fs24 $query
+\par \plain\pard\fi0\li0\ql\ri0\sb0\sa0\itap0 {\*\bkmkstart methodsetStart}{\*\bkmkend methodsetStart}\plain \f0\fs24  setStart (line 85) 
+\par void setStart ( $start) 
+\par \pard\li720\fi-360\jclisttab\tx720\ql\ri0\sb0\sa0\itap0 {\listtext\pard\plain\f2\fs24\lang1024 \'b7\tab}\ls5\ilvl0 \plain \f0\fs24 $start
+\par \plain\pard\fi0\li0\ql\ri0\sb0\sa0\itap0 \plain \f0\fs24  Documentation generated on Tue, 30 Nov 2010 17:09:09 -0400 by \plain \f0\ul\fs24\cf2 phpDocumentor 1.4.1\par}
