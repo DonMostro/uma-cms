@@ -19,7 +19,7 @@ class ASettings{
   function display(){
     $form=new Form();
 	$settings=new MSettings();
-    $out = "<h2>Settings</h2>\r\n";
+    $out = "<h2>Configuración</h2>\r\n";
 
     if(isset($form->save)){
     	foreach ($form->id as $i=>$v){
