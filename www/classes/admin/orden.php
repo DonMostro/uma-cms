@@ -48,8 +48,7 @@ class orden extends Element{
   	  }else{
   	  	$selected[1] = "selected=\"selected\"";
   	  }
-  	  $strOptions = "<select style=\"width:50px;display:$display\" id=\"edit{$i}_{$j}\" name=\"$this->target[$i]\">
-  	  ";
+  	  $strOptions = "<select style=\"width:50px;display:$display\" id=\"edit{$i}_{$j}\" name=\"$this->target[$i]\">";
   	 
   	  $strSQL = "SELECT id FROM {$this->params['TABLE']} " ;
   	  //if($this->params['TABLE'] == 'top_carrusel') $strSQL .= " WHERE videos_id <> 0 ";
