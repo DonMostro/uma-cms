@@ -26,7 +26,7 @@ class MVideoTypes extends MModel{
   
   protected function setQuery(){
   	
-    //Get list of categories
+    //Get lista de categories
     $query="
     SELECT *
 	   FROM video_types
