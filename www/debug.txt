@@ -25,3 +25,5 @@ INSERT INTO tags (tag)VALUES('Protesta')
 SELECT last_insert_id() AS id FROM tags
 /proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-11-28 23:52:32]: [2010-28-11 23:52:32] Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near ')' at line 1
 INSERT INTO video_tags (videos_id,tags_id)VALUES(1,)
+/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-02 01:29:07]: [2010-02-12 01:29:07] Error: Table 'ztv_cms.menu' doesn't exist
+SELECT `title`,`id` FROM menu
