@@ -2,7 +2,7 @@ body{
 	font-family: Arial;
 	font-size: 8pt;
 	color: white;
-	background-color: black;
+	background-color: #CCCCCC;
 }
 
 input,textarea,select{
