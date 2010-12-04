@@ -25,9 +25,11 @@ class VTagCloud extends VCollection{
     $this->title=$lang->getText('T_TAGS');
   }  
 
-  function decorate_item($info){ //decorate list item
+  function decorate_item($info){ //elemento de la lista decorar
+  	
   
-  	//Get list item template and set variables
+  	//Get lista de elementos de plantilla y variables establecidas
+  	
     $tpl=new Template(ROOT."html/$this->tplitemfile");
     
     $tpl->tag=isset($info["tag"])?$info["tag"]:"";
@@ -48,10 +50,12 @@ class VTagCloud extends VCollection{
     return $tpl->output();
   }
 
-  function decorate_list($list){ //decorate list
+  function decorate_list($list){ //lista de decorar
+  	
   	if($this->tplfile!=""){
 	
-		//Get list template and set variables
+		//Obtener variables de plantilla de la lista y establecer
+		
 		$tpl=new Template(ROOT."html/$this->tplfile");
 		$tpl->title=$this->title;
 		$tpl->list=$list;
