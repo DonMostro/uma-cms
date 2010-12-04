@@ -10,7 +10,6 @@ include_once(ROOT."classes/models/MVideos.php");
 
 /**
  * Modelo de tipos de videos y scripts de conversi&oacute;n
- * @author rodrigo
  *
  */
 
