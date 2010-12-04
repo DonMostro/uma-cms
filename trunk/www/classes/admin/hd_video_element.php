@@ -19,14 +19,14 @@ class hd_video_element extends Element{
   public function display($i,$j){
   	if($this->value == ''){
 		$link = $this->params['LINK1'];
-		$image = "<img src=\"images/hd_go.png\" title=\"HD Video Convert\"/>";
+		$image = "<img src=\"images/hd_go.png\" title=\"HD Video Convertir\"/>";
   	}else{
   		$link = $this->params['LINK2'];
-  		$image = "<img src=\"images/no_hd.png\" title=\"HD Video Delete\"/>";
+  		$image = "<img src=\"images/no_hd.png\" title=\"HD Video Eliminar\"/>";
   	}
 	$href=str_replace("{id}",$this->params['ID'],$link);
 	$href=str_replace("{value}",$this->value,$href);  	   
-	return "<a id=\"field{$i}_{$j}\" title=\"Desasignar Video HD\" name=\"$this->target[]\" href=\"$href\">$image</a>";
+	return "<a id=\"field{$i}_{$j}\" title=\"Disenar Video HD\" name=\"$this->target[]\" href=\"$href\">$image</a>";
 
   }
 }
