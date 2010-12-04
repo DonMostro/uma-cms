@@ -26,7 +26,7 @@ class ImportVideos{
 
 
   function display(){
-	$out="<h1>Import Videos</h1>";
+	$out="<h1>Importar vídeos</h1>";
     if(!empty($this->form->path)&&!empty($this->form->username[0])&&!empty($this->form->category)&&!empty($this->form->description)&&!empty($this->form->tags)){
     	$files=glob(ROOT.FILES.'/'.$this->form->path.'/*');
     	//Debug::write('importvideos[32]:'.print_r($files,1));
@@ -34,7 +34,7 @@ class ImportVideos{
     	foreach ($files as $file){
     		$videos+=$this->_import_file($file);
     	}
-    	$out.="$videos video(s) have been imported.";
+    	$out.="$videos vídeo (s) se han importado.";
     }
   
 
@@ -65,7 +65,8 @@ class ImportVideos{
 
 	<p>
 
-		Path to the videos:
+		Ruta de acceso a los videos:
+	
 
 		<br />
 
@@ -75,7 +76,7 @@ class ImportVideos{
 
 	<p>
 
-		Category:
+		Categoría:
 
 		<br />
 
@@ -89,7 +90,7 @@ class ImportVideos{
 
 	<p>
 
-		Username:
+		Nombre de usuario:
 
 		<br />
 
@@ -99,7 +100,7 @@ class ImportVideos{
 
 	<p>
 
-		Description:
+		Descripción:
 
 		<br />
 
@@ -109,7 +110,7 @@ class ImportVideos{
 
 	<p>
 
-		Tags:
+		Etiquetas:
 
 		<br />
 
@@ -215,7 +216,8 @@ EOB;
 
 					
 
-					//convert video to flv
+					//convertir el vídeo a flv
+					
 
 					//unlink(FILES."/".$file['filename']);
 
@@ -223,7 +225,8 @@ EOB;
 
 					$file['ext']="flv";
 
-					//get video duration and calculate the time of a frame to capture
+					//obtener duración del vídeo y calcular el tiempo de un marco para captar
+					
 
 					$video_info=$ffmpeg->get_info($file['filename']);
 
@@ -233,7 +236,8 @@ EOB;
 
 
 
-					//create a thumbnails
+					//crear una miniatura
+					
 
 					$thumb_count=(int)$this->settings['ffmpeg_thumbnails'];
 
@@ -253,7 +257,8 @@ EOB;
 
 					
 
-					//capture a frame
+					//captura de un marco
+					
 
 					$ss=(int)($video_info['seconds']*0.5);
 
@@ -319,7 +324,8 @@ EOB;
 
 			
 
-			//add thumbnail
+			//Añadir miniatura
+			
 
 	        if(!empty($thumbnail)){
 
