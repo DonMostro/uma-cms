@@ -88,7 +88,7 @@ if(!empty($form->e)){
 
 	fclose($ff);
 
-	header('Location: '.URL.'/'.FILES.'/'.$filename);
+	header('Localización: '.URL.'/'.FILES.'/'.$filename);
 
 }
 
