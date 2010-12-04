@@ -46,7 +46,7 @@ class Contact{
 
     
 
-    $out = "<h2>Email members</h2>\r\n";
+    $out = "<h2>los miembros de correo electrónico</h2>\r\n";
 
 	
 
@@ -140,7 +140,7 @@ class Contact{
 
     	}
 
-    	$out.="Message sent.<br /><br />\r\n";
+    	$out.="Mensaje enviado.<br /><br />\r\n";
 
     }
 
@@ -148,7 +148,7 @@ class Contact{
 
 	$out.="<form action=\"index.php?p=$this->page\" method=\"post\">\r\n";
 
-	$out.='<p>Member: ';
+	$out.='<p>Miembros: ';
 
 	$e=new finduser(true,true,'username','username',isset($form->user_id)?$form->user_id:'');
 
@@ -156,15 +156,15 @@ class Contact{
 
 	$out.="</p>\r\n";
 
-	$out.='<p>All members: <input type="checkbox" name="all" value="1" onclick="document.getElementById(\'edit0_0\').disabled=this.checked; document.getElementById(\'all\').style.display=this.checked?\'block\':\'none\';" /></p>';
+	$out.='<p>Todos los miembros: <input type="checkbox" name="all" value="1" onclick="document.getElementById(\'edit0_0\').disabled=this.checked; document.getElementById(\'all\').style.display=this.checked?\'block\':\'none\';" /></p>';
 
 	$out.='<div id="all" style="display:none">';
 
-	$out.='<p>Not banned: <input type="checkbox" name="banned" value="1" /></p>';
+	$out.='<p>No está prohibido: <input type="checkbox" name="banned" value="1" /></p>';
 
-	$out.='<p>Active: <input type="checkbox" name="active" value="1" /></p>';
+	$out.='<p>Activo: <input type="checkbox" name="active" value="1" /></p>';
 
-	$out.='<p>Members of: ';
+	$out.='<p>Miembros de:';
 
 	$products=new MACLGroups();
 
@@ -180,7 +180,7 @@ class Contact{
 
 	$products->reset();
 
-	$out.='<p>Not members of: ';
+	$out.='<p>No miembros de: ';
 
   	while($p=$products->next()){
 
@@ -194,9 +194,9 @@ class Contact{
 
 	
 
-	$out.="<p>Subject:<br /><input type=\"text\" name=\"subject\" style=\"width:400px\" /></p>\r\n";
+	$out.="<p>Asunto:<br /><input type=\"text\" name=\"subject\" style=\"width:400px\" /></p>\r\n";
 
-	$out.="<p>Message:<br /><textarea style=\"width:400px;height:300px\" name=\"message\"></textarea>\r\n";
+	$out.="<p>Mensaje:<br /><textarea style=\"width:400px;height:300px\" name=\"message\"></textarea>\r\n";
 
 	$out.="\r\n</p>\r\n";
 
