@@ -46,9 +46,9 @@ $tags->load();
 
 
 
-$out.='<h3>Top viewed tags</h3>
+$out.='<h3>Top etiquetas vistos</h3>
 
-<p>Select tags and create a newsletter. Members who watch videos tagged with those tags will receive the newsletter.</p>
+<p>Seleccione las etiquetas y crear un boletín informativo. Los miembros que ver vídeos etiquetados con las etiquetas recibirá el boletín de noticias.</p>
 
 <p><form action="index.php?p=newsletters" method="post">
 
