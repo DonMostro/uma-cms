@@ -39,16 +39,16 @@ class Observable {
     }
  
     /**
-    * Register the reference to an object object
+    * Registro de la referencia a un objeto objeto
     * @return void
     */ 
     public function addObserver (& $observer) {
         $this->observers[]=& $observer;
     }
  
-    //! An accessor
+    //! Un descriptor de acceso    
     /**
-    * Returns the current value of the state property
+    * Devuelve el valor actual de la propiedad estatal
     * @return mixed
     */ 
     public function getState () {
@@ -59,10 +59,10 @@ class Observable {
     	return $this->method;
     }
  
-    //! An accessor
+    //! Un descriptor de acceso    
     /**
-    * Assigns a value to state property
-    * @param $state mixed variable to store
+    * Asigna un valor a la propiedad estatal
+    * @param $statevariable mixta para almacenar
     * @return void
     */ 
     public function setState ($state) {
