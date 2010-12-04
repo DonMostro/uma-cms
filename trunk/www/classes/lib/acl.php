@@ -4,8 +4,9 @@ include_once(ROOT."classes/models/MACLGroups.php");
 include_once(ROOT."classes/models/MStats.php");
 
 /**
- * Access control facility.
- *
+ * _________________________________________
+ * Acceso a las instalaciones de control.
+ *___________________________________________
  */
 class ACL {
 
@@ -100,7 +101,7 @@ class ACL {
 	}
 	
 	/**
-	 * Can the user access the given part under given conditions?
+	 * ¿Puede el acceso de los usuarios la parte dada bajo condiciones dadas?
 	 *
 	 * @return boolean
 	 */
@@ -115,7 +116,7 @@ class ACL {
 	}
 	
 	/**
-	 * Can the user modify the given part under given conditions?
+	 * ¿El usuario puede modificar la parte concreta en determinadas condiciones?
 	 *
 	 * @return boolean
 	 */
