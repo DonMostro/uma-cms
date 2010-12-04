@@ -14,9 +14,9 @@ class status extends Element{
   	  	$selected[0] = "selected=\"selected\"";
   	  }
 	  return "<select style=\"width:50px;display:$display\" id=\"edit{$i}_{$j}\" name=\"$this->target[$i]\">
-	  <option value=\"0\" $selected[0]>Pending</option>
-	  <option value=\"1\" $selected[1]>Complete</option>
-	  <option value=\"-1\" $selected[2]>Cancelled</option>";
+	  <option value=\"0\" $selected[0]>Pendientes</option>
+	  <option value=\"1\" $selected[1]>Completa</option>
+	  <option value=\"-1\" $selected[2]>Cancelado</option>";
   }
 
   function display($i, $j){
