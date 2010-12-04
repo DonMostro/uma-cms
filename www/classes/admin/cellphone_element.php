@@ -19,10 +19,10 @@ class cellphone_element extends Element{
   public function display($i,$j){
   	if($this->value == ''){
 		$link = $this->params['LINK1'];
-		$image = "<img src=\"images/cellphone.png\" title=\"3gp Video Convert\"/>";
+		$image = "<img src=\"images/cellphone.png\" title=\"3gp Video Convertir\"/>";
   	}else{
   		$link = $this->params['LINK2'];
-  		$image = "<img src=\"images/no_cellphone.png\" title=\"3gp Video Delete\"/>";
+  		$image = "<img src=\"images/no_cellphone.png\" title=\"3gp Video Eliminar\"/>";
   	}
 	$href=str_replace("{id}",$this->params['ID'],$link);
 	$href=str_replace("{value}",$this->value,$href);  	   
