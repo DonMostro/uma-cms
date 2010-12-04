@@ -12,7 +12,7 @@ input,textarea,select{
 #side{
 	margin-bottom: 10px;
 	padding: 5px;
-	background:#FFFFFF;
+	background: #333333;
 	border: 1px groove grey;
 }
 
@@ -116,7 +116,7 @@ h2,h3{
 .trow:hover{
 	background: #D0D0D0;
 }
- .Estilo1 {color: #0000A0}
+
 img{
 	border:0;
 }
@@ -212,8 +212,3 @@ a.settings_tab:hover{
 #content table td{
 	padding:8px;
 }
-		
-		
-
-
-
