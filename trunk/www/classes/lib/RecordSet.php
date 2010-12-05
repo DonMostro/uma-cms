@@ -5,10 +5,10 @@ include_once(ROOT."classes/lib/DAO.php");
 include_once(ROOT."classes/lib/Types.php");
 
 /**
- * _______________________________________________________________
- * Clase RecordSet se encarga de la formación y ejecución del SQL.
- * _______________________________________________________________
- */
+*
+* Clase RecordSet se encarga de la formación y ejecución del SQL.
+*
+*/
 class RecordSet{
   
   var $dao;
@@ -49,6 +49,11 @@ class RecordSet{
 	if($this->query!="")$this->dao->query($this->query." $orderString $limitString");
   }
   
+  /**
+   * Cuenta el número total de filas del objeto
+   * @return int
+   */
+  
   function countAll(){
   	if(!empty($this->countQuery)){
 			$this->dao->query($this->countQuery);
@@ -57,6 +62,10 @@ class RecordSet{
 			return 0;
 	}
   }
+  /**
+   * Mueve el puntero al siguiente registro
+   * @return DAO
+   */
   
   function next(){
     return $this->dao->getAll();
