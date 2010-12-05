@@ -56,7 +56,7 @@ class DAO{
   }
   
   /**
-   * Obtiene valor de campo a trav&eacute;s de su nombre y posici&oacute;n de RecordSer
+   * Obtiene valor de campo a trav&eacute;s de su nombre y posici&oacute;n de RecordSet
    * @param $i
    * @param $field
    * @return mysql_result
