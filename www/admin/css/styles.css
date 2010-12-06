@@ -26,6 +26,7 @@ a{
     font-family: Verdana,Arial,Helvetica,sans-serif;
     font-size: 10px;
     opacity: 0.7;
+    filter: alpha(opacity=70);
     padding: 20px;
 }
 
@@ -42,12 +43,17 @@ a{
 
 
 input[type="submit"] {
+
+}
+
+.big-button{
 	background: url("/css/i/panel-button-active.png") no-repeat  scroll 0 2px #000000 !important;
     border: 0 none;
     color: #FFFFFF !important;
     font-weight: bold !important;
     height: 33px;
     width: 128px;
+	
 }
 
 .login input{
@@ -68,6 +74,18 @@ input[type="submit"] {
 	text-align: center;	
     margin: 60px;
     text-align: center;	
+}
+
+.login h1{
+	font-size: 18px;
+	font-family:verdana;
+	font-weight:bolder;
+}
+
+.login table p{
+	font-size: 9px;
+	font-weight: lighter;
+	
 }
 
 #footer a{
@@ -185,11 +203,14 @@ h2,h3{
 }
 
 .trow{
-	background: darkSeaGreen;
+	background: none repeat scroll 0 0 #000000;
+	opacity: 0.7;
+    filter: alpha(opacity=70);
 }
 
 .trow:hover{
-	background: #D0D0D0;
+	opacity: 1;
+    filter: alpha(opacity=100);
 }
 
 
