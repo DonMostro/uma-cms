@@ -60,7 +60,7 @@ class Table{
 		  	$out .= "<form action=\"$location&a=edit\" method=\"post\" enctype=\"multipart/form-data\">\r\n";
 		  	$out .= $edittable->display('EDIT');
 		  	$out .= "<input type=\"hidden\" name=\"save\" value=\"save\">\r\n";
-		  	$out .= "<input type=\"submit\" value=\"save\"/>";
+		  	$out .= "<input type=\"submit\" value=\"Guardar\"  class=\"big-button\"/>";
 		  	$out .= "</form>\r\n";
 	  	}else{
 			$response=$edittable->edit()?"1":"0";
@@ -74,7 +74,7 @@ class Table{
 		  	$out .= "<form action=\"$location&a=add\" method=\"post\" enctype=\"multipart/form-data\">\r\n";
 			$out .= $edittable->display('ADD');
 		  	$out .= "<input type=\"hidden\" name=\"save\" value=\"save\">\r\n";
-		  	$out .= "<input type=\"submit\" value=\"add\"/>";
+		  	$out .= "<input type=\"submit\" value=\"Agregar\" class=\"big-button\"/>";
 		  	$out .= "</form>\r\n";
 	  	}else{
 			$edittable->add();
@@ -112,7 +112,7 @@ class Table{
 
 	  	if(isset($viewtable->layout[0]['EDIT'])&&$viewtable->layout[0]['EDIT']=='true')$out .= " <input type=\"button\" onclick=\"check(frm1,'{$id}[]','edit')\" value=\"edit\"/> ";
 
-	  	if(isset($viewtable->layout[0]['DELETE'])&&$viewtable->layout[0]['DELETE']=='true')$out .= "<input type=\"button\" onclick=\"if(confirm('Are you sure?')==true){check(frm1,'{$id}[]','delete')}\" value=\"delete\"/>";
+	  	if(isset($viewtable->layout[0]['DELETE'])&&$viewtable->layout[0]['DELETE']=='true')$out .= "<input type=\"button\" onclick=\"if(confirm('¿Está Seguro?')==true){check(frm1,'{$id}[]','delete')}\" value=\"delete\"/>";
 
 	  	if(isset($_REQUEST['start'])) $out .= "<input type=\"hidden\" name=\"start\" id=\"start\" value=\"".(int)$_REQUEST['start'] ."\" />";
 	  	$out .= "</form>\r\n";
@@ -123,7 +123,7 @@ class Table{
 		  	$out .= "<form action=\"index.php?p=$this->page\" name=\"frm2\" method=\"post\" enctype=\"multipart/form-data\">\r\n";
 			$out .= $edittable->display('ADD');
 		  	$out .= "<input type=\"hidden\" name=\"save\" value=\"save\" />\r\n";
-		  	$out .= "<input type=\"button\" onclick=\"add('".$_SERVER['REQUEST_URI']."&a=add&ajax=1',frm2)\" value=\"Create\" /></form>";
+		  	$out .= "<input type=\"button\" onclick=\"add('".$_SERVER['REQUEST_URI']."&a=add&ajax=1',frm2)\" value=\"Crear\" class=\"big-button\" /></form>";
 	  	}
     }
     $out .= "</div>\r\n";
