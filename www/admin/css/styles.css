@@ -169,24 +169,22 @@ a.tab:hover{
 
 
 h2,h3{
-	margin: 0 0 10px 0;
-	background: DarkSlateGray; 
-	padding: 5px;
-	border-bottom: 2px solid white;
-	border-top: 2px solid white;
+	background: url("/css/i/panel-bg.png") repeat scroll 0 0 #000;
+    border-bottom: 2px solid black;
+    margin: 0 0 10px;
+    padding: 5px;
 }
 
 
 .bottom{
-	margin: 10px 0;
-	background: #DEDEDE; 
-	padding: 5px 5px 0 5px;
-	border-top: 2px solid white;
+	background: url("/css/i/panel-bg.png") repeat scroll 0 0 #000;
+	padding: 5px 5px 5px 5px;
+	border-top: 2px solid black;
 }
 
 .line{
 	margin: 10px 0;
-	background: darkSlateGray; 
+	background: black; 
 	padding: 5px 5px 0 5px;
 	border-top: 2px solid white;
 	border-bottom: 2px solid white;
@@ -233,7 +231,7 @@ div.brclear{
 
 form.search{
 	margin: 0 0 10px 0;
-	background: #DEDEDE; 
+	background: #000; 
 	padding: 5px;
 	border-bottom: 2px solid white;
 	border-top: 2px solid white;
@@ -300,9 +298,21 @@ a.settings_tab:hover{
 }
 
 #content table{
-	width:100%;
+	background: none repeat scroll 0 0 #000000;
+    margin: 0 auto;
 }
 
 #content table td{
 	padding:8px;
 }
+
+.admin form{
+	background: none repeat scroll 0 0 #000000;
+    opacity: 0.7;
+	
+}
+
+#content 
+background: none repeat scroll 0 0 #000000;
+    opacity: 0.7;
+
