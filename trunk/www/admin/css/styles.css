@@ -5,9 +5,74 @@ body{
 	background-color: black;
 }
 
+
+#wrapper{
+	margin: 0 auto;
+}
+
+.login {
+	font-family: Verdana, Arial, Helvetica, sans-serif;
+	background: url("/css/i/bgBody.jpg") no-repeat scroll center top #000000;
+    font: 75% Arial,Helvetica,sans-serif;
+}
+
+.login table{
+ 	background: none repeat scroll 0 0 #000000;
+    font-family: Verdana,Arial,Helvetica,sans-serif;
+    font-size: 10px;
+    opacity: 0.7;
+    padding: 20px;
+}
+
+.login table th{
+	font-weight: bold;
+	padding:4px;
+	text-align: left;
+}
+
+.login table td{
+	color: #FFFFFF;
+    font-weight: normal;
+}
+.login button{
+	
+}
+
+.login input{
+	color: #000066; 
+	font-style: bold; 
+	font-family: verdana; 
+	font-weight: normal; 
+	font-size:11px; 
+	background-color: #f0f8ff
+}
+
+.login #header{
+	height:160px;
+	text-align: center;
+}
+
+.login #footer{
+	text-align: center;	
+    margin: 60px;
+    text-align: center;	
+}
+
+#footer a{
+	color:#fff;
+	text-decoration: none;
+}
+
+#footer a:hover{
+	color:#faaaaa;
+}
+
 input,textarea,select{
 	
 }
+
+
+
 
 #side{
 	margin-bottom: 10px;
@@ -144,9 +209,6 @@ form.search{
 
 form.login{
 	margin: auto auto;
-	width: 200px;
-	padding: 5px;
-	background: #DEDEDE;
 }
 
 #popup, #context{
