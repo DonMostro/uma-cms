@@ -1,4 +1,6 @@
 body{
+	background: url("/css/i/bgBody.jpg") no-repeat scroll center top #000000;
+	background-attachment: fixed;
 	font-family: Arial;
 	font-size: 8pt;
 	color: white;
@@ -8,11 +10,10 @@ body{
 
 #wrapper{
 	margin: 0 auto;
+	width:960px;
 }
 
 .login {
-	font-family: Verdana, Arial, Helvetica, sans-serif;
-	background: url("/css/i/bgBody.jpg") no-repeat scroll center top #000000;
     font: 75% Arial,Helvetica,sans-serif;
 }
 
@@ -77,14 +78,11 @@ input,textarea,select{
 #side{
 	margin-bottom: 10px;
 	padding: 5px;
-	background: #333333;
-	border: 1px groove grey;
 }
 
 #area{
-	/*float: left;
-	width: 960px;*/
-	background: dimGray;
+	float: left;
+	width: 960px;
 	padding: 0 10px 0 10px;
 }
 
