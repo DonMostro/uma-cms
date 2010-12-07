@@ -9,6 +9,7 @@ body{
 
 a{
 	color:#fff;
+	text-decoration: none;
 }
 
 #wrapper{
@@ -117,10 +118,9 @@ input,textarea,select{
 }
 
 #logo{
-	width: 160px;
-	height: 70px;
 	float: left;
-	margin-left: 10px;
+    margin-left: 10px;
+    width: 149px;
 }
 
 a.tab{
@@ -167,6 +167,17 @@ a.tab:hover{
 	background-image: url('i/tabh.gif');
 }
 
+
+h1{
+	font-family: 'stamPeteRegular',sans-serif;
+    font-size: 31px;
+    font-style: normal;
+    font-weight: bolder;
+    line-height: normal;
+    margin-bottom: -5px;
+    position: relative;
+    top: -18px;
+}
 
 h2,h3{
 	background: url("/css/i/panel-bg.png") repeat scroll 0 0 #000;
