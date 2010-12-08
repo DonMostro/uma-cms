@@ -26,7 +26,7 @@ class Summary {
 
   function display(){
 	$out = "<h2>Estad&iacute;sticas</h2>\r\n";
-	$out .= "<table>\r\n";
+	$out .= "<div class=\"overlay-admin\">\r\n<table>\r\n";
     foreach ($this->models as $model){
     	$out.="<tr class=\"trow\">";
     	$model['object']->load();
@@ -40,7 +40,7 @@ class Summary {
     	$out.="<td><a style=\"font-size:11pt\" href=\"{$model['url']}\">$image {$model['name']}</a></td><td><a style=\"font-size:11pt\" href=\"{$model['url']}\">$value</a></td>";
     	$out.="</tr>\r\n";
     }
-	$out .= "</table>\r\n";
+	$out .= "</table>\r\n</div>\r\n";
     return $out;
   }
 }
