@@ -239,21 +239,21 @@ class MVideos extends MModel {
   	private function storeTags($videos_id){
 	    $dao=new DAO();
 		$this->tags=explode(",",stripslashes($this->tags));
-		$dao->query("DELETE FROM video_tags WHERE videos_id = ".(int)$videos_id);
+		$dao->query("DELETE FROM $this->table_video_tags WHERE videos_id = ".(int)$videos_id);
 		
 		foreach($this->tags as $tag){
 			$tag=trim($tag, ' ,');
-	 		$dao->query("SELECT id FROM tags WHERE LOWER(tag)='".trim(mysql_real_escape_string(strtolower($tag)))."'");
+	 		$dao->query("SELECT id FROM $this->table_video_tags WHERE LOWER(tag)='".trim(mysql_real_escape_string(strtolower($tag)))."'");
 	 	  	
 			if($dao->rowCount()>0){
 		    	$tags_id=$dao->get(0,"id");
 			}else{
-		    	$dao->query("INSERT INTO tags (tag)VALUES('".mysql_real_escape_string(trim($tag))."')");
-		    	$dao->query("SELECT last_insert_id() AS id FROM tags");
+		    	$dao->query("INSERT INTO $this->table_tags (tag)VALUES('".mysql_real_escape_string(trim($tag))."')");
+		    	$dao->query("SELECT last_insert_id() AS id FROM $this->table_tags");
 		    	$tags_id=$dao->get(0,"id");
 			}
 		  	if(trim($tag) != 'Array')
-		 	$dao->query("INSERT INTO video_tags (videos_id,tags_id)VALUES(".(int)$videos_id.",$tags_id)");
+		 	$dao->query("INSERT INTO $this->table_video_tags (videos_id,tags_id)VALUES(".(int)$videos_id.",$tags_id)");
 		}
 	}
 	

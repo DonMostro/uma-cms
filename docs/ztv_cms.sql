@@ -596,7 +596,7 @@ CREATE TABLE IF NOT EXISTS `ztv_videos` (
   `title` varchar(255) NOT NULL DEFAULT '',
   `tags` text NOT NULL,
   `description` text NOT NULL,
-  `frame` varchar(255) NOT NULL,
+  `frame` varchar(255),
   `orig_file` varchar(255) NOT NULL,
   `size` int(11) NOT NULL,
   `type` varchar(255) NOT NULL DEFAULT '',
