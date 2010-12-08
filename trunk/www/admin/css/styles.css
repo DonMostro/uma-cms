@@ -118,9 +118,9 @@ input,textarea,select{
 }
 
 #logo{
-	float: left;
-    margin-left: 10px;
-    width: 149px;
+	float:left;
+    margin-left: 9px;
+    width: 285px;
 }
 
 a.tab{
@@ -174,7 +174,7 @@ h1{
     font-style: normal;
     font-weight: bolder;
     line-height: normal;
-    margin-bottom: -5px;
+    margin-bottom: -24px;
     position: relative;
     top: -18px;
 }
@@ -182,7 +182,7 @@ h1{
 h2,h3{
 	background: url("/css/i/panel-bg.png") repeat scroll 0 0 #000;
     border-bottom: 2px solid black;
-    margin: 0 0 10px;
+    margin: 0;
     padding: 5px;
 }
 
@@ -320,8 +320,16 @@ a.settings_tab:hover{
 .admin form{
 	background: none repeat scroll 0 0 #000000;
     opacity: 0.7;
+    filter:alpha(opacity=70);
 	
 }
+
+.overlay-admin{
+	background: none repeat scroll 0 0 #000000;
+    opacity: 0.75;
+    filter:alpha(opacity=75);
+}
+
 
 #content 
 background: none repeat scroll 0 0 #000000;
