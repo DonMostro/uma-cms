@@ -36,7 +36,7 @@ class categories extends Element{
    * @return string HTML
    */
   function options(){
-        $options="<option value=\"0\">* None *</option>\r\n";
+        $options="<option value=\"0\">* Ninguna *</option>\r\n";
         $model=new MCategories();
         $model->load();
         $model->getLevels();

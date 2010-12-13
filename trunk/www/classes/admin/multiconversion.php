@@ -28,23 +28,18 @@ class multiconversion extends Element{
   public function display($i,$j){
   	$model = new MTypes();
   	$model->load();
+	
   	
-  	while($model->next()){
-  		echo "X";
-  		/*$view=new VView($model);
-  		$view->show();
+  	while($t=$model->next()){
   		
   		if($this->value == ''){
-			//$link = $this->params['LINK1'];
-			$image = "<img src=\"".ROOT.FILES_IMAGES."/".$view->data['thumb']."\" title=\"Iphone Convert\"/>";
+			$image = "<img src=\"".ROOT.FILES_IMAGES."/".$t['thumb']."\" alt=\"".$t['title']."\" title=\"".$t['title']."\"/>";
   		}else{
-  			//$link = $this->params['LINK2'];
-  			$image = "<img src=\"".ROOT.FILES_IMAGES."/".$view->data['thumb']."\" title=\"Iphone Video Delete\"/>";
+  			$image = "<img src=\"".ROOT.FILES_IMAGES."/".$t['thumb']."\" alt=\"".$t['title']."\" title=\"".$t['title']." Borrar\"/>";
   		}
-  		*/
-		$href=str_replace("{id}",$this->params['ID'],$link);
-		$href=str_replace("{value}",$this->value,$href);
-		$this->html.= "<a id=\"field{$i}_{$j}\" title=\"Desasignar Video Iphone\" name=\"$this->target[]\" href=\"$href\">$image</a>";  	   
+  		
+		$href="javascript:popup('convert.php?types_id=".$t['id']."&videos_id=".$this->params['ID']."');";
+		$this->html.= "<a id=\"field{$i}_{$j}\" title=\"".$t['title']."\" name=\"$this->target[]\" href=\"$href\" class=\"conversion\">$image</a>";  	   
 		
   	}	
 	return $this->html;
