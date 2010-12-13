@@ -16,9 +16,9 @@ class MVideoTypes extends MModel{
     $this->table='video_types';
     
     $this->columns=array(
-    	'name'=>null,
-  		'template'=>null,
-  		'categories_id'=>null
+    	'videos_id'=>null,
+  		'types_id'=>null,
+  		'filename'=>null
     );
    
   }
@@ -28,7 +28,7 @@ class MVideoTypes extends MModel{
   	
     //Get lista de categories
     $query="
-    SELECT *
+    SELECT videos_id, types_id, filename 
 	   FROM video_types
 	".$this->_where();
 

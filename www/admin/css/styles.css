@@ -329,7 +329,13 @@ a.settings_tab:hover{
 }
 
 
-#content 
-background: none repeat scroll 0 0 #000000;
+#content {
+	background: none repeat scroll 0 0 #000000;
     opacity: 0.7;
+}
+
+.conversion img{
+	margin:2px;
+}
+		
 

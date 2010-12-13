@@ -1,13 +1,11 @@
 DROP DATABASE ztv_cms;
 
-CREATE DATABASE  `ztv_cms` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-
 -- phpMyAdmin SQL Dump
 -- version 3.3.2deb1
 -- http://www.phpmyadmin.net
 --
 -- Servidor: localhost
--- Tiempo de generación: 16-11-2010 a las 20:50:12
+-- Tiempo de generación: 09-12-2010 a las 13:06:38
 -- Versión del servidor: 5.1.41
 -- Versión de PHP: 5.3.2-1ubuntu4.5
 
@@ -17,12 +15,6 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 -- Base de datos: `ztv_cms`
 --
 
-
---
--- Volcar la base de datos para la tabla `latests_more_viewed_videos`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -31,7 +23,7 @@ SET SQL_MODE="NO_AUTO_VALUE_ON_ZERO";
 
 CREATE TABLE IF NOT EXISTS `ztv_categories` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `taxonomies_id` int(11) NOT NULL DEFAULT 0,
+  `taxonomies_id` int(11) NOT NULL DEFAULT '0',
   `parent_id` int(11) NOT NULL,
   `title` varchar(255) NOT NULL DEFAULT '',
   `thumb` varchar(255) NOT NULL DEFAULT '',
@@ -41,12 +33,42 @@ CREATE TABLE IF NOT EXISTS `ztv_categories` (
   PRIMARY KEY (`id`),
   KEY `parent_id` (`parent_id`),
   KEY `approved` (`approved`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=3 ;
 
 --
 -- Volcar la base de datos para la tabla `ztv_categories`
 --
 
+INSERT INTO `ztv_categories` (`id`, `taxonomies_id`, `parent_id`, `title`, `thumb`, `approved`, `children`, `orden`) VALUES
+(2, 0, 0, 'Entretenci&oacute;n', '', '', NULL, 1);
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ztv_channel_elements`
+--
+
+CREATE TABLE IF NOT EXISTS `ztv_channel_elements` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `username` varchar(255) NOT NULL,
+  `elements_id` varchar(255) NOT NULL,
+  `limit` int(11) NOT NULL,
+  `section` varchar(255) NOT NULL,
+  `order` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `username` (`username`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+
+--
+-- Volcar la base de datos para la tabla `ztv_channel_elements`
+--
+
+
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `ztv_featured`
+--
 
 CREATE TABLE IF NOT EXISTS `ztv_featured` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
@@ -127,8 +149,7 @@ CREATE TABLE IF NOT EXISTS `ztv_friends` (
 
 -- --------------------------------------------------------
 
-
-
+--
 -- Estructura Stand-in para la vista `ztv_latests_more_viewed_videos`
 --
 CREATE TABLE IF NOT EXISTS `ztv_latests_more_viewed_videos` (
@@ -141,12 +162,17 @@ CREATE TABLE IF NOT EXISTS `ztv_latests_more_viewed_videos` (
 --
 
 CREATE TABLE IF NOT EXISTS `ztv_menu` (
-  `id` int(11) NOT NULL,
-  `parent_id` int(11) NOT NULL,
-  `title` varchar(45) DEFAULT NULL,
-  `approved` enum('0','1') DEFAULT NULL,
-  PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `parent_id` int(11) NOT NULL DEFAULT '0',
+  `title` varchar(255) NOT NULL DEFAULT '',
+  `url` varchar(255) NOT NULL DEFAULT '',
+  `header` enum('0','1') NOT NULL DEFAULT '0',
+  `footer` enum('0','1') NOT NULL DEFAULT '0',
+  `approved` enum('0','1') NOT NULL DEFAULT '0',
+  `menu_order` int(11) NOT NULL,
+  PRIMARY KEY (`id`),
+  KEY `parent_id` (`parent_id`)
+) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
 
 --
 -- Volcar la base de datos para la tabla `ztv_menu`
@@ -194,9 +220,6 @@ INSERT INTO `ztv_pages` (`id`, `title`, `text`) VALUES
 ('category', 'category', ''),
 ('home', 'home', ''),
 ('video', 'video', '');
-
--- --------------------------------------------------------
-
 
 -- --------------------------------------------------------
 
@@ -381,77 +404,18 @@ CREATE TABLE IF NOT EXISTS `ztv_settings` (
 --
 
 INSERT INTO `ztv_settings` (`id`, `enum`, `value`, `type`, `description`, `ord`, `group`, `function`) VALUES
-('access_control', '', '', 'checkbox', 'Enable/disable site access control. Disable this option if you''re not using site access control to speed up performance.', 3, 'Membership', ''),
-('auto_approve', '', '1', 'checkbox', 'Automatically approve member uploaded videos.', 15, 'Videos', ''),
-('auto_downloadable', '', '', 'checkbox', 'Make videos available for download automatically upon upload.', 16, 'Videos', ''),
-('bad_words', '', '', 'textarea', 'Enter the words to be censored in all public posts.', 18, 'Videos', ''),
-('banned_ips', '', '', 'textarea', 'Enter the IP addresses or IP ranges to ban from your website. The following formats are supported:\n192.168.0.1\n192.168.0.1-192.168.0.255', 21, 'Membership', ''),
-('buffer_time', '', '6', 'textfield', 'The amount of time to buffer videos before playing.', 13, 'Flash player', ''),
-('cache_time', '', '60', 'textfield', 'Maximal lifespan of the cached pages.', 1, 'Cache', ''),
-('captcha', '', '', 'checkbox', 'Use CAPTCHA on sign-up form to prevent automated sign-ups.', 1, 'Membership', ''),
-('clear_cache', '', '', 'idbox', '', 2, 'Cache', 'ClearCache'),
-('comments', '', '1', 'checkbox', 'Enable/disable video and channel comments. If you disable this feature, the members will not be able to post comments on videos and channels.', 6, 'Features', ''),
-('confirm_email', '', '', 'checkbox', 'Request for e-mail confirmation to activate new account.', 1, 'Membership', ''),
-('conversion_queue', '', '', 'checkbox', 'Enable/Disable video conversion queue. This setting reduces server load on heavy traffic websites. NOTE: Make sure you have the conversion queue processor scheduled to run on your server. Check the documentation for more details.', 12, 'Video conversion', ''),
-('default_language', 'EN,ES,DE,FR', 'ES', 'textfield', 'Select a default language', 0, '', ''),
-('default_level', '', '0', 'textfield', '[Deprecated] Default membership level. This level will be automatically set to users during the sign up process.', 20, 'Membership', ''),
-('email_amount', '', '100', 'textfield', 'How many e-mails should be sent at a time.', 2, 'Mailing', ''),
-('email_frequency', '', '600', 'textfield', 'How frequent the e-mails should be sent (in seconds).', 1, 'Mailing', ''),
-('email_queue', '', '', 'checkbox', 'Enable/Disable e-mail queuing. Enable this option if you have thousands of members. Make sure you have set up the queue processor.', 0, 'Mailing', ''),
-('embed', '', '1', 'checkbox', 'Enable/disable your visitors to embed videos on their sites.', 12, 'Videos', ''),
-('enable_cache', '', '', 'checkbox', 'Enable/disable page caching. Enable this option for better performance.', 0, 'Cache', ''),
-('external_embed', '', '', 'checkbox', 'Allow members to paste embed video codes from other websites, instead of uploading files.', 0, 'Videos', ''),
-('favorites', '', '', 'checkbox', 'Enable/disable favorite videos. If you disable this feature, the members will not be able to save their favorite videos.', 4, 'Features', ''),
+('banned_ips', '', '', 'textarea', 'Baneo de IPs . Estas soportados estos formatos:\r\n192.168.0.1\r\n192.168.0.1-192.168.0.255', 21, 'Usuarios', ''),
 ('ffmpeg_ar', '8000,11025,22050,44100', '22050', 'textfield', 'ffmpeg audio conversion rate. Change this setting to tweak the audio quality of a converted video.', 9, 'Video conversion', ''),
 ('ffmpeg_bitrate', '50000,100000,200000,300000,400000,500000,600000,700000,800000,1000000,1300000,1700000,2000000,3000000', '500000', 'textfield', 'Bit rate of the converted videos.', 9, 'Video conversion', ''),
 ('ffmpeg_path', '', '/usr/bin/ffmpeg', 'textfield', 'Path to ffmpeg. Clear this field to disable video conversion and keep the original format of the uploaded videos.', 7, 'Video conversion', 'TestFFmpeg'),
 ('ffmpeg_size', '128x96,320x240,480x360,640x480,800x600,1024x768,1152x864,1600x1200', '1600x1200', 'textfield', 'Converted video frame size.', 8, 'Video conversion', ''),
 ('ffmpeg_thumbnails', '', '3', 'textfield', 'How many thumbnails to create for each video.', 11, 'Video conversion', ''),
 ('ffmpeg_thumbnail_size', '', '132x90', 'textfield', 'Size of the video thumbnails.', 10, 'Video conversion', ''),
-('friends', '', '', 'checkbox', 'Enable/disable the friends. If you disable this feature, the members will not be able to have friends.', 2, 'Features', ''),
-('ftp_dir', '', '', 'textfield', 'Enter the local path to the FTP directory (ex. /home/codemight/public_ftp)', 4, 'FTP Uploader', ''),
-('ftp_password', '', 'video3TV', 'textfield', 'Enter the password to log-in to the FTP server.', 3, 'FTP Uploader', ''),
-('ftp_path', '', '/opt/apache/htdocs/files', 'textfield', 'Enter the path on the FTP server to upload files to (leave empty for root directory)', 1, 'FTP Uploader', ''),
-('ftp_server', '', 'videocms.copesa.cl', 'textfield', 'Enter the FTP server name (ex. ftp.codemight.com)', 0, 'FTP Uploader', ''),
-('ftp_username', '', 'videocms', 'textfield', 'Enter the username to log-in to the FTP server.', 2, 'FTP Uploader', ''),
-('groups', '', '', 'checkbox', 'Enable/disable groups.', 7, 'Features', ''),
-('levels', '', '', 'checkbox', '[Deprecated] Enable the membership level system. Set the ''permissions'' field for users to allow/restrict member accessibility of certain features. Go to Permissions section to manage the permission levels.', 19, 'Membership', ''),
-('license', '', '', 'idbox', 'Press the button above to synchronize your license information with CodeMight.com server.', 0, 'License', 'CheckLicense'),
-('logo', '', 'logo.jpg', 'textfield', 'Logo image to be displayed in the Flash Video player.', 11, 'Flash player', ''),
 ('max_upload_size', '', '170M', 'textfield', 'Maximal video file size (in bytes) allowed to upload.', 14, 'Uploading', 'TestMaxUploadSize'),
-('membership', '', '', 'checkbox', 'Enable/Disable membership. If you disable this feature, the visitors will not be able to sign up and login.', 0, 'Membership', ''),
-('notify_pending_video', '', '1', 'checkbox', 'Send notifications about pending videos.', 0, 'Notifications', ''),
-('notify_reported_video', '', '1', 'checkbox', 'Send notifications about reported videos.', 1, 'Notifications', ''),
 ('overlay', '', 'overlay.png', 'textfield', 'Overlay image to display while playing videos.', 12, 'Flash player', ''),
-('photos', '', '', 'checkbox', 'Enable/disable photo uploading.', 9, 'Features', ''),
-('photo_category', '', '0', 'categories', 'Which category to upload photos to.', 10, 'Features', ''),
-('player_home', 'Embed,Mogulus', 'Mogulus', 'textfield', 'Select what player will be displayed in home site.', 2, 'Videos', ''),
-('playlists', '', '', 'checkbox', 'Enable/disable playlists. If you disable this feature, the members will not be able to create video playlists.', 5, 'Features', ''),
 ('ratings', '', '1', 'checkbox', 'Enable/disable video ratings. If you disable this feature, the members will not be able to rate videos.', 3, 'Features', ''),
-('red5_server', '', 'rtmp://192.168.150.20/oflaDemo', 'textfield', 'Red5 RTMP server URL', 23, 'Webcam', 'TestRed5Server'),
-('red5_streams', '', '/opt/red5/webapps/oflaDemo/streams', 'textfield', 'Absolute path to Red5 streams', 22, 'Webcam', 'TestRed5Streams'),
-('remove_links', '', '1', 'checkbox', 'Remove links from the public posts.', 17, 'Videos', ''),
-('remove_videos', '', '', 'checkbox', 'Allow members to remove approved videos', 20, 'Videos', ''),
-('skip_flv_conversion', '', '1', 'checkbox', 'Enable this option to skip the re-conversion of FLV video files.', 13, 'Video conversion', ''),
-('skip_mp4_conversion', '', '', 'checkbox', 'Enable this option to skip the re-conversion of MP4 video files', 13, 'Video Conversion', ''),
-('stats', '', '', 'checkbox', 'Enable/disable user statistics.', 8, 'Features', ''),
-('subscriptions', '', '', 'checkbox', 'Enable/disable video subscriptions. If you disable this feature, the members will not be able to subscribe to channels or tags.', 2, 'Features', ''),
-('subscription_requests', '', '', 'checkbox', 'Enable this setting for video subscriptions to be approved by their owners.', 2, 'Membership', ''),
-('tag', '', '', 'checkbox', 'Allow visitors to add tags to videos.', 17, 'Videos', ''),
-('tellafriend', '', '1', 'checkbox', 'Enable/disable "Tell a Friend" form on video pages.', 4, 'Features', ''),
-('track_online', '', '300', 'textfield', 'For how many seconds inactive users are considered to be online.', 4, 'Membership', ''),
-('uploader', 'Standard,Flash,FTP', 'Standard', 'textfield', 'Select what uploader to use on your site. Please check the documentation on how to configure each uploader.', 16, 'Uploading', ''),
-('uploads', '', '', 'checkbox', 'Enable/disable video uploading. If you disable this feature, the members will not be able to upload new videos.', 1, 'Uploading', ''),
-('watermark', '', '', 'checkbox', 'Enable this option to add permanent watermarks to your uploaded videos. A file named ''watermark.gif'' which resides in ''files'' directory will be used as the watermark. ', 14, 'Video conversion', ''),
-('watermark_path', '', '/usr/local/lib/vhook/watermark.so', 'textfield', 'Enter the path to Watermark library. Watermark library usually comes bundled with Ffmeg. Click the Find button if you don''t know the path.', 13, 'Video conversion', 'FindWatermark'),
-('webcam', '', '1', 'checkbox', 'Enable/disable webcam video recording.', 21, 'Webcam', '');
-
-
-
---
--- Volcar la base de datos para la tabla `ztv_skinbranding`
---
-
+('watermark', '', '', 'checkbox', 'Activar esta opción para activar marca de agua ''watermark.gif'' dentro de la carpeta ''files'' será usada como marca de agua. ', 14, 'Video conversion', ''),
+('watermark_path', '', '/usr/local/lib/vhook/watermark.so', 'textfield', 'Enter the path to Watermark library. Watermark library usually comes bundled with Ffmeg. Click the Find button if you don''t know the path.', 13, 'Video conversion', 'FindWatermark');
 
 -- --------------------------------------------------------
 
@@ -471,6 +435,8 @@ CREATE TABLE IF NOT EXISTS `ztv_skinplayer` (
 -- Volcar la base de datos para la tabla `ztv_skinplayer`
 --
 
+
+-- --------------------------------------------------------
 
 --
 -- Estructura de tabla para la tabla `ztv_tags`
@@ -506,12 +472,6 @@ CREATE TABLE IF NOT EXISTS `ztv_taxonomies` (
 --
 
 
-
---
--- Volcar la base de datos para la tabla `ztv_themes`
---
-
-
 -- --------------------------------------------------------
 
 --
@@ -532,11 +492,6 @@ CREATE TABLE IF NOT EXISTS `ztv_thumbs` (
 
 -- --------------------------------------------------------
 
-
-
-
--- --------------------------------------------------------
-
 --
 -- Estructura de tabla para la tabla `ztv_types`
 --
@@ -545,20 +500,17 @@ CREATE TABLE IF NOT EXISTS `ztv_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(45) DEFAULT NULL,
   `thumb` varchar(256) DEFAULT NULL,
-  `script` TEXT DEFAULT NULL,
+  `script` text,
   PRIMARY KEY (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=4 ;
 
 --
 -- Volcar la base de datos para la tabla `ztv_types`
 --
 
-
-
---
--- Volcar la base de datos para la tabla `ztv_uploads`
---
-
+INSERT INTO `ztv_types` (`id`, `title`, `thumb`, `script`) VALUES
+(2, 'H264 Mobile', 'fe497b24.jpg', 'zsdsd'),
+(3, '3GP Mobile ', '9b2c294e.jpg', 'aswdasd');
 
 -- --------------------------------------------------------
 
@@ -596,7 +548,7 @@ CREATE TABLE IF NOT EXISTS `ztv_videos` (
   `title` varchar(255) NOT NULL DEFAULT '',
   `tags` text NOT NULL,
   `description` text NOT NULL,
-  `frame` varchar(255),
+  `frame` varchar(255) NOT NULL,
   `orig_file` varchar(255) NOT NULL,
   `size` int(11) NOT NULL,
   `type` varchar(255) NOT NULL DEFAULT '',
@@ -604,14 +556,16 @@ CREATE TABLE IF NOT EXISTS `ztv_videos` (
   `tt` int(10) NOT NULL DEFAULT '0',
   `rate` float NOT NULL,
   `approved` enum('0','1') DEFAULT NULL,
-  `categories_id` int(11) NOT NULL DEFAULT 0,
+  `categories_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1 AUTO_INCREMENT=1 ;
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=2 ;
 
 --
 -- Volcar la base de datos para la tabla `ztv_videos`
 --
 
+INSERT INTO `ztv_videos` (`id`, `title`, `tags`, `description`, `frame`, `orig_file`, `size`, `type`, `duration`, `tt`, `rate`, `approved`, `categories_id`) VALUES
+(1, 'Azafatas Protestaron', 'Azafata, Protesta', '', '', '', 0, '', '', 1290988351, 0, NULL, 2);
 
 -- --------------------------------------------------------
 
@@ -651,10 +605,6 @@ CREATE TABLE IF NOT EXISTS `ztv_videos_playlist` (
 
 -- --------------------------------------------------------
 
-
-
--- --------------------------------------------------------
-
 --
 -- Estructura de tabla para la tabla `ztv_video_comments`
 --
@@ -669,10 +619,6 @@ CREATE TABLE IF NOT EXISTS `ztv_video_comments` (
 --
 -- Volcar la base de datos para la tabla `ztv_video_comments`
 --
-
-
--- --------------------------------------------------------
-
 
 
 -- --------------------------------------------------------
@@ -723,13 +669,12 @@ CREATE TABLE IF NOT EXISTS `ztv_video_types` (
   `videos_id` int(11) NOT NULL,
   `types_id` int(11) NOT NULL,
   `filename` varchar(256) NOT NULL,
-  PRIMARY KEY (`videos_id`, `types_id`)
+  PRIMARY KEY (`videos_id`,`types_id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Volcar la base de datos para la tabla `ztv_video_types`
 --
-
 
 
 -- --------------------------------------------------------
@@ -757,8 +702,10 @@ CREATE TABLE IF NOT EXISTS `ztv_watched` (
 --
 DROP TABLE IF EXISTS `ztv_latests_more_viewed_videos`;
 
-CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ztv_latests_more_viewed_videos` AS select `ztv_videos`.`id` AS `id` from `ztv_videos` left join ztv_video_hits on ztv_video_hits.videos_id = videos_id where (`ztv_videos`.`tt` >= (unix_timestamp(now()) - 604800)) order by `ztv_video_hits`.`hits` desc limit 0,16;
+CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ztv_latests_more_viewed_videos` AS select `ztv_videos`.`id` AS `id` from (`ztv_videos` left join `ztv_video_hits` on((`ztv_video_hits`.`videos_id` = `ztv_video_hits`.`videos_id`))) where (`ztv_videos`.`tt` >= (unix_timestamp(now()) - 604800)) order by `ztv_video_hits`.`hits` desc limit 0,16;
 
+
+---
 
 CREATE USER 'ztvuser'@'localhost' IDENTIFIED BY 'ztvpassword';
 
