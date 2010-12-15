@@ -2,6 +2,7 @@
 include_once("root.php");
 include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Thumbnail.php");
+include_once(ROOT."classes/lib/Template.php");
 
 class ffmpeg{
         
@@ -9,7 +10,7 @@ class ffmpeg{
         private $wd;
         private $watermark;
         
-        function ffmpeg($path, $wd, $watermark=''){
+        function ffmpeg($path, $wd=null, $watermark=''){
                 $this->path=$path;
                 $this->wd=$wd;
                 $this->watermark=$watermark;
@@ -112,7 +113,7 @@ class ffmpeg{
         
         
         public function convert_by_type($script, $orig_file, $dest_file){
-        	$tpl=new Template($script);
+        	$tpl=new Template(html_entity_decode($script));
         	$tpl->orig_file=$orig_file;
         	$tpl->dest_file=$dest_file;
         	$script=$tpl->output();
