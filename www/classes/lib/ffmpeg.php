@@ -111,12 +111,14 @@ class ffmpeg{
         }
         
         
-        public function free_convert($script, $file, $dest){
-        	$command=$script;
-        	//$command=$prefix . " " . $file . " " . $dest;
-        	$this->Exec($command);
-        	echo "<p>Se ha ejecutado $command $file;</p>";
-        	return file_exists("$dest") && filesize("$dest")>0;
+        public function convert_by_type($script, $orig_file, $dest_file){
+        	$tpl=new Template($script);
+        	$tpl->orig_file=$orig_file;
+        	$tpl->dest_file=$dest_file;
+        	$script=$tpl->output();
+        	echo $script;
+        	exit();
+        	
         	
         }
         

@@ -25,7 +25,7 @@ class Summary {
   }
 
   function display(){
-	$out = "<h2>Estad&iacute;sticas</h2>\r\n";
+	$out = "<h2>Resumen</h2>\r\n";
 	$out .= "<div class=\"overlay-admin\">\r\n<table>\r\n";
     foreach ($this->models as $model){
     	$out.="<tr class=\"trow\">";
@@ -33,7 +33,7 @@ class Summary {
     	$values=$model['object']->next();
     	$value=array_pop($values);
     	if(isset($this->alerts[$model['name']])&&$this->alerts[$model['name']]!=$value){
-    		$image="<img src=\"images/error.png\" />";
+    		$image="<!--<img src=\"images/32/error.png\" />-->";
     	} else {
     		$image="";
     	}

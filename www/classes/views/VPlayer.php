@@ -49,38 +49,6 @@ class VPlayer extends VView {
   	$tpl->base=urlencode(URL.'/');
   	$tpl->url=URL;
   	$tpl->filename=URL.'/'.FILES.'/'.$this->filename;
-  	
-  	
-  	if(Util::getOS() == 'iPad'){
-  		$strSQL = "SELECT videos.filename_hd AS filename FROM videos WHERE id = $this->id LIMIT 0, 1";
-	  	$qry = mysql_query($strSQL);
-	  	
-	  	if($row = mysql_fetch_array($qry)){
-	  		$tpl->filename= URL.'/'. FILES .'/'.$row['filename'];
-	  	}
-  	}
-  	if(!isset($row['filename']) || empty($row['filename'])){
-	  	if(Util::getOS() == 'iPhone' || Util::getOS() == 'iPod' || Util::getOS() == 'iPad' || Util::getOS() == 'BlackBerry'
-	  	&&(ctype_digit($this->id) && !empty($this->id))){
-		   	$strSQL = "SELECT videos.small_filename AS filename FROM videos WHERE id = $this->id LIMIT 0, 1";
-		  	$qry = mysql_query($strSQL);
-		  	
-		  	if($row = mysql_fetch_array($qry)){
-		  		$tpl->filename= URL.'/'. SMALL_VIDEOS .'/'.$row['filename'];
-		  	}
-	  	}else{
-			$tpl->was_adviced = '0';
-
-			//Obtenemos parametro del embed hd.file
-	  		$qry = mysql_query("SELECT frame, filename_hd FROM videos WHERE id =".(int) $this->id . " ");
-			if($row = mysql_fetch_assoc($qry)){
-				$this->frame=$row['frame'];
-				$this->filename_hd=$tpl->filename_hd=$row['filename_hd']; 
-			}	
-			
-	  	}
-	}
-
     foreach($this->params as $key => $value){
   		$tpl->$key = $value;
    	}
@@ -115,29 +83,6 @@ class VPlayer extends VView {
   	return htmlspecialchars($tpl->output());
   }
   
-  /**
-   * Buscamos cortina publicitaria asociada si es que existe
-   *
-   * @param int $videos_id
-   * @return id de video asociado o false
-   */
-  
-  function searchAds($videos_id){
-	$qry="SELECT video_curtain_ads.videos_id FROM video_curtain_ads 
-	LEFT JOIN categories 
-	ON video_curtain_ads.categories_id = categories.id
-	OR categories.id IN (SELECT id FROM categories WHERE parent_id = video_curtain_ads.categories_id)
-	LEFT JOIN videos 
-	ON categories.id = videos.categories_id WHERE video_curtain_ads.approved = '1' AND
-	videos.id =".(int)$videos_id ." LIMIT 0, 1";
-
-	return ($row=mysql_fetch_assoc(mysql_query($qry))) ? $row['videos_id'] : false;
-  }
-  
-  function setParam($param, $value){
-	$this->params[$param] = $value; 	
-  }
-
 
   /**
    * Buscamos los videos que est�n relacionados por los tags para as� armar lista de reproducci�n
@@ -151,7 +96,7 @@ class VPlayer extends VView {
 	$MSimilarVideos->setLimit($limit);
 	$MSimilarVideos->setStart($offset);
 	$MSimilarVideos->load();
-	$VSimilarVideos = new VIphoneVideos($MSimilarVideos);
+	$VSimilarVideos = new VView($MSimilarVideos);
 	$strSimilarsId = '';
 	while($VSimilarVideos->show()){
 		$strSimilarsId .= @$VSimilarVideos->recordset['id'].'-';
