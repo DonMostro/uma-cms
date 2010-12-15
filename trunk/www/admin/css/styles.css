@@ -161,6 +161,7 @@ div.menu{
 	padding: 5px;
 	background: black;
 	border:1px solid #DDDDDD;
+	z-index: 9999;
 }
 
 a.tab:hover{
@@ -255,7 +256,7 @@ form.login{
 	display: none;
 	top: 0;
 	left: 0;
-	background: #000000;
+	background: #000;
 	padding:10px;
 	z-index: 101;
 }
@@ -264,8 +265,13 @@ form.login{
 	width: 480px;
 	height: 320px;
 	overflow: auto;
-	background: #ffffff;
-	padding: 10px;	
+	background: #fff;
+	padding: 10px;
+	color: #000;
+}
+
+#popup_body table, #context_body table, #popup_body h2, #context_body h2, #popup_body h3, #context_body h3{
+	color: #fff;
 }
 
 #popup_body div{

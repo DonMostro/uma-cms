@@ -21,10 +21,10 @@ class TestFFmpeg extends Test{
 				<h3>Testing FFmpeg</h3>
 				<p>FFmpeg no puede ser ejecutado. Por favor, compruebe los siguientes ajustes		:
 				  <ul>
-				    <li>Asegúrese de que ha entrado en el camino correcto ffmpeg</li>
-				  	<li>Asegúrese de que el<i>safe_mode</i> configuración se desactiva en php.ini</li>
-				    <li>Asegúrese de que<i>exec</i> la función no aparece en <i>disable_functions</i> puesta en php.ini</li>
-				    <li>Asegúrese de que el permiso de escritura establece en el directorio de archivos		    
+				    <li>Aseg&uacute;rese de que ha entrado en el camino correcto ffmpeg</li>
+				  	<li>Aseg&uacute;rese de que el<i>safe_mode</i> configuraciï¿½n se desactiva en php.ini</li>
+				    <li>Aseg&uacute;rese de que<i>exec</i> la funciï¿½n no aparece en <i>disable_functions</i> puesta en php.ini</li>
+				    <li>Aseg&uacute;rese de que el permiso de escritura establece en el directorio de archivos		    
 				  </ul>
 				</p>';
 			}

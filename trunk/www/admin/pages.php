@@ -6,15 +6,15 @@ $pages=array(
 	),
 	'Contenido'=>array(
 		'Menu'=>'menu',
-		'Páginas'=>'pages',
+		'Paginas'=>'pages',
 	),
 	'Videos'=>array(
 		'Videos'=>'videos',
 		'Videos Destacados'=>'featured',
 		'Tipos de video'=>'types',
-		'CategorÃ­as'=>'categories&parent_id=0',
+		'Categorias'=>'categories&parent_id=0',
 		'Etiquetas'=>'tags',
-		'Jugadores'=>'players',
+		'Players'=>'players',
 		'Miniaturas'=>'thumbnails'
 	)
 );

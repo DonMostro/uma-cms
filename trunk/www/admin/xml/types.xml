@@ -3,5 +3,5 @@
     <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
     <field name="Tipo" target="title" type="textfield" visible="true" edit="true" add="true"/>
     <field name="Script de Conversi&amp;oacute;n" target="script" type="textarea" visible="true" edit="true" add="true"/>
-    <field name="&amp;Iacute;cono 16x16" target="thumb" type="upload_image" size="16x16" filepath="files_images" visible="true" edit="true" add="false"/>
+    <field name="&amp;Iacute;cono 32x32" target="thumb" type="upload_image" size="32x32" filepath="files_images" visible="true" edit="true" add="false"/>
 </section>
