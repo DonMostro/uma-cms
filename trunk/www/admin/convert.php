@@ -1,5 +1,10 @@
 <?php
+ini_set("display_errors","On");
+error_reporting(E_ALL);
+exit('wassup');
 @session_start();
+
+
 include_once("root.php");
 include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Settings.php");
@@ -7,6 +12,8 @@ include_once(ROOT."classes/lib/Form.php");
 include_once(ROOT."classes/lib/ffmpeg.php");
 include_once(ROOT."classes/models/MVideos.php");
 include_once(ROOT."classes/admin/auth.php");
+
+
 
 DAO::connect();
 $form=new Form();
@@ -24,6 +31,7 @@ if(isset($form->v)){
 	
 	$video->setId($form->v);
 	$video->load();
+	var_dump($video);
 	$data=$video->next();
 	
 	if(!empty($data['orig_file'])){
@@ -43,7 +51,7 @@ if(isset($form->v)){
 		$pathparts=pathinfo($data['orig_file']);
 		$ext=!empty($pathparts['extension'])?$pathparts['extension']:'';
 		//$fname=$pathparts['dirname']!='.'?$pathparts['dirname'].'/'.@$pathparts['filename_wmv']:@$pathparts['filename_wmv'];
-		$fname=$pathparts['dirname']!='.'?$pathparts['dirname'].'/'.@$pathparts['filename'];
+		//$fname=$pathparts['dirname']!='.'?$pathparts['dirname'].'/'.@$pathparts['filename'];
 		$px=(int)rand(1,1000000);
 
 		if($ffmpeg->wmv_convert(ROOT.FILES.'/'.$data['orig_file']
