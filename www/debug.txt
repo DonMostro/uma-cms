@@ -1,0 +1,9 @@
+/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[32][2010-12-16 17:05:53]: ffmpeg -i ../files/8f144ea1.mp4 -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 ../files/2010/12/960764.mp4
+
+
+/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[34][2010-12-16 18:51:10]: ffmpeg -i ../files/73e72b71.mp4 -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 ../files/2010/12/631721.mp4 2>> ../files/ffmpeg.log
+/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[34][2010-12-16 18:58:39]: ffmpeg -i ../files/8f144ea1.mp4 -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 ../files/2010/12/789751.mp4 2>> ../files/ffmpeg.log
+/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-16 20:32:47]: [2010-16-12 20:32:47] Error: Unknown column 'players.id' in 'where clause'
+SELECT * FROM ztv_players  WHERE 1 AND (players.id='1')  LIMIT 0, 20
+/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-16 20:43:29]: [2010-16-12 20:43:29] Error: Unknown column 'players.id' in 'where clause'
+SELECT * FROM ztv_players  WHERE 1 AND (players.id='1')  LIMIT 0, 20

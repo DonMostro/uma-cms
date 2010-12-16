@@ -128,7 +128,7 @@ class MVideos extends MModel {
 	protected function setQuery(){
 		$search='';
 		$query="SELECT $this->table.title, 
-		$this->table.description, $this->table.tt, 
+		$this->table.description, $this->table.tt, $this->table.tags,
 		$this->table.approved, $this->table.orig_file, 
 		$this->table_video_types.filename,
 		$this->table.frame, $this->table_hits.hits AS hits, 
@@ -243,7 +243,7 @@ class MVideos extends MModel {
 		
 		foreach($this->tags as $tag){
 			$tag=trim($tag, ' ,');
-	 		$dao->query("SELECT id FROM $this->table_video_tags WHERE LOWER(tag)='".trim(mysql_real_escape_string(strtolower($tag)))."'");
+	 		$dao->query("SELECT id FROM $this->table_tags WHERE LOWER(tag)='".trim(mysql_real_escape_string(strtolower($tag)))."'");
 	 	  	
 			if($dao->rowCount()>0){
 		    	$tags_id=$dao->get(0,"id");

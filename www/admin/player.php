@@ -1,4 +1,5 @@
 <?php
+@session_start();
 include_once("root.php");
 include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Form.php");
