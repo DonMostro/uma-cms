@@ -45,10 +45,16 @@ if(isset($form->videos_id) && isset($form->types_id)){
 		$year_month_folder = date('Y/m');
 		$nf=preg_replace('#[^\w/\.]#','_',$video_data['orig_file']);
 		
-		if($nf!=$video_data['orig_file']){
-			@copy(ROOT.FILES.'/'.$video_data['orig_file'],ROOT.SMALL_VIDEOS.'/'.$year_month_folder.'/'.$nf);
+		//if($nf!=$video_data['orig_file']){
+			//buscar si existe la carpeta, si no existe se debe crear 
+			/*if(!is_dir(ROOT.FILES.'/'.$year_month_folder.'/')){
+				echo "mkdir(".ROOT.FILES.'/'.$year_month_folder."/)";
+				mkdir('"'.ROOT.FILES.'/'.$year_month_folder.'/"', 0777, true);
+			}*/
+			
+			copy(ROOT.FILES.'/'.$video_data['orig_file'],ROOT.FILES.'/'.$year_month_folder.'/'.$nf);
 			$video_data['orig_file']=$nf;
-		}
+		//}
 		
 		//$ffmpeg=new ffmpeg($settings['ffmpeg_path'],ROOT.SMALL_VIDEOS.'/'.$year_month_folder,$settings['watermark_path']);
 		$ffmpeg=new ffmpeg($settings['ffmpeg_path'], null, $settings['watermark_path']);
@@ -61,7 +67,7 @@ if(isset($form->videos_id) && isset($form->types_id)){
 		//$fname=$pathparts['dirname']!='.'?$pathparts['dirname'].'/'.@$pathparts['filename'];
 		$px=(int)rand(1,1000000);
 
-		if($ffmpeg->convert_by_type($types_data['script'], $video_data['orig_file'], ROOT.FILES.'/'.$year_month_folder.'/'.$px) ){
+		if($ffmpeg->convert_by_type($types_data['script'], ROOT.FILES.'/'.$video_data['orig_file'], ROOT.FILES.'/'.$year_month_folder.'/'.$px) ){
 			
 			//$images=array('gif','jpg','jpeg','png');
 			//if(!in_array($ext,$images)){

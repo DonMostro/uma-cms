@@ -16,8 +16,8 @@ class ffmpeg{
                 $this->watermark=$watermark;
         }
 
-        public function Exec($chorizo){
-                $log = fopen(ROOT.FILES . '/Whatzup.log', 'a+');
+        public function Exec($script){
+               /* $log = fopen(ROOT.FILES . '/Whatzup.log', 'a+');
                 fwrite( $log, "\n" );
                 fwrite( $log, "CLASS: " . __CLASS__  ."\n" );
                 fwrite( $log, "FILE: " . __FILE__  ."\n" );
@@ -26,9 +26,12 @@ class ffmpeg{
                 fwrite( $log, "LINE: " . __LINE__  ."\n" );
                 fwrite( $log, 'PATH: '. getcwd() . "\n");
                 fwrite( $log, 'COMMAND: '. $chorizo. "\n");
-                exec( $chorizo);
-				echo "Se ejecut&oacute <b>'".$chorizo."'</b><br/>";
-                fclose( $log );
+                */
+        		echo $script;
+        		exec($script);
+				//echo "Se ejecut&oacute <b>'".$chorizo."'</b><br/>";
+                //fclose( $log );
+                Debug::write($script);
         }
 
         
@@ -116,127 +119,11 @@ class ffmpeg{
         	$tpl=new Template(html_entity_decode($script));
         	$tpl->orig_file=$orig_file;
         	$tpl->dest_file=$dest_file;
-        	$script=$tpl->output();
-        	echo $script;
-        	exit();
-        	
-        	
+        	$command=$tpl->output();
+         	$this->Exec($command);
+        	return file_exists("$dest_file") && filesize("$dest_file")>0;
         }
-        
-        
-        public function mp4_convert($source, $dest, $size='320x240', $br, $ar, $skip=false, $watermark=false){
-                set_time_limit(0);
-
-                $size=explode('x',$size);
-                $info=$this->get_info($source);
-                $this->wd='';
-                $origsize=explode('x',$info['size']);
-                $wd=$size[0];
-                $wd=320;
-                $aux_wd=$this->wd;
-                $this->wd=ROOT.FILES;
-                if($watermark&&!empty($this->watermark)){
-					try{
-                        @$hg=$wd/$origsize[0]*$origsize[1];
-					}catch(Exception $e){
-						echo "*";
-					}		
-                        $wmarkfile=$this->watermark(ROOT.FILES.'/watermark.gif',($wd / 4),($hg /4));
-                        $wmark="-vhook '$this->watermark -f $wmarkfile'";
-                        $wmark='';
-                }else{
-                        $wmark='';
-                }
-                $this->wd = $aux_wd;
-                
-               // $command="\"$this->path\" -y -i $source $wmark -s 320x240 -acodec libfaac -ab 128kb -ac 1 -vcodec mpeg4 -b 270kb -r 12 -qmin 8 -qmax 30 -deinterlace  $dest 2>> ".ROOT.FILES.'/ffmpeg.log';
-			   // $command="\"$this->path\" -y -i $source $wmark -s 320x240 -acodec libfaac -ab 128kb -ac 1 -vcodec mpeg4 -b 270kb -r 12 -qmin 8 -qmax 30 -deinterlace  $dest 2>> ".ROOT.FILES.'/ffmpeg.log';	
-			   //$command="\"$this->path\" -y -i $source $wmark -s 320x240 -acodec libfaac -ab 128kb -ac 1 -vcodec mpeg4 -b 270kb -r 12 -qmin 8 -qmax 30 -deinterlace  $dest 2>> ".ROOT.FILES.'/ffmpeg.log';
-			   
-				$command="\"$this->path\" -y -i $source $wmark -b 12 -s 320x240 -b 160k -vcodec libx264 -vpre fast -acodec libfaac -ac 1 -ar 44100 -ab 96k -threads 0  $dest 2>> ".ROOT.FILES."/ffmpeg.log";
-
-				if(file_exists("$this->wd/$dest") && filesize("$this->wd/$dest")>0){
-					return true;
-				}else{
-					$this->Exec($command);
-					return file_exists("$dest") && filesize("$dest")>0;
-				}
-        }
-        
-        
-        public function _3gp_convert($source, $dest, $size='176x144', $br, $ar, $skip=false, $watermark=false){
-			set_time_limit(0);
-
-			$size=explode('x',$size);
-			$info=$this->get_info($source);
-			$this->wd='';
-			$origsize=explode('x',$info['size']);
-			$wd=$size[0];
-			$wd=176;
-			$aux_wd=$this->wd;
-			$this->wd=ROOT.FILES;
-			if($watermark&&!empty($this->watermark)){
-				try{
-					@$hg=$wd/$origsize[0]*$origsize[1];
-				}catch(Exception $e){
-					echo "*";
-				}	
-				$wmarkfile=$this->watermark(ROOT.FILES.'/watermark.gif',$wd,$hg);
-				$wmark="-vhook '$this->watermark -f $wmarkfile'";
-				$wmark='';
-			}else{
-					$wmark='';
-			}
-			$this->wd = $aux_wd;
-                //$command = "ffmpeg -i $source $wmark -s qcif -vcodec h263 -r 10 -acodec amr_nb -ar 8000 -ac 1 -ab 32  -y  $dest2";
-            //$command = "ffmpeg -i $source $wmark -s qcif -vcodec h263 -acodec amr_nb -ar 8000 -ac 1 -ab 12 -y $dest";
-            $command = "\"$this->path\" -y  -i $source $wmark -s 176x144 -vcodec mpeg4 -r 12 -b 90kb -acodec libfaac -ac 1 -ab 32kb -ar 8000 $dest";
-
-			if(file_exists("$this->wd/$dest") && filesize("$this->wd/$dest")>0){
-					return true;
-			}else{
-					$this->Exec($command);
-					return file_exists("$dest") && filesize("$dest")>0;
-					//return file_exists("$this->wd/$dest") && filesize("$this->wd/$dest")>0;
-			}
-        }
-        
-		
-		public function wmv_convert($source, $dest, $size='800x600', $br, $ar, $skip=false, $watermark=false){
-			set_time_limit(0);
-	
-			$size=explode('x',$size);
-			$info=$this->get_info($source);
-			$this->wd='';
-			$origsize=explode('x',$info['size']);
-			$wd=$size[0];
-			$hg=$size[1];
-			$aux_wd=$this->wd;
-			$this->wd=ROOT.FILES;
-			if($watermark&&!empty($this->watermark)){
-				try{
-					@$hg=$wd/$origsize[0]*$origsize[1];
-				}catch(Exception $e){
-					echo "*";
-				}	
-				$wmarkfile=$this->watermark(ROOT.FILES.'/watermark.gif',$wd,$hg);
-				$wmark="-vhook '$this->watermark -f $wmarkfile'";
-				$wmark='';
-			}else{
-				$wmark='';
-			}
-			$this->wd = $aux_wd;
-			$command = "\"$this->path\" -i $source $wmark -s 1152x768 -b 600kb -vcodec wmv2 -acodec wmav2 -ar 44100 -ab 48000 -ac 1 -y $dest 2> ".ROOT.FILES."/ffmpeg.log";
-			
-			if(file_exists("$this->wd/$dest") && filesize("$this->wd/$dest")>0){
-				return true;
-			}else{
-				$this->Exec($command);
-				return file_exists("$dest") && filesize("$dest")>0;
-			}
-	    }
-		
-        
+      
         public function create_thumbnail($source, $dest, $frame, $size, $path){
                 $command="\"$this->path\" -y -i $this->wd/$source -s $size -ss $frame -t 1 -f image2 $path/$dest";
                 $images=array('gif','jpg','jpeg','png');
