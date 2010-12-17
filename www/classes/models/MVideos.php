@@ -96,7 +96,7 @@ class MVideos extends MModel {
 	}
 	
 	/**
-	 * Setea string de b&uacute;squeda
+	 * Setea string de búsqueda
 	 * @param $value string
 	 */
   
@@ -107,14 +107,14 @@ class MVideos extends MModel {
 	}
 	
 	/**
-	 * Setea string de b&uacute;squeda excluyente
+	 * Setea string de búsqueda excluyente
 	 * @param $value
 	 */
 
 	function setExclude($value) { $this->exclude=mysql_real_escape_string($value); }
   
 	/**
-	 * retorna el texto de b&uacute;squeda
+	 * retorna el texto de búsqueda
 	 * @return string
 	 */
 	

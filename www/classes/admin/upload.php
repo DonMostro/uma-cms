@@ -13,20 +13,13 @@ class upload extends Element{
   function get($value,$i=0){
 
     $filename="";
-	print_r($_FILES);
- /*   echo "^^" . $this->target . "^^";*/
+
     if($_FILES[$this->target]['size'][$i]!=0 && substr($_FILES[$this->target]['name'][$i],-3,3)!='php'){
-//		echo "Estoy AC�";
     	$path=explode(".",$_FILES[$this->target]['name'][$i]);
         $filename=substr(md5(microtime()),0,8).'.'.$path[count($path)-1];
         $dest=!empty($this->params['FILEPATH'])?$this->params['FILEPATH']:THUMBNAILS;
-        Debug::write($dest);
-     /*  echo $_FILES[$this->target]['tmp_name'][$i];
-       echo '<br/>'.ROOT.$dest."/".$filename;
-       die();*/
         copy($_FILES[$this->target]['tmp_name'][$i],ROOT.$dest."/".$filename);
     }
-    //else die('No pasa na con el Upload');
     if($filename=="")return "{no-change}";
     else return $filename;
   }

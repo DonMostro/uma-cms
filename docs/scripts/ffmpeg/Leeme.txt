@@ -1,4 +1,6 @@
 Estos scripts fueron bajados para compilar ffmpeg con x264 en Ubuntu 10.04.
+uso:
+-sintaxis shell: ./<nombre de archivo>
 -ffmpegreverse es para limpiar todo vestigio de ffmpeg y x264, recomendado si hay una instalación anterior.
 -ffmpeginv instala ffmpeg con x264
 -ffmpegupv actualiza la versión

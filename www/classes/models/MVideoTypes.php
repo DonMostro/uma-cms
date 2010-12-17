@@ -13,7 +13,7 @@ class MVideoTypes extends MModel{
   function __construct(){
     parent::__construct(new RecordSet());
     
-    $this->table='video_types';
+    $this->table=TABLE_PREFIX.'video_types';
     
     $this->columns=array(
     	'videos_id'=>null,
@@ -22,7 +22,18 @@ class MVideoTypes extends MModel{
     );
    
   }
+  
+  public function setVideosId($value){
+	$this->columns['videos_id']=(int)$value; 	
+  }
 
+  public function setTypesId($value){
+	$this->columns['types_id']=(int)$value;   	
+  }
+  
+  public function setFileName($value){
+  	$this->columns['filename']=mysql_escape_string($value);
+  }
   
   protected function setQuery(){
   	

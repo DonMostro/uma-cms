@@ -12,7 +12,7 @@ class MPlayers extends MModel{
   private $random;
   private $picked;
   private $approved;
-  private $type;
+  //private $type;
   private $table_videos;
   
   function __construct(){
@@ -24,7 +24,6 @@ class MPlayers extends MModel{
     $this->columns=array(
     	'type'=>null,
   		'code'=>null,
-  		'video_id'=>null,
   		'embed'=>null,
   		'browser'=>null
     );
@@ -34,32 +33,17 @@ class MPlayers extends MModel{
   public function setRandom($value) { $this->random=(int)$value; }
   public function setPicked($value) { $this->picked=(int)$value; }
   public function setApproved($value) { $this->approved=(int)$value; }
-  public function setType($value)  { $this->type=$value; }
+  //public function setType($value)  { $this->type=$value; }
   
   protected function setQuery(){
-	if($this->columns['video_id']!==null){
-		$query="SELECT $this->table.* 
-					 , $this->table_videos.id AS videos_id
-					";
-					 
-		$query.= $this->_where();
-	}else {
-		$query="SELECT * FROM $this->table ";
-	}
+	$query="SELECT * FROM $this->table ";
 	if($_SERVER['SCRIPT_NAME']!="/admin/player.php")$query.= $this->_where();
 	
     $this->dataSet->setQuery($query);
   }
   
   protected function setCountQuery(){
-  	if($this->columns['video_id']!=null){
-		$query="SELECT COUNT(*)
-				   FROM $this->table  
-				   ".$this->_where();
-	} else {
-		$query="SELECT COUNT(*) FROM $this->table";
-	}
-
+	$query="SELECT COUNT(*) FROM $this->table";
   	$this->dataSet->setCountQuery($query);
   }
   
@@ -78,9 +62,6 @@ class MPlayers extends MModel{
   						OR (AND $ids)
   					)";*/
   	}	
-  	
-  	//if($this->username!==null)$where.=" AND videos.username='$this->username'";
-  	
   	return $where;
   }
   

@@ -27,7 +27,6 @@ class ffmpeg{
                 fwrite( $log, 'PATH: '. getcwd() . "\n");
                 fwrite( $log, 'COMMAND: '. $chorizo. "\n");
                 */
-        		echo $script;
         		exec($script);
 				//echo "Se ejecut&oacute <b>'".$chorizo."'</b><br/>";
                 //fclose( $log );
@@ -118,10 +117,10 @@ class ffmpeg{
         public function convert_by_type($script, $orig_file, $dest_file){
         	$tpl=new Template(html_entity_decode($script));
         	$tpl->orig_file=$orig_file;
-        	$tpl->dest_file=$dest_file;
+        	$tpl->dest_file="$this->wd/$dest_file";
         	$command=$tpl->output();
          	$this->Exec($command);
-        	return file_exists("$dest_file") && filesize("$dest_file")>0;
+        	return file_exists($tpl->dest_file)/* && filesize(ROOT."$dest_file")>0*/;
         }
       
         public function create_thumbnail($source, $dest, $frame, $size, $path){
