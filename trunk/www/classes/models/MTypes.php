@@ -26,7 +26,8 @@ class MTypes extends MModel{
     $this->columns=array(
     	'title'=>null,
   		'thumb'=>null,
-  		'script'=>null
+  		'script'=>null,
+    	'extension'=>null
     );
    
   }
@@ -39,7 +40,7 @@ class MTypes extends MModel{
   protected function setQuery(){
   	
     $query="
-    SELECT id, title, thumb, script 
+    SELECT id, title, thumb, script, extension  
 	   FROM $this->table 
 	".$this->_where();
 

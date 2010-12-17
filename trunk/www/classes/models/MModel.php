@@ -58,7 +58,7 @@ class MModel extends Observable implements IModel {
 	}
 	
 	/**
-	 * Setea clave primaria para ser usada como par&aacute;metro de la consulta SQL.
+	 * Setea clave primaria para ser usada como parámetro de la consulta SQL.
 	 * @param $value
 	 * @return unknown_type
 	 */
@@ -115,6 +115,8 @@ class MModel extends Observable implements IModel {
 	 */
 	
 	public function update(){
+		//var_dump($this->columns);
+		//exit();
 		$qb=new QueryBuilder($this->table,$this->columns);
 		$dao=new DAO();
 		$id=$this->idToString($this->pk);
