@@ -19,7 +19,7 @@ class upload_thumb extends Element{
     if($_FILES[$this->target]['size'][$i]!=0 && substr($_FILES[$this->target]['name'][$i],-3,3)!='php'){
     	$path=explode(".",$_FILES[$this->target]['name'][$i]);
         $filename=substr(md5(microtime()),0,8).'.'.$path[count($path)-1];
-        $dest=!empty($this->params['FILEPATH'])?$this->params['FILEPATH']:THUMBNAILS;
+        $dest=!empty($this->params['FILEPATH'])?$this->params['FILEPATH']:FILES_THUMBNAILS;
         Debug::write($dest);
      /*echo $_FILES[$this->target]['tmp_name'][$i];
        echo '<br/>'.ROOT.$dest."/".$filename;

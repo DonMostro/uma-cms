@@ -26,7 +26,7 @@ class ImportVideos{
 
 
   function display(){
-	$out="<h1>Importar vídeos</h1>";
+	$out="<h1>Importar vï¿½deos</h1>";
     if(!empty($this->form->path)&&!empty($this->form->username[0])&&!empty($this->form->category)&&!empty($this->form->description)&&!empty($this->form->tags)){
     	$files=glob(ROOT.FILES.'/'.$this->form->path.'/*');
     	//Debug::write('importvideos[32]:'.print_r($files,1));
@@ -34,7 +34,7 @@ class ImportVideos{
     	foreach ($files as $file){
     		$videos+=$this->_import_file($file);
     	}
-    	$out.="$videos vídeo (s) se han importado.";
+    	$out.="$videos vï¿½deo (s) se han importado.";
     }
   
 
@@ -76,7 +76,7 @@ class ImportVideos{
 
 	<p>
 
-		Categoría:
+		Categorï¿½a:
 
 		<br />
 
@@ -100,7 +100,7 @@ class ImportVideos{
 
 	<p>
 
-		Descripción:
+		Descripciï¿½n:
 
 		<br />
 
@@ -172,7 +172,7 @@ EOB;
 
 		
 
-		if(!file_exists(ROOT.THUMBNAILS.'/'.$this->form->path)){
+		if(!file_exists(ROOT.FILES_THUMBNAILS.'/'.$this->form->path)){
 
            $bits=explode('/',$this->form->path);
 
@@ -182,9 +182,9 @@ EOB;
 
            		$rec=$rec!==''?$rec.='/'.$bit:$bit;
 
-				if(!file_exists(ROOT.THUMBNAILS.'/'.$rec))mkdir(ROOT.THUMBNAILS.'/'.$rec);
+				if(!file_exists(ROOT.FILES_THUMBNAILS.'/'.$rec))mkdir(ROOT.FILES_THUMBNAILS.'/'.$rec);
 
-				chmod(ROOT.THUMBNAILS.'/'.$rec, 0777);
+				chmod(ROOT.FILES_THUMBNAILS.'/'.$rec, 0777);
 
 			}
 
@@ -216,7 +216,7 @@ EOB;
 
 					
 
-					//convertir el vídeo a flv
+					//convertir el vï¿½deo a flv
 					
 
 					//unlink(FILES."/".$file['filename']);
@@ -225,7 +225,7 @@ EOB;
 
 					$file['ext']="flv";
 
-					//obtener duración del vídeo y calcular el tiempo de un marco para captar
+					//obtener duraciï¿½n del vï¿½deo y calcular el tiempo de un marco para captar
 					
 
 					$video_info=$ffmpeg->get_info($file['filename']);
@@ -324,7 +324,7 @@ EOB;
 
 			
 
-			//Añadir miniatura
+			//Aï¿½adir miniatura
 			
 
 	        if(!empty($thumbnail)){

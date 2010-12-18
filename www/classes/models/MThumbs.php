@@ -115,8 +115,8 @@ class MThumbs extends MModel{
 	  	$query="SELECT filename FROM thumbs $where";
 	  	$dao->query($query);
 	  	while($row=$dao->getAll()){
-	  		if(!empty($row['filename'])&&file_exists(ROOT.THUMBNAILS."/".$row['filename'])){
-	  			unlink(ROOT.THUMBNAILS."/".$row['filename']);
+	  		if(!empty($row['filename'])&&file_exists(ROOT.FILES_THUMBNAILS."/".$row['filename'])){
+	  			unlink(ROOT.FILES_THUMBNAILS."/".$row['filename']);
 	  		}
 	  	}
 	  	$query="DELETE FROM thumbs $where";

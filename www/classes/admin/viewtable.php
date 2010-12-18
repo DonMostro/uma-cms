@@ -5,7 +5,7 @@ include_once(ROOT."classes/admin/controller.php");
 include_once(ROOT."classes/admin/elements_inc.php");
 
 /**
- * Tabla HTML
+ * Tabla HTML del listado de elementos del CMS
  * @author Administrador
  *
  */
@@ -50,10 +50,10 @@ class ViewTable extends Controller{
 	  }
 	  $out.="<td>";
 	  if(isset($this->layout[0]['EDIT']) && $this->layout[0]['EDIT']=="true"){
-	  	$out.="<a id=\"c_edit{$i}\" href=\"javascript:void(0)\" onclick=\"edit($i,$count)\" title=\"Edit\"><img src=\"images/pencil.png\" /></a><img id=\"loading{$i}\" src=\"images/loading.gif\" style=\"display:none\" /><a style=\"display:none\" id=\"c_update{$i}\" href=\"javascript:void(0)\" onclick=\"update($i,$count)\" title=\"Save\"><img src=\"images/accept.png\" /></a> <a style=\"display:none\" id=\"c_cancel{$i}\" href=\"javascript:void(0)\" onclick=\"cancel($i,$count)\" title=\"Cancel\"><img src=\"images/cancel.png\" /></a>";
+	  	$out.="<a id=\"c_edit{$i}\" href=\"javascript:void(0)\" onclick=\"edit($i,$count)\" title=\"Edit\"><img src=\"images/32/pencil.png\" /></a><img id=\"loading{$i}\" src=\"images/loading.gif\" style=\"display:none\" /><a style=\"display:none\" id=\"c_update{$i}\" href=\"javascript:void(0)\" onclick=\"update($i,$count)\" title=\"Save\"><img src=\"images/accept.png\" /></a> <a style=\"display:none\" id=\"c_cancel{$i}\" href=\"javascript:void(0)\" onclick=\"cancel($i,$count)\" title=\"Cancel\"><img src=\"images/cancel.png\" /></a>";
 	  }
 	  if(isset($this->layout[0]['DELETE']) && $this->layout[0]['DELETE']=="true"){
-	  	$out.=" <a href=\"javascript:void(0)\" onclick=\"if(confirm('Are you sure?')==true){get_url_contents('".$_SERVER['REQUEST_URI']."&a=delete&{$this->layout[1]['TARGET']}[]=$id&ajax=1','ajax_box')}\" title=\"Delete\"><img src=\"images/cross.png\" /></a></td>";
+	  	$out.=" <a href=\"javascript:void(0)\" onclick=\"if(confirm('¿Estás Seguro?')==true){get_url_contents('".$_SERVER['REQUEST_URI']."&a=delete&{$this->layout[1]['TARGET']}[]=$id&ajax=1','ajax_box')}\" title=\"Delete\"><img src=\"images/32/record-delete.png\" /></a></td>";
 	  }
 	  $out.="</tr>\r\n";
 	}
