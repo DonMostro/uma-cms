@@ -40,14 +40,14 @@ class MVideoTypes extends MModel{
     //Get lista de categories
     $query="
     SELECT videos_id, types_id, filename 
-	   FROM video_types
+	   FROM $this->table 
 	".$this->_where();
 
     $this->dataSet->setQuery($query);
   }
   
   protected function setCountQuery(){
-  	$query="SELECT COUNT(*) FROM video_types ".$this->_where();
+  	$query="SELECT COUNT(*) FROM $this->table ".$this->_where();
 
   	$this->dataSet->setCountQuery($query);
   }

@@ -43,8 +43,8 @@ if(isset($form->videos_id) && isset($form->types_id)){
 		$video_types = new MVideoTypes();
 		$video_types->setVideosId($video_data['id']);
 		$video_types->setTypesId($types_data['id']);
+		$video_types->load();
 		$video_types_data = $video_types->next();
-		
 		
 		//Carpeta con el año y mes en que se subió el video
 		$year_month_folder = date('Y/m');
@@ -60,7 +60,7 @@ if(isset($form->videos_id) && isset($form->types_id)){
 		$video_data['orig_file']=$nf;
 
 		//$ffmpeg=new ffmpeg($settings['ffmpeg_path'],ROOT.SMALL_VIDEOS.'/'.$year_month_folder,$settings['watermark_path']);
-		$newpath= ROOT.FILES.'/'.$year_month_folder.'/';
+		$newpath= FILES."/$year_month_folder";
 		$ffmpeg=new ffmpeg($settings['ffmpeg_path'], $newpath, $settings['watermark_path']);
 	
 		$oldfile=$video_types_data['filename'];
@@ -82,13 +82,16 @@ if(isset($form->videos_id) && isset($form->types_id)){
 				$video->setDuration($h.$video_info['duration'][1].":".$video_info['duration'][2]);
 			//}
 			
-			$video_types->setFileName("$newpath.$newfile");
+			$video_types->setFileName("$newpath/$newfile");
 			
+			
+			echo $oldfile;
 			if(!empty($oldfile)){
-				@unlink(ROOT.$oldfile);
+				echo "<p>update</p>";
+				unlink(ROOT.$oldfile);
 				$video_types->update();
 			}else{
-				echo "add";
+				echo "<p>add</p>";
 				$video_types->add();
 			}
 					
