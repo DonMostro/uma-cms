@@ -15,7 +15,7 @@ class TestFFmpeg extends Test{
 		exec($command);
 		if(file_exists($path.'/test.flv')&&filesize($path.'/test.flv')){
 				unlink($path.'/test.flv');
-				return '<h3>Testing FFmpeg</h3><p>FFmpeg se detecta y funciona correctamente.</p>';
+				return '<h3>Testing FFmpeg</h3><p>FFmpeg detectado y funcionando correctamente.</p>';
 			}else{
 				return '
 				<h3>Testing FFmpeg</h3>
