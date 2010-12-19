@@ -1,7 +1,7 @@
 <?xml version="1.0"?>
 <section name="Videos" type="table" target="MVideos" search="true" edit="true" add="true" delete="true">
     <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
-    <field name="" target="thumb" type="image" link="player.php?v={id}&amp;is_adviced=1" visible="true" edit="false" add="false"/>
+    <field name="" target="thumb" type="image" link="javascript:popup('player.php?v={id}','center')" visible="true" edit="false" add="false"/>
     <field name="T&amp;iacute;tulo" target="title" type="textfield" visible="true" edit="true" add="true"/>
     <field name="Tags" target="tags" type="textarea" visible="false" edit="true" add="true"/>
     <field name="Descripci&amp;oacute;on" target="description" type="textarea" visible="false" edit="true" add="true"/>
