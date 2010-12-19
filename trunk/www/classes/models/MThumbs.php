@@ -14,11 +14,13 @@ include_once(ROOT."classes/models/MModel.php");
 class MThumbs extends MModel{
   private $group;
   private $channel;
+  private $table_videos;
 
   function __construct(){
     parent::__construct(new RecordSet());
     $this->dataSet->addOrder(new DataOrder("id", "DESC"));
-    $this->table='thumbs';
+    $this->table=TABLE_PREFIX.'thumbs';
+    $this->table_videos=TABLE_PREFIX.'videos';
     $this->columns=array(
     	'videos_id'=>null,
   		'filename'=>null
@@ -38,44 +40,18 @@ class MThumbs extends MModel{
   public function setChannel($value) { $this->channel=mysql_real_escape_string($value); }
 
   protected function setQuery(){
-  	if($this->channel!=null){
-  		$query="
-  		SELECT thumbs.id AS thumbs_id
-  			 , videos.title FROM thumbs 
-  		JOIN videos 
-  		  ON thumbs.videos_id=videos.id
-  		   WHERE username='$this->channel'";
-  	}elseif($this->group!==null){ 
-  		$query="
-  		SELECT thumbs.id AS thumbs_id
-  		     , videos.title
-  		  FROM thumbs
-  		JOIN videos
-  		       ON videos.id=thumbs.videos_id
-  		JOIN group_videos
-  			   ON group_videos.videos_id=videos.id
-  		JOIN groups
-  			   ON groups.id=group_videos.groups_id
-  		 WHERE groups.id=$this->group
-  		";
-  	}elseif($this->id!=null&&!is_array($this->id)) {
-  		$query="SELECT * FROM thumbs ".$this->_where()." AND id=".(int)$this->id;
+	if($this->id!=null&&!is_array($this->id)) {
+  		$query="SELECT * FROM $this->table ".$this->_where()." AND id=".(int)$this->id;
   	} else {
-  		$query="SELECT * FROM thumbs ".$this->_where();
+  		$query="SELECT * FROM $this->table ".$this->_where();
   	}
     $this->dataSet->setQuery($query);
   }
   protected function setCountQuery(){
-  	if($this->channel!=null){
-  		$query="
-  		SELECT COUNT(*) 
-  		JOIN videos 
-  		  ON thumbs.videos_id=videos.id
-  		   WHERE username='$this->channel'";
-  	} elseif($this->id!=null&&!is_array($this->id)) {
-  		$query="SELECT COUNT(*) FROM thumbs ".$this->_where()." AND id=".(int)$this->id;
+	if($this->id!=null&&!is_array($this->id)) {
+  		$query="SELECT COUNT(*) FROM $this->table ".$this->_where()." AND id=".(int)$this->id;
   	} else {
-  		$query="SELECT COUNT(*) FROM thumbs ".$this->_where();
+  		$query="SELECT COUNT(*) FROM $this->table ".$this->_where();
   	}
   	$this->dataSet->setCountQuery($query);
   }
@@ -112,14 +88,14 @@ class MThumbs extends MModel{
   	if($ids!=""){
   		$where="WHERE $ids";
 	  	$dao=new DAO();
-	  	$query="SELECT filename FROM thumbs $where";
+	  	$query="SELECT filename FROM $this->table $where";
 	  	$dao->query($query);
 	  	while($row=$dao->getAll()){
 	  		if(!empty($row['filename'])&&file_exists(ROOT.FILES_THUMBNAILS."/".$row['filename'])){
 	  			unlink(ROOT.FILES_THUMBNAILS."/".$row['filename']);
 	  		}
 	  	}
-	  	$query="DELETE FROM thumbs $where";
+	  	$query="DELETE FROM $this->table $where";
 	  	$dao->query($query);
 	  	$this->setState('change_immediate');
 		$this->notifyObservers();
