@@ -405,7 +405,7 @@ CREATE TABLE IF NOT EXISTS `ztv_settings` (
 --
 
 INSERT INTO `ztv_settings` (`id`, `enum`, `value`, `type`, `description`, `ord`, `group`, `function`) VALUES
-('banned_ips', '', '', 'textarea', 'Baneo de IPs . Estas soportados estos formatos:\r\n192.168.0.1\r\n192.168.0.1-192.168.0.255', 21, 'Usuarios', ''),
+('banned_ips', '', '', 'textarea', 'Baneo de IPs . Est&aacute;n soportados estos formatos:\r\n192.168.0.1\r\n192.168.0.1-192.168.0.255', 21, 'Usuarios', ''),
 ('ffmpeg_path', '', 'ffmpeg', 'textfield', 'Ruta a ffmpeg o biblioteca sustituta.', 7, 'Video conversion', 'TestFFmpeg'),
 ('ffmpeg_size', '128x96,320x240,480x360,640x480,800x600,1024x768,1152x864,1600x1200', '1600x1200', 'textfield', 'Tama&ntilde;o de la imagen principal de los videos.', 8, 'Video conversion', ''),
 ('ffmpeg_thumbnails', '', '3', 'textfield', 'Cuantas miniaturas se deben crear por video.', 11, 'Video conversion', ''),
@@ -413,7 +413,7 @@ INSERT INTO `ztv_settings` (`id`, `enum`, `value`, `type`, `description`, `ord`,
 ('max_upload_size', '', '170M', 'textfield', 'Cantidad de bytes m&aacute;xima permitida para subir.', 14, 'Subidas', 'TestMaxUploadSize'),
 ('overlay', '', 'overlay.png', 'textfield', 'Imagen para player flash.', 12, 'Flash player', ''),
 ('ratings', '', '1', 'checkbox', 'Habilitar/Deshabilitar puntuaciones de videos (rating).', 3, 'Agregados', ''),
-('watermark', '', '', 'checkbox', 'Activar esta opción para activar marca de agua ''watermark.gif'' dentro de la carpeta ''files'' será usada como marca de agua. ', 14, 'Video conversion', ''),
+('watermark', '', '', 'checkbox', 'Activar esta opci&oacute;n para activar marca de agua ''watermark.gif'' dentro de la carpeta ''files'' ser&aacute; usada como marca de agua. ', 14, 'Video conversion', ''),
 ('watermark_path', '', '/usr/local/lib/vhook/watermark.so', 'textfield', 'Ingresar ruta de la libreria Watermark que usualmente viene integrada con FFmpeg. Presione el boton buscar si no conoce la ruta.', 13, 'Video conversion', 'FindWatermark');
 
 -- --------------------------------------------------------
