@@ -20,7 +20,7 @@ class TestMaxUploadSize extends Test{
 			return '
 			<h3>Prueba de Carga de archivos</h3>
 			<p>
-			  Sus l&iacute;mites de subida seg&uacute; la configuraci&oacute;n de PHP es de '.$this->_encode($limit).'. Por favor, introduzca un l&iacute;mite inferior o aumente los siguientes valores en php.ini:
+			  Sus l&iacute;mites de subida seg&uacute;n la configuraci&oacute;n de PHP es de '.$this->_encode($limit).'. Por favor, introduzca un l&iacute;mite inferior o aumente los siguientes valores en php.ini:
 			  <ul>
 			    <li>post_max_size (current: '.ini_get('post_max_size').')</li>
 			    <li>upload_max_filesize (current: '.ini_get('upload_max_filesize').')</li>
