@@ -28,15 +28,6 @@ if(isset($form->v)){
 	$player=new VPlayer($mplayer);
 	$player->id=$form->v;
 	$player->filename=!empty($vdata['filename'])?$vdata['filename']:'';
-	echo "<html>\r\n
-			<head>
-			<script type=\"text/javascript\">var baseurl=\"http://www.3tv.cl/\";</script>
-			<script type=\"text/javascript\" src=\"../functions.js\"></script>
-			<script type=\"text/javascript\" src=\"../ajax.js\"></script>
-			<base href=\"".URL."/\"/></head>
-			<body>\r\n<div id=\"ajax_box\"><div id=\"player_shadow\">".$player->show()."</div></div>
-			<p><a href=\"javascript:history.go(-1)\"><b>Go back</b></a></p>			
-			</body>\r\n
-		  </html>";
+	echo $player->show();
 }
 ?>
