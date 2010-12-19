@@ -61,7 +61,7 @@ if(isset($form->videos_id) && isset($form->types_id)){
 
 		//$ffmpeg=new ffmpeg($settings['ffmpeg_path'],ROOT.SMALL_VIDEOS.'/'.$year_month_folder,$settings['watermark_path']);
 		$newpath= FILES."/$year_month_folder";
-		$ffmpeg=new ffmpeg($settings['ffmpeg_path'], $newpath, $settings['watermark_path']);
+		$ffmpeg=new ffmpeg($settings['ffmpeg_path'], $newpath, @$settings['watermark_path']);
 	
 		$oldfile=$video_types_data['filename'];
 		$oldframe=$video_data['frame'];

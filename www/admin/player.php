@@ -21,7 +21,7 @@ if(isset($form->v)){
 	$video->load();
 	$vdata=$video->next();
 	$mplayer=new MPlayers();
-	$mplayer->setType("backoffice");
+	$mplayer->setType("Backoffice");
 	$mplayer->setVideo_Id($form->v);
 	$mplayer->load();
 	
