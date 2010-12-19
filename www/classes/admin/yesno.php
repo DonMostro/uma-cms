@@ -26,7 +26,7 @@ class yesno extends Element{
 
 	  return "<select style=\"width:50px;display:$display\" id=\"edit{$i}_{$j}\" name=\"$this->target[$i]\">
 
-	  <option value=\"1\" $selected[1]>Yes</option>
+	  <option value=\"1\" $selected[1]>S&iacute;</option>
 
 	  <option value=\"0\" $selected[0]>No</option>";
 
