@@ -65,7 +65,7 @@ function popup(url,position){
 	}
 	
 	document.getElementById('popup_body').style.width='480px';
-	document.getElementById('popup_body').style.height='320px';
+	document.getElementById('popup_body').style.height='323px';
 	
 	switch(position){
 		case 'topright':
