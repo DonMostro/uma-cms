@@ -27,8 +27,8 @@ class TestMaxUploadSize extends Test{
 			  </ul>
 			</p>';
 			
-		}elseif(!is_writable(ROOT.FILES)||!is_writable(ROOT.THUMBNAILS)){
-			return '<h3>Prueba de Carga de archivos</h3><p>Los archivos y/o miniaturas directorios no son modificables, por favor, compruebe los permisos</p>';
+		}elseif(!is_writable(ROOT.FILES)||!is_writable(ROOT.FILES_THUMBNAILS)){
+			return '<h3>Prueba de Carga de archivos</h3><p>Los directorios para el upload no son modificables, por favor, compruebe los permisos</p>';
 		}else{
 			return '<h3>Prueba de Carga de archivos</h3><p>Su configuraci&oacute;n de carga de archivos funciona correctamente.</p>';
 		}
