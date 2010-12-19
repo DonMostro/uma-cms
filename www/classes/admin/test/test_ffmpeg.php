@@ -15,10 +15,10 @@ class TestFFmpeg extends Test{
 		exec($command);
 		if(file_exists($path.'/test.flv')&&filesize($path.'/test.flv')){
 				unlink($path.'/test.flv');
-				return '<h3>Testing FFmpeg</h3><p>FFmpeg detectado y funcionando correctamente.</p>';
+				return '<h3>Prueba de FFmpeg</h3><p>FFmpeg detectado y funcionando correctamente.</p>';
 			}else{
 				return '
-				<h3>Testing FFmpeg</h3>
+				<h3>Prueba de FFmpeg</h3>
 				<p>FFmpeg no puede ser ejecutado. Por favor, compruebe los siguientes ajustes		:
 				  <ul>
 				    <li>Aseg&uacute;rese de que ha ingresado la ruta correcta</li>
