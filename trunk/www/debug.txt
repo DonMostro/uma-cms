@@ -1,32 +1,6 @@
-/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-18 21:15:28]: [2010-18-12 21:15:28] Error: Table 'ztv_cms.thumbs' doesn't exist
-
-  		SELECT ztv_thumbs.id AS thumbs_id
-  			 , ztv_videos.title FROM thumbs 
-  		JOIN ztv_videos 
-  		  ON ztv_thumbs.videos_id=ztv_videos.id ORDER BY id DESC LIMIT 0, 20
-/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-18 21:15:28]: [2010-18-12 21:15:28] Error: Table 'ztv_cms.videos' doesn't exist
-SELECT `title`,`id` FROM videos WHERE `id`=''
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:15:35]: "ffmpeg" -i ../files/6282ac1f.mp4 2> ../files/7de0a2b0d398628c1f3a1f41d2311ce3
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:15:39]: "ffmpeg" -y -i ../files/6282ac1f.mp4 -s 132x90 -ss 26 -t 1 -f image2 ../files/thumbnails/6282ac1f5613770.jpg
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:15:48]: "ffmpeg" -y -i ../files/6282ac1f.mp4 -s 132x90 -ss 53 -t 1 -f image2 ../files/thumbnails/6282ac1f5613771.jpg
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:16:00]: "ffmpeg" -y -i ../files/6282ac1f.mp4 -s 132x90 -ss 79 -t 1 -f image2 ../files/thumbnails/6282ac1f5613772.jpg
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:40:55]: "ffmpeg" -i ../files/8f144ea1.mp4 2> ../files/a7dbee4e1ed4774c0a87ecba5bc9fef6
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:40:58]: "ffmpeg" -y -i ../files/8f144ea1.mp4 -s 132x90 -ss 15 -t 1 -f image2 ../files/thumbnails/8f144ea14700350.jpg
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:41:02]: "ffmpeg" -y -i ../files/8f144ea1.mp4 -s 132x90 -ss 31 -t 1 -f image2 ../files/thumbnails/8f144ea14700351.jpg
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:41:09]: "ffmpeg" -y -i ../files/8f144ea1.mp4 -s 132x90 -ss 47 -t 1 -f image2 ../files/thumbnails/8f144ea14700352.jpg
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:41:20]: "ffmpeg" -i ../files/73e72b71.mp4 2> ../files/b29c099ab71811aad61438bf8a149997
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:41:21]: "ffmpeg" -y -i ../files/73e72b71.mp4 -s 132x90 -ss 10 -t 1 -f image2 ../files/thumbnails/73e72b711769150.jpg
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:41:21]: "ffmpeg" -y -i ../files/73e72b71.mp4 -s 132x90 -ss 21 -t 1 -f image2 ../files/thumbnails/73e72b711769151.jpg
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:41:23]: "ffmpeg" -y -i ../files/73e72b71.mp4 -s 132x90 -ss 32 -t 1 -f image2 ../files/thumbnails/73e72b711769152.jpg
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:41:26]: "ffmpeg" -i ../files/e3733113.ogv 2> ../files/5a1259ec4cfc335dd886053ac56567cf
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:41:29]: "ffmpeg" -y -i ../files/e3733113.ogv -s 132x90 -ss 42 -t 1 -f image2 ../files/thumbnails/e37331139111170.jpg
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:41:34]: "ffmpeg" -y -i ../files/e3733113.ogv -s 132x90 -ss 85 -t 1 -f image2 ../files/thumbnails/e37331139111171.jpg
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[33][2010-12-18 21:41:42]: "ffmpeg" -y -i ../files/e3733113.ogv -s 132x90 -ss 128 -t 1 -f image2 ../files/thumbnails/e37331139111172.jpg
-/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-18 21:41:59]: [2010-18-12 21:41:59] Error: Table 'ztv_cms.thumbs' doesn't exist
-
-  		SELECT ztv_thumbs.id AS thumbs_id
-  			 , ztv_videos.title FROM thumbs 
-  		JOIN ztv_videos 
-  		  ON ztv_thumbs.videos_id=ztv_videos.id ORDER BY id DESC LIMIT 0, 20
-/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-18 21:41:59]: [2010-18-12 21:41:59] Error: Table 'ztv_cms.videos' doesn't exist
-SELECT `title`,`id` FROM videos WHERE `id`='1'
+/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-19 18:33:26]: [2010-19-12 18:33:26] Error: Table 'ztv_cms.menu' doesn't exist
+SELECT `title`,`id` FROM menu
+/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-19 18:33:31]: [2010-19-12 18:33:31] Error: Table 'ztv_cms.menu' doesn't exist
+SELECT `title`,`id` FROM menu
+/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-19 18:33:37]: [2010-19-12 18:33:37] Error: Table 'ztv_cms.menu' doesn't exist
+SELECT `title`,`id` FROM menu
