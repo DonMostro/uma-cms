@@ -4,7 +4,6 @@ include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Template.php");
 include_once(ROOT."classes/lib/UrlBuilder.php");
 include_once(ROOT."classes/views/VView.php");
-include_once(ROOT."classes/views/VIphoneVideos.php");
 include_once(ROOT."classes/models/MModel.php");
 include_once(ROOT."classes/models/MSimilarVideos.php");
 include_once(ROOT."classes/lib/Types.php");
@@ -82,6 +81,11 @@ class VPlayer extends VView {
   	
   	return htmlspecialchars($tpl->output());
   }
+  
+  function setParam($param, $value){
+	$this->params[$param] = $value; 	
+  }
+  
   
 
   /**

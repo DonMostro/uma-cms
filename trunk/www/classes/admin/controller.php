@@ -4,6 +4,11 @@ include_once("root.php");
 include_once(ROOT."classes/lib/DAO.php");
 include_once(ROOT."classes/lib/Form.php");
 
+/**
+ * Controlador de BackOffice
+ *
+ */
+
 class Controller{
   var $layout;
   var $page;
@@ -12,6 +17,13 @@ class Controller{
   var $target;
   var $maxsize;
 
+  /**
+   * Constructor
+   * @param $page
+   * @param $id
+   * @return unknown_type
+   */
+  
   function Controller($page,$id=array()){
     $this->layout=array();
     $this->page=$page;

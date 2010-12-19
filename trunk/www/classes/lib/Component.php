@@ -2,9 +2,7 @@
 include_once("root.php");
 include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Debug.php");
-//include_once(ROOT."classes/lib/Lang.php");
 include_once(ROOT."classes/lib/Form.php");
-//include_once(ROOT."classes/lib/acl.php");
 
 class Component {
 	
@@ -25,7 +23,6 @@ class Component {
 	}else{
 		$this->name=(string)$doc['name'];
 		
-		$lang=Lang::getInstance();
 		//if($lang->getText($this->name))$this->name=$lang->getText($this->name);
 		
 		if($doc->model){
@@ -101,7 +98,7 @@ class Component {
 					}else{
 						$view->$name=preg_replace_callback('/\$\w+\b/i', array($this, '_replace_var'), $param);
 						$view->$name=preg_replace_callback('/\%\w+\b/i', array($this, '_replace_param'), $view->$name);
-						if(!empty($view->$name)&&$lang->getText($view->$name))$view->$name=$lang->getText($view->$name);
+						//if(!empty($view->$name)&&$lang->getText($view->$name))$view->$name=$lang->getText($view->$name);
 					}
 				}
 				$this->content=$view->show();

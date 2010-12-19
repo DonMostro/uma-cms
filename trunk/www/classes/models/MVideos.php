@@ -208,6 +208,16 @@ class MVideos extends MModel {
 		}
 		return $tagstr;
 	}
+	
+	
+	
+  public function loadFilename($types_id) {
+  	$query="SELECT filename FROM $this->table_video_types  
+  	   WHERE videos_id=".(int)$this->id." AND types_id=".(int)$types_id ;
+	   
+  	$this->dataSet->setQuery($query);
+  	$this->dataSet->fill();
+  }
   
 	/**
 	 * (non-PHPdoc)

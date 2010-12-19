@@ -1,19 +1,18 @@
 <?php
 include_once("root.php");
 include_once(ROOT."classes/lib/Template.php");
-include_once(ROOT."classes/lib/Lang.php");
 include_once(ROOT."classes/views/VView.php");
 include_once(ROOT."classes/lib/PageCtrl.php");
 
 /**
- * Base de clase de vista para mostrar los tipos de recolección de datos. Las clases heredadas implementa
- decorate_list * () y decorate_item () métodos. La idea principal de estos métodos (y
+ * Base de clase de vista para mostrar los tipos de recolecciï¿½n de datos. Las clases heredadas implementa
+ decorate_list * () y decorate_item () mï¿½todos. La idea principal de estos mï¿½todos (y
  * La capa de la Vista en general) es crear las etiquetas para las plantillas y los inserta en
- * Las plantillas seleccionadas. Los métodos devuelven el contenido generado.
+ * Las plantillas seleccionadas. Los mï¿½todos devuelven el contenido generado.
 
 
  * 
- * Desde la versión 3.0, decorate_list () y decorate_item () puede ser omitido. En ese caso,
+ * Desde la versiï¿½n 3.0, decorate_list () y decorate_item () puede ser omitido. En ese caso,
  * Filter () se utiliza para decorar los elementos que deben ser procesados en lugar de ir a buscar a la
  * Plantilla directamente desde el modelo.
 

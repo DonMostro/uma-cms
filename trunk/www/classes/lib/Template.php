@@ -1,7 +1,7 @@
 <?php
 include_once('root.php');
 include_once(ROOT."classes/lib/Debug.php");
-include_once(ROOT."classes/lib/Lang.php");
+
 
 /**
  * Motor de templates. Uso:
@@ -15,7 +15,7 @@ include_once(ROOT."classes/lib/Lang.php");
 class Template{
     private $html;
     private $output;
-    private $lang;
+    //private $lang;
     
     /**
      * Constructor
@@ -57,7 +57,7 @@ class Template{
     
     private function _parse($start, $end){
     	//$len=$end-$start+1;
-	    $pos=$start; //la posición actual en la cadena
+	    $pos=$start; //la posiciï¿½n actual en la cadena
 	    
     	while((false !== ($tag_start=strpos($this->html,"<#",$pos))) && $tag_start<$end){
     		
@@ -67,7 +67,7 @@ class Template{
     		$tag_name=substr($this->html,$tag_start+2,$tag_end-$tag_start-2);
     		
     		if(substr($tag_name,0,3)=='if '){
-    			$condition=substr($tag_name,3); //expresión condicional
+    			$condition=substr($tag_name,3); //expresiï¿½n condicional
     			list($var,$val)=explode('==',$condition);
     			$val=trim($val,'"');
     			
@@ -88,6 +88,7 @@ class Template{
     			$pos=$end_if+9;
     		}else{
     			if(isset($this->$tag_name))$this->output.=$this->$tag_name;
+    			/*
     			elseif(!empty($this->lang)){ //Reemplazar cadenas de idioma
     				$text=$this->lang->getText($tag_name);
     				if(!empty($text)){
@@ -102,6 +103,7 @@ class Template{
     					$this->output.=$text;
     				}
     			}
+    			*/
     			$pos=$tag_end+2;
     		}
     		
@@ -117,7 +119,7 @@ class Template{
 
     private function _parseBracket($start, $end){
     	//$len=$end-$start+1;
-	    $pos=$start; //la posición actual en la cadena
+	    $pos=$start; //la posiciï¿½n actual en la cadena
 	    
     	while((false !== ($tag_start=strpos($this->html,"[:",$pos))) && $tag_start<$end){
     		
@@ -127,7 +129,7 @@ class Template{
     		$tag_name=substr($this->html,$tag_start+2,$tag_end-$tag_start-2);
     		
     		if(substr($tag_name,0,3)=='if '){
-    			$condition=substr($tag_name,3); //La expresión condicional
+    			$condition=substr($tag_name,3); //La expresiï¿½n condicional
     			list($var,$val)=explode('==',$condition);
     			$val=trim($val,'"');
     			
@@ -149,7 +151,7 @@ class Template{
     			$pos=$end_if+9;
     		}else{
     			if(isset($this->$tag_name))$this->output.=$this->$tag_name;
-    			elseif(!empty($this->lang)){ //Reemplazar cadenas de idioma
+    			/*elseif(!empty($this->lang)){ //Reemplazar cadenas de idioma
     				$text=$this->lang->getText($tag_name);
     				if(!empty($text)&&$text!=$tag_name){
     				//if(!empty($text)){
@@ -166,7 +168,7 @@ class Template{
     					}
     					$this->output.=$text;
     				}
-    			}
+    			}*/
     			$pos=$tag_end+2;
     		}
     		

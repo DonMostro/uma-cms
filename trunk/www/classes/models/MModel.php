@@ -115,8 +115,6 @@ class MModel extends Observable implements IModel {
 	 */
 	
 	public function update(){
-		//var_dump($this->columns);
-		//exit();
 		$qb=new QueryBuilder($this->table,$this->columns);
 		$dao=new DAO();
 		$id=$this->idToString($this->pk);
