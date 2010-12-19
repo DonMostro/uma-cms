@@ -1,0 +1,4 @@
+1.Ejecutar drop-database.sql (sólo si ya existiera la BD uma-cms)
+2.Ejecutar create-database.sql
+3.Ejecutar create-user.sql
+4.Ejecutar create-tables.sql
