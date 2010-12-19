@@ -121,31 +121,20 @@ class EditTable extends Controller{
 
 		}
 
-			
-
+	
 	}
-
 	$model->add();
-
   }
 
   
 
   function delete(){
-
     include_once(ROOT."classes/models/{$this->target}.php");
-
     $mpool=ModelPool::getInstance();
-
     $model=$mpool->getModel($this->target);
-
     $model->setId($this->id);
-
 	$model->delete();
-
   }
-
-  
 
 }
 

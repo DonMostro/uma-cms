@@ -85,7 +85,7 @@ class Form {
   
   function encode($value){
     if(get_magic_quotes_gpc()==1)$value=stripslashes($value);
-  	if(strlen($value)<1024){
+  	if(strlen($value)<64){
         $value=htmlentities($this->_unescape($value),null,'UTF-8');
     }else{
         $value=htmlentities($value,null,'UTF-8');

@@ -70,7 +70,7 @@ class Table{
 	  	break;
 	  case "add":
 	  	if(!isset($request['save'])){
-	  	    $out .= "<h2>Add to {$edittable->name}</h2>";
+	  	    $out .= "<h2>Agregar a {$edittable->name}</h2>";
 		  	$out .= "<form action=\"$location&a=add\" method=\"post\" enctype=\"multipart/form-data\">\r\n";
 			$out .= $edittable->display('ADD');
 		  	$out .= "<input type=\"hidden\" name=\"save\" value=\"save\">\r\n";

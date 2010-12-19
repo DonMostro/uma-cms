@@ -1,6 +1,6 @@
 <?php
 include_once("root.php");
-include_once(ROOT."classes/commands/CCommand.php");
+include_once(ROOT."classes/controllers/CCommand.php");
 include_once(ROOT."classes/models/MVideos.php");
 include_once(ROOT."classes/views/VVideo.php");
 
@@ -15,11 +15,8 @@ class CFilename extends CCommand {
 		$vidview=new VVideo($videmodel);
 		if(isset($this->form->id))$videmodel->setId($this->form->id);
 		$videmodel->setApproved(1);
-		$videmodel->loadFilename();
-		$vidview->buffer=$this->settings['buffer_time'];
-		$curtain_filename =  $videmodel->getCurtainAd();
-		$vidview->has_curtain = (!empty($curtain_filename)) ? "1":"0";
-		$vidview->curtain_filename = URL."/".FILES."/".$curtain_filename;
+		$videmodel->loadFilename($this->form->type);
+
 				
 		if(isset($this->form->f)){
 			switch($this->form->f){

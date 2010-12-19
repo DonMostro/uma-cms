@@ -3,14 +3,10 @@
 include_once("root.php");
 include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Template.php");
-include_once(ROOT."classes/lib/Lang.php");
 include_once(ROOT."classes/lib/Types.php");
 include_once(ROOT."classes/models/MMenu.php");
-include_once(ROOT."classes/models/MMessages.php");
-include_once(ROOT."classes/models/MLanguages.php");
 include_once(ROOT."classes/views/VView.php");
 
-include_once(ROOT."classes/views/VIphoneVideos.php");
 
 /**
 

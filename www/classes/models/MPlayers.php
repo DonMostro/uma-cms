@@ -53,20 +53,11 @@ class MPlayers extends MModel{
   	$ids=$this->idToString("$this->table.id");
   	if(!empty($this->type)){	
 		$where.=" AND $this->table.type='".mysql_real_escape_string($this->type)."' ";
-  	}elseif(Util::getOS() != 'iPod' && Util::getOS() != 'iPad' && Util::getOS() != 'iPhone' && Util::getOS() != 'BlackBerry'){
-		if($ids!="")$where.=" AND $ids";
-  	}else{
-  		$where.=" AND $this->table.id='4' ";
-  		/*$where.=" AND (
-  						(id='4' AND small_filename <> '' AND small_filename IS NOT NULL)
-  						OR (AND $ids)
-  					)";*/
-  	}	
+  	}
   	return $where;
   }
   
   public function add(){
-    
     $this->setState('change_immediate');
 	$this->notifyObservers();
 	
@@ -74,6 +65,8 @@ class MPlayers extends MModel{
   }
   
   public function update(){
+  	var_dump($this->columns);
+	exit();
 
   	$this->setState('change_immediate');
 	$this->notifyObservers();
