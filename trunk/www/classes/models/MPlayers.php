@@ -12,7 +12,7 @@ class MPlayers extends MModel{
   private $random;
   private $picked;
   private $approved;
-  //private $type;
+  private $type;
   private $table_videos;
   
   function __construct(){
@@ -33,7 +33,7 @@ class MPlayers extends MModel{
   public function setRandom($value) { $this->random=(int)$value; }
   public function setPicked($value) { $this->picked=(int)$value; }
   public function setApproved($value) { $this->approved=(int)$value; }
-  //public function setType($value)  { $this->type=$value; }
+  public function setType($value)  { $this->type=$value; }
   
   protected function setQuery(){
 	$query="SELECT * FROM $this->table ";
