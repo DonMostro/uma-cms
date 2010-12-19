@@ -26,6 +26,7 @@ class MVideos extends MModel {
 	private $table_tags;
 	private $table_hits;
 	private $table_video_types;
+	private $table_types;
 	private $table_videos_categories;
 	private $table_video_tags;
 	
@@ -44,6 +45,7 @@ class MVideos extends MModel {
 		$this->table_video_types=TABLE_PREFIX.'video_types';
 		$this->table_videos_categories=TABLE_PREFIX.'videos_categories';
 		$this->table_video_tags=TABLE_PREFIX.'video_tags';
+		$this->table_types=TABLE_PREFIX.'types';
 	
 		$this->columns=array(
 			'categories_id'=>null,
@@ -211,9 +213,12 @@ class MVideos extends MModel {
 	
 	
 	
-  public function loadFilename($types_id) {
-  	$query="SELECT filename FROM $this->table_video_types  
-  	   WHERE videos_id=".(int)$this->id." AND types_id=".(int)$types_id ;
+  public function loadFilename($types_title) {
+  	DAO::connect();
+  	$query="SELECT filename 
+  	FROM $this->table_video_types LEFT JOIN $this->table_types
+  	ON $this->table_video_types.types_id = $this->table_types.id 
+  	WHERE videos_id=".(int)$this->id." AND $this->table_types.title='".mysql_escape_string($types_title)."' " ;
 	   
   	$this->dataSet->setQuery($query);
   	$this->dataSet->fill();

@@ -1,6 +1,7 @@
 <?php
 include_once("root.php");
 include_once(ROOT."classes/controllers/CCommand.php");
+include_once(ROOT."classes/lib/Settings.php");
 include_once(ROOT."classes/models/MVideos.php");
 include_once(ROOT."classes/views/VVideo.php");
 
@@ -11,11 +12,15 @@ class CFilename extends CCommand {
 	}
 
 	function show(){
+		$s=Settings::getInstance();
+		$settings=$s->getSettings();
 		$videmodel=new MVideos();
 		$vidview=new VVideo($videmodel);
 		if(isset($this->form->id))$videmodel->setId($this->form->id);
 		$videmodel->setApproved(1);
-		$videmodel->loadFilename($this->form->type);
+		$type = (isset($this->form->type)) ? $this->form->type: $settings['default_type'];
+		
+		$videmodel->loadFilename($type);
 
 				
 		if(isset($this->form->f)){

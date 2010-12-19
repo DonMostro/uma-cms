@@ -50,7 +50,12 @@ class MPlayers extends MModel{
   protected function _where(){
   	$where=" WHERE 1";
   	
+  	
   	$ids=$this->idToString("$this->table.id");
+  	
+  	
+  	
+  	
   	if(!empty($this->type)){	
 		$where.=" AND $this->table.type='".mysql_real_escape_string($this->type)."' ";
   	}
@@ -65,9 +70,6 @@ class MPlayers extends MModel{
   }
   
   public function update(){
-  	var_dump($this->columns);
-	exit();
-
   	$this->setState('change_immediate');
 	$this->notifyObservers();
 	

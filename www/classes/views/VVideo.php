@@ -2,6 +2,7 @@
 error_reporting(E_ALL);
 include_once("root.php");
 include_once(ROOT."classes/lib/Template.php");
+include_once(ROOT."classes/lib/Settings.php");
 include_once(ROOT."classes/lib/Types.php");
 include_once(ROOT."classes/lib/Form.php");
 include_once(ROOT."classes/lib/UrlBuilder.php");
@@ -137,6 +138,9 @@ class VVideo extends VView {
 	    
 		$mplayer=new MPlayers();
 		//if(empty($info['filename_hd'])) $mplayer->setType("Flash Video Player NO HD");
+
+
+		
 		$player=new VPlayer($mplayer);
 		
 		
