@@ -24,6 +24,8 @@ if(isset($form->v)){
 	$mplayer->setType("Backoffice");
 	$mplayer->setVideo_Id($form->v);
 	$mplayer->load();
+	var_dump($mplayer);
+	
 	
 	$player=new VPlayer($mplayer);
 	$player->id=$form->v;
