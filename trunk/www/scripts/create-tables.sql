@@ -692,8 +692,3 @@ DROP TABLE IF EXISTS `ztv_latests_more_viewed_videos`;
 
 CREATE ALGORITHM=UNDEFINED DEFINER=`root`@`localhost` SQL SECURITY DEFINER VIEW `ztv_latests_more_viewed_videos` AS select `ztv_videos`.`id` AS `id` from (`ztv_videos` left join `ztv_video_hits` on((`ztv_video_hits`.`videos_id` = `ztv_video_hits`.`videos_id`))) where (`ztv_videos`.`tt` >= (unix_timestamp(now()) - 604800)) order by `ztv_video_hits`.`hits` desc limit 0,16;
 
-CREATE USER 'ztvuser'@'localhost' IDENTIFIED BY 'ztvpassword';
-
-GRANT USAGE ON * . * TO 'ztvuser'@'localhost' IDENTIFIED BY 'ztvpassword' WITH MAX_QUERIES_PER_HOUR 0 MAX_CONNECTIONS_PER_HOUR 0 MAX_UPDATES_PER_HOUR 0 MAX_USER_CONNECTIONS 0 ;
-
-GRANT ALL PRIVILEGES ON `ztv_cms` . * TO 'ztvuser'@'localhost';
