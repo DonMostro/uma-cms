@@ -42,7 +42,6 @@ class CFilename extends CCommand {
 			$vidview->tplfile="video.xml";
 		}
 		$videmodel->view(); /*	2010-04-13 movido de CVideo() */
-		var_dump($videmodel);
 		return $vidview->show();
 	}
 }
