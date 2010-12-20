@@ -1,6 +1,0 @@
-/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-19 18:33:26]: [2010-19-12 18:33:26] Error: Table 'ztv_cms.menu' doesn't exist
-SELECT `title`,`id` FROM menu
-/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-19 18:33:31]: [2010-19-12 18:33:31] Error: Table 'ztv_cms.menu' doesn't exist
-SELECT `title`,`id` FROM menu
-/proyectos/proyectotitulo/www/classes/lib/DAO.php[45][2010-12-19 18:33:37]: [2010-19-12 18:33:37] Error: Table 'ztv_cms.menu' doesn't exist
-SELECT `title`,`id` FROM menu

@@ -113,7 +113,7 @@ class VVideo extends VView {
 	    $tpl->link=isset($info['link'])?htmlentities($info['link']):"";
 	    $tpl->link_title=isset($info['link_title'])?htmlentities($info['link_title']):"";
 		$tpl->duration=isset($info['duration'])?$info['duration']:"";
-		$tpl->frame=isset($info['frame'])? URL ."/". $info['frame']:"";
+		$tpl->frame=isset($info['frame'])? URL."/".FILES."/". $info['frame']:"";
 		
 		$tpl->embed=$this->embed;
 		

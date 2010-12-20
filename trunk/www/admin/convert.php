@@ -71,27 +71,31 @@ if(isset($form->videos_id) && isset($form->types_id)){
 		$newfile="$px.$ext";
 
 		if($ffmpeg->convert_by_type($types_data['script'], ROOT.FILES.'/'.$video_data['orig_file'], $newfile)){
+			$data['filename']=ROOT.$newfile;
 			
-			//$images=array('gif','jpg','jpeg','png');
-			//if(!in_array($ext,$images)){
-				//get duraci�n del v�deo y calcular el tiempo de un marco para captar
-				$video_info=$ffmpeg->get_info($video_data['filename']);
+			$video_info=$ffmpeg->get_info($video_data['filename']);
 				
-				$ss=(int)($video_info['seconds']*0.5);
-				$h=$video_info['duration'][0]!='00'?$video_info['duration'][0].':':'';
-				$video->setDuration($h.$video_info['duration'][1].":".$video_info['duration'][2]);
-			//}
+			$ss=(int)($video_info['seconds']*0.5);
+			$h=$video_info['duration'][0]!='00'?$video_info['duration'][0].':':'';
+			$video->setDuration($h.$video_info['duration'][1].":".$video_info['duration'][2]);
 			
 			$video_types->setFileName("$newpath/$newfile");
 			
+			if($ffmpeg->create_thumbnail($data['filename'],$fname.$px."_c.jpg",$ss,$settings['ffmpeg_size'],ROOT.FILES)){
+				$frame=$fname.$px."_c.jpg";
+				@unlink(ROOT.FILES.'/'.$oldframe);
+			}else{
+				$frame="";
+			}
 			
-			echo $oldfile;
+			
+			
+			
+
 			if(!empty($oldfile)){
-				echo "<p>update</p>";
 				unlink(ROOT.$oldfile);
 				$video_types->update();
 			}else{
-				echo "<p>add</p>";
 				$video_types->add();
 			}
 					

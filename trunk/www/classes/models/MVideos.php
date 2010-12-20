@@ -215,9 +215,12 @@ class MVideos extends MModel {
 	
   public function loadFilename($types_title) {
   	DAO::connect();
-  	$query="SELECT filename 
-  	FROM $this->table_video_types LEFT JOIN $this->table_types
-  	ON $this->table_video_types.types_id = $this->table_types.id 
+  	$query="SELECT $this->table_video_types.filename, $this->table.frame  
+  	FROM $this->table_video_types 
+  	LEFT JOIN $this->table_types
+  	ON $this->table_video_types.types_id = $this->table_types.id
+	LEFT JOIN $this->table 
+	ON $this->table_video_types.videos_id = $this->table.id 
   	WHERE videos_id=".(int)$this->id." AND $this->table_types.title='".mysql_escape_string($types_title)."' " ;
 	   
   	$this->dataSet->setQuery($query);
@@ -303,7 +306,7 @@ class MVideos extends MModel {
   		}else{
   			$ids=$this->idToString("id");
   		//remover video thumbnails
-	  		$thumb=new MThumbs();
+	  		$thumb=new MThumbnails();
 	  		$thumb->setVideos_id($this->id);
 	  		$thumb->delete();
 	  

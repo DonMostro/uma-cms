@@ -37,7 +37,7 @@ class MPlayers extends MModel{
   
   protected function setQuery(){
 	$query="SELECT * FROM $this->table ";
-	if($_SERVER['SCRIPT_NAME']!="/admin/player.php")$query.= $this->_where();
+	$query.= $this->_where();
 	
     $this->dataSet->setQuery($query);
   }

@@ -25,7 +25,6 @@ class CFilename extends CCommand {
 				
 		if(isset($this->form->f)){
 			switch($this->form->f){
-				case "asx": $vidview->tplfile="video.asx"; break;
 				case "redir":
 					$info=$videmodel->next();
 					if(empty($info['filename']))$info['filename']=$info['orig_file'];
@@ -43,6 +42,7 @@ class CFilename extends CCommand {
 			$vidview->tplfile="video.xml";
 		}
 		$videmodel->view(); /*	2010-04-13 movido de CVideo() */
+		var_dump($videmodel);
 		return $vidview->show();
 	}
 }
