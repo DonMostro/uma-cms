@@ -81,8 +81,8 @@ if(isset($form->videos_id) && isset($form->types_id)){
 			
 			$video_types->setFileName("$newpath/$newfile");
 			
-			if($ffmpeg->create_thumbnail($data['filename'],$fname.$px."_c.jpg",$ss,$settings['ffmpeg_size'],ROOT.FILES)){
-				$frame=$fname.$px."_c.jpg";
+			if($ffmpeg->create_thumbnail($data['filename'],FILES.$px."_c.jpg",$ss,$settings['ffmpeg_size'],ROOT.FILES)){
+				$frame=$px."_c.jpg";
 				@unlink(ROOT.FILES.'/'.$oldframe);
 			}else{
 				$frame="";

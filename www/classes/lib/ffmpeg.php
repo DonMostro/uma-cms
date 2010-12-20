@@ -16,20 +16,8 @@ class ffmpeg{
                 $this->watermark=$watermark;
         }
 
-        public function Exec($script){
-               /* $log = fopen(ROOT.FILES . '/Whatzup.log', 'a+');
-                fwrite( $log, "\n" );
-                fwrite( $log, "CLASS: " . __CLASS__  ."\n" );
-                fwrite( $log, "FILE: " . __FILE__  ."\n" );
-                fwrite( $log, "FUNCTION: " . __FUNCTION__  ."\n" );
-                fwrite( $log, "METHOD: " . __METHOD__  ."\n" );
-                fwrite( $log, "LINE: " . __LINE__  ."\n" );
-                fwrite( $log, 'PATH: '. getcwd() . "\n");
-                fwrite( $log, 'COMMAND: '. $chorizo. "\n");
-                */
+        public function exec($script){
         		exec($script);
-				//echo "Se ejecut&oacute <b>'".$chorizo."'</b><br/>";
-                //fclose( $log );
                 Debug::write($script);
         }
 
@@ -38,7 +26,7 @@ class ffmpeg{
                 $random=md5(microtime().rand(0,10));
                 $command="\"$this->path\" -i $this->wd/$source 2> $this->wd/$random";
 
-                $this->Exec($command);
+                $this->exec($command);
                 $out=@file_get_contents("$this->wd/$random");
                 @unlink("$this->wd/$random");
                 
@@ -94,7 +82,7 @@ class ffmpeg{
 						echo "es flv";
 						@copy($this->wd."/".$source,$this->wd.'/'.$dest);
 				}else{
-						$this->Exec($command);        
+						$this->exec($command);        
 						if(/*$skip_mp4&&*/$ext=='mp4'){
 								$dest = str_replace('.flv', '.mp4', $dest);
 								@copy($this->wd.'/'.$source,$this->wd.'/'.$dest);
@@ -107,7 +95,7 @@ class ffmpeg{
 						return true;
 				}else{
 						$command="\"$this->path\" -y -i $this->wd/$source $wmark -s {$size[0]}x{$size[1]} -b $br -ar $ar $this->wd/$dest 2>> ".ROOT.FILES.'/ffmpeg.log';
-						$this->Exec($command);
+						$this->exec($command);
 						return file_exists("$this->wd/$dest") && filesize("$this->wd/$dest")>0;
 				}
 		   }
@@ -119,7 +107,7 @@ class ffmpeg{
         	$tpl->orig_file=$orig_file;
         	$tpl->dest_file=ROOT."$this->wd/$dest_file";
         	$command=$tpl->output();
-         	$this->Exec($command);
+         	$this->exec($command);
         	return (file_exists($tpl->dest_file) && filesize($tpl->dest_file)>0);
         }
       
@@ -133,7 +121,7 @@ class ffmpeg{
                           Thumbnail::makeThumb("$this->wd/$source",$size[0],$size[1],"$path/$dest");
                           return true;
                 }else{
-                        $this->Exec($command);
+                        $this->exec($command);
                         return file_exists("$path/$dest");
                 }
         }

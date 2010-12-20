@@ -3,6 +3,7 @@
 include_once("root.php");
 include_once(ROOT."config.php");
 include_once(ROOT."classes/admin/element.php");
+include_once(ROOT."classes/lib/Thumbnail.php");
 
 class upload_image extends Element{
   function edit($i,$j,$display="inline"){
@@ -32,7 +33,9 @@ class upload_image extends Element{
 		Debug::write($width."-".$height);
         $orig = $dest;
         $dest = FILES_IMAGES;
-        $this->createThumbnail($orig, $filename, $dest, $width, $height); 
+        Thumbnail::makeThumb($orig, $width, $height, FILES);
+        
+        //$this->createThumbnail($orig, $filename, $dest, $width, $height); 
     }
     if($filename=="")return "{no-change}";
     else return $filename;
