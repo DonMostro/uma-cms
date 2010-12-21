@@ -102,13 +102,15 @@ if(isset($form->videos_id) && isset($form->types_id)){
 
 			//if(!empty($frame))$video->setFrame($frame);
 			
-			echo 'El video ha sido convertido.';
+			echo "<p>El video ha sido convertido.
+			<a href=\"/index.php?m=filename&id={$video_data['id']}&type={$types_data['title']}\" target=\"_blank\"></a>
+			</p>";
 		}else{
-			echo 'Ha ocurrido un error mientras se convert&iacute;a el video.';
+			echo '<p>Ha ocurrido un error mientras se convert&iacute;a el video.</p>';
 		}
 	}else{
 		echo 'Ha ocurrido un error mientras se convert&iacute;a el video.<br />
-		Por favor note que esta funcionalidad trabaja solo con videos hospedados en este servidor.';
+		Por favor verifique que se haya subido un video y que el script de conversi&oacute;n exista.';
 	}
 }
 ?>

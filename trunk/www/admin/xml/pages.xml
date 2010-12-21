@@ -5,5 +5,4 @@
     <field name="Title" target="title" type="textfield" visible="true" edit="true" add="true"/>
     <field name="URL" target="url" type="textfield" visible="true" edit="false" add="false"/>
     <field name="Content" target="text" type="textarea" width="400" height="300" visible="true" edit="true" add="true"/>
-	<field name="" target="" type="element" default="Groups" image="images/group.png" link="index.php?p=group_resources&amp;res_type=pages&amp;resource_id={id}" visible="true" edit="false" add="false"/> 
 </section>

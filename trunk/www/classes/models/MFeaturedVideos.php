@@ -88,14 +88,14 @@ class MFeaturedVideos extends MModel {
   	
     $query="
     SELECT $this->table_videos.*
-    	 , $this->table_videos.id AS videos_id, $this->table_videos.hits AS garbage, $this->table.orden, $this->table_video_hits.hits ";
+    	 , $this->table_videos.id AS videos_id, $this->table.orden, $this->table_video_hits.hits ";
 	if($this->join_category){$query.=" , $this->table_categories.title AS categories_title ";}
 	if($this->join_thumbs){$query.=" , $this->table_thumbs.filename AS thumb ";}
 	$query.="FROM $this->table LEFT JOIN $this->table_videos 
 		   ON $this->table.videos_id =$this->table_videos.id	"; 
     if($this->join_category){$query.=" LEFT JOIN $this->table_categories ON $this->table_videos.categories_id=$this->table_categories.id ";}
 	if($this->join_thumbs){$query.=" LEFT JOIN $this->table_thumbs ON $this->table_thumbs.videos_id=$this->table_videos.id ";}
-	$query.=" LEFT JOIN video_hits ON $this->table_videos.id=$this->table_video_hits.videos_id ";
+	$query.=" LEFT JOIN $this->table_video_hits ON $this->table_videos.id=$this->table_video_hits.videos_id ";
  	$query.=$this->_where()." GROUP BY videos_id ";
 
     $this->dataSet->setQuery($query);
@@ -110,10 +110,10 @@ class MFeaturedVideos extends MModel {
   	$query="
   	SELECT COUNT(*) 
   	   FROM $this->table_videos 
-  	JOIN categories 
-  	  ON $this->table_videos.categories_id=categories.id
+  	JOIN $this->table_categories 
+  	  ON $this->table_videos.categories_id=$this->table_categories.id
   	JOIN $this->table 
-  	  ON $this->table.videos_id=videos.id
+  	  ON $this->table.videos_id=$this->table_videos.id
   	   ".$this->_where()."
   	   AND $this->table_videos.id IN (SELECT videos_id FROM $this->table)";
 
@@ -131,7 +131,7 @@ class MFeaturedVideos extends MModel {
   	$ids=$this->idToString("videos.id");
 	if($ids!="")$where.=" AND $ids";
   	
-  	if($this->categories_id!=0)$where.=" AND categories.id=$this->categories_id";
+  	if($this->categories_id!=0)$where.=" AND $this->table_categories.id=$this->categories_id";
   	if($this->approved!=null)$where.=" AND $this->table_videos.approved='1'";
  
     return $where;
@@ -154,7 +154,7 @@ class MFeaturedVideos extends MModel {
 	 $this->add2();
 	 /*if($this->acomodar)*/// $this->synchOrder();
    	 //$this->deleteSpare();
-     $this->create_xml();
+     //$this->create_xml();
   }
   
   /**
@@ -173,8 +173,7 @@ class MFeaturedVideos extends MModel {
 		$dao=new DAO();
 		$dao->query("DELETE FROM $this->table $where");
 		//$this->synchOrder();
-//		die();
-		$this->create_xml();
+		//$this->create_xml();
 	}
   }
   
@@ -266,60 +265,5 @@ class MFeaturedVideos extends MModel {
 		//die($query);
 		return mysql_query($query);
 	}
-	
-	/**
-	 * Borra los registros que tengan el mismo orden
-	 *
-	 * @param int $orden
-	 * @return query
-	 */
-    public function create_xml(){
-		$xml = fopen (ROOT.FILES_TOPVIDEOS."/topcategorias.xml", "w");
-		
-		if (!$xml) {
-		  echo "<script>alert('no se pudo abrir el archivo XML.')</script>";
-		  exit;
-		}
-		fwrite ($xml, '<?xml version="1.0" encoding="UTF-8" ' . '?' .'>
-			<photos path="http://'.$_SERVER['HTTP_HOST'].'/thumbnails/">
-			');
-		$contenidoxml = "";
-	
-	    $strSQL = "SELECT DISTINCT($this->table.videos_id) AS id, $this->table_videos.title, (
-		SELECT filename
-		FROM thumbs AS thumb
-		WHERE thumb.videos_id = $this->table.videos_id
-		LIMIT 1 , 1
-		) AS thumb
-		FROM $this->table
-		LEFT JOIN $this->table_videos ON $this->table_videos.id = $this->table.videos_id
-		WHERE $this->table_videos.id <> 0 AND (SELECT filename
-		FROM thumbs AS thumb WHERE thumb.videos_id = $this->table.videos_id
-		LIMIT 1 , 1) IS NOT NULL
-		ORDER BY $this->table.orden ASC LIMIT 0, 8 ";
-
-
-
-
-		$qry = mysql_query($strSQL);
-		while ($row = mysql_fetch_array($qry)){
-			$contenidoxml ='<photo name="'. Util::LimitText(utf8_encode(Util::cadenaXML($row["title"])),56) .'" ';
-	  		$contenidoxml .='url="'. $row["thumb"] .'" ';
-	  		$contenidoxml .='link="http://'.utf8_encode($_SERVER['HTTP_HOST'].'/index.php?m=video&v='.$row["id"]).'">';
-	  		$contenidoxml .='</photo>
-	  		';
-	  		fwrite ($xml, $contenidoxml);
-		}
-
-		fwrite($xml, "		</photos>
-		");
-	
-		if (fclose ($xml)){
-		   // echo "<script>alert('Archivo XML actualizado con exito')</script>";
-		} else {
-		    echo ("<script>alert('Error al escribir el archivo')</script>");
-		    exit;
-		}
-    }	
 }
 ?>

@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<section name="Publicidad de fondo" type="table" target="MCategoriesBackgroundAds" edit="true" add="true" delete="true">
-    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
-	<field name="Categoria" target="categories_id" type="categories" visible="true" edit="true" add="true"/>
-	<field name="Imagen" target="image" type="upload_image" filepath="files_images" visible="true" edit="true" add="false"/>
-	<field name="URL" target="url" type="textfield" visible="true" edit="true" add="true"/>
-    <field name="Activo" target="approved" type="yesno" visible="true" edit="true" add="true"/>
-</section>
