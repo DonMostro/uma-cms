@@ -61,12 +61,20 @@ class MVideoTypes extends MModel{
 	
   }
   
+  /**
+   * (non-PHPdoc)
+   * Acá se rompen un poco las reglas para acomodarnos a una doble clave primaria,
+   * se escribe la query directamente acá y no se usa el constructor de queries de la superclase
+   * @see www/classes/models/MModel#update()
+   */
+  
   function update(){
-	  	
+	$dao=new DAO();	
   	$this->setState('change_immediate');
 	$this->notifyObservers();
   	
-  	return parent::update();
+  	//return parent::update();
+  	return $dao->query("UPDATE $this->table SET filename='{$this->columns['filename']}' WHERE videos_id={$this->columns['videos_id']} AND types_id='{$this->columns['types_id']}'");
 
   }
   

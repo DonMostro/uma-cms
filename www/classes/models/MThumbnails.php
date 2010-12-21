@@ -17,7 +17,7 @@ class MThumbnails extends MModel{
 
   function __construct(){
     parent::__construct(new RecordSet());
-    $this->dataSet->addOrder(new DataOrder("id", "DESC"));
+    //$this->dataSet->addOrder(new DataOrder("id", "DESC"));
     $this->table=TABLE_PREFIX.'thumbs';
     $this->table_videos=TABLE_PREFIX.'videos';
     $this->columns=array(
@@ -42,7 +42,7 @@ class MThumbnails extends MModel{
   	if(empty($this->id)){
   		$query="
   		SELECT $this->table.id AS thumbs_id
-  			 , $this->table_videos.title FROM thumbs 
+  			 , $this->table_videos.title FROM $this->table 
   		JOIN $this->table_videos 
   		  ON $this->table.videos_id=$this->table_videos.id";
   	}elseif($this->id!=null&&!is_array($this->id)) {

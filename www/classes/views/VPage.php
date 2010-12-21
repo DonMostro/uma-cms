@@ -181,7 +181,7 @@ class VPage extends VView {
 	    	DAO::connect();  	
 
 	    	$strSQL = "SELECT categories_id, parent_id   
-	    	FROM videos vid LEFT JOIN categories cat 
+	    	FROM ztv_videos vid LEFT JOIN ztv_categories cat 
 	    	ON vid.categories_id = cat.id 
 	    	WHERE vid.id = $request_v  ";
 

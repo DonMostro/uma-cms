@@ -98,7 +98,7 @@ class MTags extends MBufferedModel{
   protected function _where(){
   	$where="WHERE 1";
   	
-  	$ids=$this->idToString("tags.id");
+  	$ids=$this->idToString("$this->table.id");
 	if($ids!="")$where.=" AND $ids";
   	
 	if($this->top && $this->search){

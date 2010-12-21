@@ -261,6 +261,12 @@ form.login{
 	z-index: 101;
 }
 
+#popup a, #context a{
+	color:#000;
+}
+
+
+
 #popup_body, #context_body{
 	width: 480px;
 	height: 320px;
