@@ -102,9 +102,7 @@ if(isset($form->videos_id) && isset($form->types_id)){
 
 			//if(!empty($frame))$video->setFrame($frame);
 			
-			echo "<p>El video ha sido convertido.
-			<a href=\"/index.php?m=filename&id={$video_data['id']}&type={$types_data['title']}\" target=\"_blank\"></a>
-			</p>";
+			echo "<p><a href=\"/index.php?m=filename&id={$video_data['id']}&type={$types_data['title']}\" target=\"_blank\">El video ha sido convertido, haga click ac&aacute; para revisar su video.</a></p>";
 		}else{
 			echo '<p>Ha ocurrido un error mientras se convert&iacute;a el video.</p>';
 		}

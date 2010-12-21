@@ -10,6 +10,7 @@ include_once(ROOT."classes/models/MModel.php");
 include_once(ROOT."classes/models/MCategories.php");
 include_once(ROOT."classes/models/MThumbnails.php");
 include_once(ROOT."classes/models/MTags.php");
+include_once(ROOT."classes/models/MFeaturedVideos.php");
 
 /**
  * Clase modelo de videos
@@ -313,6 +314,11 @@ class MVideos extends MModel {
 	  		$thumb=new MImages();
 	  		$thumb->setVideos_id($this->id);
 	  		$thumb->delete();
+	  		
+	  		$featured = new MFeaturedVideos();
+		  	$featured->setVideos_id($this->id);
+		  	$featured->delete();
+	  		
   		}
 
   	//remover archivos del video
@@ -326,6 +332,8 @@ class MVideos extends MModel {
 		  		@unlink(ROOT.FILES."/".$row['orig_file']);
 		  		@unlink(ROOT.FILES."/".$row['frame']);
 		  	}
+		  	
+
 		  	
 		  	$query="DELETE FROM $this->table $where";
 		  	$dao->query($query);

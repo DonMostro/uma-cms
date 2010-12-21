@@ -58,7 +58,7 @@ class Post{
 		if($this->remove_links){
 			$this->text=preg_replace('#((http:|www\.)[^\s]+)#i','&lt;link borrado&gt;',$this->text);
 		}else{
-			$this->text = ereg_replace("[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]", "<a href=\"\\0\" target=\"_blank\">\\0</a>", $this->text);
+			//$this->text=preg_replace("[[:alpha:]]+://[^<>[:space:]]+[[:alnum:]/]", "<a href=\"\\0\" target=\"_blank\">\\0</a>", $this->text);
 		}
 		if($emot)$this->_parse_emoticons();
 		if($bbcode)$this->text=$this->_parse_bbcode($this->text);
@@ -172,7 +172,6 @@ class Time extends Type{
 
 class TimeSpan extends Type{
 	public function __construct($tt){
-		$lang=Lang::getInstance();
 	    $diff=floor((time()-$tt)/(3600*24));
 	    if($diff<1 && 
 	    	( date("G",time())<date("G",$tt) ||
@@ -184,18 +183,18 @@ class TimeSpan extends Type{
 	    }
 
 	  	if($diff<1){
-		  $out=$lang->getText('T_TODAY').", ".strftime("%H:%M",$tt);
+		  $out="Hoy, ".strftime("%H:%M",$tt);
 		}elseif($diff>=1 && $diff<7){
-		  $out=$diff==1?$lang->getText('T_YESTERDAY'):str_replace(array('[:d:]','<#d/>'),$diff,$lang->getText('T_DAYSAGO'));
+		  $out=$diff==1?"Ayer":str_replace(array('[:d:]','<#d/>'),$diff,"d&iacute;as atr&aacute;s");
 		}elseif($diff>=7 && $diff<30){
 		  $n=floor($diff/7);
-		  $out=$n==1?$lang->getText('T_WEEKAGO'):str_replace(array('[:d:]','<#d/>'),$n,$lang->getText('T_WEEKSAGO'));
+		  $out=$n==1?"Hace una semana":str_replace(array('[:d:]','<#d/>'),$n,"semanas atr&aacute;s");
 		}elseif($diff>=30 && $diff<365){
 		  $n=floor($diff/30);
-		  $out=$n==1?$lang->getText('T_MONTHAGO'):str_replace(array('[:d:]','<#d/>'),$n,$lang->getText('T_MONTHSAGO'));
+		  $out=$n==1?"Hace un mes":str_replace(array('[:d:]','<#d/>'),$n,"meses atras");
 		}else{
 		  $n=floor($diff/365);
-		  $out=(substr($n,-1,1)=='1'&&substr($n,-2,2)!='11')?str_replace(array('[:d:]','<#d/>'),$n,$lang->getText('T_YEARAGO')):str_replace(array('[:d:]','<#d/>'),$n,$lang->getText('T_YEARSAGO'));
+		  $out=(substr($n,-1,1)=='1'&&substr($n,-2,2)!='11')?str_replace(array('[:d:]','<#d/>'),$n,"un a&ntilde;o atr&aacute;s"):str_replace(array('[:d:]','<#d/>'),$n,"a&ntilde;os atr&aacute;s");
 		}
 		$this->value=$out;
 	}
