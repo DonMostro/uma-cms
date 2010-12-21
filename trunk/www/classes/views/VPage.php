@@ -197,7 +197,7 @@ class VPage extends VView {
 
 	    $request_uri_parent = ($request_c_parent != 0) ? str_replace('c='.$request_c, 'c='.$request_c_parent, $item['url']) : $item['url']; 
 
-	    if($page==$item['id'] || $request_uri == $item['url'] || (eregi('c='.$request_c_parent, $request_uri_parent) || eregi('c='.$request_c, $item['url']) && !empty($request_c))){
+	    if($page==$item['id'] || $request_uri == $item['url'] || (preg_match('c='.$request_c_parent, $request_uri_parent) || preg_match('c='.$request_c, $item['url']) && !empty($request_c))){
 		//SI $tpl->h1 == "true" destacar� el item del men� (canal seleccionado)
 			if($page==0)$subid=$item['id'];
 		 	 $tpl2->hl = "true";
@@ -207,7 +207,7 @@ class VPage extends VView {
 
 		
   		$tpl2->id=$item['id'];
-	    $tpl2->title=$lang->getText($item['title']);
+	    $tpl2->title=$item['title'];
 	    if($inbox && $item['title'] == 'T_INBOX')$tpl2->title.=" ($inbox)";
 	    $tpl2->pageurl=ltrim($item['url'],'/');
 	    $tpl->menu.=$tpl2->output();
@@ -225,9 +225,8 @@ class VPage extends VView {
 		    $tpl2=new Template(ROOT."templates/submenu_item.html");
 		    $tpl2->hl = $request_uri==$item['url'] ? "true" : "false";
 		    $tpl2->id=$item['id'];
-		    $tpl2->title=$lang->getText($item['title']);
+		    $tpl2->title=$item['title'];
 
-		    if($inbox&&$item['title']=='T_INBOX')$tpl2->title.=" ($inbox)";
 		    $tpl2->pageurl=ltrim($item['url'],'/');
 		    $tpl->submenu.=$tpl2->output();
 		}

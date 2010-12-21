@@ -128,7 +128,7 @@ class MFeaturedVideos extends MModel {
   protected function _where(){
   	$where="WHERE 1";
   	
-  	$ids=$this->idToString("videos.id");
+  	$ids=$this->idToString("$this->table_videos.id");
 	if($ids!="")$where.=" AND $ids";
   	
   	if($this->categories_id!=0)$where.=" AND $this->table_categories.id=$this->categories_id";
@@ -164,19 +164,19 @@ class MFeaturedVideos extends MModel {
    
   
   public function delete(){
-  	$ids=$this->idToString("videos_id");
+  	$ids=$this->idToString("$this->table.id");
 	if($ids!=""){
 		$where="WHERE $ids";
 		$this->setState('change_immediate');
 	    $this->notifyObservers();
 	
 		$dao=new DAO();
-		$dao->query("DELETE FROM $this->table $where");
+		return $dao->query("DELETE FROM $this->table $where");
+
 		//$this->synchOrder();
 		//$this->create_xml();
 	}
   }
-  
   
   protected function update2(){
   	$this->setState('change_immediate');

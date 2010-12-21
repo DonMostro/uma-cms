@@ -12,7 +12,7 @@ class MImages extends MModel{
   function __construct(){
     parent::__construct(new RecordSet());
     
-    $this->table='images';
+    $this->table=TABLE_PREFIX.'images';
     
     $this->columns=array(
     	'videos_id'=>null,
@@ -23,13 +23,13 @@ class MImages extends MModel{
   }
   
   protected function setQuery(){
-	$query="SELECT * FROM images ".$this->_where();
+	$query="SELECT * FROM $this->table ".$this->_where();
 
     $this->dataSet->setQuery($query);
   }
   
   protected function setCountQuery(){
-  	$query="SELECT COUNT(*) FROM images ".$this->_where();
+  	$query="SELECT COUNT(*) FROM $this->table ".$this->_where();
 
   	$this->dataSet->setCountQuery($query);
   }
@@ -61,7 +61,7 @@ class MImages extends MModel{
   	}else{
   		$id='id';
   	}
-  	$dao->query("SELECT filename FROM images WHERE ".$this->idToString($id));
+  	$dao->query("SELECT filename FROM $this->table WHERE ".$this->idToString($id));
 	@unlink(ROOT.FILES.'/'.$dao->get(0,'filename'));
 	
 	$this->setState('change_immediate');
