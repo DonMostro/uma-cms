@@ -14,6 +14,7 @@ include_once(ROOT."classes/models/MModel.php");
 class MThumbnails extends MModel{
   private $group;
   private $channel;
+  private $table_videos;
 
   function __construct(){
     parent::__construct(new RecordSet());
@@ -41,8 +42,8 @@ class MThumbnails extends MModel{
   protected function setQuery(){
   	if(empty($this->id)){
   		$query="
-  		SELECT $this->table.id AS thumbs_id
-  			 , $this->table_videos.title FROM $this->table 
+  		SELECT $this->table.id AS thumbs_id, $this->table.filename 
+  			 , $this->table_videos.title, $this->table_videos.id AS videos_id FROM $this->table 
   		JOIN $this->table_videos 
   		  ON $this->table.videos_id=$this->table_videos.id";
   	}elseif($this->id!=null&&!is_array($this->id)) {
