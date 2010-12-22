@@ -2,5 +2,6 @@
 <section name="Videos Destacados" type="table" target="MFeaturedVideos" edit="true" add="true" delete="true">
     <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
     <field name="Video" target="videos_id" type="findvideo" table="ztv_videos" field="title" visible="true" edit="true" add="true"/>
-    <field name="Orden" target="orden" type="orden" table="ztv_featured" visible="true" edit="true" add="true"/>
+    <field name="Categor&amp;iacute;a" target="categories_id" type="categories" visible="true" edit="true" add="true"/>
+    <field name="Orden" target="orden" type="textfield" visible="true" edit="true" add="true"/>
 </section>

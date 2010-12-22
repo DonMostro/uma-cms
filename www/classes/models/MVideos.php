@@ -311,9 +311,9 @@ class MVideos extends MModel {
 	  		$thumb->setVideos_id($this->id);
 	  		$thumb->delete();
 	  
-	  		$thumb=new MImages();
+	  		/*$thumb=new MImages();
 	  		$thumb->setVideos_id($this->id);
-	  		$thumb->delete();
+	  		$thumb->delete();*/
 	  		
 	  		$featured = new MFeaturedVideos();
 		  	$featured->setVideos_id($this->id);
