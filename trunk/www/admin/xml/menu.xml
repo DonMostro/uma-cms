@@ -4,7 +4,7 @@
     <field name="Title" target="title" type="textfield" link="index.php?p=menu&amp;parent_id={id}" visible="true" edit="true" add="true"/>
     <field name="URL" target="url" type="textfield" visible="true" edit="true" add="true"/>
     <field name="Parent" target="parent_id" type="select" table="ztv_menu" field="title" visible="true" edit="true" add="true"/>
-    <field name="Order" target="menu_order" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Orden" target="menu_order" type="textfield" visible="true" edit="true" add="true"/>
     <field name="Header" target="header" type="yesno" visible="true" edit="true" add="true"/>
     <field name="Footer" target="footer" type="yesno" visible="true" edit="true" add="true"/>
     <field name="Approved" target="approved" type="yesno" visible="true" edit="true" add="true"/>

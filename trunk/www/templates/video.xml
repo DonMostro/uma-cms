@@ -7,21 +7,9 @@
 			<link></link>
 			<jwplayer:image>[:frame:]</jwplayer:image>
 			<description>[:link_title:]</description>
-			<enclosure url="[:filename:]" type="video/x-flv" />
+			<enclosure url="[:filename:]" type="video" />
 			<itunes:author>3tv.cl</itunes:author>
 			<itunes:duration></itunes:duration>
 		</item>
-[:if has_curtain=="1":]
-		<title>Publicidad</title>
-		<item>
-			<title></title>
-			<link></link>
-			<jwplayer:image>[:frame:]</jwplayer:image>
-			<description></description>
-			<enclosure url="[:curtain_filename:]" type="video/x-flv" />
-			<itunes:author>3tv.cl</itunes:author>
-			<itunes:duration></itunes:duration>
-		</item>
-[:endif:]		
 	</channel>
 </rss>
