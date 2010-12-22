@@ -1,4 +1,6 @@
 <?php
+@session_start();
+
 ini_set("display_errors","on");
 error_reporting(E_ALL);
 
@@ -20,7 +22,7 @@ $auth->authenticate(!empty($form->username)?$form->username:'',!empty($form->pas
 
 if(isset($form->i)){
 	echo "<html>\r\n
-		<body><img src=\"".URL."/$form->i\"/></body>\r\n
+		<body><img src=\"".URL."/".FILES."/$form->i\"/></body>\r\n
 	  </html>";
 }
 ?>
