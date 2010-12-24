@@ -81,15 +81,17 @@ if(isset($form->videos_id) && isset($form->types_id)){
 			
 			$video_types->setFileName("$newpath/$newfile");
 			
-			if($ffmpeg->create_thumbnail($data['filename'],FILES.$px."_c.jpg",$ss,$settings['ffmpeg_size'],ROOT.FILES)){
+			if($ffmpeg->create_thumbnail(ROOT.FILES.'/'.$video_data['orig_file'],$px."_c.jpg",$ss,$settings['ffmpeg_size'],ROOT.FILES)){
 				$frame=$px."_c.jpg";
 				@unlink(ROOT.FILES.'/'.$oldframe);
 			}else{
+				echo "noframe";
 				$frame="";
 			}
 			
 			
 			
+			if(!empty($frame))$video->setFrame($frame);
 			
 
 			if(!empty($oldfile)){
@@ -100,9 +102,9 @@ if(isset($form->videos_id) && isset($form->types_id)){
 			}
 					
 
-			//if(!empty($frame))$video->setFrame($frame);
+
 			
-			echo "<p><a href=\"/index.php?m=filename&id={$video_data['id']}&type={$types_data['title']}\" target=\"_blank\">El video ha sido convertido, haga click ac&aacute; para revisar su video.</a></p>";
+			echo "<p><a href=\"/index.php?m=filename&id={$video_data['id']}&type={$types_data['title']}\" target=\"_blank\">El video ha sido convertido, haga click ac&aacute; para revisar su video <br/>(es archivo XML).</a></p>";
 		}else{
 			echo '<p>Ha ocurrido un error mientras se convert&iacute;a el video.</p>';
 		}
