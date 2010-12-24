@@ -12,8 +12,9 @@ class MPlayers extends MModel{
   private $random;
   private $picked;
   private $approved;
-  private $type;
+  public $type;
   private $table_videos;
+  private $browser;
   
   function __construct(){
     parent::__construct(new RecordSet());
@@ -34,6 +35,7 @@ class MPlayers extends MModel{
   public function setPicked($value) { $this->picked=(int)$value; }
   public function setApproved($value) { $this->approved=(int)$value; }
   public function setType($value)  { $this->type=$value; }
+  public function _setBrowser($value) {$this->browse=$value;}
   
   protected function setQuery(){
 	$query="SELECT * FROM $this->table ";
@@ -53,7 +55,9 @@ class MPlayers extends MModel{
   	
   	$ids=$this->idToString("$this->table.id");
   	
-  	
+  	if(!empty($this->browser)){
+  		$where.=" AND $this->table.browser='".mysql_real_escape_string(strtolower($this->browser))."' ";
+  	}
   	
   	
   	if(!empty($this->type)){	

@@ -158,7 +158,7 @@ class VPage extends VView {
 		//print("Item: ".$item['url']."<hr>");
 
 	    $tpl2->id=$item['id'];
-	    $tpl2->title=$lang->getText($item['title']);
+	    $tpl2->title=$item['title'];
 	    if($inbox&&$item['title']=='T_INBOX')$tpl2->title.=" ($inbox)";
 	    $tpl2->pageurl=ltrim($item['url'],'/');
 	    $tpl->submenu.=$tpl2->output();
@@ -231,7 +231,6 @@ class VPage extends VView {
 		    $tpl->submenu.=$tpl2->output();
 		}
 	}
-	$blnShowSWF = "false";
 
 	
 	//create footer menu
@@ -246,8 +245,8 @@ class VPage extends VView {
 
 	while($item=$menu->next()){
 	    $tpl2=new Template(ROOT."templates/footer_menu_item.html"); 
-	    $tpl2->title=$lang->getText($item['title']);
-	    if($inbox&&$item['title']=='T_INBOX')$tpl2->title.=" ($inbox)";
+	    $tpl2->title=$item['title'];
+	    
 	    $tpl2->pageurl=ltrim($item['url'],'/');
 	    $tpl->footer_menu.=$tpl2->output();
 	}

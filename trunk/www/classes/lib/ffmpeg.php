@@ -112,7 +112,7 @@ class ffmpeg{
         }
       
         public function create_thumbnail($source, $dest, $frame, $size, $path){
-                $command="\"$this->path\" -y -i $this->wd/$source -s $size -ss $frame -t 1 -f image2 $path/$dest";
+                $command="\"$this->path\" -y -i $source -s $size -ss $frame -t 1 -f image2 $path/$dest";
                 $images=array('gif','jpg','jpeg','png');
                 $pathparts=pathinfo($source);
                 $ext=!empty($pathparts['extension'])?$pathparts['extension']:'';

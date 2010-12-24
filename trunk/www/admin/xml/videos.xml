@@ -3,7 +3,7 @@
     <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
     <field name="" target="thumb" type="image" link="javascript:popup('player.php?v={id}','center')" visible="true" edit="false" add="false"/>
     <field name="T&amp;iacute;tulo" target="title" type="textfield" visible="true" edit="true" add="true"/>
-    <field name="Tags" target="tags" type="textarea" visible="false" edit="true" add="true"/>
+    <field name="Tags (separelos por coma)" target="tags" type="textarea" visible="false" edit="true" add="true"/>
     <field name="Descripci&amp;oacute;n" target="description" type="textarea" visible="false" edit="true" add="true"/>
     <field name="Categor&amp;iacute;a" target="categories_id" type="categories" visible="true" edit="true" add="true"/>
     <field name="Conversiones" target="type_id" type="multiconversion" table="ztv_video_types" field="name" visible="true" edit="false" add="false"/>

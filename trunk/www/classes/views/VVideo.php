@@ -6,6 +6,7 @@ include_once(ROOT."classes/lib/Settings.php");
 include_once(ROOT."classes/lib/Types.php");
 include_once(ROOT."classes/lib/Form.php");
 include_once(ROOT."classes/lib/UrlBuilder.php");
+include_once(ROOT."classes/lib/UserAgent.php");
 include_once(ROOT."classes/views/VPage.php");
 include_once(ROOT."classes/models/MPlayers.php");
 include_once(ROOT."classes/views/VPlayer.php");
@@ -42,9 +43,6 @@ class VVideo extends VView {
   public $autotemplate;
   public $thumbs;
   public $owner;
-  public $curtain_filename;
-  public $has_curtain;
-  public $show_comments;
   public $categories_id;
   public $show_link;
   public $from_carrusel;
@@ -138,15 +136,24 @@ class VVideo extends VView {
 	    
 		$mplayer=new MPlayers();
 		//if(empty($info['filename_hd'])) $mplayer->setType("Flash Video Player NO HD");
+		$user_agent=new UserAgent();
 
 
 		
 		$player=new VPlayer($mplayer);
 		
 		
-		//$mplayer->setVideo_Id($tpl->id);
+
 		
 		$mplayer->load();
+		
+		while($p=$mplayer->next()){
+			if($user_agent->getMatch($p['browser'])){
+				echo($mplayer->_setBrowser($user_agent->getMatch()));
+				break;
+			}
+		}
+		//$mplayer->setVideo_Id($tpl->id);
 		$player->id=(!$this->from_carrusel)? $tpl->id : $info["videos_id"];
 		if(@$_GET["m"]=="video"){
 			$player->setParam("autostart", "true");
