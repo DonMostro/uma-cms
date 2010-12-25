@@ -98,6 +98,9 @@ class VVideo extends VView {
 	    	$tpl->time=$timespan->getValue();
 	    }
 
+
+	   	
+	    
 	    if(empty($info['filename'])&&!empty($info['orig_file']))$info['filename']=$info['orig_file'];
 	    if(!empty($info['filename'])){
 	    	if(empty($info['server'])||$info['server']=='localhost'){
@@ -141,24 +144,37 @@ class VVideo extends VView {
 		$mplayer_aux=new MPlayers();
 		//if(empty($info['filename_hd'])) $mplayer->setType("Flash Video Player NO HD");
 		$mplayer_aux->load();
-		
 		$seted_player=false;
 		$user_agent=new UserAgent();
-				
+		
+		$player=new VPlayer($mplayer);
+		$player->id=(!$this->from_carrusel)? $tpl->id : $info["videos_id"];
+	   	$mvideos=new MVideos();
+	   	$mvideos->setId($player->id);
+	   			
+		
 		while($p=$mplayer_aux->next()){
 			if($user_agent->getMatch($p['browser'])){
 				$mplayer->_setBrowser($p['browser']);
+				$mvideos->loadFilename(false, $p['browser']);
+				
+				$v=$mvideos->next();
+				if(!empty($v['filename'])){$player->filename = $v['filename'];}
+				
 				$seted_player=true;
-				break;
+				unset($p);
+				unset($v);
+				//break;
 			}
 		}
-		
+
 
 		if(!$seted_player){$mplayer->_setType($settings['default_player']);}
 		$mplayer->load();
-		$player=new VPlayer($mplayer);
+
 		//$mplayer->setVideo_Id($tpl->id);
-		//$player->id=(!$this->from_carrusel)? $tpl->id : $info["videos_id"];
+		
+
 		if(@$_GET["m"]=="video"){
 			$player->setParam("autostart", "true");
 		}else{

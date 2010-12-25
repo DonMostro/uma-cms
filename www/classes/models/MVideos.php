@@ -224,13 +224,12 @@ class MVideos extends MModel {
 	ON $this->table_video_types.videos_id = $this->table.id 
   	WHERE videos_id=".(int)$this->id." ";
   	if($types_title){
-  		"AND $this->table_types.title='".mysql_escape_string($types_title)."' " ;
+  		$query.="AND $this->table_types.title='".mysql_escape_string($types_title)."' " ;
   	}
   	if($browser){
-  		"AND $this->table_types.browser='".mysql_escape_string($browser)."' " ;
+  		$query.="AND $this->table_types.browser='".mysql_escape_string($browser)."' " ;
   	}
-
-	   
+   
   	$this->dataSet->setQuery($query);
   	$this->dataSet->fill();
   }
