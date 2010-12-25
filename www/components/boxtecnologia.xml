@@ -4,15 +4,15 @@
 		<order dir="DESC">tt</order>
 		<limit>6</limit>
 		<approved>1</approved>
-		<parent_id>42</parent_id>
+		<parent_id>3</parent_id>
 	</model>
 	<view name="VCategory">
 		<tplfile>category_box.html</tplfile>
 		<tplitemfile>category_item.html</tplitemfile>
-		<categories_id>42</categories_id>
-		<categories_title>Tendencias</categories_title>
+		<categories_title>Entretenci&amp;oacute;n</categories_title>
 		<cutter>3</cutter>
 		<frontdoor>1</frontdoor>
-		<url>index.php?m=category&amp;c=42</url>
+		<categories_id>3</categories_id>
+		<url>index.php?m=category&amp;c=3</url>
 	</view>
-</component>
+</component> 

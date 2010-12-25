@@ -13,7 +13,7 @@ final class UserAgent {
 	 * @return boolean
 	 */
 	
-	function getMatch($user_match){
+	function match($user_match){
 		$arr_user_match=explode(",",$user_match);
 		if(is_array($arr_user_match)){
 			foreach($arr_user_match as $user_match){
