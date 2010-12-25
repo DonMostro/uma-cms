@@ -21,7 +21,6 @@ class CFilename extends CCommand {
 		$type = (isset($this->form->type)) ? $this->form->type: $settings['default_type'];
 		
 		$videmodel->loadFilename($type);
-
 				
 		if(isset($this->form->f)){
 			switch($this->form->f){

@@ -149,18 +149,19 @@ class VVideo extends VView {
 		
 		$player=new VPlayer($mplayer);
 		$player->id=(!$this->from_carrusel)? $tpl->id : $info["videos_id"];
+		$player->frame=$tpl->frame;
 	   	$mvideos=new MVideos();
 	   	$mvideos->setId($player->id);
 	   			
 		
 		while($p=$mplayer_aux->next()){
-			if($user_agent->getMatch($p['browser'])){
+			if($user_agent->match($p['browser'])){
 				$mplayer->_setBrowser($p['browser']);
 				$mvideos->loadFilename(false, $p['browser']);
 				
 				$v=$mvideos->next();
 				if(!empty($v['filename'])){$player->filename = $v['filename'];}
-				
+				if(!empty($v['frame'])){$player->frame = $v['frame'];}
 				$seted_player=true;
 				unset($p);
 				unset($v);
@@ -179,7 +180,7 @@ class VVideo extends VView {
 			$player->setParam("autostart", "true");
 		}else{
 			$player->setParam("autostart", "false");
-		}	
+		}
 	    $tpl->player=$player->show();
 	    
 	    

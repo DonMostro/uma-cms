@@ -48,6 +48,7 @@ class VPlayer extends VView {
   	$tpl->base=urlencode(URL.'/');
   	$tpl->url=URL;
   	$tpl->filename=URL.'/'.$this->filename;
+  	$tpl->frame=URL.'/'.FILES.'/'.$this->frame;
     foreach($this->params as $key => $value){
   		$tpl->$key = $value;
    	}

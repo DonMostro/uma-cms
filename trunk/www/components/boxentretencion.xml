@@ -4,7 +4,7 @@
 		<order dir="DESC">tt</order>
 		<limit>6</limit>
 		<approved>1</approved>
-		<parent_id>16</parent_id>
+		<parent_id>5</parent_id>
 	</model>
 	<view name="VCategory">
 		<tplfile>category_box.html</tplfile>
@@ -12,7 +12,7 @@
 		<categories_title>Entretenci&amp;oacute;n</categories_title>
 		<cutter>3</cutter>
 		<frontdoor>1</frontdoor>
-		<categories_id>16</categories_id>
-		<url>index.php?m=category&amp;c=16</url>
+		<categories_id>5</categories_id>
+		<url>index.php?m=category&amp;c=5</url>
 	</view>
 </component> 

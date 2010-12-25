@@ -2,18 +2,17 @@
 <component name="T_VIDEOS">
 	<model name="MVideos">
 		<order dir="DESC">tt</order>
-		<start>0</start>
 		<limit>6</limit>
 		<approved>1</approved>
-		<parent_id>38</parent_id>
+		<parent_id>8</parent_id>
 	</model>
 	<view name="VCategory">
 		<tplfile>category_box.html</tplfile>
 		<tplitemfile>category_item.html</tplitemfile>
-		<categories_title>Goles</categories_title>
+		<categories_title>Entretenci&amp;oacute;n</categories_title>
 		<cutter>3</cutter>
 		<frontdoor>1</frontdoor>
-		<categories_id>38</categories_id>
-		<url>index.php?m=category&amp;c=38</url>
+		<categories_id>8</categories_id>
+		<url>index.php?m=category&amp;c=8</url>
 	</view>
-</component>
+</component> 
