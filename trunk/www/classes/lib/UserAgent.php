@@ -18,7 +18,7 @@ final class UserAgent {
 		if(is_array($arr_user_match)){
 			foreach($arr_user_match as $user_match){
 				if(preg_match(strtolower(trim("/$user_match/i")), strtolower($this->user_agent))){
-					Debug::write($user_match);
+					//Debug::write($user_match);
 					$return=true;	
 				}else{
 					$return=false;
