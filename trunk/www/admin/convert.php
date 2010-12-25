@@ -83,6 +83,7 @@ if(isset($form->videos_id) && isset($form->types_id)){
 			
 			if($ffmpeg->create_thumbnail(ROOT.FILES.'/'.$video_data['orig_file'],$px."_c.jpg",$ss,$settings['ffmpeg_size'],ROOT.FILES)){
 				$frame=$px."_c.jpg";
+				Debug::write($frame);
 				@unlink(ROOT.FILES.'/'.$oldframe);
 			}else{
 				echo "noframe";
@@ -91,7 +92,11 @@ if(isset($form->videos_id) && isset($form->types_id)){
 			
 			
 			
-			if(!empty($frame))$video->setFrame($frame);
+			if(!empty($frame)){
+				$video->setFrame($frame);
+				$video->update();
+			}
+			
 			
 
 			if(!empty($oldfile)){
