@@ -41,6 +41,13 @@ class VPage extends VView {
   	return $me[0];
   }
 
+  /**
+   * [TODO] 
+   * Esta vista conserva queries para pintar el menú, deben se deben mover a los modelos tabla respectivos
+   * y usar esos objetos  
+   * @return unknown_type
+   */
+  
   
   public function SetAllRequestItems(){
   	DAO::connect();  	
@@ -197,9 +204,9 @@ class VPage extends VView {
 
 	    $request_uri_parent = ($request_c_parent != 0) ? str_replace('c='.$request_c, 'c='.$request_c_parent, $item['url']) : $item['url']; 
 
-	    if($page==$item['id'] || $request_uri == $item['url'] || (preg_match('c='.$request_c_parent, $request_uri_parent) || preg_match('c='.$request_c, $item['url']) && !empty($request_c))){
+	    if($page==$item['id'] || $request_uri == $item['url'] || (preg_match("/c=$request_c_parent/i", $request_uri_parent) || preg_match("/c=$request_c/", $item['url']) && !empty($request_c))){
 		//SI $tpl->h1 == "true" destacar� el item del men� (canal seleccionado)
-			if($page==0)$subid=$item['id'];
+		if($page==0)$subid=$item['id'];
 		 	 $tpl2->hl = "true";
 		} else {
 		 	 $tpl2->hl = "false";
@@ -208,7 +215,6 @@ class VPage extends VView {
 		
   		$tpl2->id=$item['id'];
 	    $tpl2->title=$item['title'];
-	    if($inbox && $item['title'] == 'T_INBOX')$tpl2->title.=" ($inbox)";
 	    $tpl2->pageurl=ltrim($item['url'],'/');
 	    $tpl->menu.=$tpl2->output();
 	}
