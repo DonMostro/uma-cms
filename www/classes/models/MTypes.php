@@ -27,6 +27,7 @@ class MTypes extends MModel{
     	'title'=>null,
   		'thumb'=>null,
   		'script'=>null,
+    	'browser'=>null,
     	'extension'=>null
     );
    
@@ -40,7 +41,7 @@ class MTypes extends MModel{
   protected function setQuery(){
   	
     $query="
-    SELECT id, title, thumb, script, extension  
+    SELECT id, title, thumb, script, browser, extension  
 	   FROM $this->table 
 	".$this->_where();
 

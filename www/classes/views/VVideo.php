@@ -58,6 +58,9 @@ class VVideo extends VView {
 
   public function show(){
   	if($this->model->getSize()>0){
+  		$s=Settings::getInstance();
+  		$settings=$s->getSettings();
+  		
 	    $info=$this->model->next();
 	    $this->categories_title=isset($info["categories_title"])?$info["categories_title"]:"";
 	    if(!empty($info['template'])&&$this->autotemplate){
@@ -136,25 +139,23 @@ class VVideo extends VView {
 	    
 		$mplayer=new MPlayers();
 		//if(empty($info['filename_hd'])) $mplayer->setType("Flash Video Player NO HD");
-		$user_agent=new UserAgent();
-
-
-		
 		$player=new VPlayer($mplayer);
-		
-		
-
-		
 		$mplayer->load();
 		
+		$seted_player=false;
+		$user_agent=new UserAgent();
+				
 		while($p=$mplayer->next()){
 			if($user_agent->getMatch($p['browser'])){
-				echo($mplayer->_setBrowser($user_agent->getMatch()));
+				echo $p['browser'];
+				$mplayer->_setBrowser($p['browser']);
+				$seted_player=true;
 				break;
 			}
 		}
+		if(!$seted_player){$mplayer->setType($settings['default_player']);}
 		//$mplayer->setVideo_Id($tpl->id);
-		$player->id=(!$this->from_carrusel)? $tpl->id : $info["videos_id"];
+		//$player->id=(!$this->from_carrusel)? $tpl->id : $info["videos_id"];
 		if(@$_GET["m"]=="video"){
 			$player->setParam("autostart", "true");
 		}else{
