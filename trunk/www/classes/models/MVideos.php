@@ -214,7 +214,7 @@ class MVideos extends MModel {
 	
 	
 	
-  public function loadFilename($types_title) {
+  public function loadFilename($types_title=false, $browser=false) {
   	DAO::connect();
   	$query="SELECT $this->table_video_types.filename, $this->table.frame  
   	FROM $this->table_video_types 
@@ -222,7 +222,14 @@ class MVideos extends MModel {
   	ON $this->table_video_types.types_id = $this->table_types.id
 	LEFT JOIN $this->table 
 	ON $this->table_video_types.videos_id = $this->table.id 
-  	WHERE videos_id=".(int)$this->id." AND $this->table_types.title='".mysql_escape_string($types_title)."' " ;
+  	WHERE videos_id=".(int)$this->id." ";
+  	if($types_title){
+  		"AND $this->table_types.title='".mysql_escape_string($types_title)."' " ;
+  	}
+  	if($browser){
+  		"AND $this->table_types.browser='".mysql_escape_string($browser)."' " ;
+  	}
+
 	   
   	$this->dataSet->setQuery($query);
   	$this->dataSet->fill();
