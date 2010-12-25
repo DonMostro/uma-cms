@@ -35,7 +35,7 @@ class MPlayers extends MModel{
   public function setPicked($value) { $this->picked=(int)$value; }
   public function setApproved($value) { $this->approved=(int)$value; }
   public function _setType($value)  { $this->type=$value; }
-  public function _setBrowser($value) {$this->browse=$value;}
+  public function _setBrowser($value) {$this->browser=$value;}
   
   protected function setQuery(){
 	$query="SELECT * FROM $this->table ";

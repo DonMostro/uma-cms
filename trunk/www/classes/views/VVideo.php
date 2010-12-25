@@ -137,23 +137,26 @@ class VVideo extends VView {
   		
 	    /*Player*/
 	    
-		$mplayer=new MPlayers();
+  		$mplayer=new MPlayers();
+		$mplayer_aux=new MPlayers();
 		//if(empty($info['filename_hd'])) $mplayer->setType("Flash Video Player NO HD");
-		$player=new VPlayer($mplayer);
-		$mplayer->load();
+		$mplayer_aux->load();
 		
 		$seted_player=false;
 		$user_agent=new UserAgent();
 				
-		while($p=$mplayer->next()){
+		while($p=$mplayer_aux->next()){
 			if($user_agent->getMatch($p['browser'])){
-				echo $p['browser'];
 				$mplayer->_setBrowser($p['browser']);
 				$seted_player=true;
 				break;
 			}
 		}
-		if(!$seted_player){$mplayer->setType($settings['default_player']);}
+		
+
+		if(!$seted_player){$mplayer->_setType($settings['default_player']);}
+		$mplayer->load();
+		$player=new VPlayer($mplayer);
 		//$mplayer->setVideo_Id($tpl->id);
 		//$player->id=(!$this->from_carrusel)? $tpl->id : $info["videos_id"];
 		if(@$_GET["m"]=="video"){
@@ -198,19 +201,12 @@ class VVideo extends VView {
 			$tpl->size='0 B';
 		}
 		
-		$tpl->facebook = urlencode(htmlentities("/index.php?m=video&v=$tpl->id"))."&t=".str_replace('"',"'",$tpl->title);
-		$tpl->delicious = urlencode(htmlentities("/index.php?m=video&v=$tpl->id"));
-		$tpl->myyahoo = urlencode(htmlentities("/index.php?m=categoryrss&c=$tpl->categories_id"));
-		$tpl->igoogle = urlencode(htmlentities("/index.php?m=categoryrss&c=$tpl->categories_id"));
-		$tpl->show_comments=$this->show_comments;
-		
+
   		//Comments
   		$this->form=Form::getInstance();
 
-		
-	
-	    $tpl->comments=$this->comments;
-	    $tpl->playlists=$this->playlists;
+
+	    //$tpl->playlists=$this->playlists;
 	    
 
 
