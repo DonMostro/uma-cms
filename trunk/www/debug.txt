@@ -1,5 +1,0 @@
-/proyectos/proyectotitulo/www/classes/admin/upload_image.php[33][2010-12-24 02:43:13]: 32-32
-/proyectos/proyectotitulo/www/classes/admin/upload_image.php[33][2010-12-24 02:43:41]: 32-32
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[21][2010-12-24 02:44:20]: ffmpeg -i ../files/54d5a64f.jpeg -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 ../files/2010/12/148784.mp4 2>> ../files/ffmpeg.log
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[21][2010-12-24 02:44:20]: "ffmpeg" -i files/2010/12/files/2010/12/679773.mp4 2> files/2010/12/afed8d55643799acc02b76232605596f
-/proyectos/proyectotitulo/www/classes/lib/ffmpeg.php[21][2010-12-24 02:44:20]: "ffmpeg" -y -i files/2010/12/../148784.mp4 -s 1600x1200 -ss 0 -t 1 -f image2 ../files/files148784_c.jpg
