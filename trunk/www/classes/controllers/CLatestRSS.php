@@ -1,6 +1,6 @@
 <?php
 include_once("root.php");
-include_once(ROOT."classes/commands/CCommand.php");
+include_once(ROOT."classes/controllers/CCommand.php");
 include_once(ROOT."classes/models/MVideos.php");
 include_once(ROOT."classes/views/VCategory.php");
 include_once(ROOT."classes/lib/Types.php");
