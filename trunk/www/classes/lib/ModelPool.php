@@ -16,7 +16,6 @@ include_once(ROOT."classes/lib/QueryBuilder.php");
 include_once(ROOT."classes/lib/Settings.php");
 include_once(ROOT."classes/lib/Template.php");
 include_once(ROOT."classes/views/VView.php");
-include_once(ROOT."classes/models/MAds.php");
 include_once(ROOT."classes/lib/CacheController.php");
 include_once(ROOT."cache.php");
 include_once(ROOT."classes/models/MCache.php");
