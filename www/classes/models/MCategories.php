@@ -162,6 +162,23 @@ class MCategories extends MBufferedModel {
   	}
   }
   
+  /**
+   * Retorna id parent en base a otra id
+   * @param $id
+   * @return unknown_type
+   */
+  
+  public function getParent($id){
+  	$dao=new DAO();
+  	$dao->query("SELECT parent_id FROM ztv_categories WHERE id=".(int)$id);
+  	$parent_id=$dao->get(0,"parent_id");
+  	if(!empty($parent_id)){
+  		$dao->query("SELECT title FROM ztv_categories WHERE id = $parent_id");
+  		return $dao->get(0,"title");
+  	}else return false;
+  }
+  
+  
   
   /**
    * (non-PHPdoc)

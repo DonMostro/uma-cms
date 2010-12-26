@@ -131,6 +131,7 @@ class Template{
     		if(substr($tag_name,0,3)=='if '){
     			$condition=substr($tag_name,3); //La expresi�n condicional
     			list($var,$val)=explode('==',$condition);
+    			if(empty($condition) || empty($var) || empty($val))Debug::write("$var,$val,$condition");
     			$val=trim($val,'"');
     			
     			$else=strpos($this->html,'[:else:]',$tag_end+2); //find the else block
