@@ -5,10 +5,10 @@ include_once(ROOT."classes/views/VCategory.php");
 include_once(ROOT."classes/views/VCategoryList.php");
 include_once(ROOT."classes/views/VView.php");
 include_once(ROOT."classes/models/MFeaturedVideos.php");
-include_once(ROOT."classes/commands/CCommand.php");
-include_once(ROOT."classes/commands/CPage.php");
+include_once(ROOT."classes/controllers/CCommand.php");
+include_once(ROOT."classes/controllers/CPage.php");
 include_once(ROOT."classes/lib/Debug.php");
-include_once(ROOT."classes/models/MPageElements.php");
+//include_once(ROOT."classes/models/MPageElements.php");
 include_once(ROOT."classes/models/MPages.php");
 include_once(ROOT."classes/lib/Component.php");
 
@@ -64,15 +64,14 @@ class CCategory extends CCommand {
 	  	$this->form->m='page';
 	  	$this->form->p='category';
 
-	  	$categoriesmodel=new MCategoryList();
+	  	$categoriesmodel=new MCategories();
 	  	$categoriesmodel->setId($this->form->c);
   		$categoriesmodel->load();
-  		$cat=new VIphoneVideos($categoriesmodel);
-  		$cat->show();
-	
+  		$m=$categoriesmodel->next();
+
 	  	$c=new CPage();
 	  	$c->run();
-	  	$c->page->title=$cat->recordset["title"];
+	  	$c->page->title=$m["title"];
 	  	
 		$this->content=$c->content;
 	}	
