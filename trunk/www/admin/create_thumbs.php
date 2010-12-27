@@ -45,7 +45,7 @@ if(isset($form->v)){
 		$thumbnail=array();
 		for($i=0; $i<$thumb_count; $i++){
 			$ss=(int)(($video_info['seconds']/($thumb_count+1))*($i+1));
-			if($ffmpeg->create_thumbnail($data['orig_file'],$fname.$px."{$i}.jpg",$ss,$settings['ffmpeg_thumbnail_size'],ROOT.FILES_THUMBNAILS)){
+			if($ffmpeg->create_thumbnail(ROOT."/".FILES."/".$data['orig_file'],$fname.$px."{$i}.jpg",$ss,$settings['ffmpeg_thumbnail_size'],ROOT.FILES_THUMBNAILS)){
 				$thumbnail[]=$fname.$px."{$i}.jpg";
 			}
 		}
