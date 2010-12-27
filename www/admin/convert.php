@@ -4,7 +4,6 @@ error_reporting(E_ALL);
 
 @session_start();
 
-
 include_once("root.php");
 include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Settings.php");
@@ -14,8 +13,6 @@ include_once(ROOT."classes/models/MVideos.php");
 include_once(ROOT."classes/models/MVideoTypes.php");
 include_once(ROOT."classes/models/MTypes.php");
 include_once(ROOT."classes/admin/auth.php");
-
-
 
 DAO::connect();
 $form=new Form();
@@ -90,14 +87,10 @@ if(isset($form->videos_id) && isset($form->types_id)){
 				$frame="";
 			}
 			
-			
-			
 			if(!empty($frame)){
 				$video->setFrame($frame);
 				$video->update();
 			}
-			
-			
 
 			if(!empty($oldfile)){
 				unlink(ROOT.$oldfile);
@@ -105,9 +98,6 @@ if(isset($form->videos_id) && isset($form->types_id)){
 			}else{
 				$video_types->add();
 			}
-					
-
-
 			
 			echo "<p><a href=\"/index.php?m=filename&id={$video_data['id']}&type={$types_data['title']}\" target=\"_blank\">El video ha sido convertido, haga click ac&aacute; para revisar su video <br/>(es archivo XML).</a></p>";
 		}else{
