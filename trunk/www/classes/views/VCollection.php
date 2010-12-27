@@ -12,7 +12,7 @@ include_once(ROOT."classes/lib/PageCtrl.php");
 
 
  * 
- * Desde la versi�n 3.0, decorate_list () y decorate_item () puede ser omitido. En ese caso,
+ * decorate_list () y decorate_item () pueden ser omitido. En ese caso,
  * Filter () se utiliza para decorar los elementos que deben ser procesados en lugar de ir a buscar a la
  * Plantilla directamente desde el modelo.
 
@@ -26,8 +26,7 @@ class VCollection extends VView{
   
   function VCollection($model){
      $this->model=$model;
-     $lang=Lang::getInstance();
-     $this->empty_msg=$lang->getText('E_NOVIDEOS');
+     $this->empty_msg="Sin videos";
      parent::__construct();
   }
 
