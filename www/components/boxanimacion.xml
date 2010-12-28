@@ -9,7 +9,7 @@
 	<view name="VCategory">
 		<tplfile>category_box.html</tplfile>
 		<tplitemfile>category_item.html</tplitemfile>
-		<categories_title>Anima&amp;oacute;n</categories_title>
+		<categories_title>Animac&amp;oacute;n</categories_title>
 		<cutter>3</cutter>
 		<frontdoor>1</frontdoor>
 		<categories_id>9</categories_id>
