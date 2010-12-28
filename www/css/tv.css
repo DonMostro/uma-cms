@@ -58,7 +58,7 @@ a {color:#FFF;text-decoration:none}
 
 #PlayerGrande			{ overflow:hidden; float:left; width:640px; height:480px; border:1px solid #222}
 .descripcionVideo		{ position:relative; overflow:hidden; float:right; width:300px; height:490px}
-#bajadaVideo			{ overflow-x:hidden;overflow-y:auto; height:90px; float:left}
+#bajadaVideo			{ overflow-x:hidden;overflow-y:auto; height:90px;}
 .datosVideo				{ float:left; width:100%}
 .verComentarios			{ height:34px; padding:5px; position:relative; top:6px; width:205px}
 .verComentarios	a.comentar { display:inline; width:75px; height:20px; float:left; margin:5px 0 0 15px; background: url(i/sprite_butComentarios.gif) no-repeat right 0px; font:12px Arial, Helvetica, sans-serif; color:#CCC}

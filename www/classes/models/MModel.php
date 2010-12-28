@@ -120,6 +120,7 @@ class MModel extends Observable implements IModel {
 		$id=$this->idToString($this->pk);
 		$id=!empty($id)?' AND '.$id:'';
 		$query=$qb->update($this->_criterion().$id);
+		Debug::write($query);
 		return $dao->query($query);
 	}
 	
