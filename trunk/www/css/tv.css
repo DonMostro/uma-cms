@@ -53,7 +53,7 @@ a {color:#FFF;text-decoration:none}
 #contenido				{padding-top:16px}
 #contenido .center		{position:relative; overflow:hidden;width:860px; margin:0 auto; padding-bottom:16px}
 #videoPrincipal			{ position:relative; overflow:hidden; float:left;margin-bottom:10px; width:960px; padding:0}
-#videoPrincipal h3		{ font:300 2.167em/normal Georgia, "Times New Roman", Times, serif; padding:0 0 6px 0; margin:0; color:#CCC; float:left}
+#videoPrincipal h3		{ font:300 2.167em/normal Georgia, "Times New Roman", Times, serif; padding:0 0 6px 0; margin:0; color:#CCC}
 #videoPrincipal p		{ font:300 1em/1.4em Arial, Helvetica, sans-serif; color: #666}
 
 #PlayerGrande			{ overflow:hidden; float:left; width:640px; height:480px; border:1px solid #222}
