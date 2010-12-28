@@ -6,7 +6,7 @@ include_once(ROOT."classes/lib/Types.php");
 
 /**
 *
-* Clase RecordSet se encarga de la formación y ejecución del SQL.
+* Clase RecordSet se encarga de la formaciï¿½n y ejecuciï¿½n del SQL.
 *
 */
 class RecordSet{
@@ -50,7 +50,7 @@ class RecordSet{
   }
   
   /**
-   * Cuenta el número total de filas del objeto
+   * Cuenta el nï¿½mero total de filas del objeto
    * @return int
    */
   
