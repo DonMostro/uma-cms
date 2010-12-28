@@ -170,6 +170,41 @@ class MVideos extends MModel {
 	protected function _where(){
   		$where="WHERE 1";
 		$ids=$this->idToString("$this->table.id");
+		
+		//Canales Hijos
+		if(@$this->columns['parent_id']=="by_request"){
+			$VPage=new VPage();
+			$VPage->SetAllRequestItems();
+			$this->columns['parent_id'] = (int)$VPage->req_c_parent;
+			$this->get_childrens=true;
+		}elseif(@$this->columns['categories_id']=="by_request"){
+			$VPage=new VPage();
+			$VPage->SetAllRequestItems();
+			$this->columns['parent_id'] = (int)$VPage->req_c;
+			$this->get_childrens=true;
+		}
+		
+		if($this->get_childrens){
+			//$categories = new MCategoryList();
+			$strSQL = "SELECT children FROM $this->table_categories WHERE id =".(int)$this->columns['parent_id'];
+			$qry = mysql_query($strSQL);
+			$children=$this->columns['parent_id'];
+			if($row=mysql_fetch_row($qry)){
+				$children .= $row[0];
+			}
+			$where.=" AND $this->table.categories_id IN ($children)";
+		}else{
+	
+	
+			if($this->columns['categories_id']!=0&&!is_array($this->columns['categories_id'])){
+				$where.=" AND $this->table.categories_id=".(int)$this->columns['categories_id'];
+			
+			}elseif(is_array($this->columns['categories_id'])){
+				$where.=" AND $this->table.categories_id IN (".implode(',',$this->columns['categories_id']).")";
+			}
+		}	
+		/*Fin canales hijos */
+		
 
 		if(@$ids!="")$where.=" AND $ids";
 	
