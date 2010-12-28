@@ -6,6 +6,7 @@ include_once(ROOT."classes/admin/element.php");
 include_once(ROOT."classes/lib/DAO.php");
 include_once(ROOT."classes/lib/Form.php");
 include_once(ROOT."classes/models/MTypes.php");
+include_once(ROOT."classes/models/MVideoTypes.php");
 
 class multiconversion extends Element{
   protected $visible;
@@ -26,16 +27,20 @@ class multiconversion extends Element{
   }
 
   public function display($i,$j){
-  	$model = new MTypes();
-  	$model->load();
-	
+  	$mtypes = new MTypes();
+  	$mtypes->load();
   	
-  	while($t=$model->next()){
-  		
-  		if($this->value == ''){
-			$image = "<img src=\"".ROOT.FILES_IMAGES."/".$t['thumb']."\" alt=\"".$t['title']."\" title=\"".$t['title']."\"/>";
+
+  	
+  	while($t=$mtypes->next()){
+  		$mvideotypes = new MVideoTypes();
+  		$mvideotypes->setTypesId($t['id']);
+  		$mvideotypes->setVideosId($this->params['ID']);
+  		$mvideotypes->load();
+   		if($mvideotypes->next()){
+			$image = "<img src=\"".ROOT.FILES_IMAGES."/".$t['thumb']."\" alt=\"".$t['title']." :)\" title=\"".$t['title']."\"/>";
   		}else{
-  			$image = "<img src=\"".ROOT.FILES_IMAGES."/".$t['thumb']."\" alt=\"".$t['title']."\" title=\"".$t['title']." Borrar\"/>";
+  			$image = "<img src=\"".ROOT.FILES_IMAGES."/".$t['thumb']."\" alt=\"".$t['title']."\" title=\"".$t['title']."\" style=\"opacity: 0.5; filter:alpha(opacity=75);\"/>";
   		}
   		
 		$href="javascript:popup('convert.php?types_id=".$t['id']."&videos_id=".$this->params['ID']."');";
