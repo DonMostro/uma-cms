@@ -265,24 +265,24 @@ INSERT INTO `ztv_types` (`id`, `title`, `thumb`, `script`, `extension`, `browser
 -- Estructura de tabla para la tabla `ztv_videos`
 --
 
+
 DROP TABLE IF EXISTS `ztv_videos`;
 CREATE TABLE IF NOT EXISTS `ztv_videos` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `title` varchar(255) NOT NULL DEFAULT '',
-  `tags` text NOT NULL,
-  `description` text NOT NULL,
-  `frame` varchar(255) NOT NULL,
-  `orig_file` varchar(255) NOT NULL,
-  `size` int(11) NOT NULL,
+  `tags` text,
+  `description` text,
+  `frame` varchar(255) NOT NULL DEFAULT '',
+  `orig_file` varchar(255) NOT NULL DEFAULT '',
+  `size` int(11) NOT NULL DEFAULT 0,
   `type` varchar(255) NOT NULL DEFAULT '',
   `duration` varchar(8) NOT NULL DEFAULT '',
   `tt` int(10) NOT NULL DEFAULT '0',
-  `rate` float NOT NULL,
-  `approved` enum('0','1') DEFAULT NULL,
+  `rate` float NOT NULL DEFAULT '0',
+  `approved` enum('0','1') DEFAULT '0',
   `categories_id` int(11) NOT NULL DEFAULT '0',
   PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1 AUTO_INCREMENT=47 ;
-
+) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
 
 
 --
