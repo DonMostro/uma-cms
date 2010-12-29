@@ -17,8 +17,6 @@ class CSearch extends CCommand {
 	}
 	
 	function run(){
-		$acl=new ACL($this->user->username,'videos');
-		if($acl->canAccess()){
 		  	$videosmodel=new MVideos();
 		    $cat=new VCategory($videosmodel);
 		
@@ -50,10 +48,6 @@ class CSearch extends CCommand {
 
 			$this->content=$cat->show();
 			$this->page->title='"'.strip_tags($videosmodel->getSearch()).'"';
-
-		}else{
-			$this->content=$this->lang->getText('E_ACCESS_DENIED');
-		}
 	}
 }
 ?>
