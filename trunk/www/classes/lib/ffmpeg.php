@@ -104,6 +104,7 @@ class ffmpeg{
         
         public function convert_by_type($script, $orig_file, $dest_file){
         	$tpl=new Template(html_entity_decode($script));
+        	$tpl->ffmpeg_path=$this->path;
         	$tpl->orig_file=$orig_file;
         	$tpl->dest_file=ROOT."$this->wd/$dest_file";
         	$command=$tpl->output();
