@@ -55,7 +55,6 @@ class VCategory extends VCollection{
  
   
   function VCategory($model){
-  	
   	//FIN ETIQUETAS
   	$this->tplfile="category_list.html";
   	$this->tplitemfile="category_list_item.html";	
@@ -86,7 +85,7 @@ class VCategory extends VCollection{
     $tpl->title=isset($info['title'])?$info['title']
     :"";
     $tpl->rss_title=isset($info['title'])?utf8_encode(Util::cadenaXML((($info['title'])))):"";
-    $tpl->categories_title=$info["categories_title"];
+    $tpl->categories_title=@$info["categories_title"];
     $tpl->rss_categories_title=isset($info["categories_title"])?utf8_encode(Util::cadenaXML(($info['categories_title']))):"";
     
     //echo $info['categories_id'].$info['categories_title']." ";
@@ -262,17 +261,14 @@ class VCategory extends VCollection{
 		if($this->frontdoor=="1"){
 			//var_dump($this);
   	 		$mfeatured = new MFeaturedVideos();
-  	 		$mfeatured->setCategories_Id($this->categories_id);
+  	 		$mfeatured->setCategoriesId($this->categories_id);
   	 		$mfeatured->setApproved("1");
   	 		$mfeatured->setLimit(1);
   	 		$mfeatured->load();
-  	 		/* VIphoneVideos genera una vista genérica asociada a un RS, su nombre debiera ser mas genérico
-  	 		 */
+
   	 		$m=$mfeatured->next();
-  	 		//$view = new VIphoneVideos($mTopCarrusel);
-  	 		//$view->show();
   	 		
-  	 		@$tpl->frame = URL."/".IMG_FILES_TOPVIDEOS."/".$m["foto"];
+  	 		@$tpl->frame = URL."/".FILES."/".$m["frame"];
   	 		@$tpl->title = $m["title"];
   	 		@$tpl->hits = $m["hits"];
   	 		@$tpl->id = !empty($m["videos_id"]) ? $m["videos_id"] : $m["id"];
@@ -286,7 +282,7 @@ class VCategory extends VCollection{
    				$mvideos->addOrder(new DataOrder("tt","DESC"));
    				$mvideos->load();
    				
-   				$m=$mVideos->next();
+   				$m=$mvideos->next();
 			
    				
 	   			$tpl->frame = URL."/".FILES."/".$m["frame"];

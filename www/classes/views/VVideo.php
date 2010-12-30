@@ -55,6 +55,18 @@ class VVideo extends VView {
     $this->tags='';
     $this->autotemplate=1;
   }
+  
+  public function getTopCarruselVideoIdByCategory($categories_id){
+  	    $mfeatured = new MFeaturedVideos();
+    	$mfeatured->setCategories_Id($categories_id);
+    	$mfeatured->setApproved("1");
+    	$mfeatured->setLimit(1);
+    	$mfeatured->load();
+		$f=$mfeatured->next();
+		$id = $f["videos_id"];
+  	   	return $id;
+  }
+  
 
   public function show(){
   	if($this->model->getSize()>0){
@@ -118,8 +130,7 @@ class VVideo extends VView {
 	    $tpl->link_title=isset($info['link_title'])?htmlentities($info['link_title']):"";
 		$tpl->duration=isset($info['duration'])?$info['duration']:"";
 		$tpl->frame=isset($info['frame'])? URL."/".FILES."/". $info['frame']:"";
-		
-		$tpl->embed=$this->embed;
+
 		
 	    $tpl->next_id=$this->next_id;
 	    $tpl->prev_id=$this->prev_id;
@@ -181,6 +192,7 @@ class VVideo extends VView {
 		}else{
 			$player->setParam("autostart", "false");
 		}
+		$tpl->embed=$player->embed();
 	    $tpl->player=$player->show();
 	    
 	    

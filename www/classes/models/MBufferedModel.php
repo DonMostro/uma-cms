@@ -1,5 +1,6 @@
 <?php
 include_once("root.php");
+include_once(ROOT."classes/models/MModel.php");
 
 /**
  * Buffered model, almacena en memoria el resultado. 
