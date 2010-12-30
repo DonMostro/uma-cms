@@ -22,7 +22,7 @@ a {color:#FFF;text-decoration:none}
 #subnav ul.nav	a	{font:300 1em Arial, Helvetica, sans-serif; color: #666; text-decoration:none} #subnav ul.nav	a:hover{color: #c00}
 
 #header						{ position:relative;height:94px}
-#header	h1	a				{ display:block; position:absolute; top:10px; width:298px; height:44px; background:url(i/logoLaterceraTV.png) no-repeat left top; text-indent:-9999px}
+#header	h1	a				{display: block; height: 44px; position: relative; top: 20px; width: 298px; font-family: 'stamPeteRegular',sans-serif;  font-size: 56px;}
 #header ul.nav				{ width:660px; height:30px; margin:0 }
 #header ul.nav	li			{ display:inline; margin-right:12px}
 #header ul.nav	a			{ padding: 3px 0; font:300 1.167em/30px Arial, Helvetica, sans-serif; color: #fff; text-decoration:none}
