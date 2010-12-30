@@ -28,7 +28,8 @@ class MTypes extends MModel{
   		'thumb'=>null,
   		'script'=>null,
     	'browser'=>null,
-    	'extension'=>null
+    	'extension'=>null,
+    	'approved'=>null
     );
    
   }
@@ -41,10 +42,9 @@ class MTypes extends MModel{
   protected function setQuery(){
   	
     $query="
-    SELECT id, title, thumb, script, browser, extension  
+    SELECT id, title, thumb, script, browser, extension, approved   
 	   FROM $this->table 
 	".$this->_where();
-
     $this->dataSet->setQuery($query);
   }
   /**

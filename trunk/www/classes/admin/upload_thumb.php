@@ -1,3 +1,0 @@
-<?php 
-//To the garbage
-?>

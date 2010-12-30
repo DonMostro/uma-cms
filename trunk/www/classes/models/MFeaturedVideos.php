@@ -46,8 +46,9 @@ class MFeaturedVideos extends MModel {
 
   //public function setCategories_Id($value) { $this->categories_id=(int)$value; }
   public function setApproved($value) { $this->approved=(int)$value; }
+  public function setCategoriesId($value) { $this->categories_id=(int)$value; }
   
-  public function getUsername() { return $this->username; }
+
   public function getCategories_Id() { return $this->categories_id; }
   
   /**
@@ -130,7 +131,7 @@ class MFeaturedVideos extends MModel {
   	$ids=$this->idToString("$this->table_videos.id");
 	if($ids!="")$where.=" AND $ids";
   	
-  	if($this->categories_id!=0)$where.=" AND $this->table_categories.id=$this->categories_id";
+  	if($this->categories_id!=0)$where.=" AND $this->table.categories_id=$this->categories_id";
   	if($this->approved!=null)$where.=" AND $this->table_videos.approved='1'";
  
     return $where;
