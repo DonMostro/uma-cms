@@ -20,16 +20,20 @@
 	   	<h3>[:title:]</h3>
 		<p id="bajadaVideo">[:description:]</p>
 		<div class="datosVideo">
-			<span class="small">Tags: [:tags:]</span>
-			<span class="small" style="float:left">Anadido hace: 
-				<span style="color: white;">[:time:]</span>
+				<span class="small">Tags: [:tags:]</span>
+				<span class="small" style="float:left">Anadido hace: 
+					<span style="color: white;">[:time:]</span>
+				</span>
+				<span class="small" style="float:right">Reproducciones: 
+					<span style="color: white;">[:hits:]</span>
+				</span>
+ 		</div>
+		<div style="float:left;width:100%;margin-top:30px;">
+			<span style="color: white;">Embed:</span>
+			<span>
+				<textarea rows="3" cols="10" onclick="this.select();">[:embed:]</textarea>
 			</span>
-			<span class="small" style="float:right">Reproducciones: 
-				<span style="color: white;">[:hits:]</span>
-			</span>				        
-		</div>	
-		
-		</span>
+		</div>			
     </div>
    	[:if show_comments=="true":]
 	<div class="verComentarios">
