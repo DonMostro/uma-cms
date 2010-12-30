@@ -32,7 +32,7 @@ class VPage extends VView {
 	parent::__construct();
 	$this->keywords='';
   }
-
+  
   public function getInstance(){
   	static $me;
   	if(!$me) {
@@ -47,6 +47,9 @@ class VPage extends VView {
    * y usar esos objetos  
    * @return unknown_type
    */
+  
+  
+  
   
   
   public function SetAllRequestItems(){
@@ -66,6 +69,7 @@ class VPage extends VView {
   	$this->req_c_parent = 0;
 
   	if($this->req_c == 0 && $this->req_v != 0){
+  		//Buscar categoria de video
   		$strSQL = " SELECT categories_id FROM ztv_videos WHERE id = $this->req_v LIMIT 0, 1";
 		$qry = mysql_query($strSQL);
 		if($row = mysql_fetch_array($qry)){
@@ -73,9 +77,11 @@ class VPage extends VView {
 	  		$this->req_c = $row['categories_id'];
 	  	}
   	}
-  	
+
   	if($this->req_c != 0){
+  		//Buscar parent_id de categoria
 	  	$strSQL = " SELECT parent_id FROM ztv_categories WHERE id = $this->req_c LIMIT 0, 1";
+	  	Debug::write($strSQL);
 		$qry = mysql_query($strSQL);
 		if($row = mysql_fetch_array($qry)){
 	  		//canal padre

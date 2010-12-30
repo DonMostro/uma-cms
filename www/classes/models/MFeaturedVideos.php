@@ -32,6 +32,8 @@ class MFeaturedVideos extends MModel {
     $this->table_video_hits=TABLE_PREFIX.'video_hits';
     $this->table_categories=TABLE_PREFIX.'categories';
     $this->table_thumbs=TABLE_PREFIX.'thumbs';
+    $this->categories_id = ctype_digit(@$_GET['category']) && !empty($_GET['category']) ? $_GET['category'] : 0;
+    
 	$this->pk='videos_id';
     
 	
@@ -44,8 +46,23 @@ class MFeaturedVideos extends MModel {
   }
   
 
-  //public function setCategories_Id($value) { $this->categories_id=(int)$value; }
+ public function setCategories_Id($value) { 
+  		if(is_array($value)){
+  			$this->columns['categories_id']=array();
+  			foreach ($value as $k=>$v){
+  				$this->columns['categories_id'][$k]=(int)$v;
+  			}
+  		}else{
+  			$this->columns['categories_id']=(int)$value; 
+  		}
+	}
+	
   public function setApproved($value) { $this->approved=(int)$value; }
+  /**
+   * TODO esta funcion debe ser borrada y usarse solo setCategories_Id
+   * @param $value
+   * @return unknown_type
+   */
   public function setCategoriesId($value) { $this->categories_id=(int)$value; }
   
 
@@ -98,7 +115,7 @@ class MFeaturedVideos extends MModel {
 	if($this->join_thumbs){$query.=" LEFT JOIN $this->table_thumbs ON $this->table_thumbs.videos_id=$this->table_videos.id ";}
 	$query.=" LEFT JOIN $this->table_video_hits ON $this->table_videos.id=$this->table_video_hits.videos_id ";
  	$query.=$this->_where()." GROUP BY videos_id ";
-
+	//	Debug::write($query);
     $this->dataSet->setQuery($query);
   }
   
@@ -116,7 +133,6 @@ class MFeaturedVideos extends MModel {
   	JOIN $this->table_videos  
   	  ON $this->table.videos_id=$this->table_videos.id
   	   ".$this->_where()."  ";
-
   	$this->dataSet->setCountQuery($query);
   }
   
@@ -132,6 +148,7 @@ class MFeaturedVideos extends MModel {
 	if($ids!="")$where.=" AND $ids";
   	
   	if($this->categories_id!=0)$where.=" AND $this->table.categories_id=$this->categories_id";
+  	if($this->columns['categories_id']!=0)$where.=" AND $this->table.categories_id={$this->columns['categories_id']}";
   	if($this->approved!=null)$where.=" AND $this->table_videos.approved='1'";
  
     return $where;

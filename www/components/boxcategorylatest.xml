@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<component name="T_VIDEOS">
+	<model name="MVideos">
+		<order dir="DESC">tt</order>
+		<start>1</start>
+		<limit>6</limit>
+		<approved>1</approved>
+		<categories_id>by_request</categories_id>
+	</model>
+	<view name="VCategory">
+		<tplfile>category_box.html</tplfile>
+		<tplitemfile>category_item.html</tplitemfile>
+		<categories_title>Lo &amp;Uacute;ltimo</categories_title>
+		<cutter>3</cutter>
+		<featured_last>1</featured_last>
+		<ver_mas>1</ver_mas>
+		<categories_id>by_request</categories_id>		
+	</view>
+</component>

@@ -21,10 +21,8 @@ include_once(ROOT."cache.php");
 include_once(ROOT."classes/models/MCache.php");
 include_once(ROOT."classes/models/MVideos.php");
 include_once(ROOT."classes/models/MThumbnails.php");
-include_once(ROOT."classes/models/MImages.php");
 include_once(ROOT."classes/models/MTags.php");
 include_once(ROOT."classes/models/MBufferedModel.php");
-include_once(ROOT."classes/models/MWatched.php");
 
 class ModelPool{
     private $observers = array();

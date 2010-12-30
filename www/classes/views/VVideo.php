@@ -56,9 +56,9 @@ class VVideo extends VView {
     $this->autotemplate=1;
   }
   
-  public function getTopCarruselVideoIdByCategory($categories_id){
+  public function getFeaturedVideoIdByCategory($categories_id){
   	    $mfeatured = new MFeaturedVideos();
-    	$mfeatured->setCategories_Id($categories_id);
+    	$mfeatured->setCategoriesId($categories_id);
     	$mfeatured->setApproved("1");
     	$mfeatured->setLimit(1);
     	$mfeatured->load();

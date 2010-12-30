@@ -102,17 +102,9 @@ class VCategory extends VCollection{
     $tpl->filename=!empty($info['filename'])?URL.'/'.FILES.'/'.$info['filename']:'';
 
     
-    if(!empty($info['filename_hd'])){
-    	$tpl->filename_hd=URL.'/'.FILES.'/'.$info['filename_hd'];
-    	$tpl->exists_hd="1";	    	
-    }else{
-    	$tpl->filename_hd="";
-    	$tpl->exists_hd="0";	    	
-    }
- 
-    $tpl->small_filename=!empty($info['small_filename'])?URL.'/'.FILES.'/'.$info['small_filename']:'';
-    //Contamos cada elemento para saber cuando corresponde insertar cortes en el html
-    $tpl->num_comments=!empty($info['num_comments'])?$info['num_comments']:'';
+
+      //Contamos cada elemento para saber cuando corresponde insertar cortes en el html
+
     $this->counter++;
     $tpl->counter = $this->counter;
     
@@ -146,8 +138,6 @@ class VCategory extends VCollection{
     $arrMinutes=explode(":",$info['duration']);
     @$seconds=(@$arrMinutes[0]*60)+(@$arrMinutes[1]);
     $tpl->seconds=$seconds;
-    $tpl->private=isset($info['private'])?$info['private']:"";
-    $tpl->owner=$this->owner;
     $tpl->modify=$this->modify;
     $tpl->disabled=$info['approved']!=1?'disabled':'';
     if($this->modify=='true'){
@@ -185,7 +175,7 @@ class VCategory extends VCollection{
  //   $lang=Lang::getInstance();
 
     if($this->title==''&&isset($info["categories_title"])){
-    	$this->title=$tpl->categories_title.' '.$lang->getText('T_VIDEOS');
+    	$this->title=$tpl->categories_title;
     }
     $tpl->siteurl=URL;
     $this->cat_counter++;	
@@ -233,22 +223,21 @@ class VCategory extends VCollection{
   		$tpl->c=$VPage->req_c;
 
   		if(empty($this->url)){
-  			$mcategorylist = new MCategoryList();  			
+  			//$mcategorylist = new MCategories();  			
   			if($tpl->c!=0){
   				$this->url="index.php?m=category&c=".$tpl->c."&sort=$tpl->sort&start=0";
-  				$mcategorylist->setId($tpl->c);
+  				//$mcategorylist->setId($tpl->c);
   			}
   			if(@$_REQUEST["m"]=="video" && ctype_digit($_REQUEST["v"])){
    				//$this->url="index.php?m=category&c=".$VPage->req_c_parent;
-  				$mcategorylist->setId($VPage->req_c_parent);
+  				//$mcategorylist->setId($VPage->req_c_parent);
   			}
-  			$mcategorylist->load();
-  			$view=new VIphoneVideos($mcategorylist);
-  			$view->show();
-			@$tpl->aux_title = " De ".@$view->recordset["title"];
-			if(ctype_digit(@$_REQUEST['c'])) @$tpl->aux_title_rss = @$view->recordset["title"];
-			unset($mcategorylist);
-			unset($view);
+  			//$mcategorylist->load();
+  			//$c=$mcategorylist->next();
+			//@$tpl->aux_title = " De ".@$c["title"];
+			//if(ctype_digit(@$_REQUEST['c'])) @$tpl->aux_title_rss = @$c["title"];
+			//unset($mcategorylist);
+			//unset($view);
    		}
   		
   		$tpl->curl=$this->url;
