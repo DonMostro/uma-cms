@@ -267,23 +267,27 @@ INSERT INTO `ztv_types` (`id`, `title`, `thumb`, `script`, `extension`, `browser
 
 
 DROP TABLE IF EXISTS `ztv_videos`;
-CREATE TABLE IF NOT EXISTS `ztv_videos` (
+CREATE TABLE IF NOT EXISTS `ztv_types` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `title` varchar(255) NOT NULL DEFAULT '',
-  `tags` text,
-  `description` text,
-  `frame` varchar(255) NOT NULL DEFAULT '',
-  `orig_file` varchar(255) NOT NULL DEFAULT '',
-  `size` int(11) NOT NULL DEFAULT 0,
-  `type` varchar(255) NOT NULL DEFAULT '',
-  `duration` varchar(8) NOT NULL DEFAULT '',
-  `tt` int(10) NOT NULL DEFAULT '0',
-  `rate` float NOT NULL DEFAULT '0',
-  `approved` enum('0','1') DEFAULT '0',
-  `categories_id` int(11) NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`)
-) ENGINE=MyISAM  DEFAULT CHARSET=latin1;
+  `title` varchar(45) DEFAULT NULL,
+  `thumb` varchar(256) DEFAULT NULL,
+  `script` text,
+  `extension` varchar(10) NOT NULL,
+  `browser` varchar(20) NOT NULL DEFAULT '',
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `title` (`title`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
 
+--
+-- Volcar la base de datos para la tabla `ztv_types`
+--
+
+INSERT INTO `ztv_types` (`id`, `title`, `thumb`, `script`, `extension`, `browser`) VALUES
+(1, 'H.264', '6818b277.jpg', '&lt;#ffmpeg_path/&gt; -i &lt;#orig_file/&gt; -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'mp4', 'iPhone'),
+(2, 'Theora', 'd93fa75b.jpg', '&lt;#ffmpeg_path/&gt; -i &lt;#orig_file/&gt; -acodec vorbis -strict experimental -ac 2 -vcodec libtheora -f ogg &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'ogv', ''),
+(3, '3GP', 'ee83288a.png', '&lt;#ffmpeg_path/&gt; -i &lt;#orig_file/&gt; -vcodec h263 -acodec libfaac -ac 1 -ar 8000 -r 25 -ab 32k -y &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', '3gp', ''),
+(5, 'Flash', '1195b834.jpg', '&lt;#ffmpeg_path/&gt; -i &lt;#orig_file/&gt; -ab 56 -ar 44100 -b 200 -r 15 -s 1600x1200 -f flv &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'flv', ''),
+(6, 'Mpeg4', '9f6f2cee.jpg', '&lt;#ffmpeg_path/&gt; -i &lt;#orig_file/&gt; -s 480x320 -vcodec mpeg4 -acodec libfaac -ac 1 -ar 16000 -r 13 -ab 32000 -aspect 3:2 &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'G1.mp4', 'Android');
 
 --
 -- Estructura de tabla para la tabla `ztv_video_hits`
