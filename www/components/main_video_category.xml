@@ -1,6 +1,6 @@
 <?xml version="1.0"?>
 <component name="Video">
-	<model name="MTopCarrusel">
+	<model name="MFeaturedVideos">
 		<categories_id>%c</categories_id>
 		<limit>1</limit>
 	</model>
