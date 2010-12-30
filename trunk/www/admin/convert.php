@@ -70,7 +70,7 @@ if(isset($form->videos_id) && isset($form->types_id)){
 		if($ffmpeg->convert_by_type($types_data['script'], ROOT.FILES.'/'.$video_data['orig_file'], $newfile)){
 			$data['filename']=ROOT.$newfile;
 			
-			$video_info=$ffmpeg->get_info($video_data['filename']);
+			$video_info=$ffmpeg->get_info($video_data['orig_file']);
 				
 			$ss=(int)($video_info['seconds']*0.5);
 			$h=$video_info['duration'][0]!='00'?$video_info['duration'][0].':':'';

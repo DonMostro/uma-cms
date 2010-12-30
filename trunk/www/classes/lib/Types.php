@@ -2,7 +2,6 @@
 
 include_once("root.php");
 include_once(ROOT."classes/models/MSettings.php");
-include_once(ROOT."classes/models/MEmoticons.php");
 
 class Type{
 	protected $value;

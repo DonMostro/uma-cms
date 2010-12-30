@@ -1,7 +1,4 @@
 <?php
-ini_set("display_errors","on");
-error_reporting(E_ALL);
-
 include_once(ROOT."config.php");
 include_once(ROOT."map.php");
 include_once(ROOT."version.php");
@@ -14,7 +11,6 @@ include_once(ROOT."classes/models/MModel.php");
 include_once(ROOT."classes/models/IModel.php");
 include_once(ROOT."classes/lib/Observable.php");
 include_once(ROOT."classes/lib/QueryBuilder.php");
-include_once(ROOT."classes/models/MEmoticons.php");
 include_once(ROOT."classes/lib/Settings.php");
 include_once(ROOT."classes/lib/Session.php");
 include_once(ROOT."classes/models/MCache.php");

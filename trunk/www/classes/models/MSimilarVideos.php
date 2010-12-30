@@ -35,7 +35,7 @@ class MSimilarVideos extends MModel {
 		$vvideo = new VVideo();
 		$vpage = new VPage();
 		$vpage->SetAllRequestItems();
-		$id=$vvideo->getFeaturedVideoIdByCategory($vPage->req_c);
+		$id=$vvideo->getFeaturedVideoIdByCategory($vpage->req_c);
 		$this->setId($id);
 	}
 	
@@ -98,7 +98,6 @@ class MSimilarVideos extends MModel {
     ";
 	$this->dataSet->addOrder(new DataOrder("videos_id","DESC"));
 	$this->dataSet->addOrder(new DataOrder("relevance","DESC"));
-	Debug::write($query); 
   	$this->dataSet->setQuery($query);
 
   }

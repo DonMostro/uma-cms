@@ -86,18 +86,17 @@ class MVideos extends MModel {
 	 * @param $value array / integer
 	 */
   
-	public function setParent_Id($value) { 
-  		if(is_array($value)){
-  			$this->columns['parent_id']=array();
-  			foreach ($value as $k=>$v){
+  public function setParent_Id($value) { 
+  	if(is_array($value)){
+  		$this->columns['parent_id']=array();
+  		foreach ($value as $k=>$v){
   			$this->columns['parent_id'][$k]=(int)$v;
-  			}
-  		}else{
-  			$this->columns['parent_id']=(int)$value; 
   		}
-  		$this->get_childrens=true;
-	}
-	
+  	}else{
+  		$this->columns['parent_id']=(int)$value; 
+  	}
+  	$this->get_childrens=true;
+  }
 	/**
 	 * Setea string de búsqueda
 	 * @param $value string
@@ -184,6 +183,7 @@ class MVideos extends MModel {
 			$this->get_childrens=true;
 		}
 		
+		
 		if($this->get_childrens){
 			//$categories = new MCategoryList();
 			$strSQL = "SELECT children FROM $this->table_categories WHERE id =".(int)$this->columns['parent_id'];
@@ -192,7 +192,9 @@ class MVideos extends MModel {
 			if($row=mysql_fetch_row($qry)){
 				$children .= $row[0];
 			}
+			
 			$where.=" AND $this->table.categories_id IN ($children)";
+			
 		}else{
 	
 	
