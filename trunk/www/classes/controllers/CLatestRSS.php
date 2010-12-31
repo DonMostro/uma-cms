@@ -21,7 +21,7 @@ class CLatestRSS extends CCommand {
 	  	$videosmodel->addOrder(new DataOrder('tt'));
 		$videosmodel->load();
 		
-		$view->description=SITENAME.' - '.$this->lang->getText('T_VIDEOS').' - '.$this->lang->getText('T_LATEST');
+		$view->description=SITENAME.' &Uacute;ltimos Videos';
 		
 	    $view->tplitemfile='rss_item.xml';
 	    $view->tplfile='rss.xml';

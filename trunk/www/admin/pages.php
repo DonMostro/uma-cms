@@ -9,7 +9,7 @@ $pages=array(
 		'Paginas'=>'pages',
 	),
 	'Videos'=>array(
-		'Videos'=>'videos',
+		'Videos'=>'videos&sort=tt&dir=desc',
 		'Videos Destacados'=>'featured',
 		'Tipos de video'=>'types',
 		'Categorias'=>'categories&parent_id=0',

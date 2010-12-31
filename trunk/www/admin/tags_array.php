@@ -1,7 +1,4 @@
 <?php
-
-ini_set("display_errors","On");
-error_reporting(E_ALL);
 require_once("root.php");
 require_once(ROOT."config.php");
 require_once(ROOT."classes/lib/DAO.php");
