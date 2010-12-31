@@ -136,6 +136,7 @@ class MVideos extends MModel {
 		$this->table.frame, $this->table_hits.hits AS hits, 
 		$this->table.duration, $this->table.categories_id,
 		$this->table_categories.title AS categories_title, 
+		$this->table_categories.parent_id,
 		$this->table_thumbs.filename AS thumb ";
 		$query.=", $search
 		$this->table.id

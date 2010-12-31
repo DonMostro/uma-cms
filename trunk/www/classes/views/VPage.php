@@ -5,6 +5,8 @@ include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Template.php");
 include_once(ROOT."classes/lib/Types.php");
 include_once(ROOT."classes/models/MMenu.php");
+include_once(ROOT."classes/models/MVideos.php");
+include_once(ROOT."classes/models/MCategories.php");
 include_once(ROOT."classes/views/VView.php");
 
 
@@ -43,17 +45,13 @@ class VPage extends VView {
 
   /**
    * [TODO] 
-   * Esta vista conserva queries para pintar el menú, deben se deben mover a los modelos tabla respectivos
+   * Esta vista conserva queries para pintar el menú, estas se deben mover a los modelos tabla respectivos
    * y usar esos objetos  
    * @return unknown_type
    */
   
-  
-  
-  
-  
+
   public function SetAllRequestItems(){
-  	DAO::connect();  	
   	//subcanal
   	$this->req_c = isset($_REQUEST['c']) && ctype_digit($_REQUEST['c']) && !empty($_REQUEST['c']) ? $_REQUEST['c'] : 0;
   	//video
@@ -69,41 +67,40 @@ class VPage extends VView {
   	$this->req_c_parent = 0;
 
   	if($this->req_c == 0 && $this->req_v != 0){
-  		//Buscar categoria de video
-  		$strSQL = " SELECT categories_id FROM ztv_videos WHERE id = $this->req_v LIMIT 0, 1";
-		$qry = mysql_query($strSQL);
-		if($row = mysql_fetch_array($qry)){
-	  		//canal
-	  		$this->req_c = $row['categories_id'];
-	  	}
+  		//Buscar categoria de video si esta seteada id de video
+  		$mvideos=new MVideos();
+  		$mvideos->setId($this->req_v);
+  		$mvideos->load();
+  		if($m=$mvideos->next()){
+  			$this->req_c=$m['categories_id'];
+  		}
   	}
 
   	if($this->req_c != 0){
-  		//Buscar parent_id de categoria
-	  	$strSQL = " SELECT parent_id FROM ztv_categories WHERE id = $this->req_c LIMIT 0, 1";
-	  	Debug::write($strSQL);
-		$qry = mysql_query($strSQL);
-		if($row = mysql_fetch_array($qry)){
-	  		//canal padre
-	  		$this->req_c_parent = $row['parent_id'];
-	  	}
+  		//Buscar parent_id de categoria si esta seteada id de categoria
+  		$mcategories=new MCategories();
+  		$mcategories->setId($this->req_c);
+  		$mcategories->load();
+  		if($c=$mcategories->next()){
+  			$this->req_c_parent = $c['parent_id'];	
+  		}
   	}
 
   	 	
   	if($this->req_c_parent == 0 && $this->req_v != 0){
-		$strSQL = "SELECT categories_id, parent_id 	FROM ztv_videos vid LEFT JOIN ztv_categories cat ON vid.categories_id = cat.id 
-	   	WHERE vid.id = $this->req_v  ";
-    	$qry = mysql_query($strSQL);
-    	if(mysql_num_rows($qry) > 0){
-			$row = mysql_fetch_array($qry);
-			$this->req_c_parent = ($row['parent_id'] != 0) ? $row['parent_id'] : $row['categories_id'];
-    	}
+  		//Buscar parent_id de categoria si esta seteada id de video
+   		$mvideos=new MVideos();
+  		$mvideos->setId($this->req_v);
+  		$mvideos->load();
+  		if($v=$mvideos->next()){
+  			$this->req_c_parent = $v['parent_id'] != 0 ? $v['parent_id'] : $v['categories_id'];
+  		}
+  		
   	 }	
   }
   
   public function show(){
   	DAO::connect();  	
-  	//$lang=Lang::getInstance();
 
   	$tpl=new Template(ROOT."templates/index.html");
 	$tpl->version=$this->version;
@@ -172,7 +169,7 @@ class VPage extends VView {
 
 	    $tpl2->id=$item['id'];
 	    $tpl2->title=$item['title'];
-	    if($inbox&&$item['title']=='T_INBOX')$tpl2->title.=" ($inbox)";
+	    //if($inbox&&$item['title']=='T_INBOX')$tpl2->title.=" ($inbox)";
 	    $tpl2->pageurl=ltrim($item['url'],'/');
 	    $tpl->submenu.=$tpl2->output();
 	    $page=$item['parent_id'];
