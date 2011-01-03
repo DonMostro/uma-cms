@@ -26,13 +26,13 @@ class Auth{
 			include 'login.html';
 			exit();
 		}elseif(!empty($password)){
-			header("Localización: ".URL."/admin/index.php");
+			header("location: ".URL."/admin/index.php");
 		}
 	}
 
 	public function logout(){
 		session_destroy();
-		header("Localización: ".URL."/admin/index.php");
+		header("location: ".URL."/admin/index.php");
 	}
 }
 
