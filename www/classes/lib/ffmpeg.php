@@ -24,11 +24,11 @@ class ffmpeg{
         
         public function get_info($source){
                 $random=md5(microtime().rand(0,10));
-                $command="\"$this->path\" -i $this->wd/$source 2> $this->wd/$random";
+                $command="\"$this->path\" -i $source 2> ".ROOT."$this->wd/$random";
 
                 $this->exec($command);
-                $out=@file_get_contents("$this->wd/$random");
-                @unlink("$this->wd/$random");
+                $out=@file_get_contents(ROOT."$this->wd/$random");
+                @unlink(ROOT."$this->wd/$random");
                 
                 $preg="/Duration: ([0-9.:]+)/is";
                 preg_match($preg,$out,$matches);

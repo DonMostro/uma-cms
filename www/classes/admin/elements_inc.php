@@ -19,10 +19,6 @@ include_once(ROOT."classes/admin/findvideo.php");
 include_once(ROOT."classes/admin/categories.php");
 include_once(ROOT."classes/admin/orden.php");
 include_once(ROOT."classes/admin/upload_image.php");
-include_once(ROOT."classes/admin/iphone_element.php");
-include_once(ROOT."classes/admin/cellphone_element.php");
-include_once(ROOT."classes/admin/wmv_element.php");
-include_once(ROOT."classes/admin/hd_video_element.php");
 include_once(ROOT."classes/admin/multiconversion.php");
 //include_once(ROOT."classes/admin/hidden_elements.php");
 ?>

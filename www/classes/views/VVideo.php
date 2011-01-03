@@ -10,6 +10,8 @@ include_once(ROOT."classes/lib/UserAgent.php");
 include_once(ROOT."classes/views/VPage.php");
 include_once(ROOT."classes/models/MPlayers.php");
 include_once(ROOT."classes/views/VPlayer.php");
+include_once(ROOT."classes/models/MVideos.php");
+
 
 
 class VVideo extends VView {
@@ -46,6 +48,7 @@ class VVideo extends VView {
   public $categories_id;
   public $show_link;
   public $from_carrusel;
+  public $useragent;
 
   function VVideo($model=null){
   	parent::VView();
