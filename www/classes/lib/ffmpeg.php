@@ -24,11 +24,11 @@ class ffmpeg{
         
         public function get_info($source){
                 $random=md5(microtime().rand(0,10));
-                $command="\"$this->path\" -i $source 2> ".ROOT."$this->wd/$random";
+                $command="\"$this->path\" -i $this->wd/$source 2> $this->wd/$random";
 
                 $this->exec($command);
-                $out=@file_get_contents(ROOT."$this->wd/$random");
-                @unlink(ROOT."$this->wd/$random");
+                $out=@file_get_contents("$this->wd/$random");
+                @unlink("$this->wd/$random");
                 
                 $preg="/Duration: ([0-9.:]+)/is";
                 preg_match($preg,$out,$matches);
@@ -46,67 +46,13 @@ class ffmpeg{
                 return $ret;
         }
         
-        public function convert($source, $dest, $size, $br, $ar, $skip=false, $skip_mp4=false, $watermark=false){
-			set_time_limit(0);
-
-			$size=explode('x',$size);
-			$info=$this->get_info($source);
-			
-			$origsize=explode('x',$info['size']);
-			//$wd=$size[0];
-			$wd=640;
-			$hg=480;
-			
-			if($watermark&&!empty($this->watermark)){
-					$hg=$wd/$origsize[0]*$origsize[1];
-					$wmarkfile=$this->watermark(ROOT.FILES.'/watermark.gif',$wd,$hg);
-					$wmark="-vhook '$this->watermark -f $wmarkfile'";
-			}else{
-					$wmark='';
-			}
-			
-			if(!empty($origsize[0])&&!empty($origsize[1])){
-				//$hg=$wd/$origsize[0]*$origsize[1];
-				$command="\"$this->path\" -y -i $this->wd/$source $wmark -s {$wd}x{$hg} -b $br -ar $ar $this->wd/$dest 2>> ".ROOT.FILES.'/ffmpeg.log';
-			}else{
-				$command="\"$this->path\" -y -i $this->wd/$source $wmark -b $br -ar $ar $this->wd/$dest 2>> ".ROOT.FILES.'/ffmpeg.log';
-			}
-
-			$pathparts=pathinfo($source);
-			$ext=!empty($pathparts['extension'])?$pathparts['extension']:'';
-			$images=array('gif','jpg','jpeg','png');
-			if(in_array($ext,$images)){
-				return true;
-			}else{
-				if($skip&&$ext=='flv'){
-						echo "es flv";
-						@copy($this->wd."/".$source,$this->wd.'/'.$dest);
-				}else{
-						$this->exec($command);        
-						if(/*$skip_mp4&&*/$ext=='mp4'){
-								$dest = str_replace('.flv', '.mp4', $dest);
-								@copy($this->wd.'/'.$source,$this->wd.'/'.$dest);
-
-						}
-						/**/
-				}
-				if(file_exists("$this->wd/$dest") && filesize("$this->wd/$dest")>0){
-						echo "return true";
-						return true;
-				}else{
-						$command="\"$this->path\" -y -i $this->wd/$source $wmark -s {$size[0]}x{$size[1]} -b $br -ar $ar $this->wd/$dest 2>> ".ROOT.FILES.'/ffmpeg.log';
-						$this->exec($command);
-						return file_exists("$this->wd/$dest") && filesize("$this->wd/$dest")>0;
-				}
-		   }
-        }
         
         
         public function convert_by_type($script, $orig_file, $dest_file){
         	$tpl=new Template(html_entity_decode($script));
         	$tpl->ffmpeg_path=$this->path;
         	$tpl->orig_file=$orig_file;
-        	$tpl->dest_file=ROOT."$this->wd/$dest_file";
+        	$tpl->dest_file=$dest_file;
         	$command=$tpl->output();
          	$this->exec($command);
         	return (file_exists($tpl->dest_file) && filesize($tpl->dest_file)>0);

@@ -57,8 +57,10 @@ if(isset($form->videos_id) && isset($form->types_id)){
 		$video_data['orig_file']=$nf;
 
 		//$ffmpeg=new ffmpeg($settings['ffmpeg_path'],ROOT.SMALL_VIDEOS.'/'.$year_month_folder,$settings['watermark_path']);
-		$newpath= FILES."/$year_month_folder";
-		$ffmpeg=new ffmpeg($settings['ffmpeg_path'], $newpath, @$settings['watermark_path']);
+		$newpath= ROOT.FILES."/$year_month_folder";
+		//$ffmpeg=new ffmpeg($settings['ffmpeg_path'], $newpath, @$settings['watermark_path']);
+		$ffmpeg=new ffmpeg($settings['ffmpeg_path'], ROOT.FILES);
+		
 	
 		$oldfile=$video_types_data['filename'];
 		$oldframe=$video_data['frame'];
@@ -67,10 +69,10 @@ if(isset($form->videos_id) && isset($form->types_id)){
 		$ext=$types_data['extension'];
 		$newfile="$px.$ext";
 
-		if($ffmpeg->convert_by_type($types_data['script'], ROOT.FILES.'/'.$video_data['orig_file'], $newfile)){
+		if($ffmpeg->convert_by_type($types_data['script'], ROOT.FILES.'/'.$video_data['orig_file'], "$newpath/$newfile")){
 			$data['filename']=ROOT."$newpath/$newfile";
 			
-			$video_info=$ffmpeg->get_info(ROOT.FILES.'/'.$video_data['orig_file']);
+			$video_info=$ffmpeg->get_info($video_data['orig_file']);
 
 				
 			$ss=(int)($video_info['seconds']*0.5);
