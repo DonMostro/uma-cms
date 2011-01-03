@@ -96,7 +96,7 @@ if(isset($form->videos_id) && isset($form->types_id)){
 			}
 
 			if(!empty($oldfile)){
-				unlink(ROOT.$oldfile);
+				unlink($oldfile);
 				$video_types->update();
 			}else{
 				$video_types->add();
