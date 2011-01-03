@@ -38,6 +38,9 @@ class MVideos extends MModel {
 	
 	function __construct(){
     	parent::__construct(new RecordSet());
+    	
+    	
+    	$this->dataSet->addOrder(new DataOrder("tt"));
     	$this->table=TABLE_PREFIX.'videos';
 		$this->table_categories=TABLE_PREFIX.'categories';
 		$this->table_thumbs=TABLE_PREFIX.'thumbs';

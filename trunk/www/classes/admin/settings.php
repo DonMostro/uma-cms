@@ -5,10 +5,6 @@ include_once(ROOT."classes/lib/Types.php");
 include_once(ROOT."classes/models/MSettings.php");
 include_once(ROOT."classes/admin/test/test_ffmpeg.php");
 include_once(ROOT."classes/admin/test/test_maxuploadsize.php");
-include_once(ROOT."classes/admin/test/test_red5server.php");
-include_once(ROOT."classes/admin/test/test_red5streams.php");
-include_once(ROOT."classes/admin/test/clear_cache.php");
-include_once(ROOT."classes/admin/test/find_watermark.php");
 
 class ASettings{
   public $page;
