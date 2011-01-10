@@ -39,9 +39,17 @@ class multiconversion extends Element{
   		$mvideotypes->setVideosId($this->params['ID']);
   		$mvideotypes->load();
    		if($mvideotypes->next()){
-			$image = "<img src=\"".ROOT.FILES_IMAGES."/".$t['thumb']."\" alt=\"".$t['title']." :)\" title=\"".$t['title']."\" style=\"opacity: 0.3; filter:alpha(opacity=30);\"/>";
+   			if(!empty($t['thumb'])){
+				$image = "<img src=\"".ROOT.FILES_IMAGES."/".$t['thumb']."\" alt=\"".$t['title']." :)\" title=\"".$t['title']."\" style=\"opacity: 0.3; filter:alpha(opacity=30);\"/>";
+   			}else{
+   				$image = $t['title'];
+   			}
   		}else{
-  			$image = "<img src=\"".ROOT.FILES_IMAGES."/".$t['thumb']."\" alt=\"".$t['title']."\" title=\"".$t['title']."\" />";
+  			if(!empty($t['thumb'])){
+  				$image = "<img src=\"".ROOT.FILES_IMAGES."/".$t['thumb']."\" alt=\"".$t['title']."\" title=\"".$t['title']."\" />";
+  			}else{
+  				$image = $t['title'];
+  			}	
   		}
   		
 		$href="javascript:popup('convert.php?types_id=".$t['id']."&videos_id=".$this->params['ID']."');";
