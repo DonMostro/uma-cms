@@ -5,6 +5,7 @@ include_once(ROOT."classes/lib/Template.php");
 include_once(ROOT."classes/lib/UrlBuilder.php");
 include_once(ROOT."classes/views/VView.php");
 include_once(ROOT."classes/models/MModel.php");
+include_once(ROOT."classes/models/MVideos.php");
 include_once(ROOT."classes/models/MSimilarVideos.php");
 include_once(ROOT."classes/lib/Types.php");
 
@@ -37,12 +38,17 @@ class VPlayer extends VView {
   	} elseif (!empty($this->info['video_embed'])){
   		$code=html_entity_decode($this->info['video_embed']);
   	}else{
-  		$code="There is no player configured to play this video format.";
+  		$code="No hay player configurado para este tipo de video";
   	}
   	
   	$tpl=new Template($code);
   	//$tpl->was_adviced='0';
   	$tpl->id=$this->id;
+  	$mvideos = new MVideos();
+  	$mvideos->setId($this->id);
+  	$mvideos->view();
+  	
+  	
   	$tpl->playlists_id=$this->playlists_id;
 	$tpl->next_id=$this->next_id;
   	$tpl->base=urlencode(URL.'/');

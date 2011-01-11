@@ -44,9 +44,8 @@ class VPage extends VView {
   }
 
   /**
-   * [TODO] 
-   * Esta vista conserva queries para pintar el menú, estas se deben mover a los modelos tabla respectivos
-   * y usar esos objetos  
+   * Setea $this->req_v, $this->req_c, $this->req_c_parent
+   * para obtener ids de video, categoría y categoría padre en caso de existir
    * @return unknown_type
    */
   
