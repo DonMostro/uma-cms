@@ -30,7 +30,7 @@ class VPage extends VView {
   public $req_c;
   public $req_v;
   private $form;
-  private $version = '20100413';
+  private $version = '20100413';//actualizar para forzar actualizacion de recursos lado del cliente (css, js)
   
   function __construct(){
 	parent::__construct();
