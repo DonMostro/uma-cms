@@ -4,6 +4,7 @@ include_once("root.php");
 include_once(ROOT."config.php");
 include_once(ROOT."classes/lib/Template.php");
 include_once(ROOT."classes/lib/Types.php");
+include_once(ROOT."classes/lib/Form.php");
 include_once(ROOT."classes/models/MMenu.php");
 include_once(ROOT."classes/models/MVideos.php");
 include_once(ROOT."classes/models/MCategories.php");
@@ -28,11 +29,13 @@ class VPage extends VView {
   public $req_c_parent;
   public $req_c;
   public $req_v;
-  public $version = '20100413';
+  private $form;
+  private $version = '20100413';
   
   function __construct(){
 	parent::__construct();
 	$this->keywords='';
+	$this->form = new Form();
   }
   
   public function getInstance(){
@@ -52,14 +55,14 @@ class VPage extends VView {
 
   public function SetAllRequestItems(){
   	//subcanal
-  	$this->req_c = isset($_REQUEST['c']) && ctype_digit($_REQUEST['c']) && !empty($_REQUEST['c']) ? $_REQUEST['c'] : 0;
+  	$this->req_c = ctype_digit(@$this->form->c) ? $this->form->c : 0;
   	//video
-  	$this->req_v = isset($_REQUEST['v']) && ctype_digit($_REQUEST['v']) && !empty($_REQUEST['v']) ? $_REQUEST['v'] : 0;
+  	$this->req_v = ctype_digit(@$this->form->v) ? $this->form->v : 0;
   	
   	
   	//En el XML, ?v ahora es ?id, why?: quien sabe por que ...
-  	if($this->req_v == 0 && @$_REQUEST['m'] == 'filename'){
-  		$this->req_v = ctype_digit($_REQUEST['id']) && !empty($_REQUEST['id']) ? $_REQUEST['id'] : 0;	  		
+  	if($this->req_v == 0 && @$this->form->m == 'filename'){
+  		$this->req_v = ctype_digit(@$this->form->id) ? $this->form->id : 0;	  		
   	}
   	
   	//canal
@@ -67,32 +70,32 @@ class VPage extends VView {
 
   	if($this->req_c == 0 && $this->req_v != 0){
   		//Buscar categoria de video si esta seteada id de video
-  		$mvideos=new MVideos();
-  		$mvideos->setId($this->req_v);
-  		$mvideos->load();
-  		if($m=$mvideos->next()){
+  		$Videos=new MVideos();
+  		$Videos->setId($this->req_v);
+  		$Videos->load();
+  		if($m=$Videos->next()){
   			$this->req_c=$m['categories_id'];
   		}
   	}
 
   	if($this->req_c != 0){
   		//Buscar parent_id de categoria si esta seteada id de categoria
-  		$mcategories=new MCategories();
-  		$mcategories->setId($this->req_c);
-  		$mcategories->load();
-  		if($c=$mcategories->next()){
-  			$this->req_c_parent = $c['parent_id'];	
+  		$Categories=new MCategories();
+  		$Categories->setId($this->req_c);
+  		$Categories->load();
+  		if($m=$Categories->next()){
+  			$this->req_c_parent = $m['parent_id'];	
   		}
   	}
 
   	 	
   	if($this->req_c_parent == 0 && $this->req_v != 0){
   		//Buscar parent_id de categoria si esta seteada id de video
-   		$mvideos=new MVideos();
-  		$mvideos->setId($this->req_v);
-  		$mvideos->load();
-  		if($v=$mvideos->next()){
-  			$this->req_c_parent = $v['parent_id'] != 0 ? $v['parent_id'] : $v['categories_id'];
+   		$Videos=new MVideos();
+  		$Videos->setId($this->req_v);
+  		$Videos->load();
+  		if($m=$Videos->next()){
+  			$this->req_c_parent = $m['parent_id'] != 0 ? $m['parent_id'] : $m['categories_id'];
   		}
   		
   	 }	
@@ -113,13 +116,25 @@ class VPage extends VView {
   	//canal
   	$request_c_parent = 0;
 
-  	$strSQL = " SELECT parent_id FROM ztv_categories WHERE id = $request_c ";
-	$qry = mysql_query($strSQL);
+  	$Categories = new MCategories();
+  	$Categories->setId($request_c);
+  	$Categories->load();
+  	
+  	if($m=$Categories->next()){
+  		 $request_c_parent = $m['parent_id']; 		
+  	}
+  	
+  	
+  	
+  	//$strSQL = " SELECT parent_id FROM ztv_categories WHERE id = $request_c ";
+	//$qry = mysql_query($strSQL);
 
-  	if($row = mysql_fetch_array($qry)){
+  	/*if($row = mysql_fetch_array($qry)){
   		//canal padre
   		$request_c_parent = $row['parent_id'];
-  	}	
+  	}*/
+
+  	
   	if($request_uri=='/')$request_uri='';
 
   	//show language selector
@@ -188,6 +203,8 @@ class VPage extends VView {
 
 	    if(@$_REQUEST['m'] == 'video' && $request_v != 0){
 	    	DAO::connect();  	
+	    	
+	    	/*[TODO] no deben haber queries en las vistas, esta debe migrar al MCategories*/
 
 	    	$strSQL = "SELECT categories_id, parent_id   
 	    	FROM ztv_videos vid LEFT JOIN ztv_categories cat 
