@@ -33,6 +33,7 @@ class CVideo extends CCommand{
   		$videomodel->setId($this->form->v);
 		$video=new VVideo($videomodel);
 		$videomodel->load();
+		//$videomodel->view(); /*	2011-04-13 movido de CFilename() */
 		$video->show();
 	  	$c->run();
 	  	$c->page->title=$video->title;

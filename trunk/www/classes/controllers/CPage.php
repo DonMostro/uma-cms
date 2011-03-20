@@ -82,7 +82,7 @@ class CPage extends CCommand {
 			
 			$this->page->title=$info['title'];
 		}else{
-			$this->content=$this->lang->getText('E_ACCESS_DENIED');
+			$this->content="Acceso Denegado";
 		}
 	}
 }
