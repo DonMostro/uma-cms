@@ -1,6 +1,6 @@
 <?php
-ini_set("display_errors","On");
-error_reporting(E_ALL);
+//ini_set("display_errors","On");
+//error_reporting(E_ALL);
 include_once("root.php");
 include_once(ROOT."classes/admin/element.php");
 include_once(ROOT."classes/lib/DAO.php");
