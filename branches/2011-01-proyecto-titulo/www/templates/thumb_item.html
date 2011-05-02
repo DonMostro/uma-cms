@@ -1,0 +1,25 @@
+<div class="items">
+[:if is_first=="1":]
+	<div>                                 
+	   	<ul>
+[:endif:]	   	
+	     	<li>
+	         	<div class="cap140x86 ic_container">
+	   	       		<img src="[:thumb:]" width="138" height="88" alt="[:title:] [:T_VIDEO:]"/>
+	       	        <div class="ic_caption">
+	            	   	<a href="/index.php?m=video&v=[:id:]" class="verVideo">Ver video</a>
+	                    <p class="ic_text">
+	                    Duración: [:duration:] min<br />
+	                    Visitas: [:hits:]<br />
+	                    Comentarios : [:num_comments:]
+	                    </p>
+	                </div>
+	            </div>
+	            <h4>[:title:]</h4>
+	        </li>
+[:if is_last=="1":]        
+	    </ul>
+	</div>
+[:endif:]	  
+</div>		
+		

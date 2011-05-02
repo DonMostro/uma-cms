@@ -1,0 +1,15 @@
+<?xml version="1.0"?>
+<component name="T_LATEST">
+	<model name="MVideos">
+		<order dir="DESC">hits</order>
+		<limit>18</limit>
+		<approved>1</approved>
+	</model>
+	<view name="VCategory">
+		<tplfile>themost_list.html</tplfile>
+		<title>LO + VISTO</title>
+		<cutter>6</cutter>
+		<tplitemfile>related_item.html</tplitemfile>
+		<url>index.php?m=videos&amp;sort=tt</url>
+	</view>
+</component>

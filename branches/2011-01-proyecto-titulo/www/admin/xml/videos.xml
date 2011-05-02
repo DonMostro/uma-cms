@@ -1,0 +1,19 @@
+<?xml version="1.0"?>
+<section name="Videos" type="table" target="MVideos" search="true" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
+    <field name="" target="thumb" type="image" link="javascript:popup('player.php?v={id}','center')" visible="true" edit="false" add="false"/>
+    <field name="T&amp;iacute;tulo" target="title" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Tags (separelos por coma)" target="tags" type="textarea" visible="false" edit="true" add="true"/>
+    <field name="Descripci&amp;oacute;n" target="description" type="textarea" visible="false" edit="true" add="true"/>
+    <field name="Categor&amp;iacute;a" target="categories_id" type="categories" visible="true" edit="true" add="true"/>
+    <field name="Conversiones" target="type_id" type="multiconversion" table="ztv_video_types" field="name" visible="true" edit="false" add="false"/>
+    <field name="Fecha/Hora" target="tt" type="tt" visible="true" edit="true" add="true"/>
+    <field name="Archivo Original" target="orig_file" type="upload" filepath="files" visible="false" edit="true" add="false"/>
+    <field name="Imagen Principal" target="frame" type="upload" filepath="files" visible="false" edit="true" add="false"/>
+	<field name="Duraci&amp;oacute;n" target="duration" type="textfield" visible="false" edit="true" add="true"/>
+	<field name="Hits" target="hits" type="textfield" visible="true" edit="false" add="false"/>
+	<field name="Aprobado" target="approved" type="yesno" visible="true" edit="true" add="true"/>
+    <field name="" target="" type="element" default="Miniaturas" image="images/32/photos.png" link="index.php?p=thumbnails&amp;videos_id={id}" visible="true" edit="false" add="false"/>
+    <field name="" target="" type="element" default="Tags" image="images/32/tag.png" link="index.php?p=tags&amp;videos_id={id}" visible="true" edit="false" add="false"/>
+    <field name="" target="" type="element" default="Crear Miniaturas" image="images/32/camera-photo.png" link="javascript:popup('create_thumbs.php?v={id}','center')" visible="true" edit="false" add="false"/>
+</section>

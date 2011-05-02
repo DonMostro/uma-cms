@@ -1,0 +1,83 @@
+<div class="span-16">
+<!--<div class="heading"><h2>[:category_title:]</h2></div>-->
+<!--nube de tags-->
+<div class="box tagscanal" id="box_tagscanal">
+[:tag_cloud:]</div>
+<script language="javascript">
+if(document.URL == '[:host:]'+'/index.php?m=videos&sort=tt'){
+	div = document.getElementById('box_tagscanal');
+	div.style.display = 'none';
+}
+</script>
+<!-- fin nube de tags-->
+[:if subcats=="":]
+[:else:]
+<div class="span-18 last">
+	[:subcats:]
+	<div class="brclear"></div>
+</div>
+[:endif:]
+[:if featured=="":]
+[:else:]
+<!--<div class="box" style="height:182px">
+	[:featured:]
+	<div class="brclear"></div>
+</div><br />-->
+[:endif:]
+<!---->
+<div class="span-18 last">
+	<div class="heading"><h2>[:title:]</h2></div>
+		[:list:]
+</div>	
+	<div class="bottom" style="float:right;">[:pagination:]</div>
+<!---->
+</div>
+<!--COLUMNA DERECHA VIDEOS-->
+<div class="span-8 rbg last">
+<div class="m10lr">
+	<!--<div class="headingS" >
+		<h2>[:T_SORTBY:]</h2>
+    </div>
+    <div id="box">
+		<ul class="quicklist">
+			<li><a [:if sort=="hits":]style=" background: url('css/i/bullRed-sidebar.gif') no-repeat left center; font-weight: bold" [:endif:]href="[:curl:]&amp;sort=hits">[:T_VIEWS:]</a></li>
+			<li><a [:if sort=="tt":]style="background: url('css/i/bullRed-sidebar.gif') no-repeat left center;font-weight: bold" [:endif:]href="[:curl:]&amp;sort=tt">[:T_DATEADDED:]</a></li>
+			<li><a [:if sort=="rate":]style="background: url('css/i/bullRed-sidebar.gif') no-repeat left center;font-weight: bold" [:endif:]href="[:curl:]&amp;sort=rate">[:T_RATINGS:]</a></li>
+			<li><a [:if sort=="duration":]style="background: url('css/i/bullRed-sidebar.gif') no-repeat left center;font-weight: bold" [:endif:]href="[:curl:]&amp;sort=duration">[:T_DURATION:]</a></li>
+		</ul>
+    </div>
+	<div class="headingS" >
+		<h2>[:T_UPLOADED:]</h2>
+     </div>
+     <div id="box">
+		<ul class="quicklist">
+			<li><a [:if time=="":]style="background: url('css/i/bullRed-sidebar.gif') no-repeat left center;font-weight: bold" [:endif:]href="[:surl:]&amp;time=">[:T_ANYTIME:]</a></li>
+			<li><a [:if time=="today":]style="background: url('css/i/bullRed-sidebar.gif') no-repeat left center;font-weight: bold" [:endif:]href="[:surl:]&amp;time=today">[:T_TODAY:]</a></li>
+			<li><a [:if time=="week":]style="background: url('css/i/bullRed-sidebar.gif') no-repeat left center;font-weight: bold" [:endif:]href="[:surl:]&amp;time=week">[:T_THISWEEK:]</a></li>
+			<li><a [:if time=="month":]style="background: url('css/i/bullRed-sidebar.gif') no-repeat left center;font-weight: bold" [:endif:]href="[:surl:]&amp;time=month">[:T_THISMONTH:]</a></li>
+		</ul>
+      </div>  -->
+	<!-- CM8 - Comienzo espacio latercera.com _ 3Tv Home _ 7 Banner -->
+	<div id="CM8ShowAd3" title="300x90_a" class="adCM8"></div>
+	<!-- CM8 - Fin espacio latercera.com _ 3Tv Home _ 7 Banner -->
+    <div class="headingS">
+            <h2>[:T_CAT:]</h2>
+	</div>
+    <div id="box">
+        <ul class="quicklist">
+		<li><a [:if c=="":]style="background: url('css/i/bullRed-sidebar.gif') no-repeat left center;font-weight: bold" [:endif:]href="index.php?m=videos[:if sort=="":][:else:]&amp;sort=[:sort:][:endif:]">[:T_VIEWALL:]</a></li>	
+		[:categories:]
+		</ul>
+      </div> 
+   </div> 
+   	  		<!--PUBLICIDAD COL DERECHA ABAJO-->
+		<!-- cm8 - Comienzo espacio latercera.com _ 3Tv 300x250 -->	
+		<div id="CM8ShowAd2" title="300x250_a" class="adCM8"></div>
+				<!-- ca-pub-9694759232015294/[:googlechannel:]_300x250_a -->
+		<script type='text/javascript'>
+			GA_googleFillSlot("[:googlechannel:]_300x250_a");
+		</script>
+		<!-- cm8 - Comienzo espacio latercera.com _ 3Tv 300x250 -->		
+		<!--FIN PUBLICIDAD COL DERECHA ABAJO-->
+</div>
+[:marca_bbc:]

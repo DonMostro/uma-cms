@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<section name="Categories" type="table" target="MCategories" search="false" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
+    <field name="Parent" target="parent_id" type="categories" visible="true" edit="true" add="true"/>
+    <field name="Título" target="title" type="textfield" link="index.php?p=categories&amp;parent_id={id}" visible="true" edit="true" add="true"/>
+    <!--<field name="Miniatura" target="thumb" type="textfield" visible="true" edit="true" add="true"/>-->
+    <field name="Aprobado" target="approved" type="yesno" visible="true" edit="true" add="true"/>
+    <field name="Orden" target="orden" type="textfield" visible="true" edit="true" add="true"/> 
+</section>

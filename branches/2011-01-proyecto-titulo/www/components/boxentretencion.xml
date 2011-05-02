@@ -1,0 +1,18 @@
+<?xml version="1.0"?>
+<component name="T_VIDEOS">
+	<model name="MVideos">
+		<order dir="DESC">tt</order>
+		<limit>6</limit>
+		<approved>1</approved>
+		<parent_id>5</parent_id>
+	</model>
+	<view name="VCategory">
+		<tplfile>category_box.html</tplfile>
+		<tplitemfile>category_item.html</tplitemfile>
+		<categories_title>Entretenci&amp;oacute;n</categories_title>
+		<cutter>3</cutter>
+		<frontdoor>1</frontdoor>
+		<categories_id>5</categories_id>
+		<url>index.php?m=category&amp;c=5</url>
+	</view>
+</component> 

@@ -1,0 +1,24 @@
+	<div class="comment">
+			<div style="width: 50px; height: 50px; margin-right: 5px;" class="fl"></div>
+            <div class="span-14 last">
+				<div style="margin: 0pt 0pt 12px; color:#666">
+					<span>
+					<b>[:username:]&nbsp;&nbsp;|</b>
+					<span class="small">[:time:]</span></span>
+					
+					&nbsp;
+					[:if enable=="1":]
+					
+					   <a href="index.php?m=enable_comment&amp;e=0&amp;comment=[:id:]&amp;v=[:videos_id:]&amp;channel=[:channel:]" title="[:T_DISABLE_COMMENT:]"><img alt="[:T_DISABLE_COMMENT:]" src="images/cross.png" width="16" height="16" /></a>
+					[:endif:]
+					[:if enable=="0":]
+					
+					   <a href="index.php?m=enable_comment&amp;e=1&amp;comment=[:id:]&amp;v=[:videos_id:]&amp;channel=[:channel:]" title="[:T_ENABLE_COMMENT:]"><img alt="[:T_ENABLE_COMMENT:]" src="images/tick.png" width="16" height="16" /></a>
+					[:endif:]
+				</div>
+				<div class="[:disabled:]">
+					[:text:]
+				</div>
+			</div>
+			<div class="brclear"></div>
+		</div>

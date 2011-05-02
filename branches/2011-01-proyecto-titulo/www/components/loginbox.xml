@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<component name="T_SIGNIN">
+	<model name="MModel">
+	</model>
+	<view name="VHome">
+		<username>$username</username>
+		<tplfile>loginbox.html</tplfile>
+	</view>
+</component>

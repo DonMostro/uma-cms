@@ -1,0 +1,24 @@
+<div class="span-24-2">
+	<div class="boxTv box1">
+		<h6 class="rotulo">[:title:]</h6>
+        <a class="prev browse left"></a>
+        <div class="scrollable">   
+        	<div class="items">
+        		[:list:]
+        	</div>
+        </div>
+        <!-- "next page" action -->
+        <a class="next browse right"></a>
+        <!-- javascript coding -->
+ 		<script>
+		// ejecutar las secuencias de comandos cuando el DOM está listo. esto es sobre todo un buen hábito
+
+		$(function() {
+		
+		    // inicializar scrollable
+		    $(".scrollable").scrollable();
+		
+		});
+		</script>
+ 	</div>
+</div>

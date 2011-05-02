@@ -1,0 +1,16 @@
+<?xml version="1.0"?>
+<component name="T_LATEST">
+	<model name="MSimilarVideos">
+		<order dir="DESC">tt</order>
+		<id>%v</id>
+		<limit>18</limit>
+		<approved>1</approved>
+	</model>
+	<view name="VCategory">
+		<tplfile>related_list.html</tplfile>
+		<title>Videos Relacionados</title>
+		<cutter>6</cutter>
+		<tplitemfile>related_item.html</tplitemfile>
+		<url>index.php?m=videos&amp;sort=tt</url>
+	</view>
+</component>

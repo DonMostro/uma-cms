@@ -1,0 +1,51 @@
+<link rel="image_src" href="[:frame:]" />
+<link rel="video_src" href="http://www.3tv.cl/player.swf?file=http://www.3tv.cl/index.php?m=filename%252526id=[:id:]"/>
+<meta name="video_height" content="200" />
+<meta name="video_width" content="300" />
+<meta name="video_type" content="application/x-shockwave-flash" />
+<meta name="medium" content="video" />
+<script language="JavaScript">
+    var CM8VideoAdInitTimeout  = "30000";
+    var CM8VideoAdStartTimeout  = "30000";
+</script>
+<div id="videoPrincipal">
+	<div id="PlayerGrande">
+	  	[:if restricted=="true":]
+		<p style="color:#FFFFFF">Este video no se encuentra disponible para su zona geogr&aacute;fica</p>
+		[:else:]
+		[:player:]
+		[:endif:]
+	</div>
+	<div class="descripcionVideo" id="descripcionVideo">
+	   	<h3>[:title:]</h3>
+		<p id="bajadaVideo">[:description:]</p>
+		<div class="datosVideo">
+				<span class="small">Tags: [:tags:]</span>
+				<span class="small" style="float:left">Anadido hace: 
+					<span style="color: white;">[:time:]</span>
+				</span>
+				<span class="small" style="float:right">Reproducciones: 
+					<span style="color: white;">[:hits:]</span>
+				</span>
+ 		</div>
+		<div style="float:left;width:100%;margin-top:30px;">
+			<span style="color: white;">Embed:</span>
+			<span>
+				<textarea rows="3" cols="10" onclick="this.select();">[:embed:]</textarea>
+			</span>
+		</div>			
+    </div>
+   	[:if show_comments=="true":]
+	<div class="verComentarios">
+    	<a href="#" onClick="showSlidingDiv(); return false;" class="comentar">Comentar</a>
+    	<span class="noComentarios">[:num_comments:]</span>
+	</div>
+  	<div id="comentarios">
+    		[:comments:]
+		    <!--FORMULARIO COMENTARIOS-->
+			
+		<!--FIN FORMULARIO COMENTARIOS-->
+	</div>
+	[:endif:]	
+</div>
+<div style="display: none;">[:marca_bbc:]</div>

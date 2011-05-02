@@ -1,0 +1,10 @@
+<?xml version="1.0" ?>
+<section name="Tipos de Video" type="table" target="MTypes" search="false" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
+    <field name="Tipo" target="title" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Extensi&amp;oacute;n" target="extension" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Script de Conversi&amp;oacute;n" target="script" type="textarea" visible="true" edit="true" add="true"/>
+    <field name="Browser" target="browser" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="&amp;Iacute;cono 32x32" target="thumb" type="upload_image" size="32x32" filepath="files_images" visible="true" edit="true" add="false"/>
+    <field name="Aprobado" target="approved" type="yesno" visible="true" edit="true" add="true"/>
+</section>

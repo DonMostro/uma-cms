@@ -1,0 +1,12 @@
+<?xml version="1.0"?>
+<component name="Video">
+	<model name="MFeaturedVideos">
+		<categories_id>%c</categories_id>
+		<limit>1</limit>
+	</model>
+	<view name="VVideo">
+		<tplfile>video_box.html</tplfile>
+		<from_carrusel>true</from_carrusel>
+		<show_comments>true</show_comments>
+	</view>
+</component>

@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<component name="Video">
+	<model name="MVideos">
+		<id>%v</id>
+	</model>
+	<view name="VVideo">
+		<tplfile>video_box.html</tplfile>
+		<show_comments>true</show_comments>
+	</view>
+</component>

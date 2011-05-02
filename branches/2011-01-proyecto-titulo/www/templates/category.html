@@ -1,0 +1,14 @@
+[:if paginate=="1":]
+<div class="center boxTv">
+    [:list:]
+</div>    
+<div class="bottom">[:pagination:]</div>
+[:else:]
+	[:main_video_category:]
+	<div class="span-24 boxTv box2">
+		[:boxcategorylatest:]
+	</div>
+	<div class="span-24 boxTv">
+		[:boxcategorymoreviewed:]
+	</div>
+[:endif:]

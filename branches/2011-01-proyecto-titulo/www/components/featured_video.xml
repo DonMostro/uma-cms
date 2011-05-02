@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<component name="T_FEATURED">
+	<model name="MFeaturedVideos">
+		<order dir="ASC">orden</order>
+		<limit>1</limit>
+		<start>%start</start>
+	</model>
+	<view name="VVideo">
+		<tplfile>video.html</tplfile>
+		<tplitemfile>l_item.html</tplitemfile>
+		<showad>false</showad>
+		<url>?</url>
+	</view>
+</component>

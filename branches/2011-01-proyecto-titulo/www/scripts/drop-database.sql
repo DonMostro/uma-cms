@@ -1,0 +1,1 @@
+DROP DATABASE ztv_cms;
