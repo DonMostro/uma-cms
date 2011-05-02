@@ -1,0 +1,71 @@
+<div class="left" style="width:700px">
+		<div class="heading"><h2>[:T_UPLOAD_STEP1:]</h2></div>
+		<div class="box">
+			[:if photos=="1":]
+			<div style="border-bottom: 1px solid #66CEF5; margin-bottom:10px">
+				<a class="stab" style="float:left; margin-right:2px" href="index.php?m=users.upload"><b>[:T_VIDEO:]</b></a>
+				<a class="stab" style="float:left" href="index.php?m=users.createalbum">[:T_PICS:]</a>
+				<div class="brclear"></div>
+			</div>
+			[:endif:]
+			<form action="index.php?m=users.uploaddetails.upload" onsubmit="return false" method="post" enctype="multipart/form-data">
+				<p class="error">[:error:]</p>
+				<fieldset>
+					<label for="title">[:T_TITLE:]</label>
+					<p>[:M_VIDEO_TITLE:]</p>
+					<p><input id="title" type="text" name="title" style="width:500px" /></p>
+					
+					<label for="description">[:T_DESC:]</label>
+					<p>[:M_VIDEO_DESC:]</p>
+					<p><textarea id="description" cols="10" rows="5" name="description" style="width:500px;height:200px"></textarea></p>
+					
+					<label for="category">[:T_CAT:]</label>
+					<p>[:M_VIDEO_CAT:]</p>
+					<p>
+						<select id="category" name="category" style="width:200px">
+							[:categories:]
+						</select>
+					</p>
+					
+					<label for="title">[:T_PRIVATE:]</label>
+					<p><input id="private" type="checkbox" name="private" value="1" />[:M_PRIVATE:]</p>
+
+					<label for="tags">[:T_TAGS:]</label>
+					<p>[:M_VIDEO_TAGS:]</p>
+					<p><input id="tags" type="text" name="tags" style="width:350px" /> ([:T_EXAMPLE:]: fun animation show)</p>
+
+					<!--  
+					<label for="thumbnail">[:T_UPLOAD_THUMB:]</label>
+					<p><input id="thubmnail" type="file" name="thumbnail" style="width:500px" /></p>
+					-->
+					
+					<script type="text/javascript">
+						var validate_upload = ([
+								{
+									"field": "title",
+									"validator": "ValidateEmpty",
+									"message": "[:E_EMPTY:]"
+								},
+								{
+									"field": "description",
+									"validator": "ValidateEmpty",
+									"message": "[:E_EMPTY:]"
+								},
+								{
+									"field": "tags",
+									"validator": "ValidateEmpty",
+									"message": "[:E_EMPTY:]"
+								}
+							]);
+					</script>
+					<p>
+						<input type="submit" value="[:T_CONTINUE:]" onclick="return validate(this.form, validate_upload)"/>
+					</p>
+				</fieldset>
+			</form>
+		</div>
+</div>
+<div class="right" style="margin-left:20px;">
+	[:ad1:]
+</div>
+<div class="brclear"></div>

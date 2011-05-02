@@ -1,0 +1,8 @@
+<?xml version="1.0"?>
+<section name="Group Resources" type="table" target="MACLGroupResources" search="false" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
+    <field name="Resource" target="resource_id" type="textfield" visible="false" edit="false" add="true"/>
+    <field name="Resource Type" target="res_type" type="textfield" visible="false" edit="false" add="true"/>
+    <field name="Access" target="access" type="perms" visible="true" edit="true" add="true"/>
+    <field name="Group" target="acl_groups_id" type="select" table="acl_groups" field="name" visible="true" edit="true" add="true"/>
+</section>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<section name="Video Ads" type="table" target="MVideoAds" search="false" edit="true" add="true" delete="true">
+    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="flase"/>
+    <field name="Codigo" target="code" type="textarea" visible="true" edit="true" add="true"/>
+    <field name="Comienzo" target="begin" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Final" target="finish" type="textfield" visible="true" edit="true" add="true"/>
+    <field name="Canal" target="categories_id" type="categories" visible="true" edit="true" add="true"/>
+	<field name="Approved" target="approved" type="yesno" visible="true" edit="true" add="true"/>
+</section>

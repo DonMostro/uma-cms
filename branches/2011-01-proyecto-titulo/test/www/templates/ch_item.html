@@ -1,0 +1,21 @@
+	<div class="[:if trigger=="1":]color1[:else:]color2[:endif:]">
+		<div class="left" style="margin-right:40px">
+			<a href="[:channelurl:]"><img src="[:thumb:]" width="120" height="90" alt="[:username:] [:T_CHANNEL:]" border="0"/></a>
+		</div>
+		<div class="left">
+			<h3><a href="[:channelurl:]" class="[:disabled:]">[:username:]</a></h3><br />
+			<div class="[:disabled:]">[:short_desc:]</div><br />
+			<span class="small">[:T_VIDEOS:]: [:videos:]</span><br />
+			<span class="small">[:T_VIEWS:]: [:hits:]</span><br />
+			<span class="small">[:T_SUBSCRIPTIONS:]: [:subscriptions:]</span><br />
+		</div>
+		<div style="text-align:right">
+			[:if enable=="1":]
+			   <a href="index.php?m=enable_channel&amp;e=0&amp;channel=[:username:]" title="[:T_DISABLE_CHANNEL:]"><img alt="[:T_DISABLE_CHANNEL:]" src="images/cross.png" width="16" height="16" /></a>
+			[:endif:]
+			[:if enable=="0":]
+			   <a href="index.php?m=enable_channel&amp;e=1&amp;channel=[:username:]" title="[:T_ENABLE_CHANNEL:]"><img alt="[:T_ENABLE_CHANNEL:]" src="images/tick.png" width="16" height="16" /></a>
+			[:endif:]
+		</div>
+		<div class="brclear"></div>
+	</div>

@@ -1,0 +1,54 @@
+<div class="left" style="width:700px">
+		<div class="heading"><h2>[:T_CREATE_ALBUM:]</h2></div>
+		<div class="box">
+			<div style="border-bottom: 1px solid #66CEF5; margin-bottom:10px">
+				<a class="stab" style="float:left; margin-right:2px" href="index.php?m=users.upload">[:T_VIDEO:]</a>
+				<a class="stab" style="float:left" href="index.php?m=users.createalbum"><b>[:T_PICS:]</b></a>
+				<div class="brclear"></div>
+			</div>
+			<form action="index.php?m=users.savealbum.createalbum" method="post" enctype="multipart/form-data">
+				
+				<input type="hidden" name="category" value="[:category:]" />
+				
+				<p class="error">[:error:]</p>
+				
+				<fieldset>
+					<label for="title">[:T_TITLE:]</label>
+					<p><input id="title" type="text" name="title" style="width:500px" /></p>
+					
+					<label for="description">[:T_DESC:]</label>
+					<p><textarea id="description" cols="10" rows="5" name="description" style="width:500px;height:200px"></textarea></p>
+
+					<label for="title">[:T_PRIVATE:]</label>
+					<p><input id="private" type="checkbox" name="private" value="1" />[:M_PRIVATE:]</p>
+
+					<label for="tags">[:T_TAGS:]</label>
+					<p><input id="tags" type="text" name="tags" style="width:350px" /> ([:T_EXAMPLE:]: fun animation show)</p>
+
+					<label for="file">[:T_UPLOAD_PICS:]</label>
+					<p id="files"><input type="file" name="file[]" /></p>
+					<p><input type="button" value="[:T_ADD_FILE:]" onclick="addfile()" /></p>
+					
+					<script type="text/javascript">
+					<!--
+					function addfile(){
+						var p=document.getElementById('files');
+						var e=document.createElement('input');
+						e.setAttribute('type','file');
+						e.setAttribute('name','file[]');
+						p.appendChild(e);
+					}
+					-->
+					</script>
+					
+					<p>
+						<input type="submit" value="[:T_CONTINUE:]" />
+					</p>
+				</fieldset>
+			</form>
+		</div>
+</div>
+<div class="right" style="margin-left:20px;">
+	[:ad1:]
+</div>
+<div class="brclear"></div>

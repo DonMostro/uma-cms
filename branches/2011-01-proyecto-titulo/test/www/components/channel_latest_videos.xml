@@ -1,0 +1,14 @@
+<?xml version="1.0"?>
+<component name="T_VIDEOS">
+	<model name="MVideos">
+		<order dir="DESC">tt</order>
+		<limit>$limit</limit>
+		<username>%channel</username>
+		<approved>1</approved>
+	</model>
+	<view name="VCategory">
+		<tplfile>small_list_h.html</tplfile>
+		<tplitemfile>thumb_item.html</tplitemfile>
+		<url>index.php?m=videos&amp;sort=tt&amp;username=$channel</url>
+	</view>
+</component>

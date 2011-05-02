@@ -1,0 +1,31 @@
+<h3>[:T_EDIT_GROUP:]</h3>
+<form action="index.php?m=users.savegroup.editgroup.groups.usercp" method="post" enctype="multipart/form-data">
+	<fieldset>
+		<p class="error">[:error:]</p>
+		
+		<input type="hidden" value="[:id:]" name="g" />
+		
+		<label for="name">[:T_GROUP_NAME:]</label>
+		<p>[:M_GROUP_NAME:]</p>
+		<p><input type="text" value="[:name:]" id="name" style="width:320px" name="name" /></p>
+
+		<label for="description">[:T_GROUP_DESC:]</label>
+		<p>[:M_GROUP_DESC:]</p>
+		<p><textarea id="description" cols="10" rows="5" style="width:320px;height:120px" name="description">[:description:]</textarea></p>
+
+		<label for="private">[:T_PRIVATE_GROUP:]</label>
+		<p><input type="checkbox" id="private" name="private" value="1" [:private:]/> [:M_PRIVATE_GROUP:]</p>
+
+		<label for="thumbnail">[:T_SELTHUMB:]</label> 
+		<div id="thumb" style="width:120px;height:90px">
+				<script type="text/javascript">
+					get_url_contents('index.php?m=video_thumb&amp;g=[:id:]','thumb');
+				</script>
+		</div><br />
+		<p>[:thumbs:]</p>
+		
+		<p>
+			<input type="submit" value="[:T_SAVE_GROUP:]" />
+		</p>
+	</fieldset>
+</form>

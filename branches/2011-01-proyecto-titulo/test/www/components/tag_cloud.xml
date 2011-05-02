@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<component name="Los Mas">
+	<model name="MVideos">
+		<order dir="DESC">hits</order>
+		<limit>30</limit>
+		<top>1</top>
+	</model>
+	<view name="VTagCloud">
+		<tplfile>tag_cloud.html</tplfile>
+		<tplitemfile>tag_cloud_item.html</tplitemfile>
+		<url>index.php?m=videos</url>
+	</view>
+</component>

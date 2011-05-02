@@ -1,0 +1,66 @@
+<div class="heading"><h2>[:T_EDIT_CHANNEL:]</h2></div>
+<div class="box">
+	<form action="index.php?m=users.saveprofile" method="post" enctype="multipart/form-data">
+		<fieldset>
+			<p class="error">[:error:]</p>
+	
+			<label for="name">[:T_NAME:]</label>
+			<p><input id="name" style="width:320px" name="name" value="[:name:]" /></p>
+			
+			<label for="bday">[:T_BDAY:]</label>
+			<p>
+				<select onchange="change_days()" id="bdayyear" name="bdayyear">
+					[:years:]
+				</select>
+				<select onchange="change_days()" id="bdaymonth" name="bdaymonth">
+					[:months:]
+				</select>
+				<select id="bdayday" name="bdayday">
+					[:days:]
+				</select>
+				<script type="text/javascript">change_days()</script>
+			</p>
+			
+			<label for="gender">[:T_GENDER:]</label>
+			<p>
+				<select id="gender" name="gender" >
+					<option value="0" [:if gender=="0":]selected="selected"[:endif:] >--</option>
+					<option value="1" [:if gender=="1":]selected="selected"[:endif:] >[:T_MALE:]</option>
+					<option value="2" [:if gender=="2":]selected="selected"[:endif:] >[:T_FEMALE:]</option>
+				</select>	
+			</p>
+			
+			<label for="relstatus">[:T_RELSTATUS:]</label>
+			<p>
+				<select id="relstatus" name="relstatus" >
+					<option value="0" [:if relstatus=="0":]selected="selected"[:endif:] >--</option>
+					<option value="1" [:if relstatus=="1":]selected="selected"[:endif:] >[:T_SINGLE:]</option>
+					<option value="2" [:if relstatus=="2":]selected="selected"[:endif:] >[:T_TAKEN:]</option>
+				</select>	
+			</p>
+	
+			<label for="aboutme">[:T_ABOUTME:]</label>
+			<p>[:M_ABOUTME:]</p>
+			<p><textarea id="aboutme" cols="10" rows="5" style="width:320px;height:240px" name="aboutme">[:aboutme:]</textarea></p>
+			
+			<label for="website">[:T_WEBSITE:]</label>
+			<p><input id="website" style="width:320px" name="website" value="[:website:]" /></p>
+			
+			<label for="hobbies">[:T_HOBBIES:]</label>
+			<p><textarea id="hobbies" cols="10" rows="5" style="width:320px;height:240px" name="hobbies">[:hobbies:]</textarea></p>
+			
+			<label for="favmovies">[:T_FAVMOVIES:]</label>
+			<p><textarea id="favmovies" cols="10" rows="5" style="width:320px;height:240px" name="favmovies">[:favmovies:]</textarea></p>
+			
+			<label for="favmusic">[:T_FAVMUSIC:]</label>
+			<p><textarea id="favmusic" cols="10" rows="5" style="width:320px;height:240px" name="favmusic">[:favmusic:]</textarea></p>
+	
+			<label for="favbooks">[:T_FAVBOOKS:]</label>
+			<p><textarea id="favbooks" cols="10" rows="5" style="width:320px;height:240px" name="favbooks">[:favbooks:]</textarea></p>
+			
+			<p>
+				<input type="submit" value="[:T_SAVE:]" />
+			</p>
+		</fieldset>
+	</form>
+</div>

@@ -1,0 +1,20 @@
+<div class="heading"><h2>[:T_CREATE_DISCUSSION:]</h2></div>
+<div class="box">
+<form action="index.php?m=users.creatediscussion.newdiscussion" method="post" enctype="multipart/form-data">
+	<fieldset>
+		<p class="error">[:error:]</p>
+		
+		<input type="hidden" name="group" value="[:group:]" />
+		
+		<label for="topic">[:T_TOPIC:]</label>
+		<p><input type="text" value="[:topic:]" id="name" style="width:320px" name="topic" /></p>
+		
+		<label for="text">[:T_MESSAGE:]</label>
+		<p><textarea id="text" cols="10" rows="5" style="width:320px;height:120px" name="text">[:text:]</textarea></p>
+		
+		<p>
+			<input type="submit" value="[:T_CREATE_DISCUSSION:]" />
+		</p>
+	</fieldset>
+</form>
+</div>

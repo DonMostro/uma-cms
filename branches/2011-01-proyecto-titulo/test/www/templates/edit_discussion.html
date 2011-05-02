@@ -1,0 +1,18 @@
+<h3>[:T_EDIT_DISCUSSION:]</h3>
+<form action="index.php?m=users.savediscussion.editdiscussion" method="post" enctype="multipart/form-data">
+	<fieldset>
+		<p class="error">[:error:]</p>
+		
+		<input type="hidden" value="[:id:]" name="d" />
+		
+		<label for="topic">[:T_TOPIC:]</label>
+		<p><input type="text" value="[:topic:]" id="name" style="width:320px" name="topic" /></p>
+		
+		<label for="locked">[:T_DISCUSS_LOCKED:]</label>
+		<p><input type="checkbox" id="locked" name="locked" value="1" [:locked:]/> [:M_DISCUSS_LOCKED:]</p>
+		
+		<p>
+			<input type="submit" value="[:T_SAVE_DISCUSSION:]" />
+		</p>
+	</fieldset>
+</form>
