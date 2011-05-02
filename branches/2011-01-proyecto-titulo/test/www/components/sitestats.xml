@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<component name="T_STATS">
-	<model name="MSiteStats">
-	</model>
-	<view name="VView">
-		<tplfile>sitestats.html</tplfile>
-	</view>
-</component>

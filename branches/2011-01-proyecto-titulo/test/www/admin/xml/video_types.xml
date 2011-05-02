@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<section name="Video Types" type="table" target="MVideoTypes" search="false" edit="true" add="true" delete="true">
-    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
-    <field name="Name" target="name" type="textfield" visible="true" edit="true" add="true"/>
-    <field name="Template" target="template" type="textfield" visible="true" edit="true" add="true"/>
-    <field name="Category" target="categories_id" type="select" table="categories" field="title" visible="true" edit="true" add="true"/>
-	 <field name="" target="" type="element" default="Videos" image="images/tv.png" link="index.php?p=videos&amp;type_id={id}" visible="true" edit="false" add="false"/>
-</section>

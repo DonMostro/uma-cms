@@ -1,7 +1,0 @@
-<?xml version="1.0"?>
-<section name="Miniaturas (132x90 px)" type="table" target="MThumbnails" search="true" edit="true" add="true" delete="true">
-    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
-    <field name="" target="filename" link="javascript:popup('image.php?i=thumbnails/{value}','center')" type="image" visible="true" edit="false" add="false"/>
-    <field name="Video" target="videos_id" type="findvideo" table="videos" field="title" visible="true" edit="true" add="true"/>
-    <field name="Filename" target="filename" link="javascript:popup('image.php?i=thumbnails/{value}','center')" type="upload" visible="false" edit="true" add="false"/>
-</section>

@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<section name="Ads" type="table" target="MAds" search="false" edit="true" add="true" delete="true">
-    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="flase"/>
-    <field name="Name" target="name" type="textfield" visible="true" edit="true" add="true"/>
-    <field name="Code" target="code" type="textarea" visible="true" edit="true" add="true"/>
-    <field name="Channel" target="channel" type="finduser" visible="true" edit="true" add="true"/>
-	<field name="Approved" target="approved" type="yesno" visible="true" edit="true" add="true"/>
-</section>

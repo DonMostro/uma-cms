@@ -1,6 +1,0 @@
-<?xml version="1.0"?>
-<section name="Featured Videos" type="table" target="MFeaturedVideos" edit="true" add="true" delete="true">
-    <field name="ID" target="id" type="idbox" visible="true" edit="true" add="false"/>
-    <field name="Video" target="videos_id" type="findvideo" table="videos" field="title" visible="true" edit="true" add="true"/>
-    <field name="Orden" target="orden" type="orden" table="featured" visible="true" edit="true" add="true"/>
-</section>

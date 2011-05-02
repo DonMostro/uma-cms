@@ -1,8 +1,0 @@
-<?xml version="1.0"?>
-<component name="T_SEARCH">
-	<model name="MModel">
-	</model>
-	<view name="VView">
-		<tplfile>searchbox.html</tplfile>
-	</view>
-</component>

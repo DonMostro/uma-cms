@@ -1,9 +1,0 @@
-		
-		<item>
-			<title><![CDATA[[:rss_title:]]]></title>
-			<link><![CDATA[[:videourl:]]]></link>
-			<pubDate><![CDATA[[:rss_time:]]]></pubDate>
-			<description><![CDATA[[:description:]]]></description>
-			<guid isPermaLink="true"><![CDATA[[:videourl:]]]></guid>
-		</item>
-		
