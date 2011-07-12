@@ -444,6 +444,7 @@ CREATE TABLE IF NOT EXISTS `ztv_types` (
   `script` text,
   `extension` varchar(10) NOT NULL,
   `browser` varchar(20) NOT NULL DEFAULT '',
+  `approved` enum('0','1') DEFAULT NULL,  
   PRIMARY KEY (`id`),
   UNIQUE KEY `title` (`title`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=7 ;
@@ -452,12 +453,12 @@ CREATE TABLE IF NOT EXISTS `ztv_types` (
 -- Volcar la base de datos para la tabla `ztv_types`
 --
 
-INSERT INTO `ztv_types` (`id`, `title`, `thumb`, `script`, `extension`, `browser`) VALUES
-(1, 'H.264', '6818b277.jpg', 'ffmpeg -i &lt;#orig_file/&gt; -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'mp4', 'iPhone'),
-(2, 'Theora', 'd93fa75b.jpg', 'ffmpeg -i &lt;#orig_file/&gt; -acodec vorbis -strict experimental -ac 2 -vcodec libtheora -f ogg &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'ogv', ''),
-(3, '3GP', 'ee83288a.png', 'ffmpeg -i &lt;#orig_file/&gt; -vcodec h263 -acodec libfaac -ac 1 -ar 8000 -r 25 -ab 32k -y &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', '3gp', ''),
-(5, 'Flash', '1195b834.jpg', 'ffmpeg -i &lt;#orig_file/&gt; -ab 56 -ar 44100 -b 200 -r 15 -s 1600x1200 -f flv &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'flv', ''),
-(6, 'Mpeg4', '9f6f2cee.jpg', 'ffmpeg -i &lt;#orig_file/&gt; -s 480x320 -vcodec mpeg4 -acodec libfaac -ac 1 -ar 16000 -r 13 -ab 32000 -aspect 3:2 &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'G1.mp4', 'Android');
+INSERT INTO `ztv_types` (`id`, `title`, `thumb`, `script`, `extension`, `browser`, `approved`) VALUES
+(1, 'H.264', '6818b277.jpg', 'ffmpeg -i &lt;#orig_file/&gt; -acodec libfaac -ab 96k -vcodec libx264 -vpre slow -crf 22 -threads 0 &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'mp4', 'iPhone','1'),
+(2, 'Theora', 'd93fa75b.jpg', 'ffmpeg -i &lt;#orig_file/&gt; -acodec vorbis -strict experimental -ac 2 -vcodec libtheora -f ogg &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'ogv', '','1'),
+(3, '3GP', 'ee83288a.png', 'ffmpeg -i &lt;#orig_file/&gt; -vcodec h263 -acodec libfaac -ac 1 -ar 8000 -r 25 -ab 32k -y &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', '3gp', '','1'),
+(5, 'Flash', '1195b834.jpg', 'ffmpeg -i &lt;#orig_file/&gt; -ab 56 -ar 44100 -b 200 -r 15 -s 1600x1200 -f flv &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'flv', '','1'),
+(6, 'Mpeg4', '9f6f2cee.jpg', 'ffmpeg -i &lt;#orig_file/&gt; -s 480x320 -vcodec mpeg4 -acodec libfaac -ac 1 -ar 16000 -r 13 -ab 32000 -aspect 3:2 &lt;#dest_file/&gt; 2&gt;&gt; ../files/ffmpeg.log', 'G1.mp4', 'Android','1');
 
 -- --------------------------------------------------------
 
