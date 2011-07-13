@@ -29,9 +29,9 @@ class RecordSet{
   }
   
   /**
-   * __________________________________________________________________________________________________
+   * 
    * Prepara la query final sobre la base de $start, $limit y $order propiedades de orden y lo ejecuta.
-   * __________________________________________________________________________________________________
+   * 
    */
   function fill(){
   	$limitString="";
