@@ -1,0 +1,16 @@
+/proyectos/uma-cms/www/classes/lib/DAO.php[46][2011-07-13 14:32:23]: [2011-13-07 14:32:23] Error: Unknown column 'ztv_featured.categories_id' in 'field list'
+
+    SELECT ztv_videos.*
+    	 , ztv_videos.id AS videos_id, ztv_featured.orden, ztv_featured.categories_id, ztv_video_hits.hits  , ztv_categories.title AS categories_title  , ztv_thumbs.filename AS thumb FROM ztv_featured LEFT JOIN ztv_videos 
+		   ON ztv_featured.videos_id =ztv_videos.id	 LEFT JOIN ztv_categories ON ztv_featured.categories_id=ztv_categories.id  LEFT JOIN ztv_thumbs ON ztv_thumbs.videos_id=ztv_videos.id  LEFT JOIN ztv_video_hits ON ztv_videos.id=ztv_video_hits.videos_id WHERE 1 GROUP BY videos_id   LIMIT 0, 20
+/proyectos/uma-cms/www/classes/lib/DAO.php[46][2011-07-13 14:32:23]: [2011-13-07 14:32:23] Error: Unknown column 'ztv_featured.categories_id' in 'on clause'
+
+  	SELECT COUNT(*) 
+  	   FROM ztv_featured
+  	JOIN ztv_categories 
+  	  ON ztv_featured.categories_id=ztv_categories.id
+  	JOIN ztv_videos  
+  	  ON ztv_featured.videos_id=ztv_videos.id
+  	   WHERE 1  
+/proyectos/uma-cms/www/classes/lib/DAO.php[46][2011-07-13 14:32:39]: [2011-13-07 14:32:39] Error: You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'WHERE (tags_id='5')' at line 1
+DELETE FROM  WHERE (tags_id='5')

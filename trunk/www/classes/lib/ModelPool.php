@@ -25,15 +25,15 @@ include_once(ROOT."classes/models/MTags.php");
 include_once(ROOT."classes/models/MBufferedModel.php");
 
 class ModelPool{
+	static $me;
     private $observers = array();
 
-    public function &getInstance(){
-          static $me;
-          if(!$me) {
-              $me=array(new ModelPool());
-          }
-          return $me[0];
-      }
+    public function getInstance(){
+	    if(!$this->me) {
+    		$this->me=array(new ModelPool());
+    	}
+        return $this->me[0];
+    }
 
     public function getModel($model){
         if(class_exists($model)) $instance = new $model;
